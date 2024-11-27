@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorong AI - Coming Soon</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        }
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(225deg, #00A86B, #FFC0CB, #87CEEB, #476fff);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            z-index: -1;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center px-4 relative">
+    <div class="bg-gradient"></div>
+    <div class="text-center max-w-2xl">
+        <h1 class="text-5xl font-bold text-gray-800 mb-4">Lorong AI</h1>
+        <p class="text-xl text-gray-600 mb-8">Launching in Jan 2025</p>
+        
+        <a href="https://form.gov.sg/670cf4d58f92af4544f2721f" 
+           class="text-blue-600 hover:underline hover:text-blue-800 transition duration-300"
+        >
+            Indicate your interest here
+        </a>
+    </div>
+</body>
+</html>
