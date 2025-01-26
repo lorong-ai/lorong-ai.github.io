@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Research Week</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.2/marked.min.js"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-secondary: #64748b;
+            --filter-bg: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        [data-theme="dark"] {
+            --primary: #3b82f6;
+            --background: #0f172a;
+            --card-bg: #1e293b;
+            --text: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --filter-bg: #334155;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Styles for the additional message */
+        .additional-message {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .additional-message a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .additional-message a:hover {
+            text-decoration: underline;
+        }
+
+        /* Styles for the "Built with o1-mini" message */
+        .built-with {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .built-with code {
+            font-family: monospace, monospace;
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            border: none;
+            background: var(--card-bg);
+            color: var(--text);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .filters-container {
+            margin-bottom: 2rem;
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            background: var(--filter-bg);
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, opacity 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .event-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .event-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .event-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--filter-bg);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .event-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .event-link:hover {
+            text-decoration: underline;
+        }
+
+        .no-events {
+            text-align: center;
+            grid-column: 1 / -1;
+            color: var(--text-secondary);
+            padding: 2rem;
+        }
+
+        /* Optional: Styles specific to Past Events section */
+        #past-events .section-title {
+            color: var(--text-secondary);
+        }
+
+        #past-events .event-card {
+            opacity: 0.8; /* Slightly dimmed to indicate past */
+        }
+
+        .highlighted-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .event-card.highlighted {
+            border: 2px solid var(--primary);
+        }
+
+        @media (max-width: 640px) {
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            /* Removed .show-past-events responsive styles */
+        }
+
+        /* Optional: Adjust footer styles if keeping footer
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--filter-bg);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer code {
+            font-family: monospace, monospace;
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+        */
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">🌚</button>
+    <div class="container">
+        <header>
+            <h1>Hello, ICLR 👋</h1>
+            <p class="additional-message">
+                Curated by XXX.
+            </p>
+            <p class="built-with">
+                Add your events here <a href="https://lorong.ai" target="_blank" rel="noopener noreferrer">here</a>.
+            </p>
+            <div class="filters-container">
+                <div class="filters" id="filters"></div>
+            </div>
+        </header>
+        <main>
+            <div class="highlighted-section" id="highlighted-events">
+                <h2 class="section-title">Highlighted Events</h2>
+                <div class="events-grid"></div>
+            </div>
+            <div id="regular-events">
+                <h2 class="section-title">Upcoming Events</h2>
+                <div class="events-grid"></div>
+            </div>
+            <!-- New Past Events Section -->
+            <div id="past-events">
+                <h2 class="section-title">Past Events</h2>
+                <div class="events-grid"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Theme handling
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        function setTheme(isDark) {
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            themeToggle.textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme === 'dark');
+        } else {
+            setTheme(prefersDark.matches);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            setTheme(!isDark);
+        });
+
+        // Function to fetch and parse events from markdown
+        async function fetchEvents() {
+            const response = await fetch('hello-iclr-events.md');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const text = await response.text();
+            const events = parseMarkdown(text);
+            return events;
+        }
+
+        // Function to parse markdown content
+        function parseMarkdown(markdown) {
+            const lines = markdown.split('\n');
+            const events = [];
+            let currentEvent = {};
+
+            lines.forEach(line => {
+                if (line.startsWith('# ')) {
+                    if (Object.keys(currentEvent).length > 0) {
+                        events.push({...currentEvent});
+                    }
+                    currentEvent = {};
+                    currentEvent.name = line.slice(2).trim();
+                } else if (line.startsWith('date: ')) {
+                    currentEvent.date = line.slice(6).trim();
+                } else if (line.startsWith('url: ')) {
+                    currentEvent.url = line.slice(5).trim();
+                } else if (line.startsWith('tags: ')) {
+                    // Parse tags array from [tag1, tag2] format
+                    const tagsStr = line.slice(6).trim();
+                    currentEvent.tags = tagsStr
+                        .slice(1, -1) // Remove [ ]
+                        .split(',')
+                        .map(tag => tag.trim());
+                } else if (line.startsWith('highlighted: ')) {
+                    currentEvent.highlighted = line.slice(12).trim().toLowerCase() === 'true';
+                }
+            });
+
+            if (Object.keys(currentEvent).length > 0) {
+                events.push({...currentEvent});
+            }
+
+            return events.sort((a, b) => new Date(a.date) - new Date(b.date));
+        }
+
+        // Function to render events with filtering
+        function renderEvents(events, filter = 'all') {
+            const highlightedGrid = document.querySelector('#highlighted-events .events-grid');
+            const upcomingGrid = document.querySelector('#regular-events .events-grid');
+            const pastGrid = document.querySelector('#past-events .events-grid');
+
+            highlightedGrid.innerHTML = '';
+            upcomingGrid.innerHTML = '';
+            pastGrid.innerHTML = '';
+
+            const today = new Date();
+            today.setHours(0,0,0,0); // Normalize to midnight for accurate comparison
+
+            // Apply tag filter
+            let filteredEvents = [...events];
+            if (filter !== 'all') {
+                const filterLower = filter.toLowerCase();
+                filteredEvents = filteredEvents.filter(event => event.tags.map(tag => tag.toLowerCase()).includes(filterLower));
+            }
+
+            // Separate into upcoming and past events
+            const upcomingEvents = filteredEvents.filter(event => isSameOrAfter(event.date, today));
+            const pastEvents = filteredEvents.filter(event => !isSameOrAfter(event.date, today));
+
+            // Handle Highlighted Events (upcoming only)
+            const highlighted = upcomingEvents.filter(event => event.highlighted);
+            // Remove highlighted events from upcomingEvents to avoid duplication
+            const regularUpcoming = upcomingEvents.filter(event => !event.highlighted);
+
+            // Hide highlighted section if empty
+            document.getElementById('highlighted-events').style.display = 
+                highlighted.length ? 'block' : 'none';
+
+            // Render Highlighted Events
+            highlighted.forEach(event => renderEventCard(event, highlightedGrid));
+
+            // Render Upcoming Regular Events
+            regularUpcoming.forEach(event => renderEventCard(event, upcomingGrid));
+
+            // Render Past Events
+            pastEvents.forEach(event => renderEventCard(event, pastGrid));
+
+            // Handle "No events" message for Upcoming and Past separately
+            if (regularUpcoming.length === 0 && highlighted.length === 0) {
+                const noUpcoming = document.createElement('div');
+                noUpcoming.className = 'no-events';
+                noUpcoming.textContent = 'No upcoming events found matching your criteria';
+                upcomingGrid.appendChild(noUpcoming);
+            }
+
+            if (pastEvents.length === 0) {
+                const noPast = document.createElement('div');
+                noPast.className = 'no-events';
+                noPast.textContent = 'No past events found';
+                pastGrid.appendChild(noPast);
+            }
+        }
+
+        // Function to render filter buttons
+        function renderFilters(events) {
+            const filters = document.getElementById('filters');
+            // Get unique tags from all events
+            const tags = ['all', ...new Set(events.flatMap(event => event.tags.map(tag => tag.toLowerCase())))];
+
+            filters.innerHTML = ''; // Clear existing filters
+
+            tags.forEach(tag => {
+                const button = document.createElement('button');
+                button.className = 'filter-btn';
+                button.textContent = capitalizeFirstLetter(tag);
+                if (tag === 'all') button.classList.add('active');
+                filters.appendChild(button);
+            });
+        }
+
+        // Helper function to format date
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Function to render a single event card
+        function renderEventCard(event, container) {
+            const card = document.createElement('div');
+            card.className = `event-card ${event.highlighted ? 'highlighted' : ''}`;
+            card.innerHTML = `
+                <div class="event-date">${formatDate(event.date)}</div>
+                <div class="event-name">${event.name}</div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                    ${event.tags.map(tag => `<div class="event-tag">${tag}</div>`).join('')}
+                </div>
+                <a href="${event.url}" class="event-link" target="_blank">Learn more →</a>
+            `;
+            container.appendChild(card);
+        }
+
+        // Helper function to capitalize the first letter
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        // Function to parse a date string as a local date (ignoring time zones)
+        function parseLocalDate(dateStr) {
+            const [year, month, day] = dateStr.split('-').map(Number);
+            return new Date(year, month - 1, day);
+        }
+
+        // Function to check if eventDate is same or after today
+        function isSameOrAfter(eventDateStr, today) {
+            const eventDate = parseLocalDate(eventDateStr);
+            // Normalize both dates to midnight
+            eventDate.setHours(0,0,0,0);
+            today.setHours(0,0,0,0);
+            return eventDate >= today;
+        }
+
+        // Initialize the application
+        async function init() {
+            try {
+                const events = await fetchEvents();
+                renderFilters(events);
+
+                const filters = document.getElementById('filters');
+                let currentFilter = 'all';
+
+                filters.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('filter-btn')) {
+                        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                        e.target.classList.add('active');
+                        currentFilter = e.target.textContent.toLowerCase();
+                        renderEvents(events, currentFilter);
+                    }
+                });
+
+                // Initial render
+                renderEvents(events);
+            } catch (error) {
+                console.error('Error loading events:', error);
+                // Optionally, display an error message to the user
+                const main = document.querySelector('main');
+                main.innerHTML = `<div class="no-events">Failed to load events. Please try again later.</div>`;
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>
