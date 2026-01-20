@@ -1,1 +1,1 @@
-Start of the website
+Lorong AI website
