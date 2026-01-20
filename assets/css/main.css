@@ -995,6 +995,7 @@ section,
 }
 
 .hero p {
+  font-size: 20px;
   animation: fadeInDown 1s both 0.2s;
 }
 
