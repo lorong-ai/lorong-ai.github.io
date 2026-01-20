@@ -1,6 +1,7 @@
 [
     { "src": "agd.png", "alt": "AGD" },
     { "src": "aisg.png", "alt": "AISG" },
+    { "src": "airia.png", "alt": "AIRIA" },
     { "src": "akro.png", "alt": "AKRO" },
     { "src": "apart.png", "alt": "APART" },
     { "src": "ASTAR.png", "alt": "ASTAR" },
@@ -13,6 +14,7 @@
     { "src": "dso.avif", "alt": "DSO" },
     { "src": "Elevenlabs.png", "alt": "ElevenLabs" },
     { "src": "farai.png", "alt": "FARAI" },
+    { "src": "featherless.png", "alt": "Featherless.ai" },
     { "src": "govtech.png", "alt": "GovTech" },
     { "src": "htx.png", "alt": "HTX" },
     { "src": "IMDA.png", "alt": "IMDA" },
@@ -31,6 +33,7 @@
     { "src": "MPA.png", "alt": "MPA" },
     { "src": "mti.png", "alt": "MTI" },
     { "src": "nanobrowser.png", "alt": "NanoBrowser" },
+    { "src": "NEA.png", "alt": "NEA" },
     { "src": "niyamai.png", "alt": "Niyamai" },
     { "src": "NLB.png", "alt": "NLB" },
     { "src": "peek.png", "alt": "Peek" },
