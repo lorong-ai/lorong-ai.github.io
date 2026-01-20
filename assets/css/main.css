@@ -976,10 +976,10 @@ section,
 
 /* Frosted glass hero text - resources page only */
 .resources-page .hero .carousel-container {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 3rem 3rem;
+  padding: 1rem 1rem;
   border-radius: 16px;
   max-width: 700px;
   inset: auto;
@@ -993,11 +993,11 @@ section,
 
 /* Also change text color for light background */
 .resources-page .hero h2 {
-  color: #006633;
+  color: #ffffff;
 }
 
 .resources-page .hero p {
-  color: #333;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero h2 {
@@ -1010,6 +1010,10 @@ section,
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 30px;
+  }
+  .resources-page .hero .carousel-container {
+    padding: 3rem 3rem;
+    max-width: 90%;
   }
 }
 
