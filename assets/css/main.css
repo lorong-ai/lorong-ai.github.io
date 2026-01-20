@@ -984,19 +984,17 @@ section,
   animation: fadeInDown 1s both;
 }
 
+.hero p {
+  font-size: 20px;
+  text-align: justify;
+  animation: fadeInDown 1s both 0.2s;
+}
+
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 30px;
+    text-align: center;
   }
-  .resources-page .hero .carousel-container {
-    padding: 3rem 3rem;
-    max-width: 90%;
-  }
-}
-
-.hero p {
-  font-size: 20px;
-  animation: fadeInDown 1s both 0.2s;
 }
 
 @media (min-width: 1024px) {
