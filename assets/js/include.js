@@ -12,7 +12,7 @@ const headerHTML = `
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="events.html">Events</a></li>
-                <li><a href="resources.html">Community Resources</a></li>
+                <li><a href="resources.html">Resources</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open mobile menu" aria-controls="navmenu" aria-expanded="false"></i>
