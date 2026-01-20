@@ -1,49 +1,1086 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇸🇬 Lorong AI</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-        }
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(225deg, #00A86B, #FFC0CB, #87CEEB, #476fff);
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
-            z-index: -1;
-        }
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Lorong AI - Where AI Innovation Thrives</title>
+  <meta name="description" content="Lorong AI - Singapore's iconic AI hub bringing together government, industry, and research to build AI for the public good. Join 250+ core members and 4,000+ community network.">
+  <meta name="keywords" content="AI, co-working, Singapore, events, networking, community, Lorong AI, artificial intelligence, tech hub, collaboration">
+  <meta property="og:title" content="Lorong AI - Where AI Innovation Thrives">
+  <meta property="og:description" content="Join Singapore's premier AI community. Connect with 250+ practitioners from leading organizations.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://lorongai.sg/">
+
+  <!-- Favicon -->
+  <link href="assets/img/favicon-32x32.png?v=2" rel="icon">
+  <link href="assets/img/favicon-32x32.png?v=2" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKRQ8W4D9R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LKRQ8W4D9R');
+  </script>
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* ============================================ */
+    /* NEW LAYOUT STYLES                           */
+    /* ============================================ */
+    
+    :root {
+      --primary-green: #006633;
+      --primary-yellow: #FFD100;
+      --text-dark: #1a1a1a;
+      --text-medium: #4a4a4a;
+      --text-light: #666666;
+      --bg-light: #f8f9fa;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    /* ============================================ */
+    /* HERO SECTION                                */
+    /* ============================================ */
+    
+    .hero-new {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffffff 0%, var(--bg-light) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 5% 4rem;
+      color: var(--text-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-new::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(rgba(255, 209, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 209, 0, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      max-width: 1100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--primary-green);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background: rgba(255, 209, 0, 0.15);
+      border: 2px solid var(--primary-yellow);
+      border-radius: 4px;
+    }
+
+    .hero-new h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-dark);
+    }
+
+    .hero-new h1 .highlight {
+      color: var(--primary-green);
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+      color: var(--text-medium);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    .street-sign-divider {
+      width: 80px;
+      height: 4px;
+      background: var(--primary-yellow);
+      margin: 1.5rem auto;
+      position: relative;
+    }
+
+    .street-sign-divider::before,
+    .street-sign-divider::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 4px;
+      background: var(--primary-green);
+    }
+
+    .street-sign-divider::before { left: -25px; }
+    .street-sign-divider::after { right: -25px; }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .btn-primary-new {
+      background: var(--primary-green);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      border: 2px solid var(--primary-green);
+      display: inline-block;
+    }
+
+    .btn-primary-new:hover {
+      background: #004d26;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 102, 51, 0.3);
+    }
+
+    .btn-secondary-new {
+      background: transparent;
+      color: var(--text-dark);
+      padding: 1rem 2.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      border: 2px solid var(--text-dark);
+      display: inline-block;
+    }
+
+    .btn-secondary-new:hover {
+      background: var(--text-dark);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ============================================ */
+    /* STATISTICS                                  */
+    /* ============================================ */
+    
+    .stats-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      margin-bottom: 1rem;
+      border: 2px solid #f0f0f0;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--primary-green);
+      display: block;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.5rem;
+    }
+
+    .stats-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+    }
+
+    /* ============================================ */
+    /* FEATURES SECTION                            */
+    /* ============================================ */
+    
+    .features-section {
+      padding: 6rem 5%;
+      background: white;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-title-new {
+      font-size: 2.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .feature-card {
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding: 3rem;
+      background: var(--bg-light);
+      border-radius: 8px;
+      border: 2px solid #e9ecef;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary-yellow);
+      transform: translateY(-5px);
+    }
+
+    .feature-card:nth-child(even) { direction: rtl; }
+    .feature-card:nth-child(even) > * { direction: ltr; }
+
+    .feature-image {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-image img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .feature-card:hover .feature-image img {
+      transform: scale(1.05);
+    }
+
+    .arrow-icon {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover .arrow-icon {
+      background: var(--primary-green);
+      color: white;
+      transform: rotate(45deg);
+    }
+
+    .feature-content h2 {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    .feature-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-yellow) 0%, var(--primary-green) 100%);
+    }
+
+    .feature-content p {
+      color: var(--text-medium);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-top: 1.5rem;
+    }
+
+    /* ============================================ */
+    /* COMMUNITY/MEMBERS SECTION                   */
+    /* ============================================ */
+    
+    .members-section {
+      padding: 4rem 5%;
+      background: var(--bg-light);
+    }
+
+    /* Swiper pagination - hidden for members sliders */
+    .container .swiper-pagination {
+      margin-top: 0.25rem;
+      position: relative;
+      display: none;
+    }
+
+    .members-section .section-title-new {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .members-section .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+    }
+
+    .member-logo {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+    }
+
+    .member-logo:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .member-logo img {
+      max-height: 60px;
+      max-width: 90%;
+      object-fit: contain;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .member-logo:hover img {
+      opacity: 1;
+    }
+
+    .members-category-title {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary-green);
+      margin: 3rem 0 2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ============================================ */
+    /* EVENT CALENDAR SECTION                      */
+    /* ============================================ */
+    
+    .calendar-section {
+      padding: 4rem 5%;
+      background: white;
+    }
+
+    .calendar-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 8px;
+      border: 2px solid #e9ecef;
+    }
+
+    .calendar-container h3 {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    /* ============================================ */
+    /* CTA SECTION                                 */
+    /* ============================================ */
+    
+    .cta-section {
+      padding: 6rem 5%;
+      background: linear-gradient(135deg, var(--text-dark) 0%, #2d2d2d 100%);
+      text-align: center;
+      color: white;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 3rem;
+    }
+
+    .cta-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cta-card {
+      background: white;
+      color: var(--text-dark);
+      padding: 2.5rem;
+      border-radius: 8px;
+      text-align: center;
+      transition: all 0.3s;
+      border-bottom: 4px solid var(--primary-yellow);
+    }
+
+    .cta-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cta-card p {
+      color: var(--text-medium);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-card-button {
+      display: inline-block;
+      background: var(--primary-green);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+
+    .cta-card-button:hover {
+      background: var(--primary-yellow);
+      color: var(--text-dark);
+    }
+
+    /* ============================================ */
+    /* RESPONSIVE DESIGN                           */
+    /* ============================================ */
+    
+    @media (max-width: 768px) {
+      .hero-new h1 {
+        font-size: 2.5rem;
+      }
+
+      .feature-card {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+      }
+
+      .feature-card:nth-child(even) {
+        direction: ltr;
+      }
+
+      .feature-content h2 {
+        font-size: 1.8rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .stats-bar {
+        gap: 2rem;
+      }
+
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+
+      .cta-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-new h1 {
+        font-size: 2rem;
+      }
+
+      .section-title-new {
+        font-size: 2rem;
+      }
+
+      .feature-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .btn-primary-new,
+      .btn-secondary-new {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
-<body class="h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="bg-gradient"></div>
-    <div class="text-center">
-        <h1 class="text-6xl font-bold text-black mb-8">Lorong AI 🇸🇬</h1>
-        <p class="text-2xl text-black/80 mb-8">22 Cross St</p>
-        <!-- First Line of Links -->
-        <div class="flex justify-center space-x-6 mb-4">
-            <a href="https://go.gov.sg/lai-overview" class="text-blue-600 hover:text-emerald-600 hover:underline transition-all duration-300">📚 About</a>
-            <a href="https://lorong.ai/weds" class="text-blue-600 hover:text-emerald-600 hover:underline transition-all duration-300">✨ AI Wednesdays</a>
-            <a href="https://lu.ma/lorong-ai?utm_source=lai" class="text-blue-600 hover:text-emerald-600 hover:underline transition-all duration-300">📅 Events</a>
+
+<body class="index-page">
+
+  <div id="header-placeholder"></div>
+
+  <main class="main">
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION                                -->
+    <!-- ============================================ -->
+    <section class="hero-new">
+      <div class="hero-content">
+        
+        <!-- Main Heading -->
+        <h1>AI for the <span class="highlight">Public Good</span><br>For Singapore and the World.</h1>
+        
+        <!-- Decorative Divider -->
+        <div class="street-sign-divider" role="presentation"></div>
+        
+        <!-- Description -->
+        <p class="hero-description">Lorong AI brings together government, industry, and research to build Singapore's AI ecosystem. A collaborative hub where AI practitioners connect, innovate, and shape the future of responsible AI.</p>
+        
+        <!-- CTA Buttons -->
+        <div class="hero-cta-group">
+          <a href="https://form.gov.sg/670cf4d58f92af4544f2721f" class="btn-primary-new">Become a Member</a>
+          <a href="events.html" class="btn-secondary-new">View Events</a>
         </div>
-        <!-- "Join Us" on a Separate Line -->
-        <div>
-            <a href="https://go.gov.sg/lorongai-interest" class="text-blue-600 hover:text-emerald-600 hover:underline transition-all duration-300">🤝 Join Us</a>
+
+        <!-- Statistics -->
+        <p class="stats-title">Lorong AI in numbers</p>
+        <div class="stats-bar">
+          <div class="stat-item">
+            <span class="stat-number">250+</span>
+            <span class="stat-label">Core Members</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">8,500+</span>
+            <span class="stat-label">Community Network</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">150+</span>
+            <span class="stat-label">Events Annually</span>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FEATURES SECTION                            -->
+    <!-- ============================================ -->
+    <section class="features-section" id="about">
+      <div class="section-header">
+        <h2 class="section-title-new">What We Offer</h2>
+      </div>
+
+      <!-- Feature 1: Events -->
+      <article class="feature-card" id="events">
+        <div class="feature-image">
+          <picture>
+            <source srcset="assets/img/hero-carousel/Lorong AI Deck (3).webp" type="image/webp">
+            <img src="assets/img/hero-carousel/Lorong AI Deck (3).jpg" alt="AI practitioners collaborating at an event" loading="lazy">
+          </picture>
+          <a href="events.html" class="arrow-icon" aria-label="View Events">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+        <div class="feature-content">
+          <h2>Events</h2>
+          <p>Technical deep-dives, hands-on workshops, and knowledge exchanges bringing together AI practitioners, researchers, and industry leaders. From cutting-edge research discussions to practical applications, our curated programming drives innovation and builds expertise across Singapore's AI ecosystem.</p>
+        </div>
+      </article>
+
+      <!-- Feature 2: Community -->
+      <article class="feature-card" id="community">
+        <div class="feature-image">
+          <picture>
+            <source srcset="assets/img/hero-carousel/Min Visit_Image 1.jpeg" type="image/jpeg">
+            <img src="assets/img/hero-carousel/Min Visit_Image 1.jpeg" alt="Lorong AI Team and community members" loading="lazy">
+          </picture>
+          <a href="community.html" class="arrow-icon" aria-label="View Team">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+        <div class="feature-content">
+          <h2>Community</h2>
+          <p>The intellectual home for Singapore's AI ecosystem. We bring together practitioners from government, industry, and research to form the tight-knit knowledge community critical for innovation. Connect with 250+ core members and 4,000+ practitioners, share insights, and collaborate on solutions that advance AI for the public good.</p>
+        </div>
+      </article>
+
+      <!-- Feature 3: Co-working -->
+      <article class="feature-card" id="coworking">
+        <div class="feature-image">
+          <img src="assets/img/events/CCTS/CCTS1.jpg" alt="Lorong AI co-working space" loading="lazy">
+          <a href="community.html" class="arrow-icon" aria-label="View Community">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+        <div class="feature-content">
+          <h2>Co-working</h2>
+          <p>A dedicated space designed to foster collaboration and innovation. Co-locate with AI practitioners across government agencies, industry leaders, and research institutions. Access world-class infrastructure and be part of the community building Singapore's position as a global AI leader.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- EVENT CALENDAR SECTION                      -->
+    <!-- ============================================ -->
+    <section class="calendar-section">
+      <div class="calendar-container">
+        <h3>Upcoming Events</h3>
+        <iframe
+          src="https://lu.ma/embed/calendar/cal-6iIeDGNQ7vK8cfx/events?lt=light"
+          width="100%"
+          height="450"
+          style="border: 1px solid #bfcbda88; border-radius: 8px;"
+          frameborder="0"
+          allowfullscreen=""
+          aria-hidden="false"
+          tabindex="0">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- MEMBERS SECTION - GOVERNMENT & RESEARCH     -->
+    <!-- ============================================ -->
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Members</h2>
+      <p>Members and affiliates</p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="swiper init-swiper">
+        <script type="application/json" class="swiper-config">
+      {
+        "loop": true,
+        "speed": 600,
+        "autoplay": {
+          "delay": 5000
+        },
+        "slidesPerView": 1,
+        "spaceBetween": 30,
+        "pagination": {
+          "el": ".swiper-pagination",
+          "type": "bullets",
+          "clickable": true
+        }
+      }
+        </script>
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\agd.png" class="img-fluid" alt="AGD" loading="lazy" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\aisg.png" class="img-fluid" alt="AISG" loading="lazy" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\ASTAR.png" class="img-fluid" alt="ASTAR" loading="lazy" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\cccs.png" class="img-fluid" alt="CCCS" loading="lazy" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\csitr.png" class="img-fluid" alt="CSIT" loading="lazy" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\DOS.png" class="img-fluid" alt="DOS" loading="lazy" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\dso.avif" class="img-fluid" alt="DSO" loading="lazy" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\govtech.png" class="img-fluid" alt="GOVTECH" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\htx.png" class="img-fluid" alt="HTX" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\IMDA.png" class="img-fluid" alt="IMDA" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\IRAS.png" class="img-fluid" alt="IRAS" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\MDDI.png" class="img-fluid" alt="MDDI" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\mfa.png" class="img-fluid" alt="MFA" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\mindef.png" class="img-fluid" alt="MINDEF" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\moe.png" class="img-fluid" alt="MOE" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\MPA.png" class="img-fluid" alt="MPA" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\mti.png" class="img-fluid" alt="MTI" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\NLB.png" class="img-fluid" alt="NLB" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\pub.png" class="img-fluid" alt="PUB" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\temasek.png" class="img-fluid" alt="TP" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\SASH.png" class="img-fluid" alt="SASH" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\apart.png" class="img-fluid" alt="APART" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\farai.png" class="img-fluid" alt="FARAI" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6 mb-4">
+                <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                  <img src="assets\img\members\govandR\impactacademy.png" class="img-fluid" alt="impactacademy" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+                </div>
+              </div>
+              
+              </div>
+            </div>
+        
+
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\govandR\thefuturesociety.png" class="img-fluid" alt="TFS" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\govandR\truthfulai.png" class="img-fluid" alt="truthfulai" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industry Slide 1 -->
+        <div class="swiper-slide">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\akro.png" class="img-fluid" alt="AKRO" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\bravely.png" class="img-fluid" alt="Bravely" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\cinnex.png" class="img-fluid" alt="Cinnex" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\cohere.png" class="img-fluid" alt="Cohere" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\Elevenlabs.png" class="img-fluid" alt="Elevenlabs" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\JigsawStack.png" class="img-fluid" alt="JigsawStack" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\marketpsych.png" class="img-fluid" alt="Marketpsych" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+             <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\marymountlabs.png" class="img-fluid" alt="marymountlabs" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industry Slide 2 -->
+        <div class="swiper-slide">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\Mediwhale_Logo_02.png" class="img-fluid" alt="Mediwhale" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\menlo.png" class="img-fluid" alt="Menlo" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\mk1.png" class="img-fluid" alt="MK1" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\nanobrowser.png" class="img-fluid" alt="NanoBrowser" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\niyamai.png" class="img-fluid" alt="Niyamai" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\peek.png" class="img-fluid" alt="Peek" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\Scantist.png" class="img-fluid" alt="Scantist" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+             <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\southbridge.png" class="img-fluid" alt="southbridge" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industry Slide 3 -->
+        <div class="swiper-slide">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\techinasia.png" class="img-fluid" alt="techinasia" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\tosba.png" class="img-fluid" alt="tosba" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+              <div class="member-slide d-flex align-items-center justify-content-center" style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+                <img src="assets\img\members\industry\wentilabs.png" class="img-fluid" alt="wentilabs" style="max-height: 80px; max-width: 80%; object-fit: contain;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
+
+  </div>
+
+</section><!-- /Members Section -->
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/php-email-form/validate.js" defer></script>
+  <script src="assets/vendor/aos/aos.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js" defer></script>
+
 </body>
+
 </html>

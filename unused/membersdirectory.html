@@ -1,0 +1,658 @@
+    <!-- Enhanced Members Directory Section -->
+<section id="portfolio" class="portfolio section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Members Directory</h2>
+    <p>.find(Lorong)</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+    <!-- Search Functionality -->
+    <div class="row mb-4">
+      <div class="col-md-8 mx-auto">
+        <div class="input-group input-group-lg shadow-sm">
+          <span class="input-group-text bg-primary text-white border-0">
+            <i class="bi bi-search"></i>
+          </span>
+          <input type="text" id="directory-search" class="form-control border-0 shadow-none" placeholder="Search by name, subject or interest...">
+          <button class="btn btn-primary px-4" type="button" onclick="filterMembers()">
+            Search
+          </button>
+        </div>
+        
+        <div class="mt-3">
+          <div class="filter-buttons">
+            <button type="button" class="btn btn-filter active" onclick="filterByCategory('all')">All</button>
+            <button type="button" class="btn btn-filter" onclick="filterByCategory('Government')">Government</button>
+            <button type="button" class="btn btn-filter" onclick="filterByCategory('Industry')">Industry</button>
+            <button type="button" class="btn btn-filter" onclick="filterByCategory('Academia')">Academia</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Members Table -->
+    <div class="card shadow-sm border-0 rounded-lg mb-4">
+      <div class="table-responsive">
+        <table id="members-table" class="table table-hover member-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Sector</th>
+              <th>Ongoing Project Topics</th>
+            </tr>
+          </thead>
+          <tbody id="members-data">
+            <!-- Data will be populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Pagination Controls -->
+    <div id="pagination-controls" class="d-flex justify-content-between align-items-center mt-4">
+      <div id="results-count" class="text-muted">
+        Showing 1-10 of 60 members
+      </div>
+      <div class="pagination">
+        <button id="prev-page" class="btn btn-pagination">&laquo; Previous</button>
+        <span class="pagination-info">Page <span id="current-page">1</span> of <span id="total-pages">6</span></span>
+        <button id="next-page" class="btn btn-pagination">Next &raquo;</button>
+      </div>
+    </div>
+    
+    <div id="no-results" class="text-center py-5 card shadow-sm border-0" style="display: none;">
+      <div class="card-body">
+        <i class="bi bi-search display-4 text-muted mb-3"></i>
+        <h3>No members found</h3>
+        <p>Try a different search term or filter</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <script>
+      // Member data
+      const members = [
+      {
+        "name": "Chad",
+        "sector": "Government",
+        "projects": "AI Strategy",
+        "needs": "AI Segmentation Support",
+        "interests": "Workshops Knowledge Sharing"
+      },
+      {
+        "name": "Tan Jun Xiang",
+        "sector": "Industry",
+        "projects": "AI in Knowledge Management",
+        "needs": "Knowledge Management System Needed Pose Estimation Tools Needed",
+        "interests": "AI Industry Applications"
+      },
+      {
+        "name": "Ian",
+        "sector": "Government",
+        "projects": "Identity Verification AI",
+        "needs": "Fraud Detection Guidance",
+        "interests": "AI Community Networking"
+      },
+      {
+        "name": "Tan Fu Nan",
+        "sector": "Government",
+        "projects": "Chatbot Optimisation",
+        "needs": "LLM Applications Needed",
+        "interests": "All AI Presentations"
+      },
+      {
+        "name": "Khai Kit",
+        "sector": "Government",
+        "projects": "Data Cleaning",
+        "needs": "AI Evaluation Focus",
+        "interests": "Paper Club Groups"
+      },
+      {
+        "name": "Isaac",
+        "sector": "Government",
+        "projects": "LLM Related",
+        "needs": "FineTuning Learning Interest",
+        "interests": "Technical Industry Sessions"
+      },
+      {
+        "name": "TT",
+        "sector": "Government",
+        "projects": "AI Social Science",
+        "needs": "-",
+        "interests": "-"
+      },
+      {
+        "name": "Loh Wei Long",
+        "sector": "Government",
+        "projects": "Self-Hosted LLMs",
+        "needs": "Self-Hosted LLMs Needed",
+        "interests": "Tech Talks"
+      },
+      {
+        "name": "Lee Ning",
+        "sector": "Government",
+        "projects": "AI Data Solutions",
+        "needs": "-",
+        "interests": "Project Sharings"
+      },
+      {
+        "name": "Louisa",
+        "sector": "Government",
+        "projects": "AIBot Efficiency",
+        "needs": "Collaboration Needed",
+        "interests": "AI Trends Updates"
+      },
+      {
+        "name": "Ashwin Nair",
+        "sector": "Government",
+        "projects": "Extreme Hierarchical ML Classification Entity Resolution",
+        "needs": "Label Assignment Help Deduplication Tools Needed",
+        "interests": "Tutorials and Learning"
+      },
+      {
+        "name": "Nicole",
+        "sector": "Government",
+        "projects": "AI Privacy",
+        "needs": "Scheduled Presentation Notice",
+        "interests": "Skill Sharing Sessions"
+      },
+      {
+        "name": "Alex Chen",
+        "sector": "Industry",
+        "projects": "Increase OSS Dev Community",
+        "needs": "Community Input Needed",
+        "interests": "LLM Collaboration Workshops"
+      },
+      {
+        "name": "James",
+        "sector": "Government",
+        "projects": "Expert Validation",
+        "needs": "-",
+        "interests": "Developer Sharing Sessions"
+      },
+      {
+        "name": "Tan Bing Wen",
+        "sector": "Government",
+        "projects": "AI Proliferation",
+        "needs": "Community Support Needed",
+        "interests": "All Kinds"
+      },
+      {
+        "name": "Wen Hao",
+        "sector": "Government",
+        "projects": "-",
+        "needs": "-",
+        "interests": "-"
+      },
+      {
+        "name": "TAN Soon Heng",
+        "sector": "Government",
+        "projects": "-",
+        "needs": "Finance Analytics Needed",
+        "interests": "Finance Analytics Solutions"
+      },
+      {
+        "name": "Matthew Lee Kay Fei",
+        "sector": "Industry",
+        "projects": "Great Stuff Building",
+        "needs": "Long-Context Workload Solutions",
+        "interests": "AI Space Networking"
+      },
+      {
+        "name": "Elson Ho",
+        "sector": "Government",
+        "projects": "RAG System Evaluation",
+        "needs": "Traditional AI Learning",
+        "interests": "Agency Collaboration AI Concepts"
+      },
+      {
+        "name": "Shirlynn",
+        "sector": "Government",
+        "projects": "-",
+        "needs": "Career Guidance Needed",
+        "interests": "-"
+      },
+      {
+        "name": "Hrishi Olickel",
+        "sector": "Industry",
+        "projects": "UX Recruitment",
+        "needs": "GitHub Link Provided",
+        "interests": "Demos and Tech Work"
+      },
+      {
+        "name": "Robin",
+        "sector": "Industry",
+        "projects": "Remote Collaboration",
+        "needs": "EU AI Act Policy",
+        "interests": "Networking Sessions"
+      },
+      {
+        "name": "Tan Ang Kang",
+        "sector": "",
+        "projects": "-",
+        "needs": "-",
+        "interests": "Professional Talks Attendance"
+      },
+      {
+        "name": "Valerie Pang",
+        "sector": "Industry",
+        "projects": "AI Safety Community",
+        "needs": "Community Space Available",
+        "interests": "Networking Events AI Safety Events"
+      },
+      {
+        "name": "Edward",
+        "sector": "Industry",
+        "projects": "Partnership Building",
+        "needs": "Global Governance Build",
+        "interests": "Partnership Collabs"
+      },
+      {
+        "name": "Alok",
+        "sector": "Industry",
+        "projects": "Data Ingestion AI",
+        "needs": "Community Resources Needed",
+        "interests": "Enterprise Dev Tools"
+      },
+      {
+        "name": "Raivat",
+        "sector": "Industry",
+        "projects": "AI Eval Setup",
+        "needs": "Sustainability Evaluation Needed",
+        "interests": "AI App Evaluations"
+      },
+      {
+        "name": "Kristoffer Liau",
+        "sector": "Government",
+        "projects": "Auto Marking Chatbot",
+        "needs": "Chatbot Integration Needed",
+        "interests": "LLM NLp CV"
+      },
+      {
+        "name": "Minu",
+        "sector": "Industry",
+        "projects": "Structured RAG Feedback Loop",
+        "needs": "Structured Data Ingestion Tools",
+        "interests": "Lightening Talks"
+      },
+      {
+        "name": "Yichao",
+        "sector": "Government",
+        "projects": "Document Understanding Expansion",
+        "needs": "Expand Usage Assistance",
+        "interests": "AI Wednesdays"
+      },
+      {
+        "name": "Quek Yu Chern",
+        "sector": "Government",
+        "projects": "-",
+        "needs": "Time Series Expertise",
+        "interests": "Upskilling Events"
+      },
+      {
+        "name": "Gregor",
+        "sector": "Industry",
+        "projects": "User Testing Feedback Loop",
+        "needs": "Community Promotion Needed",
+        "interests": "AI Founder Connect"
+      },
+      {
+        "name": "Rackley Nolan",
+        "sector": "Industry",
+        "projects": "AI Therapy Records",
+        "needs": "Secure Generative Processing Best Practices",
+        "interests": "Privacy AI Generative"
+      },
+      {
+        "name": "Isaac Tham",
+        "sector": "Government",
+        "projects": "News Article Analysis",
+        "needs": "Research Collaboration Needed",
+        "interests": "Hands-On & Sharing Sessions"
+      },
+      {
+        "name": "Cassie",
+        "sector": "Government",
+        "projects": "User Management AI",
+        "needs": "Homeland Security AI Expertise",
+        "interests": "Brown Bag Sessions"
+      },
+      {
+        "name": "Fiona",
+        "sector": "Government",
+        "projects": "Student Data Analysis",
+        "needs": "-",
+        "interests": "Use Case Sharing"
+      },
+      {
+        "name": "Sami Ahmed",
+        "sector": "Industry",
+        "projects": "Gen AI Scaling",
+        "needs": "Network Gen AI FSI",
+        "interests": "Tech Hackathons"
+      },
+      {
+        "name": "Ainaa",
+        "sector": "Government",
+        "projects": "AI Marking Confidence",
+        "needs": "Automated Grading Solutions",
+        "interests": "POC Expansion"
+      },
+      {
+        "name": "Gang Rui",
+        "sector": "Industry",
+        "projects": "Evaluations Workflow, MCP",
+        "needs": "Scalable Eval System Needed",
+        "interests": "Evaluations Workshops  AI Application Insights"
+      },
+      {
+        "name": "Christoper",
+        "sector": "Industry",
+        "projects": "-",
+        "needs": "Not Available",
+        "interests": "AI Topics"
+      },
+      {
+        "name": "Ricardo",
+        "sector": "Government",
+        "projects": "-",
+        "needs": "AI Development Guidance",
+        "interests": "Industry Tech Shares"
+      },
+      {
+        "name": "Ng Hui Ling",
+        "sector": "Government",
+        "projects": "OCR GenAI Extraction",
+        "needs": "Auto Evaluation Techniques Needed",
+        "interests": "Hands-On Sharing Sessions"
+      },
+      {
+        "name": "CS",
+        "sector": "Government",
+        "projects": "AI Use Cases",
+        "needs": "Data-Efficient Learning Techniques",
+        "interests": "AI Use Case Sharing"
+      },
+      {
+        "name": "Zhen Liangli",
+        "sector": "Government",
+        "projects": "AI Safety",
+        "needs": "AI Safety Testing Support",
+        "interests": "Small Group Discussions"
+      },
+      {
+        "name": "Nguyen Thanh Son",
+        "sector": "Government",
+        "projects": "Knowledge Graph Integration",
+        "needs": "LLM Entity Extraction Help",
+        "interests": "Skill Sharing Session"
+      },
+      {
+        "name": "Ankit",
+        "sector": "Government",
+        "projects": "GenAI Projects",
+        "needs": "Medical Imaging Expertise Needed",
+        "interests": "Tech Trends Discussion"
+      },
+      {
+        "name": "Simon",
+        "sector": "Government",
+        "projects": "Scraping Capabilities",
+        "needs": "Tool Access Request",
+        "interests": "-"
+      },
+      {
+        "name": "Jeff",
+        "sector": "Industry",
+        "projects": "User Acquisition Strategy",
+        "needs": "US Customer Insights Needed",
+        "interests": "Technical OB Process"
+      },
+      {
+        "name": "Natasha",
+        "sector": "Government",
+        "projects": "-",
+        "needs": "-",
+        "interests": "AI Content Writing"
+      },
+      {
+        "name": "Leon Leow",
+        "sector": "Government",
+        "projects": "AI Coding Assistants Impact",
+        "needs": "AI Coding Assistants Program",
+        "interests": "AI Org Impact"
+      },
+      {
+        "name": "Kumar Puspesh",
+        "sector": "Industry",
+        "projects": "AI PoC Testing",
+        "needs": "Multi-Agent POC Practices",
+        "interests": "MLOps Deployment Tools"
+      },
+      {
+        "name": "Izzah",
+        "sector": "Government",
+        "projects": "Document Processing",
+        "needs": "Integration & Multi-Modal Outputs Needed",
+        "interests": "Collab Use Case Discussions"
+      },
+      {
+        "name": "Jean",
+        "sector": "Government",
+        "projects": "LLM Applications",
+        "needs": "RAG Solutions Enhancement",
+        "interests": "Innovative Tech Sharing"
+      },
+      {
+        "name": "Si Hui",
+        "sector": "Government",
+        "projects": "AI Chatbots",
+        "needs": "-",
+        "interests": "-"
+      },
+      {
+        "name": "Andrew Lim",
+        "sector": "Government",
+        "projects": "AI Infrastructure",
+        "needs": "Deployment Challenges",
+        "interests": "Tech Talks"
+      },
+      {
+        "name": "Hongyuan",
+        "sector": "Government",
+        "projects": "Satellite AI Sensing",
+        "needs": "Collab Interest VLM",
+        "interests": "AI Community Networking"
+      },
+      {
+        "name": "Clifton",
+        "sector": "Government",
+        "projects": "Emerging Tech Prototyping",
+        "needs": "Community Help Available",
+        "interests": "Technical Sharing Session"
+      },
+      {
+        "name": "Sze Ling",
+        "sector": "Government",
+        "projects": "Anomaly Detection AI",
+        "needs": "Foundation Models Needed Reasoning Techniques Inquiry LLM Interpretability Improvement",
+        "interests": "Technical Sharing Sessions"
+      },
+      {
+        "name": "Doreen",
+        "sector": "Government",
+        "projects": "NLP AI",
+        "needs": "LLM Fine Tuning Guidance",
+        "interests": "Workshop Sharing"
+      },
+      {
+        "name": "Zoey",
+        "sector": "Government",
+        "projects": "LLM Anomaly Detection",
+        "needs": "-",
+        "interests": "Skill Sharing Workshops"
+      },
+      {
+        "name": "Jeff",
+        "sector": "Industry",
+        "projects": "Personal Finance AI Agent",
+        "needs": "Knowledge Sharing Needed",
+        "interests": "Model Demonstrations"
+      }
+    ];
+
+// Pagination functionality
+let currentPage = 1;
+const rowsPerPage = 10;
+let totalPages = Math.ceil(members.length / rowsPerPage);
+let filteredMembersList = members; // Keep track of currently filtered members
+
+// Function to display members for the current page
+function displayMembers(membersList = filteredMembersList) {
+  const tableBody = document.getElementById('members-data');
+  tableBody.innerHTML = '';
+  
+  if (membersList.length === 0) {
+    document.getElementById('members-table').closest('.card').style.display = 'none';
+    document.getElementById('no-results').style.display = 'block';
+    document.getElementById('pagination-controls').style.display = 'none';
+    return;
+  }
+  
+  document.getElementById('members-table').closest('.card').style.display = 'block';
+  document.getElementById('no-results').style.display = 'none';
+  document.getElementById('pagination-controls').style.display = 'flex';
+  
+  // Update total pages based on filtered results
+  totalPages = Math.ceil(membersList.length / rowsPerPage);
+  
+  // Adjust current page if it's beyond the available pages
+  if (currentPage > totalPages) {
+    currentPage = totalPages;
+  }
+  
+  const startIndex = (currentPage - 1) * rowsPerPage;
+  const endIndex = Math.min(startIndex + rowsPerPage, membersList.length);
+  
+  // Display only the members for the current page
+  for (let i = startIndex; i < endIndex; i++) {
+    const member = membersList[i];
+    const row = document.createElement('tr');
+    
+    // Create sector badge with appropriate class
+    let sectorClass = 'sector-badge';
+    if (member.sector.toLowerCase() === 'government') {
+      sectorClass += ' government';
+    } else if (member.sector.toLowerCase() === 'industry') {
+      sectorClass += ' industry';
+    } else if (member.sector.toLowerCase() === 'academia') {
+      sectorClass += ' academia';
+    }
+    
+    row.innerHTML = `
+      <td><strong>${member.name}</strong></td>
+      <td><span class="${sectorClass}">${member.sector}</span></td>
+      <td>${member.projects}</td>
+    `;
+    
+    tableBody.appendChild(row);
+  }
+  
+  // Update pagination info
+  document.getElementById('current-page').textContent = currentPage;
+  document.getElementById('total-pages').textContent = totalPages;
+  
+  // Enable/disable pagination buttons
+  document.getElementById('prev-page').disabled = currentPage === 1;
+  document.getElementById('next-page').disabled = currentPage === totalPages;
+  
+  // Update results count
+  document.getElementById('results-count').textContent = `Showing ${startIndex + 1}-${endIndex} of ${membersList.length} members`;
+}
+
+// Function to filter members based on search input
+function filterMembers() {
+  const searchTerm = document.getElementById('directory-search').value.toLowerCase();
+  currentPage = 1; // Reset to first page when filtering
+  
+  if (!searchTerm.trim()) {
+    filteredMembersList = members;
+    displayMembers(filteredMembersList);
+    return;
+  }
+  
+  filteredMembersList = members.filter(member => {
+    return (
+      (member.name && member.name.toLowerCase().includes(searchTerm)) ||
+      (member.sector && member.sector.toLowerCase().includes(searchTerm)) ||
+      (member.projects && member.projects.toLowerCase().includes(searchTerm))
+    );
+  });
+  
+  displayMembers(filteredMembersList);
+}
+
+// Function to filter by category
+function filterByCategory(category) {
+  // Update active button state
+  document.querySelectorAll('.btn-filter').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  const buttons = document.querySelectorAll('.btn-filter');
+  for (let i = 0; i < buttons.length; i++) {
+    if (buttons[i].textContent.trim().toLowerCase() === category.toLowerCase() || 
+       (buttons[i].textContent.trim().toLowerCase() === 'all' && category === 'all')) {
+      buttons[i].classList.add('active');
+    }
+  }
+  
+  currentPage = 1; // Reset to first page when filtering
+  
+  if (category === 'all') {
+    filteredMembersList = members;
+    displayMembers(filteredMembersList);
+    return;
+  }
+  
+  filteredMembersList = members.filter(member => 
+    member.sector && member.sector.toLowerCase() === category.toLowerCase()
+  );
+  
+  displayMembers(filteredMembersList);
+}
+
+// Set up event listeners for pagination buttons
+function setupPaginationListeners() {
+  document.getElementById('prev-page').addEventListener('click', function() {
+    if (currentPage > 1) {
+      currentPage--;
+      displayMembers();
+    }
+  });
+  
+  document.getElementById('next-page').addEventListener('click', function() {
+    if (currentPage < totalPages) {
+      currentPage++;
+      displayMembers();
+    }
+  });
+}
+
+// Initialize search on input changes
+document.getElementById('directory-search').addEventListener('keyup', function(event) {
+  if (event.key === 'Enter') {
+    filterMembers();
+  }
+});
+
+// Initialize the table and pagination when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  displayMembers();
+  setupPaginationListeners();
+});
+</script>
+     
+    </section><!-- /Portfolio Section -->

@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Pricing - Sailor Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Sailor
+  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="pricing-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Sailor</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li class="dropdown"><a href="about.html"><span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="team.html">Team</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="pricing.html" class="active">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="about.html">Get Started</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Pricing</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Pricing</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+   <!-- Portfolio Section with Member Directory -->
+<section id="portfolio" class="portfolio section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Members Directory</h2>
+    <p>.find(Lorong)</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+    <!-- Search Functionality -->
+    <div class="row mb-3">
+      <div class="col-md-8 mx">
+        <div class="input-group">
+          <input type="text" id="directory-search" class="form-control" placeholder="Search by name, subject or interest...">
+          <button class="btn btn-primary" type="button" onclick="filterMembers()">
+            <i class="bi bi-search"></i> Search
+          </button>
+        </div>
+        
+        <div class="mt-3">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-primary" onclick="filterByCategory('all')">All</button>
+            <button type="button" class="btn btn-outline-primary" onclick="filterByCategory('Government')">Government</button>
+            <button type="button" class="btn btn-outline-primary" onclick="filterByCategory('Industry')">Industry</button>
+            <button type="button" class="btn btn-outline-primary" onclick="filterByCategory('Academia')">Academia</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Members Table -->
+    <div class="table-responsive">
+      <table id="members-table" class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>Name</th>
+            <th>Sector</th>
+            <th>Projects</th>
+            <th>Needs</th>
+            <th>Interests</th>
+          </tr>
+        </thead>
+        <tbody id="members-data">
+          <!-- Data will be populated by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Pagination Controls -->
+    <div id="pagination-controls" class="d-flex justify-content-between align-items-center mt-4">
+      <div id="results-count" class="text-muted">
+        Showing 1-10 of 60 members
+      </div>
+      <div class="pagination">
+        <button id="prev-page" class="btn btn-sm btn-outline-primary me-2">&laquo; Previous</button>
+        <span class="pagination-info">Page <span id="current-page">1</span> of <span id="total-pages">6</span></span>
+        <button id="next-page" class="btn btn-sm btn-outline-primary ms-2">Next &raquo;</button>
+      </div>
+    </div>
+    
+    <div id="no-results" class="text-center py-5" style="display: none;">
+      <h3>No members found</h3>
+      <p>Try a different search term or filter</p>
+    </div>
+  </div>
+<script>
+  // Member data
+  const members = [
+  {
+    "name": "Chad",
+    "sector": "Government",
+    "projects": "AI Strategy",
+    "needs": "AI Segmentation Support",
+    "interests": "Workshops Knowledge Sharing"
+  },
+  {
+    "name": "Tan Jun Xiang",
+    "sector": "Industry",
+    "projects": "AI in Knowledge Management",
+    "needs": "Knowledge Management System Needed Pose Estimation Tools Needed",
+    "interests": "AI Industry Applications"
+  },
+  {
+    "name": "Ian",
+    "sector": "Government",
+    "projects": "Identity Verification AI",
+    "needs": "Fraud Detection Guidance",
+    "interests": "AI Community Networking"
+  },
+  {
+    "name": "Tan Fu Nan",
+    "sector": "Government",
+    "projects": "Chatbot Optimisation",
+    "needs": "LLM Applications Needed",
+    "interests": "All AI Presentations"
+  },
+  {
+    "name": "Khai Kit",
+    "sector": "Government",
+    "projects": "Data Cleaning",
+    "needs": "AI Evaluation Focus",
+    "interests": "Paper Club Groups"
+  },
+  {
+    "name": "Isaac",
+    "sector": "Government",
+    "projects": "LLM Related",
+    "needs": "FineTuning Learning Interest",
+    "interests": "Technical Industry Sessions"
+  },
+  {
+    "name": "TT",
+    "sector": "Government",
+    "projects": "AI Social Science",
+    "needs": "-",
+    "interests": "-"
+  },
+  {
+    "name": "Loh Wei Long",
+    "sector": "Government",
+    "projects": "Self-Hosted LLMs",
+    "needs": "Self-Hosted LLMs Needed",
+    "interests": "Tech Talks"
+  },
+  {
+    "name": "Lee Ning",
+    "sector": "Government",
+    "projects": "AI Data Solutions",
+    "needs": "-",
+    "interests": "Project Sharings"
+  },
+  {
+    "name": "Louisa",
+    "sector": "Government",
+    "projects": "AIBot Efficiency",
+    "needs": "Collaboration Needed",
+    "interests": "AI Trends Updates"
+  },
+  {
+    "name": "Ashwin Nair",
+    "sector": "Government",
+    "projects": "Extreme Hierarchical ML Classification Entity Resolution",
+    "needs": "Label Assignment Help Deduplication Tools Needed",
+    "interests": "Tutorials and Learning"
+  },
+  {
+    "name": "Nicole",
+    "sector": "Government",
+    "projects": "AI Privacy",
+    "needs": "Scheduled Presentation Notice",
+    "interests": "Skill Sharing Sessions"
+  },
+  {
+    "name": "Alex Chen",
+    "sector": "Industry",
+    "projects": "Increase OSS Dev Community",
+    "needs": "Community Input Needed",
+    "interests": "LLM Collaboration Workshops"
+  },
+  {
+    "name": "James",
+    "sector": "Government",
+    "projects": "Expert Validation",
+    "needs": "-",
+    "interests": "Developer Sharing Sessions"
+  },
+  {
+    "name": "Tan Bing Wen",
+    "sector": "Government",
+    "projects": "AI Proliferation",
+    "needs": "Community Support Needed",
+    "interests": "All Kinds"
+  },
+  {
+    "name": "Wen Hao",
+    "sector": "Government",
+    "projects": "-",
+    "needs": "-",
+    "interests": "-"
+  },
+  {
+    "name": "TAN Soon Heng",
+    "sector": "Government",
+    "projects": "-",
+    "needs": "Finance Analytics Needed",
+    "interests": "Finance Analytics Solutions"
+  },
+  {
+    "name": "Matthew Lee Kay Fei",
+    "sector": "Industry",
+    "projects": "Great Stuff Building",
+    "needs": "Long-Context Workload Solutions",
+    "interests": "AI Space Networking"
+  },
+  {
+    "name": "Elson Ho",
+    "sector": "Government",
+    "projects": "RAG System Evaluation",
+    "needs": "Traditional AI Learning",
+    "interests": "Agency Collaboration AI Concepts"
+  },
+  {
+    "name": "Shirlynn",
+    "sector": "Government",
+    "projects": "-",
+    "needs": "Career Guidance Needed",
+    "interests": "-"
+  },
+  {
+    "name": "Hrishi Olickel",
+    "sector": "Industry",
+    "projects": "UX Recruitment",
+    "needs": "GitHub Link Provided",
+    "interests": "Demos and Tech Work"
+  },
+  {
+    "name": "Robin",
+    "sector": "Industry",
+    "projects": "Remote Collaboration",
+    "needs": "EU AI Act Policy",
+    "interests": "Networking Sessions"
+  },
+  {
+    "name": "Tan Ang Kang",
+    "sector": "",
+    "projects": "-",
+    "needs": "-",
+    "interests": "Professional Talks Attendance"
+  },
+  {
+    "name": "Valerie Pang",
+    "sector": "Industry",
+    "projects": "AI Safety Community",
+    "needs": "Community Space Available",
+    "interests": "Networking Events AI Safety Events"
+  },
+  {
+    "name": "Edward",
+    "sector": "Industry",
+    "projects": "Partnership Building",
+    "needs": "Global Governance Build",
+    "interests": "Partnership Collabs"
+  },
+  {
+    "name": "Alok",
+    "sector": "Industry",
+    "projects": "Data Ingestion AI",
+    "needs": "Community Resources Needed",
+    "interests": "Enterprise Dev Tools"
+  },
+  {
+    "name": "Raivat",
+    "sector": "Industry",
+    "projects": "AI Eval Setup",
+    "needs": "Sustainability Evaluation Needed",
+    "interests": "AI App Evaluations"
+  },
+  {
+    "name": "Kristoffer Liau",
+    "sector": "Government",
+    "projects": "Auto Marking Chatbot",
+    "needs": "Chatbot Integration Needed",
+    "interests": "LLM NLp CV"
+  },
+  {
+    "name": "Minu",
+    "sector": "Industry",
+    "projects": "Structured RAG Feedback Loop",
+    "needs": "Structured Data Ingestion Tools",
+    "interests": "Lightening Talks"
+  },
+  {
+    "name": "Yichao",
+    "sector": "Government",
+    "projects": "Document Understanding Expansion",
+    "needs": "Expand Usage Assistance",
+    "interests": "AI Wednesdays"
+  },
+  {
+    "name": "Quek Yu Chern",
+    "sector": "Government",
+    "projects": "-",
+    "needs": "Time Series Expertise",
+    "interests": "Upskilling Events"
+  },
+  {
+    "name": "Gregor",
+    "sector": "Industry",
+    "projects": "User Testing Feedback Loop",
+    "needs": "Community Promotion Needed",
+    "interests": "AI Founder Connect"
+  },
+  {
+    "name": "Rackley Nolan",
+    "sector": "Industry",
+    "projects": "AI Therapy Records",
+    "needs": "Secure Generative Processing Best Practices",
+    "interests": "Privacy AI Generative"
+  },
+  {
+    "name": "Isaac Tham",
+    "sector": "Government",
+    "projects": "News Article Analysis",
+    "needs": "Research Collaboration Needed",
+    "interests": "Hands-On & Sharing Sessions"
+  },
+  {
+    "name": "Cassie",
+    "sector": "Government",
+    "projects": "User Management AI",
+    "needs": "Homeland Security AI Expertise",
+    "interests": "Brown Bag Sessions"
+  },
+  {
+    "name": "Fiona",
+    "sector": "Government",
+    "projects": "Student Data Analysis",
+    "needs": "-",
+    "interests": "Use Case Sharing"
+  },
+  {
+    "name": "Sami Ahmed",
+    "sector": "Industry",
+    "projects": "Gen AI Scaling",
+    "needs": "Network Gen AI FSI",
+    "interests": "Tech Hackathons"
+  },
+  {
+    "name": "Ainaa",
+    "sector": "Government",
+    "projects": "AI Marking Confidence",
+    "needs": "Automated Grading Solutions",
+    "interests": "POC Expansion"
+  },
+  {
+    "name": "Gang Rui",
+    "sector": "Industry",
+    "projects": "Evaluations Workflow, MCP",
+    "needs": "Scalable Eval System Needed",
+    "interests": "Evaluations Workshops  AI Application Insights"
+  },
+  {
+    "name": "Christoper",
+    "sector": "Industry",
+    "projects": "-",
+    "needs": "Not Available",
+    "interests": "AI Topics"
+  },
+  {
+    "name": "Ricardo",
+    "sector": "Government",
+    "projects": "-",
+    "needs": "AI Development Guidance",
+    "interests": "Industry Tech Shares"
+  },
+  {
+    "name": "Ng Hui Ling",
+    "sector": "Government",
+    "projects": "OCR GenAI Extraction",
+    "needs": "Auto Evaluation Techniques Needed",
+    "interests": "Hands-On Sharing Sessions"
+  },
+  {
+    "name": "CS",
+    "sector": "Government",
+    "projects": "AI Use Cases",
+    "needs": "Data-Efficient Learning Techniques",
+    "interests": "AI Use Case Sharing"
+  },
+  {
+    "name": "Zhen Liangli",
+    "sector": "Government",
+    "projects": "AI Safety",
+    "needs": "AI Safety Testing Support",
+    "interests": "Small Group Discussions"
+  },
+  {
+    "name": "Nguyen Thanh Son",
+    "sector": "Government",
+    "projects": "Knowledge Graph Integration",
+    "needs": "LLM Entity Extraction Help",
+    "interests": "Skill Sharing Session"
+  },
+  {
+    "name": "Ankit",
+    "sector": "Government",
+    "projects": "GenAI Projects",
+    "needs": "Medical Imaging Expertise Needed",
+    "interests": "Tech Trends Discussion"
+  },
+  {
+    "name": "Simon",
+    "sector": "Government",
+    "projects": "Scraping Capabilities",
+    "needs": "Tool Access Request",
+    "interests": "-"
+  },
+  {
+    "name": "Jeff",
+    "sector": "Industry",
+    "projects": "User Acquisition Strategy",
+    "needs": "US Customer Insights Needed",
+    "interests": "Technical OB Process"
+  },
+  {
+    "name": "Natasha",
+    "sector": "Government",
+    "projects": "-",
+    "needs": "-",
+    "interests": "AI Content Writing"
+  },
+  {
+    "name": "Leon Leow",
+    "sector": "Government",
+    "projects": "AI Coding Assistants Impact",
+    "needs": "AI Coding Assistants Program",
+    "interests": "AI Org Impact"
+  },
+  {
+    "name": "Kumar Puspesh",
+    "sector": "Industry",
+    "projects": "AI PoC Testing",
+    "needs": "Multi-Agent POC Practices",
+    "interests": "MLOps Deployment Tools"
+  },
+  {
+    "name": "Izzah",
+    "sector": "Government",
+    "projects": "Document Processing",
+    "needs": "Integration & Multi-Modal Outputs Needed",
+    "interests": "Collab Use Case Discussions"
+  },
+  {
+    "name": "Jean",
+    "sector": "Government",
+    "projects": "LLM Applications",
+    "needs": "RAG Solutions Enhancement",
+    "interests": "Innovative Tech Sharing"
+  },
+  {
+    "name": "Si Hui",
+    "sector": "Government",
+    "projects": "AI Chatbots",
+    "needs": "-",
+    "interests": "-"
+  },
+  {
+    "name": "Andrew Lim",
+    "sector": "Government",
+    "projects": "AI Infrastructure",
+    "needs": "Deployment Challenges",
+    "interests": "Tech Talks"
+  },
+  {
+    "name": "Hongyuan",
+    "sector": "Government",
+    "projects": "Satellite AI Sensing",
+    "needs": "Collab Interest VLM",
+    "interests": "AI Community Networking"
+  },
+  {
+    "name": "Clifton",
+    "sector": "Government",
+    "projects": "Emerging Tech Prototyping",
+    "needs": "Community Help Available",
+    "interests": "Technical Sharing Session"
+  },
+  {
+    "name": "Sze Ling",
+    "sector": "Government",
+    "projects": "Anomaly Detection AI",
+    "needs": "Foundation Models Needed Reasoning Techniques Inquiry LLM Interpretability Improvement",
+    "interests": "Technical Sharing Sessions"
+  },
+  {
+    "name": "Doreen",
+    "sector": "Government",
+    "projects": "NLP AI",
+    "needs": "LLM Fine Tuning Guidance",
+    "interests": "Workshop Sharing"
+  },
+  {
+    "name": "Zoey",
+    "sector": "Government",
+    "projects": "LLM Anomaly Detection",
+    "needs": "-",
+    "interests": "Skill Sharing Workshops"
+  },
+  {
+    "name": "Jeff",
+    "sector": "Industry",
+    "projects": "Personal Finance AI Agent",
+    "needs": "Knowledge Sharing Needed",
+    "interests": "Model Demonstrations"
+  }
+];
+
+  // Pagination functionality
+  let currentPage = 1;
+  const rowsPerPage = 10;
+  let totalPages = Math.ceil(members.length / rowsPerPage);
+  let filteredMembersList = members; // Keep track of currently filtered members
+
+  // Function to display members for the current page
+  function displayMembers(membersList = filteredMembersList) {
+    const tableBody = document.getElementById('members-data');
+    tableBody.innerHTML = '';
+    
+    if (membersList.length === 0) {
+      document.getElementById('members-table').style.display = 'none';
+      document.getElementById('no-results').style.display = 'block';
+      document.getElementById('pagination-controls').style.display = 'none';
+      return;
+    }
+    
+    document.getElementById('members-table').style.display = 'table';
+    document.getElementById('no-results').style.display = 'none';
+    document.getElementById('pagination-controls').style.display = 'flex';
+    
+    // Update total pages based on filtered results
+    totalPages = Math.ceil(membersList.length / rowsPerPage);
+    
+    // Adjust current page if it's beyond the available pages
+    if (currentPage > totalPages) {
+      currentPage = totalPages;
+    }
+    
+    const startIndex = (currentPage - 1) * rowsPerPage;
+    const endIndex = Math.min(startIndex + rowsPerPage, membersList.length);
+    
+    // Display only the members for the current page
+    for (let i = startIndex; i < endIndex; i++) {
+      const member = membersList[i];
+      const row = document.createElement('tr');
+      
+      row.innerHTML = `
+        <td>${member.name}</td>
+        <td>${member.sector}</td>
+        <td>${member.projects}</td>
+        <td>${member.needs}</td>
+        <td>${member.interests}</td>
+      `;
+      
+      tableBody.appendChild(row);
+    }
+    
+    // Update pagination info
+    document.getElementById('current-page').textContent = currentPage;
+    document.getElementById('total-pages').textContent = totalPages;
+    
+    // Enable/disable pagination buttons
+    document.getElementById('prev-page').disabled = currentPage === 1;
+    document.getElementById('next-page').disabled = currentPage === totalPages;
+    
+    // Update results count
+    document.getElementById('results-count').textContent = `Showing ${startIndex + 1}-${endIndex} of ${membersList.length} members`;
+  }
+  
+  // Function to filter members based on search input
+  function filterMembers() {
+    const searchTerm = document.getElementById('directory-search').value.toLowerCase();
+    currentPage = 1; // Reset to first page when filtering
+    
+    if (!searchTerm.trim()) {
+      filteredMembersList = members;
+      displayMembers(filteredMembersList);
+      return;
+    }
+    
+    filteredMembersList = members.filter(member => {
+      return (
+        (member.name && member.name.toLowerCase().includes(searchTerm)) ||
+        (member.sector && member.sector.toLowerCase().includes(searchTerm)) ||
+        (member.projects && member.projects.toLowerCase().includes(searchTerm)) ||
+        (member.needs && member.needs.toLowerCase().includes(searchTerm)) ||
+        (member.interests && member.interests.toLowerCase().includes(searchTerm))
+      );
+    });
+    
+    displayMembers(filteredMembersList);
+  }
+  
+  // Function to filter by category
+  function filterByCategory(category) {
+    currentPage = 1; // Reset to first page when filtering
+    
+    if (category === 'all') {
+      filteredMembersList = members;
+      displayMembers(filteredMembersList);
+      return;
+    }
+    
+    filteredMembersList = members.filter(member => 
+      member.sector && member.sector.toLowerCase() === category.toLowerCase()
+    );
+    
+    displayMembers(filteredMembersList);
+  }
+  
+  // Set up event listeners for pagination buttons
+  function setupPaginationListeners() {
+    document.getElementById('prev-page').addEventListener('click', function() {
+      if (currentPage > 1) {
+        currentPage--;
+        displayMembers();
+      }
+    });
+    
+    document.getElementById('next-page').addEventListener('click', function() {
+      if (currentPage < totalPages) {
+        currentPage++;
+        displayMembers();
+      }
+    });
+  }
+
+// Initialize search on input changes
+document.getElementById('directory-search').addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+      filterMembers();
+    }
+  });
+  
+  // Initialize the table and pagination when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    displayMembers();
+    setupPaginationListeners();
+  });
+</script>
+
+    </section><!-- /Pricing Section -->
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Sailor</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>A108 Adam Street</p>
+            <p>New York, NY 535022</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+          <form action="forms/newsletter.php" method="post" class="php-email-form">
+            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Sailor</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+
+  
+</body>
+
+</html>

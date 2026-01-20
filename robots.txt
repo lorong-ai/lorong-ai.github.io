@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lorongai.sg/sitemap.xml 

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Resources - Lorong AI</title>
+  <meta name="description" content="Explore curated AI resources, tools, research papers, and learning materials from Lorong AI and the Singapore AI community.">
+  <meta name="keywords" content="AI resources, Singapore, AI tools, research papers, learning materials, Lorong AI, artificial intelligence">
+  <link rel="canonical" href="https://lorongai.sg/resources.html">
+
+  <!-- Favicon -->
+  <link href="assets/img/favicon-32x32.png?v=2" rel="icon">
+  <link href="assets/img/favicon-32x32.png?v=2" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKRQ8W4D9R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LKRQ8W4D9R');
+  </script>
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* Resources Page Specific Styles */
+    .resources-section {
+      padding: 4rem 0;
+    }
+
+    .resource-category {
+      margin-bottom: 4rem;
+    }
+
+    .resource-category h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #006633;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #FFD100;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .resource-card {
+      background: #ffffff;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .resource-card:hover {
+      border-color: #FFD100;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+    }
+
+    .resource-card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #006633;
+    }
+
+    .resource-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #1a1a1a;
+    }
+
+    .resource-card p {
+      color: #4a4a4a;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #006633;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+
+    .resource-link:hover {
+      color: #FFD100;
+      gap: 0.75rem;
+    }
+
+    .resource-link i {
+      transition: transform 0.3s;
+    }
+
+    .resource-link:hover i {
+      transform: translateX(3px);
+    }
+
+    .resource-description {
+      color: #666666;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-category h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="resources-page">
+
+  <div id="header-placeholder"></div>
+
+  <main class="main">
+
+    <!-- Hero Section with Infographics Carousel -->
+    <section id="hero" class="hero section dark-background">
+      <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        
+        <div class="carousel-item active">
+          <img src="assets/img/infographics/05_07_ Multimodal AI V (Wenti Labs).png" alt="Multimodal AI V" loading="lazy">
+        </div><!-- End Carousel Item -->
+
+        <div class="carousel-item">
+          <img src="assets/img/infographics/06_25_ Manus AI.png" alt="Manus AI" loading="lazy">
+        </div><!-- End Carousel Item -->
+
+        <div class="carousel-item">
+          <img src="assets/img/infographics/07_02_ Multimodal AI VI (AISG).png" alt="Multimodal AI VI" loading="lazy">
+        </div><!-- End Carousel Item -->
+
+        <div class="carousel-item">
+          <img src="assets/img/infographics/08_20_ Agents & Inference (Groq Andrew).jpg" alt="Agents & Inference" loading="lazy">
+        </div><!-- End Carousel Item -->
+
+        <div class="carousel-item">
+          <img src="assets/img/infographics/08_27_ Agents & Guardrails (GovTech RAI Shaun).jpg" alt="Agents & Guardrails" loading="lazy">
+        </div><!-- End Carousel Item -->
+
+        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+        <ol class="carousel-indicators"></ol>
+      </div>
+
+      <!-- Static text overlay - stays fixed while images transition -->
+      <div class="carousel-container" style="pointer-events: none;">
+        <h2>Curated Lorong AI Resources</h2>
+        <p>Explore a collection of valuable resources, tools, research papers, and learning materials curated by the Lorong AI community.</p>
+      </div>
+    </section><!-- /Hero Section -->
+
+    <!-- Resources Section -->
+    <section class="resources-section section">
+      <div class="container">
+
+        <!-- Community Resources -->
+        <div class="resource-category" data-aos="fade-up" data-aos-delay="100">
+          <h2><i class="bi bi-journal-text me-2"></i>Community Resources</h2>
+          <div class="resource-grid">
+            <div class="resource-card">
+              <div class="resource-card-icon"><i class="bi bi-file-earmark-text"></i></div>
+              <h3>Lorong AI Infographics</h3>
+              <p>Browse highlights and infographics from previous Lorong AI events.</p>
+              <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="resource-link">
+                Explore Infographics <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-card-icon"><i class="bi bi-mortarboard"></i></div>
+              <h3>Past AI Wednesdays sessions</h3>
+              <p>Explore materials from past AI Wednesdays sharing sessions. (Note: Currently only WOG-accessible, please reach out if you are interested.)</p>
+              <a href="https://go.gov.sg/aiweds-pastmaterials" target="_blank" rel="noopener noreferrer" class="resource-link">
+                Find AI Wednesdays materials <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-card-icon"><i class="bi bi-graph-up"></i></div>
+              <h3>Paper Repository</h3>
+              <p>Find papers and research materials from previous paper club sessions, as well as papers published by our members.</p>
+              <a href="" target="_blank" rel="noopener noreferrer" class="resource-link">
+                See Papers <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Community & Events -->
+        <!-- <div class="resource-category" data-aos="fade-up" data-aos-delay="400">
+          <h2><i class="bi bi-people me-2"></i>Community & Events</h2>
+          <div class="resource-grid">
+            <div class="resource-card">
+              <div class="resource-card-icon"><i class="bi bi-calendar-event"></i></div>
+              <h3>Lorong AI Events</h3>
+              <p>Join our regular events, workshops, and networking sessions. Check out our events calendar.</p>
+              <a href="events.html" class="resource-link">
+                View Events <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-card-icon"><i class="bi bi-linkedin"></i></div>
+              <h3>Lorong AI LinkedIn</h3>
+              <p>Connect with our community on LinkedIn for updates, discussions, and networking.</p>
+              <a href="https://www.linkedin.com/company/lorong-ai" target="_blank" rel="noopener noreferrer" class="resource-link">
+                Follow Us <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-card-icon"><i class="bi bi-calendar-check"></i></div>
+              <h3>Lu.ma Calendar</h3>
+              <p>Subscribe to our event calendar to stay updated on all upcoming Lorong AI activities.</p>
+              <a href="https://lu.ma/lorong-ai" target="_blank" rel="noopener noreferrer" class="resource-link">
+                Subscribe <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/php-email-form/validate.js" defer></script>
+  <script src="assets/vendor/aos/aos.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js" defer></script>
+
+</body>
+
+</html>
