@@ -182,6 +182,69 @@ function initMainJS() {
     });
   }
   window.addEventListener("load", initSwiper);
+
+  // Members section
+  function createMemberElement(member) {
+    return `
+      <div class="col-lg-3 col-md-6 col-6 mb-4">
+        <div class="member-slide d-flex align-items-center justify-content-center" 
+             style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
+          <img src="assets/img/members/${member.src}" 
+               class="img-fluid" 
+               alt="${member.alt}" 
+               loading="lazy" 
+               style="max-height: 80px; max-width: 80%; object-fit: contain;">
+        </div>
+      </div>
+    `;
+  }
+
+  function createSlides(members) {
+    const slides = [];
+    for (let i = 0; i < members.length; i += 8) {
+      const slideMembers = members.slice(i, i + 8);
+      slides.push(`
+        <div class="swiper-slide">
+          <div class="row">
+            ${slideMembers.map(m => createMemberElement(m)).join('')}
+          </div>
+        </div>
+      `);
+    }
+    return slides.join('');
+  }
+
+  async function initMembers() {
+    const wrapper = document.getElementById('members-wrapper');
+    if (!wrapper) return; // Skip if members section doesn't exist
+    
+    try {
+      const response = await fetch('members.json');
+      const members = await response.json();
+      
+      members.sort((a, b) => a.alt.localeCompare(b.alt));
+      wrapper.innerHTML = createSlides(members);
+      
+      new Swiper('#members-swiper', {
+        loop: true,
+        speed: 600,
+        autoplay: { delay: 5000 },
+        slidesPerView: 1,
+        spaceBetween: 30,
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true
+        }
+      });
+    } catch (error) {
+      console.error('Failed to load members:', error);
+    }
+  }
+
+  window.addEventListener('load', initMembers);
+  
+  // ============ END MEMBERS SECTION ============
 }
 
 // If header is static, run on DOMContentLoaded
