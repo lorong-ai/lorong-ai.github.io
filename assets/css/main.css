@@ -990,6 +990,14 @@ section,
   animation: fadeInDown 1s both 0.2s;
 }
 
+/* Static hero text overlay - no animation */
+.resources-page .hero .carousel-container {
+  position: absolute;
+  inset: 90px 64px 64px 64px;
+  z-index: 3;
+  pointer-events: none;
+}
+
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 30px;
