@@ -9,9 +9,9 @@
   <meta name="keywords" content="AI events, Singapore, workshops, networking, Lorong AI, artificial intelligence, tech events, community">
   <link rel="canonical" href="https://lorongai.sg/events.html">
 
-<!-- Favicon -->
-<link href="assets/img/favicon-32x32.png?v=2" rel="icon">
-<link href="assets/img/favicon-32x32.png?v=2" rel="apple-touch-icon">
+  <!-- Favicon -->
+  <link href="assets/img/favicon-32x32.png?v=2" rel="icon">
+  <link href="assets/img/favicon-32x32.png?v=2" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -25,73 +25,83 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  
+
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKRQ8W4D9R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-
-  gtag('config', 'G-LKRQ8W4D9R');
-</script>
-
-
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKRQ8W4D9R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LKRQ8W4D9R');
+  </script>
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
-  /* Hover effect */
-  .event-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 35px rgba(0, 102, 51, 0.25) !important;
-  }
-
-  .event-card:hover img {
-    transform: scale(1.05);
-  }
-
-  
-  .event-card-overlay {
-    background: rgba(0, 51, 26, 0.95) !important;
-  }
-
-  /* Mobile Responsive */
-  @media (max-width: 768px) {
-    .hero-carousel-section .swiper-wrapper {
-      height: 250px !important;
+    /* Hover effect */
+    .event-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 35px rgba(0, 102, 51, 0.25) !important;
     }
 
-    .event-card {
-      margin-bottom: 1.5rem;
+    .event-card:hover img {
+      transform: scale(1.05);
     }
 
-    .luma-calendar-container {
-      margin-top: 3rem;
-      position: relative !important;
+    .event-card-overlay {
+      background: rgba(0, 51, 26, 0.95) !important;
     }
 
-    .luma-calendar-container iframe {
-      height: 500px !important;
+    /* NEW: divider styling for the right column (desktop/tablet) */
+    .events-divider-col {
+      border-left: 1px solid #d9d9d9;
+      padding-left: 1.5rem;
     }
 
-    .events-main-title {
-      font-size: 2rem !important;
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero-carousel-section .swiper-wrapper {
+        height: 250px !important;
+      }
+
+      .event-card {
+        margin-bottom: 1.5rem;
+      }
+
+      .luma-calendar-container {
+        margin-top: 3rem;
+        position: relative !important;
+      }
+
+      .luma-calendar-container iframe {
+        height: 500px !important;
+      }
+
+      .events-main-title {
+        font-size: 2rem !important;
+      }
+
+      .events-subtitle {
+        font-size: 1rem !important;
+      }
     }
 
-    .events-subtitle {
-      font-size: 1rem !important;
+    @media (max-width: 992px) {
+      .hero-carousel-section .swiper-wrapper {
+        height: 300px !important;
+      }
     }
-  }
 
-  @media (max-width: 992px) {
-    .hero-carousel-section .swiper-wrapper {
-      height: 300px !important;
+    /* NEW: remove divider when columns stack */
+    @media (max-width: 991.98px) {
+      .events-divider-col {
+        border-left: none !important;
+        padding-left: 0 !important;
+        margin-top: 2rem;
+      }
     }
-  }
-</style>
+  </style>
 
 <body class="services-page">
 <div id="header-placeholder"></div>
@@ -102,8 +112,7 @@
 <section class="hero-carousel-section" style="padding: 2rem 0;">
   <div class="container">
     <div class="portfolio-details-slider swiper init-swiper">
-      
-      
+
       <script type="application/json" class="swiper-config">
       {
         "loop": true,
@@ -126,9 +135,7 @@
       }
       </script>
 
-       
       <div class="swiper-wrapper" style="height: 400px;">
-        
         <!-- Image 1 -->
         <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center; height: 100%;">
           <img src="assets/img/hero/hero1.jpg" alt="Event 1" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: cover; width: 100%;">
@@ -139,16 +146,12 @@
           <img src="assets/img/hero/hero2.jpg" alt="Event 2" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: cover; width: 100%;">
         </div>
 
-
-
         <!-- Image 4 -->
         <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center; height: 100%;">
           <img src="assets/img/hero/hero4.jpg" alt="Event 4" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: cover; width: 100%;">
         </div>
-
-
       </div>
-      
+
       <!-- Navigation Arrows & Dots -->
       <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
@@ -173,18 +176,22 @@
 <section class="events-layout-section" style="padding: 4rem 0 4rem;">
   <div class="container">
     <div class="row">
-      
+
       <!-- left side -->
       <div class="col-lg-8 col-md-12">
+        <h3 style="margin-bottom: 1rem; font-size: 1.5rem; font-weight: 700; color: #006633;">
+          What Goes On
+        </h3>
+
         <div class="row gy-4">
-          
+
           <!-- Event Card 1 -->
           <div class="col-md-6">
             <div class="event-card" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; cursor: pointer;">
               <img src="assets/img/event-cards/event1.jpg" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s ease;">
               <div class="event-card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 51, 26, 0.95); padding: 1rem; color: white;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: white;">Co-working Mondays</h3>
-                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Weekly coworking and lightning talks connecting Lorong AI members for focused collaboration.</p>
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: white;">Co-working Mondays *Members Only*</h3>
+                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Co-working days when we open the space for focused work, casual chats and mid-day serendipity.</p>
               </div>
             </div>
           </div>
@@ -192,10 +199,10 @@
           <!-- Event Card 2 -->
           <div class="col-md-6">
             <div class="event-card" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; cursor: pointer;">
-              <img src="assets/img/event-cards/event2.jpg"  style="width: 100%; height: 280px; object-fit: cover; transform: scale(1.8); object-position: bottom ; transition: transform 0.3s ease;">
+              <img src="assets/img/event-cards/event2.jpg" style="width: 100%; height: 280px; object-fit: cover; transform: scale(1.8); object-position: bottom ; transition: transform 0.3s ease;">
               <div class="event-card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 51, 26, 0.95); padding: 1rem; color: white;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700;">AI ToolsDay</h3>
-                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Hands-on workshops and open collaboration for builders to experiment and troubleshoot AI.</p>
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: white;">AI ToolsDay</h3>
+                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Flagship gathering featuring everything from technical deep-dives to emerging trends.</p>
               </div>
             </div>
           </div>
@@ -205,8 +212,8 @@
             <div class="event-card" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; cursor: pointer;">
               <img src="assets/img/event-cards/aiw.jpg" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s ease;">
               <div class="event-card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 51, 26, 0.95); padding: 1rem; color: white;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700;">AI Wednesdays</h3>
-                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Weekly flagship gathering for practitioners, researchers, and innovators discussing AI engineering.</p>
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: white;">AI Wednesdays</h3>
+                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Flagship gathering featuring everything from technical deep-dives to emerging trends.</p>
               </div>
             </div>
           </div>
@@ -216,8 +223,8 @@
             <div class="event-card" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; cursor: pointer;">
               <img src="assets/img/event-cards/event4.jpg" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s ease;">
               <div class="event-card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 51, 26, 0.95); padding: 1rem; color: white;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700;">ThursTalks</h3>
-                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Curated technical talks with spotlight speakers and deep strategic discussions.</p>
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: white;">ThursTalks</h3>
+                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Curated technical spotlights, followed by a fireside chat for real depth and sharp insights.</p>
               </div>
             </div>
           </div>
@@ -225,10 +232,10 @@
           <!-- Event Card 5 -->
           <div class="col-md-6">
             <div class="event-card" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; cursor: pointer;">
-              <img src="assets/img/event-cards/fridiy.jpg"  style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s ease;">
+              <img src="assets/img/event-cards/fridiy.jpg" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s ease;">
               <div class="event-card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 51, 26, 0.95); padding: 1rem; color: white;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700;">Fri-DIYs</h3>
-                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Hands-on technical workshops focused on building, experimenting, and collaborative AI learning.</p>
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: white;">Fri-DIYs *Members Only*</h3>
+                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Hands-on workshops that give practical experience with AI tools and techniques through guided building.</p>
               </div>
             </div>
           </div>
@@ -236,10 +243,10 @@
           <!-- Event Card 6 -->
           <div class="col-md-6">
             <div class="event-card" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; cursor: pointer;">
-              <img src="assets/img/event-cards/tinker.jpg"  style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s ease;">
+              <img src="assets/img/event-cards/tinker.jpg" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s ease;">
               <div class="event-card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 51, 26, 0.95); padding: 1rem; color: white;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700;">TinkerTime</h3>
-                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Beginner-friendly demos showcasing themed AI tools through practical real-world walkthroughs.</p>
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: white;">TinkerTime</h3>
+                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">A low-pressure sandbox to experiment and tinker on ideas together, no experience required.</p>
               </div>
             </div>
           </div>
@@ -248,11 +255,12 @@
       </div>
 
       <!-- RIGHT SIDE: Luma Calendar (Sticky, taller to align with cards) -->
-      <div class="col-lg-4 col-md-12">
+      <!-- UPDATED: added class events-divider-col to create the thin grey vertical line -->
+      <div class="col-lg-4 col-md-12 events-divider-col">
         <div class="luma-calendar-container" style="position: sticky; top: 20px;">
           <h3 style="margin-bottom: 1rem; font-size: 1.5rem; font-weight: 700; color: #006633;">
             <a href="https://lu.ma/lorong-ai" target="_blank" style="text-decoration: none; color: #006633;">
-              Events Calendar
+              When Things Happens
             </a>
           </h3>
           <iframe
@@ -271,7 +279,6 @@
     </div>
   </div>
 </section>
-
 
   </main>
 
@@ -304,7 +311,7 @@
       document.querySelectorAll('.portfolio-details .row').forEach(row => {
         const swiperWrapper = row.querySelector('.swiper-wrapper');
         const portfolioInfo = row.querySelector('.portfolio-info');
-        
+
         if (swiperWrapper && portfolioInfo) {
           // Get the swiper-wrapper height (image area only, excluding pagination)
           const wrapperHeight = swiperWrapper.offsetHeight;
@@ -325,5 +332,4 @@
   </script>
 
 </body>
-
 </html>
