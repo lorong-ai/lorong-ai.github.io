@@ -17,7 +17,7 @@ const headerHTML = `
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open mobile menu" aria-controls="navmenu" aria-expanded="false"></i>
         </nav>
-        <a class="btn-getstarted" href="https://form.gov.sg/670cf4d58f92af4544f2721f" style="background:#139B48 !important;border:2px solid #139B48 !important;border-radius:24px !important;color:#fff !important;">Join us!</a>
+        <a class="btn-getstarted" href="https://form.gov.sg/670cf4d58f92af4544f2721f" style="background:#139B48 !important;border:2px solid #139B48 !important;border-radius:18px !important;color:#fff !important;">Join us!</a>
     </div>
 </header>`;
 

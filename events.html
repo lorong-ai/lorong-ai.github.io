@@ -461,7 +461,7 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      z-index: 4;
+      z-index: 8;
       width: 54px;
       height: 54px;
       border-radius: 50%;
@@ -474,6 +474,8 @@
       box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
       backdrop-filter: blur(10px);
       transition: transform 0.25s ease, background 0.25s ease, opacity 0.25s ease;
+      touch-action: manipulation;
+      pointer-events: auto;
     }
 
     .events-slider-prev {
@@ -627,8 +629,8 @@
       }
 
       .events-slider-nav {
-        width: 44px;
-        height: 44px;
+        width: 50px;
+        height: 50px;
       }
 
       .luma-calendar-container iframe {
@@ -1026,11 +1028,77 @@
         sliderEl.swiper.destroy(true, true);
       }
 
+      function bindNavButton(button, handler) {
+        button.onclick = function (event) {
+          if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          handler();
+        };
+
+        button.onpointerup = function (event) {
+          if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          handler();
+        };
+      }
+
       const baseSlides = Array.from(wrapperEl.children)
         .filter(function (slide) { return slide.classList.contains('swiper-slide'); })
         .map(function (slide) { return slide.outerHTML; });
       const originalSlideCount = baseSlides.length;
       if (!originalSlideCount) return;
+      const isMobile = window.matchMedia('(max-width: 767.98px)').matches;
+
+      if (isMobile) {
+        wrapperEl.innerHTML = baseSlides.join('');
+
+        const mobileSlider = new Swiper(sliderEl, {
+          slidesPerView: 'auto',
+          spaceBetween: 24,
+          grabCursor: true,
+          speed: 520,
+          loop: false,
+          rewind: true,
+          centeredSlides: false,
+          watchOverflow: false,
+          slidesPerGroup: 1,
+          allowTouchMove: true,
+          simulateTouch: true,
+          touchRatio: 1,
+          touchAngle: 45,
+          threshold: 3,
+          shortSwipes: true,
+          longSwipes: true,
+          longSwipesRatio: 0.16,
+          longSwipesMs: 180,
+          followFinger: true,
+          resistanceRatio: 0.85,
+          watchSlidesProgress: true,
+          roundLengths: true
+        });
+
+        bindNavButton(prevButton, function () {
+          mobileSlider.allowTouchMove = false;
+          mobileSlider.slidePrev();
+          setTimeout(function () {
+            mobileSlider.allowTouchMove = true;
+          }, 550);
+        });
+
+        bindNavButton(nextButton, function () {
+          mobileSlider.allowTouchMove = false;
+          mobileSlider.slideNext();
+          setTimeout(function () {
+            mobileSlider.allowTouchMove = true;
+          }, 550);
+        });
+
+        return;
+      }
 
       wrapperEl.innerHTML = baseSlides.join('') + baseSlides.join('') + baseSlides.join('');
 
@@ -1096,15 +1164,13 @@
         }
       });
 
-      prevButton.onclick = function () {
-        const step = window.matchMedia('(max-width: 767.98px)').matches ? 1 : 3;
-        eventsSlider.slideTo(eventsSlider.activeIndex - step, 760);
-      };
+      bindNavButton(prevButton, function () {
+        eventsSlider.slideTo(eventsSlider.activeIndex - 3, 760);
+      });
 
-      nextButton.onclick = function () {
-        const step = window.matchMedia('(max-width: 767.98px)').matches ? 1 : 3;
-        eventsSlider.slideTo(eventsSlider.activeIndex + step, 760);
-      };
+      bindNavButton(nextButton, function () {
+        eventsSlider.slideTo(eventsSlider.activeIndex + 3, 760);
+      });
     });
   </script>
 
