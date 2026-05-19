@@ -1056,13 +1056,11 @@
           handler();
         }
 
-        button.onclick = function (event) {
-          invokeHandler(event);
-        };
-
         button.onpointerup = function (event) {
           invokeHandler(event);
         };
+
+        button.onclick = null;
       }
 
       const baseSlides = Array.from(wrapperEl.children)
@@ -1070,7 +1068,7 @@
         .map(function (slide) { return slide.outerHTML; });
       const originalSlideCount = baseSlides.length;
       if (!originalSlideCount) return;
-      const isMobile = window.matchMedia('(max-width: 767.98px)').matches;
+      const isMobile = window.matchMedia('(max-width: 767.98px), (pointer: coarse)').matches;
 
       if (isMobile) {
         wrapperEl.innerHTML = baseSlides.join('');
@@ -1081,7 +1079,7 @@
           grabCursor: true,
           speed: 520,
           loop: false,
-          rewind: true,
+          rewind: false,
           centeredSlides: true,
           centeredSlidesBounds: true,
           watchOverflow: false,
@@ -1103,7 +1101,11 @@
 
         bindNavButton(prevButton, function () {
           mobileSlider.allowTouchMove = false;
-          mobileSlider.slidePrev();
+          if (mobileSlider.activeIndex <= 0) {
+            mobileSlider.slideTo(originalSlideCount - 1, 520);
+          } else {
+            mobileSlider.slidePrev();
+          }
           setTimeout(function () {
             mobileSlider.allowTouchMove = true;
           }, 550);
@@ -1111,7 +1113,11 @@
 
         bindNavButton(nextButton, function () {
           mobileSlider.allowTouchMove = false;
-          mobileSlider.slideNext();
+          if (mobileSlider.activeIndex >= originalSlideCount - 1) {
+            mobileSlider.slideTo(0, 520);
+          } else {
+            mobileSlider.slideNext();
+          }
           setTimeout(function () {
             mobileSlider.allowTouchMove = true;
           }, 550);
@@ -1168,6 +1174,33 @@
         }
       }
 
+      function getVisibleSlideIndices() {
+        const sliderRect = sliderEl.getBoundingClientRect();
+        const visibleIndices = [];
+
+        eventsSlider.slides.forEach(function (slide, index) {
+          const rect = slide.getBoundingClientRect();
+          const overlap = Math.min(rect.right, sliderRect.right) - Math.max(rect.left, sliderRect.left);
+          const visibleRatio = overlap / Math.max(rect.width, 1);
+
+          if (visibleRatio > 0.55) {
+            visibleIndices.push(index);
+          }
+        });
+
+        return visibleIndices;
+      }
+
+      function moveByVisibleSlides(direction) {
+        recenterIfNeeded();
+
+        const visibleIndices = getVisibleSlideIndices();
+        const startIndex = visibleIndices.length ? visibleIndices[0] : eventsSlider.activeIndex;
+        const step = Math.min(3, Math.max(1, visibleIndices.length || 3));
+
+        eventsSlider.slideTo(startIndex + (direction * step), 760);
+      }
+
       eventsSlider.on('transitionEnd', recenterIfNeeded);
       eventsSlider.on('touchStart', function () {
         gestureStartIndex = eventsSlider.activeIndex;
@@ -1185,11 +1218,11 @@
       });
 
       bindNavButton(prevButton, function () {
-        eventsSlider.slideTo(eventsSlider.activeIndex - 3, 760);
+        moveByVisibleSlides(-1);
       });
 
       bindNavButton(nextButton, function () {
-        eventsSlider.slideTo(eventsSlider.activeIndex + 3, 760);
+        moveByVisibleSlides(1);
       });
     });
   </script>
