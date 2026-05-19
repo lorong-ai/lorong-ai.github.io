@@ -1042,20 +1042,26 @@
       }
 
       function bindNavButton(button, handler) {
-        button.onclick = function (event) {
+        let lastTriggerAt = 0;
+
+        function invokeHandler(event) {
           if (event) {
             event.preventDefault();
             event.stopPropagation();
           }
+
+          const now = Date.now();
+          if (now - lastTriggerAt < 450) return;
+          lastTriggerAt = now;
           handler();
+        }
+
+        button.onclick = function (event) {
+          invokeHandler(event);
         };
 
         button.onpointerup = function (event) {
-          if (event) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          handler();
+          invokeHandler(event);
         };
       }
 
