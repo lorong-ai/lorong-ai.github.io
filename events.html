@@ -48,247 +48,947 @@
   <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
-    /* Hover effect */
-    .event-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 12px 35px rgba(0, 102, 51, 0.25) !important;
+    .events-page-shell {
+      background: #ffffff;
     }
 
-    .event-card:hover img {
-      transform: scale(1.05);
+    .events-page-shell .main {
+      background:
+        linear-gradient(180deg,
+          #eef7f1 0%,
+          #edf7f0 8%,
+          #f2f9f4 18%,
+          #f7fbf8 30%,
+          #fcfefd 42%,
+          #ffffff 54%);
     }
 
-    .event-card-overlay {
-      background: rgba(0, 51, 26, 0.95) !important;
+    .events-hero {
+      padding: 1.25rem 0 1.25rem;
+      background: transparent;
     }
 
-    /* NEW: divider styling for the right column (desktop/tablet) */
-    .events-divider-col {
-      border-left: 1px solid #d9d9d9;
-      padding-left: 1.5rem;
+    .events-hero-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.8fr);
+      gap: 1.1rem;
+      align-items: stretch;
+      background:
+        linear-gradient(135deg, rgba(255, 209, 0, 0.12) 0%, rgba(255, 255, 255, 0.96) 24%, rgba(245, 250, 247, 0.98) 100%);
+      border: 1px solid rgba(0, 102, 51, 0.08);
+      border-radius: 28px;
+      padding: 1rem;
+      box-shadow: 0 14px 30px rgba(12, 37, 24, 0.05);
+      overflow: hidden;
     }
 
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .hero-carousel-section .swiper-wrapper {
-        height: 250px !important;
+    .events-hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .events-kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255, 209, 0, 0.24);
+      color: #006633;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .events-hero-copy h1 {
+      margin: 0;
+      font-size: clamp(1.9rem, 4vw, 3.1rem);
+      line-height: 1.02;
+      font-weight: 800;
+      color: #16241b;
+      max-width: 22ch;
+      text-wrap: balance;
+    }
+
+    .events-hero-copy p {
+      margin: 0;
+      max-width: 64ch;
+      color: #53625c;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .events-hero-visual {
+      position: relative;
+      min-height: 150px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #e6efe8;
+      box-shadow: inset 0 0 0 1px rgba(255, 209, 0, 0.14);
+    }
+
+    .events-hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .events-layout-section {
+      padding: 1.75rem 0 4rem;
+      background: transparent;
+    }
+
+    .events-copy-head {
+      margin-bottom: 1.5rem;
+    }
+
+    .events-copy-head h2 {
+      margin: 0 0 0.65rem;
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-weight: 800;
+      color: #17231c;
+    }
+
+    .events-copy-head p {
+      margin: 0;
+      max-width: 70ch;
+      color: #5b6762;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .events-slider-shell {
+      --events-edge-fade: clamp(46px, 5.5vw, 80px);
+      position: relative;
+      margin-top: 1.75rem;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      overflow: hidden;
+      padding: 0 5.25rem;
+    }
+
+    .events-products-swiper {
+      overflow: visible;
+      cursor: grab;
+      touch-action: pan-y;
+      -webkit-mask-image: linear-gradient(90deg,
+        transparent 0,
+        rgba(0, 0, 0, 0.06) calc(var(--events-edge-fade) * 0.24),
+        rgba(0, 0, 0, 0.26) calc(var(--events-edge-fade) * 0.64),
+        #000 var(--events-edge-fade),
+        #000 calc(100% - var(--events-edge-fade)),
+        rgba(0, 0, 0, 0.26) calc(100% - (var(--events-edge-fade) * 0.64)),
+        rgba(0, 0, 0, 0.06) calc(100% - (var(--events-edge-fade) * 0.24)),
+        transparent 100%);
+      mask-image: linear-gradient(90deg,
+        transparent 0,
+        rgba(0, 0, 0, 0.06) calc(var(--events-edge-fade) * 0.24),
+        rgba(0, 0, 0, 0.26) calc(var(--events-edge-fade) * 0.64),
+        #000 var(--events-edge-fade),
+        #000 calc(100% - var(--events-edge-fade)),
+        rgba(0, 0, 0, 0.26) calc(100% - (var(--events-edge-fade) * 0.64)),
+        rgba(0, 0, 0, 0.06) calc(100% - (var(--events-edge-fade) * 0.24)),
+        transparent 100%);
+    }
+
+    .events-products-swiper .swiper-wrapper {
+      transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .events-products-swiper .swiper-slide {
+      width: 420px;
+    }
+
+    .event-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 490px;
+      height: 490px;
+      border-radius: 26px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(0, 102, 51, 0.08);
+      box-shadow: 0 16px 34px rgba(9, 33, 20, 0.07);
+      color: inherit;
+      isolation: isolate;
+      width: 420px;
+    }
+
+    .event-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 22%);
+      opacity: 1;
+      z-index: -1;
+    }
+
+    .event-card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      padding: 1.3rem 1.3rem 0.95rem;
+      flex: 1;
+    }
+
+    .event-card-topline {
+      display: flex;
+      justify-content: flex-start;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .event-card-tag {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(0, 102, 51, 0.08);
+      color: #006633;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .event-card h3 {
+      margin: 0;
+      font-size: 1.45rem;
+      line-height: 1.14;
+      font-weight: 800;
+      color: #16241b;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .event-card p {
+      margin: 0;
+      color: #55635d;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .event-card-title-art {
+      --logo-scale: 1.26;
+      --logo-pad-y: 0.55rem;
+      --logo-pad-x: 0.85rem;
+      width: 100%;
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--logo-pad-y) var(--logo-pad-x);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .event-card-title-art span {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2b4236;
+      letter-spacing: 0.02em;
+    }
+
+    .event-card-title-art img {
+      max-width: 94%;
+      max-height: 78px;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transform: scale(var(--logo-scale));
+      transform-origin: center center;
+    }
+
+    .event-card-title-art.logo-fit--aiw,
+    .event-card-title-art.logo-fit--ait,
+    .event-card-title-art.logo-fit--thurs {
+      --logo-scale: 1.18;
+    }
+
+    .event-card-title-art.logo-fit--cwm,
+    .event-card-title-art.logo-fit--fridiy,
+    .event-card-title-art.logo-fit--praxis,
+    .event-card-title-art.logo-fit--offscript,
+    .event-card-title-art.logo-fit--ole,
+    .event-card-title-art.logo-fit--nn {
+      --logo-scale: 1.08;
+    }
+
+    .event-card-title-art.logo-fit--tinker,
+    .event-card-title-art.logo-fit--paperclub,
+    .event-card-title-art.logo-fit--gotong,
+    .event-card-title-art.logo-fit--ctrl {
+      --logo-scale: 1.36;
+      --logo-pad-y: 0.4rem;
+      --logo-pad-x: 0.65rem;
+    }
+
+    .event-card-title-art.logo-fit--afterdark {
+      --logo-scale: 1.14;
+    }
+
+    .event-card-title-art.logo-fit--chop {
+      --logo-scale: 1.26;
+    }
+
+    .event-card-title-art.logo-fit--fridiy,
+    .event-card-title-art.logo-fit--praxis,
+    .event-card-title-art.logo-fit--offscript,
+    .event-card-title-art.logo-fit--ole {
+      --logo-scale: 0.54;
+    }
+
+    .event-card-title-art.logo-fit--tinker,
+    .event-card-title-art.logo-fit--paperclub {
+      --logo-scale: 2.04;
+    }
+
+    .event-card-title-art.logo-fit--fridiy,
+    .event-card-title-art.logo-fit--praxis {
+      --logo-scale: 0.81;
+    }
+
+    .event-card-title-art.logo-fit--tinker {
+      --logo-scale: 1.02;
+      --logo-pad-y: 0.52rem;
+      --logo-pad-x: 0.72rem;
+    }
+
+    .event-card-title-art.logo-fit--paperclub {
+      --logo-scale: 1.12;
+      --logo-pad-y: 0.5rem;
+      --logo-pad-x: 0.7rem;
+    }
+
+    .event-card-title-art.logo-fit--gotong {
+      --logo-scale: 1.02;
+      --logo-pad-y: 0.52rem;
+      --logo-pad-x: 0.72rem;
+    }
+
+    .event-card-title-art.logo-fit--chop {
+      --logo-scale: 1.01;
+    }
+
+    .event-card-title-art.logo-fit--ole {
+      --logo-scale: 0.82;
+    }
+
+    .event-card-title-art.logo-fit--cwm {
+      --logo-scale: 0.86;
+    }
+
+    .event-card-title-art.logo-fit--tinker {
+      --logo-scale: 0.92;
+    }
+
+    .event-card-title-art.logo-fit--praxis {
+      --logo-scale: 0.73;
+    }
+
+    .event-card-title-art.logo-fit--nn {
+      --logo-scale: 0.97;
+    }
+
+    .event-card-title-art.logo-fit--offscript {
+      --logo-scale: 0.7;
+    }
+
+    .event-card-title-art.logo-fit--gotong {
+      --logo-scale: 1.12;
+    }
+
+    .event-card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: auto;
+      padding-top: 0.1rem;
+    }
+
+    .event-card-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.48rem 0.72rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      color: #274235;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .event-card-thumb {
+      position: relative;
+      min-height: 230px;
+      height: 230px;
+      margin: 0 0.9rem 1.35rem;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #dfe9e2;
+    }
+
+    .event-card-thumb-link {
+      display: block;
+      color: inherit;
+    }
+
+    .event-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .events-slider-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 0;
+      background: rgba(222, 225, 229, 0.62);
+      color: #3d4349;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(10px);
+      transition: transform 0.25s ease, background 0.25s ease, opacity 0.25s ease;
+    }
+
+    .events-slider-prev {
+      left: 0;
+    }
+
+    .events-slider-next {
+      right: 0;
+    }
+
+    .events-slider-nav.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .events-slider-nav.is-disabled {
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .events-slider-nav:hover {
+      transform: translateY(-50%) scale(1.06);
+      background: rgba(208, 212, 217, 0.82);
+    }
+
+    .calendar-copy-head {
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .calendar-copy-head h2 {
+      margin: 0 0 0.55rem;
+      font-size: clamp(1.45rem, 2.3vw, 1.95rem);
+      font-weight: 800;
+      color: #17231c;
+    }
+
+    .calendar-copy-head p {
+      margin: 0;
+      max-width: 72ch;
+      color: #5b6762;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .calendar-panel {
+      margin-top: 0;
+      max-width: min(48vw, 660px);
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1.8rem;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(0, 102, 51, 0.08);
+      box-shadow: 0 20px 40px rgba(9, 33, 20, 0.06);
+    }
+
+    .calendar-panel-head {
+      display: none;
+    }
+
+    .luma-calendar-container iframe {
+      width: 100%;
+      height: 460px;
+      border: 1px solid #dce6df;
+      border-radius: 22px;
+      background: #ffffff;
+    }
+
+    @media (max-width: 991.98px) {
+      .events-hero-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .events-layout-section {
+        padding-top: 1.25rem;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .events-hero {
+        padding: 1rem 0 0.85rem;
+      }
+
+      .events-hero-shell {
+        padding: 0.9rem;
+        gap: 0.95rem;
+      }
+
+      .events-hero-copy {
+        gap: 0.6rem;
+      }
+
+      .events-hero-copy p {
+        font-size: 0.96rem;
+        line-height: 1.5;
+      }
+
+      .events-hero-visual {
+        min-height: 200px;
+      }
+
+      .events-layout-section {
+        padding: 0.9rem 0 3.2rem;
+      }
+
+      .events-copy-head {
+        margin-bottom: 1rem;
+      }
+
+      .events-copy-head p {
+        line-height: 1.65;
+      }
+
+      .events-slider-shell {
+        --events-edge-fade: clamp(29px, 8vw, 52px);
+        padding: 0 3rem;
+        margin-top: 1.1rem;
       }
 
       .event-card {
-        margin-bottom: 1.5rem;
+        min-height: 440px;
+        height: 440px;
+        width: 84vw;
       }
 
-      .luma-calendar-container {
-        margin-top: 3rem;
-        position: relative !important;
+      .events-products-swiper .swiper-slide {
+        width: 84vw;
+      }
+
+      .event-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .event-card p {
+        font-size: 0.92rem;
+      }
+
+      .event-card-title-art {
+        min-height: 78px;
+      }
+
+      .event-card-title-art img {
+        max-height: 64px;
+      }
+
+      .event-card-thumb {
+        min-height: 165px;
+        height: 165px;
+        margin-bottom: 1.15rem;
+      }
+
+      .events-slider-nav {
+        width: 44px;
+        height: 44px;
       }
 
       .luma-calendar-container iframe {
-        height: 500px !important;
+        height: 440px;
       }
 
-      .events-main-title {
-        font-size: 2rem !important;
-      }
-
-      .events-subtitle {
-        font-size: 1rem !important;
-      }
-    }
-
-    @media (max-width: 992px) {
-      .hero-carousel-section .swiper-wrapper {
-        height: 300px !important;
-      }
-    }
-
-    /* NEW: remove divider when columns stack */
-    @media (max-width: 991.98px) {
-      .events-divider-col {
-        border-left: none !important;
-        padding-left: 0 !important;
-        margin-top: 2rem;
+      .calendar-panel {
+        max-width: 100%;
+        padding: 1.1rem;
       }
     }
   </style>
+</head>
 
-<body class="services-page">
+<body class="services-page events-page-shell">
 <div id="header-placeholder"></div>
 
   <main class="main">
+    <section class="events-hero">
+      <div class="container">
+        <div class="events-hero-shell" data-aos="fade-up">
+          <div class="events-hero-copy">
+            <h1> Thoughtful events, curated for curious builders.</h1>
+          </div>
 
-<!-- hero carosel -->
-<section class="hero-carousel-section" style="padding: 2rem 0;">
-  <div class="container">
-    <div class="portfolio-details-slider swiper init-swiper">
-
-      <script type="application/json" class="swiper-config">
-      {
-        "loop": true,
-        "speed": 600,
-        "autoplay": {
-          "delay": 3000
-        },
-        "slidesPerView": 1,
-        "spaceBetween": 0,
-        "centeredSlides": true,
-        "pagination": {
-          "el": ".swiper-pagination",
-          "type": "bullets",
-          "clickable": true
-        },
-        "navigation": {
-          "nextEl": ".swiper-button-next",
-          "prevEl": ".swiper-button-prev"
-        }
-      }
-      </script>
-
-      <div class="swiper-wrapper" style="height: 400px;">
-        <!-- Image 1 -->
-        <div class="swiper-slide" style="display: flex; align-items: center; justify-content: flex-end; height: 100%;">
-          <img src="assets/img/hero/hero1.webp" alt="Event 1" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: cover; width: 100%;">
-        </div>
-
-        <!-- Image 2 -->
-        <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center; height: 100%;">
-          <img src="assets/img/hero/hero2.webp" alt="Event 2" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: cover; width: 100%;">
-        </div>
-
-        <!-- Image 4 -->
-        <div class="swiper-slide" style="display: flex; align-items: center; justify-content: flex-end; height: 100%;">
-          <img src="assets/img/hero/hero3.webp" alt="Event 4" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: cover; width: 100%;">
+          <div class="events-hero-visual">
+            <img src="assets/img/hero-carousel/eventsmaybe2.png" alt="Lorong AI events and community" loading="lazy">
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Navigation Arrows & Dots -->
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-  </div>
-</section>
+    <section class="events-layout-section">
+      <div class="container">
+        <div class="events-copy-head" data-aos="fade-up">
+          <h2>Events at Lorong AI</h2>
+        </div>
 
-<!-- HEADER SECTION -->
-<section class="events-header-section" style="padding: 4rem 0 2rem; text-align: center;">
-  <div class="container">
-    <h2 class="events-main-title" style="font-size: 2.5rem; font-weight: 900; color: #006633; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px;">
-      Our Events
-    </h2>
-    <p class="events-subtitle" style="font-size: 1.15rem; color: #4a4a4a; max-width: 900px; margin: 0 auto; line-height: 1.8;">
-      Explore our lineup of programs designed for different learning styles and interests, spanning hands-on demos, in-depth technical discussions and community-led sessions.
-    </p>
-  </div>
-</section>
+        <div class="events-slider-shell" data-aos="fade-up" data-aos-delay="80">
+          <button class="events-slider-nav events-slider-prev" id="events-slider-prev" aria-label="See previous events">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <div class="swiper events-products-swiper" id="events-products-swiper">
+            <div class="swiper-wrapper">
 
-<!-- EVENTS LAYOUT SECTION -->
-<section class="events-layout-section" style="padding: 4rem 0 4rem;">
-  <div class="container">
-    <div class="row">
+              <!-------Event Cards----->
 
-      <!-- left side -->
-      <div class="col-lg-8 col-md-12">
-        <h3 style="margin-bottom: 1rem; font-size: 1.5rem; font-weight: 700; color: #006633;">
-          What Goes On
-        </h3>
-
-        <div class="row gy-4">
-
-          <!-- Event Card 1 -->
-          <div class="col-md-6">
-            <div class="event-card" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; cursor: pointer;">
-              <img src="assets/img/event-cards/event1.jpg" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s ease;">
-              <div class="event-card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 51, 26, 0.95); padding: 1rem; color: white;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: white;">Co-working Mondays *Members Only*</h3>
-                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Co-working days when we open the space for focused work, casual chats and mid-day serendipity.</p>
+              <div class="swiper-slide">
+                <div class="event-card">
+                <div class="event-card-content">
+                  <div class="event-card-topline">
+                  </div>
+                  <h3 class="visually-hidden">AI Wednesdays</h3>
+                  <div class="event-card-title-art logo-fit--aiw"><img src="assets/img/events_logo/aiw.png" alt="AI Wednesdays logo" loading="lazy"></div>
+                  <p>Our weekly technical AI community event for people building, researching, and applying AI.</p>
+                  <div class="event-card-meta">
+                  </div>
+                </div>
+                <div class="event-card-thumb-link">
+                  <div class="event-card-thumb">
+                    <img src="assets/img/eventcardwebp/aiw_pic.webp" alt="AI Wednesdays" loading="lazy">
+                  </div>
+                </div>
+                </div>
               </div>
+
+
+
+
+
+              <div class="swiper-slide">
+                <div class="event-card">
+                  <div class="event-card-content">
+                  <div class="event-card-topline">
+                  </div>
+                  <h3 class="visually-hidden">Co-working Mondays</h3>
+                  <div class="event-card-title-art logo-fit--cwm"><img src="assets/img/events_logo/cwm.png" alt="Co-working Mondays logo" loading="lazy"></div>
+                  <p>Bi-weekly Lorong AI co-working sessions with focused work, networking, and collaboration.</p>
+                  <div class="event-card-meta">
+                  </div>
+                </div>
+                  <div class="event-card-thumb-link">
+                    <div class="event-card-thumb">
+                      <img src="assets/img/eventcardwebp/cwm_pic.webp" alt="Co-working Mondays" loading="lazy">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="event-card">
+                <div class="event-card-content">
+                  <div class="event-card-topline">
+                  </div>
+                  <h3 class="visually-hidden">AI ToolsDays</h3>
+                  <div class="event-card-title-art logo-fit--ait"><img src="assets/img/events_logo/ait.png" alt="AI ToolsDays logo" loading="lazy"></div>
+                  <p>A guided look at what tools are out there, how they work, and where they fit into real workflows.</p>
+                  <div class="event-card-meta">
+                  </div>
+                </div>
+                <div class="event-card-thumb-link">
+                  <div class="event-card-thumb">
+                    <img src="assets/img/eventcardwebp/toools_pic.webp" alt="AI ToolsDays" loading="lazy">
+                  </div>
+                </div>
+                </div>
+              </div>
+
+
+              <div class="swiper-slide">
+                <div class="event-card">
+                <div class="event-card-content">
+                  <div class="event-card-topline">
+                  </div>
+                  <h3 class="visually-hidden">ThursTalks</h3>
+                  <div class="event-card-title-art logo-fit--thurs"><img src="assets/img/events_logo/thurs.png" alt="ThursTalks logo" loading="lazy"></div>
+                  <p>A high‑energy dialogue series to enhance persepectives, open discussion, exchange ideas.</p>
+                  <div class="event-card-meta">
+                  </div>
+                </div>
+                <div class="event-card-thumb-link">
+                  <div class="event-card-thumb">
+                    <img src="assets/img/eventcardwebp/thurs_pic.webp" alt="ThursTalks" loading="lazy">
+                  </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="event-card">
+                <div class="event-card-content">
+                  <div class="event-card-topline">
+                  </div>
+                  <div class="event-card-title-art logo-fit--fridiy"><img src="assets/img/events_logo/fridiys.png" alt="Fri-DIYs logo" loading="lazy"></div>
+                  <p>Practical guided sessions where members build, test, and leave with something more concrete than notes.</p>
+                  <div class="event-card-meta">
+                  </div>
+                </div>
+                <div class="event-card-thumb-link">
+                  <div class="event-card-thumb">
+                    <img src="assets/img/eventcardwebp/fridiy_pic.webp" alt="Fri-DIYs" loading="lazy">
+                  </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="event-card">
+                <div class="event-card-content">
+                  <div class="event-card-topline">
+                  </div>
+                  <div class="event-card-title-art logo-fit--tinker"><img src="assets/img/events_logo/tttt.png" alt="TinkerTime logo" loading="lazy"></div>
+                  <p>A lower-pressure slot for trying ideas, poking at prototypes, and learning together.</p>
+                  <div class="event-card-meta">
+                  </div>
+                </div>
+                <div class="event-card-thumb-link">
+                  <div class="event-card-thumb">
+                    <img src="assets/img/eventcardwebp/tinker_pic.webp" alt="TinkerTime" loading="lazy">
+                  </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="event-card">
+                <div class="event-card-content">
+                  <div class="event-card-topline">
+                  </div>
+                  <h3 class="visually-hidden">Paper Club</h3>
+                  <div class="event-card-title-art logo-fit--paperclub"><img src="assets/img/events_logo/pc.png" alt="Paper Club logo" loading="lazy"></div>
+                  <p>A community-driven initiative where members gather to discuss and analyse research developments in AI.</p>
+                  <div class="event-card-meta">
+                  </div>
+                </div>
+                <div class="event-card-thumb-link">
+                  <div class="event-card-thumb">
+                    <img src="assets/img/eventcardwebp/paperclub_pic.webp" alt="Placeholder event series" loading="lazy">
+                  </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="event-card">
+                <div class="event-card-content">
+                  <div class="event-card-topline">
+                  </div>
+                  <h3 class="visually-hidden">Technical</h3>
+                  <div class="event-card-title-art logo-fit--praxis"><img src="assets/img/events_logo/praxis.png" alt="Praxis logo" loading="lazy"></div>
+                  <p>Technical sharings built around researcher-driven discussions on advanced AI and applied research.</p>
+                  <div class="event-card-meta">
+                  </div>
+                </div>
+                <div class="event-card-thumb-link">
+                  <div class="event-card-thumb">
+                    <img src="assets/img/eventcardwebp/praxis_pic.webp" alt="Placeholder event card" loading="lazy">
+                  </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="event-card">
+                <div class="event-card-content">
+                  <div class="event-card-topline">
+                  </div>
+                  <h3 class="visually-hidden">ChopChop Talk Shop</h3>
+                  <div class="event-card-title-art logo-fit--chop"><img src="assets/img/events_logo/chop.png" alt="ChopChop Talk Shop logo" loading="lazy"></div>
+                  <p>A fast-paced sharing series designed to spark ideas and bring the community together.</p>
+                  <div class="event-card-meta">
+                  </div>
+                </div>
+                <div class="event-card-thumb-link">
+                  <div class="event-card-thumb">
+                    <img src="assets/img/eventcardwebp/chopchop_pic.webp" alt="Placeholder event format" loading="lazy">
+                  </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="event-card">
+                <div class="event-card-content">
+                  <div class="event-card-topline">
+                  </div>
+                  <h3 class="visually-hidden">gotong Placeholder</h3>
+                  <div class="event-card-title-art logo-fit--gotong"><img src="assets/img/events_logo/gt.png" alt="Gotong logo" loading="lazy"></div>
+                  <p>Opportunities for the community of all skillsets to tackle challenges troubleshoot and build together.</p>
+                  <div class="event-card-meta">
+                  </div>
+                </div>
+                <div class="event-card-thumb-link">
+                  <div class="event-card-thumb">
+                    <img src="assets/img/eventcardwebp/gotong_pic.webp" alt="Placeholder event content" loading="lazy">
+                  </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="event-card">
+                <div class="event-card-content">
+                  <div class="event-card-topline">
+                  </div>
+                  <h3 class="visually-hidden">CTRL+SHIFT+CHANGE</h3>
+                  <div class="event-card-title-art logo-fit--ctrl"><img src="assets/img/events_logo/ctrl.png" alt="CTRL+SHIFT+CHANGE logo" loading="lazy"></div>
+                  <p>Members come together for practical challenges and discuss approaches in real-world settings.</p>
+                  <div class="event-card-meta">
+                  </div>
+                </div>
+                <div class="event-card-thumb-link">
+                  <div class="event-card-thumb">
+                    <img src="assets/img/eventcardwebp/ctrl_pic.webp" alt="Placeholder session card" loading="lazy">
+                  </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="event-card">
+                <div class="event-card-content">
+                  <div class="event-card-topline">
+                  </div>
+                  <h3 class="visually-hidden">OFF SCRIPT</h3>
+                  <div class="event-card-title-art logo-fit--offscript"><img src="assets/img/events_logo/off.png" alt="Off Script logo" loading="lazy"></div>
+                  <p>Thoughful exchange created through candid dialogue, feedback, demos and shared experiences.</p>
+                  <div class="event-card-meta">
+                  </div>
+                </div>
+                <div class="event-card-thumb-link">
+                  <div class="event-card-thumb">
+                    <img src="assets/img/eventcardwebp/socute_pic.webp" alt="Placeholder showcase event" loading="lazy">
+                  </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="event-card">
+                <div class="event-card-content">
+                  <div class="event-card-topline">
+                  </div>
+                  <h3 class="visually-hidden">ole</h3>
+                  <div class="event-card-title-art logo-fit--ole"><img src="assets/img/events_logo/ole.png" alt="OLE logo" loading="lazy"></div>
+                  <p>Visit big-tech labs to understand use of AI technologies at scale and in-house innovation.</p>
+                  <div class="event-card-meta">
+                  </div>
+                </div>
+                <div class="event-card-thumb-link">
+                  <div class="event-card-thumb">
+                    <img src="assets/img/eventcardwebp/ole_pic.jpeg" alt="Last placeholder event card" loading="lazy">
+                  </div>
+                </div>
+                </div>
+              </div>
+
+
+                <div class="swiper-slide">
+                  <div class="event-card">
+                  <div class="event-card-content">
+                    <div class="event-card-topline">
+                    </div>
+                    <h3 class="visually-hidden">nn</h3>
+                    <div class="event-card-title-art logo-fit--nn"><img src="assets/img/events_logo/nn.png" alt="NN logo" loading="lazy"></div>
+                    <p>Bringing together members and invited guests from the AI ecosystem to connect and exchange ideas and insights.</p>
+                    <div class="event-card-meta">
+                    </div>
+                  </div>
+                  <div class="event-card-thumb-link">
+                    <div class="event-card-thumb">
+                      <img src="assets/img/eventcardwebp/nn_pic.webp" alt="Placeholder session card" loading="lazy">
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="event-card">
+                    <div class="event-card-content">
+                      <div class="event-card-topline">
+                      </div>
+                      <h3 class="visually-hidden">afterdark</h3>
+                      <div class="event-card-title-art logo-fit--afterdark"><img src="assets/img/events_logo/afterdark.png" alt="After Dark logo" loading="lazy"></div>
+                      <p>An evening meetup series for the AI community to host talks, demos and sharings.</p>
+                      <div class="event-card-meta">
+                      </div>
+                    </div>
+                    <div class="event-card-thumb-link">
+                      <div class="event-card-thumb">
+                        <img src="assets/img/eventcardwebp/afterdark_pic.webp" alt="Placeholder session card" loading="lazy">
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+
             </div>
           </div>
+          <button class="events-slider-nav events-slider-next" id="events-slider-next" aria-label="See more events">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
 
-          <!-- Event Card 2 -->
-          <div class="col-md-6">
-            <div class="event-card" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; cursor: pointer;">
-              <img src="assets/img/event-cards/event2.jpg" style="width: 100%; height: 280px; object-fit: cover; transform: scale(1.8); object-position: bottom ; transition: transform 0.3s ease;">
-              <div class="event-card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 51, 26, 0.95); padding: 1rem; color: white;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: white;">AI ToolsDays</h3>
-                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">AI ToolsDays is where attendees explore, understand and potentially get hands-on with AI
-tools, what’s out there and how they work.</p>
-              </div>
-            </div>
+        <div class="calendar-copy-head" data-aos="fade-up" data-aos-delay="120">
+          <h2>What’s happening at Lorong AI</h2>
+        </div>
+
+        <div class="calendar-panel" data-aos="fade-up" data-aos-delay="140">
+          <div class="luma-calendar-container">
+            <iframe
+              src="https://lu.ma/embed/calendar/cal-6iIeDGNQ7vK8cfx/events?lt=light"
+              frameborder="0"
+              allowfullscreen=""
+              aria-hidden="false"
+              tabindex="0">
+            </iframe>
           </div>
-
-          <!-- Event Card 3 -->
-          <div class="col-md-6">
-            <div class="event-card" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; cursor: pointer;">
-              <img src="assets/img/event-cards/aiw.jpg" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s ease;">
-              <div class="event-card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 51, 26, 0.95); padding: 1rem; color: white;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: white;">AI Wednesdays</h3>
-                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Flagship gathering featuring everything from technical deep-dives to emerging trends.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event Card 4 -->
-          <div class="col-md-6">
-            <div class="event-card" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; cursor: pointer;">
-              <img src="assets/img/event-cards/event4.jpg" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s ease;">
-              <div class="event-card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 51, 26, 0.95); padding: 1rem; color: white;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: white;">ThursTalks</h3>
-                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Curated technical spotlights, followed by a fireside chat for real depth and sharp insights.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event Card 5 -->
-          <div class="col-md-6">
-            <div class="event-card" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; cursor: pointer;">
-              <img src="assets/img/event-cards/fridiy.jpg" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s ease;">
-              <div class="event-card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 51, 26, 0.95); padding: 1rem; color: white;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: white;">Fri-DIYs *Members Only*</h3>
-                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">Hands-on workshops that give practical experience with AI tools and techniques through guided building.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event Card 6 -->
-          <div class="col-md-6">
-            <div class="event-card" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; cursor: pointer;">
-              <img src="assets/img/event-cards/tinker.jpg" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.3s ease;">
-              <div class="event-card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 51, 26, 0.95); padding: 1rem; color: white;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: white;">TinkerTime</h3>
-                <p style="font-size: 0.95rem; margin: 0; opacity: 0.9;">A low-pressure sandbox to experiment and tinker on ideas together, no experience required.</p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
-
-      <!-- RIGHT SIDE: Luma Calendar (Sticky, taller to align with cards) -->
-      <!-- UPDATED: added class events-divider-col to create the thin grey vertical line -->
-      <div class="col-lg-4 col-md-12 events-divider-col">
-        <div class="luma-calendar-container" style="position: sticky; top: 20px;">
-          <h3 style="margin-bottom: 1rem; font-size: 1.5rem; font-weight: 700; color: #006633;">
-            <a href="https://lu.ma/lorong-ai" target="_blank" style="text-decoration: none; color: #006633;">
-              When Things Happen
-            </a>
-          </h3>
-          <iframe
-            src="https://lu.ma/embed/calendar/cal-6iIeDGNQ7vK8cfx/events?lt=light"
-            width="100%"
-            height="900"
-            frameborder="0"
-            style="border: 1px solid #bfcbda88; border-radius: 12px;"
-            allowfullscreen=""
-            aria-hidden="false"
-            tabindex="0">
-          </iframe>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+    </section>
 
   </main>
 
@@ -313,32 +1013,99 @@ tools, what’s out there and how they work.</p>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/include.js" defer></script>
-
-  <!-- Match portfolio-info height to swiper-wrapper height (excluding pagination) -->
+  <script src="assets/js/include.js?v=4" defer></script>
   <script>
-    function matchPortfolioInfoHeight() {
-      document.querySelectorAll('.portfolio-details .row').forEach(row => {
-        const swiperWrapper = row.querySelector('.swiper-wrapper');
-        const portfolioInfo = row.querySelector('.portfolio-info');
+    window.addEventListener('load', function () {
+      const sliderEl = document.getElementById('events-products-swiper');
+      const wrapperEl = sliderEl ? sliderEl.querySelector('.swiper-wrapper') : null;
+      const prevButton = document.getElementById('events-slider-prev');
+      const nextButton = document.getElementById('events-slider-next');
+      if (!sliderEl || !wrapperEl || !prevButton || !nextButton || typeof Swiper === 'undefined') return;
 
-        if (swiperWrapper && portfolioInfo) {
-          // Get the swiper-wrapper height (image area only, excluding pagination)
-          const wrapperHeight = swiperWrapper.offsetHeight;
-          // Set portfolio-info to match that height
-          portfolioInfo.style.height = wrapperHeight + 'px';
+      if (sliderEl.swiper) {
+        sliderEl.swiper.destroy(true, true);
+      }
+
+      const baseSlides = Array.from(wrapperEl.children)
+        .filter(function (slide) { return slide.classList.contains('swiper-slide'); })
+        .map(function (slide) { return slide.outerHTML; });
+      const originalSlideCount = baseSlides.length;
+      if (!originalSlideCount) return;
+
+      wrapperEl.innerHTML = baseSlides.join('') + baseSlides.join('') + baseSlides.join('');
+
+      const eventsSlider = new Swiper(sliderEl, {
+        slidesPerView: 'auto',
+        spaceBetween: 24,
+        grabCursor: true,
+        speed: 760,
+        loop: false,
+        initialSlide: originalSlideCount,
+        centeredSlides: false,
+        watchOverflow: false,
+        slidesPerGroup: 1,
+        allowTouchMove: true,
+        simulateTouch: true,
+        touchRatio: 0.78,
+        touchAngle: 45,
+        threshold: 6,
+        shortSwipes: true,
+        longSwipes: true,
+        longSwipesRatio: 0.1,
+        longSwipesMs: 220,
+        followFinger: true,
+        resistanceRatio: 0.82,
+        watchSlidesProgress: true,
+        roundLengths: true,
+        mousewheel: {
+          forceToAxis: true,
+          thresholdDelta: 20,
+          sensitivity: 0.6,
+          releaseOnEdges: false
         }
       });
-    }
 
-    // Run on page load
-    window.addEventListener('load', matchPortfolioInfoHeight);
-    // Run after images load (in case images affect height)
-    window.addEventListener('load', () => {
-      setTimeout(matchPortfolioInfoHeight, 100);
+      let gestureStartIndex = eventsSlider.activeIndex;
+
+      function recenterIfNeeded() {
+        const currentIndex = eventsSlider.activeIndex;
+
+        if (currentIndex < originalSlideCount) {
+          eventsSlider.slideTo(currentIndex + originalSlideCount, 0, false);
+          return;
+        }
+
+        if (currentIndex >= originalSlideCount * 2) {
+          eventsSlider.slideTo(currentIndex - originalSlideCount, 0, false);
+        }
+      }
+
+      eventsSlider.on('transitionEnd', recenterIfNeeded);
+      eventsSlider.on('touchStart', function () {
+        gestureStartIndex = eventsSlider.activeIndex;
+      });
+      eventsSlider.on('sliderFirstMove', function () {
+        gestureStartIndex = eventsSlider.activeIndex;
+      });
+      eventsSlider.on('touchEnd', function () {
+        const delta = eventsSlider.activeIndex - gestureStartIndex;
+        if (Math.abs(delta) > 3) {
+          eventsSlider.slideTo(gestureStartIndex + (Math.sign(delta) * 3), 320);
+        } else {
+          recenterIfNeeded();
+        }
+      });
+
+      prevButton.onclick = function () {
+        const step = window.matchMedia('(max-width: 767.98px)').matches ? 1 : 3;
+        eventsSlider.slideTo(eventsSlider.activeIndex - step, 760);
+      };
+
+      nextButton.onclick = function () {
+        const step = window.matchMedia('(max-width: 767.98px)').matches ? 1 : 3;
+        eventsSlider.slideTo(eventsSlider.activeIndex + step, 760);
+      };
     });
-    // Run on window resize
-    window.addEventListener('resize', matchPortfolioInfoHeight);
   </script>
 
 </body>

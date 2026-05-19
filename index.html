@@ -55,7 +55,7 @@
     /* ============================================ */
     
     :root {
-      --primary-green: #006633;
+      --primary-green: #139B48;
       --primary-yellow: #FFD100;
       --text-dark: #1a1a1a;
       --text-medium: #4a4a4a;
@@ -73,7 +73,9 @@
     
     .hero-new {
       min-height: 100vh;
-      background: linear-gradient(135deg, #ffffff 0%, var(--bg-light) 100%);
+      background:
+        radial-gradient(circle at top left, rgba(19, 155, 72, 0.16), transparent 28%),
+        linear-gradient(180deg, #eef7f1 0%, #f4fbf6 18%, #fbfefc 38%, #ffffff 62%);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -175,7 +177,7 @@
       background: var(--primary-green);
       color: white;
       padding: 1rem 2.5rem;
-      border-radius: 4px;
+      border-radius: 18px;
       text-decoration: none;
       font-weight: 700;
       text-transform: uppercase;
@@ -187,7 +189,7 @@
     }
 
     .btn-primary-new:hover {
-      background: #004d26;
+      background: #10833d;
       color: white;
       transform: translateY(-2px);
       box-shadow: 0 6px 25px rgba(0, 102, 51, 0.3);
@@ -195,21 +197,21 @@
 
     .btn-secondary-new {
       background: transparent;
-      color: var(--text-dark);
+      color: var(--primary-green);
       padding: 1rem 2.5rem;
-      border-radius: 4px;
+      border-radius: 18px;
       text-decoration: none;
       font-weight: 700;
       text-transform: uppercase;
       font-size: 1rem;
       letter-spacing: 1px;
       transition: all 0.3s;
-      border: 2px solid var(--text-dark);
+      border: 2px solid var(--primary-green);
       display: inline-block;
     }
 
     .btn-secondary-new:hover {
-      background: var(--text-dark);
+      background: var(--primary-green);
       color: white;
       transform: translateY(-2px);
       box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
@@ -282,9 +284,20 @@
     }
 
     .section-header {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 4rem;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+    }
+
+    .home-section-head {
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+    }
+
+    .home-section-head h2 {
+      margin: 0 0 0.65rem;
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-weight: 800;
+      color: #17231c;
     }
 
     .section-title-new {
@@ -308,6 +321,18 @@
       border-radius: 8px;
       border: 2px solid #e9ecef;
       transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .feature-card-link {
+      color: inherit;
+      text-decoration: none;
+      display: grid;
+    }
+
+    .feature-card-link:hover {
+      color: inherit;
+      text-decoration: none;
     }
 
     .feature-card:hover {
@@ -408,8 +433,8 @@
     }
 
     .members-section .section-title-new {
-      text-align: center;
-      margin-bottom: 1rem;
+      text-align: left;
+      margin-bottom: 0;
     }
 
     .members-section .section-subtitle {
@@ -417,6 +442,31 @@
       color: var(--text-light);
       margin-bottom: 3rem;
       font-size: 1.1rem;
+    }
+
+    #members-swiper {
+      overflow: hidden;
+      margin-bottom: 4.5rem;
+    }
+
+    #members-swiper .swiper-slide {
+      width: 220px;
+    }
+
+    .member-slide {
+      width: 100%;
+      height: 120px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .member-slide img {
+      max-height: 80px;
+      max-width: 80%;
+      object-fit: contain;
     }
 
     .members-grid {
@@ -558,7 +608,7 @@
       background: var(--primary-green);
       color: white;
       padding: 0.75rem 1.5rem;
-      border-radius: 4px;
+      border-radius: 18px;
       text-decoration: none;
       font-weight: 700;
       text-transform: uppercase;
@@ -568,8 +618,8 @@
     }
 
     .cta-card-button:hover {
-      background: var(--primary-yellow);
-      color: var(--text-dark);
+      background: #10833d;
+      color: white;
     }
 
     /* ============================================ */
@@ -608,6 +658,16 @@
 
       .cta-options {
         grid-template-columns: 1fr;
+      }
+
+      #members-swiper .swiper-slide {
+        width: 180px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #members-swiper .swiper-slide {
+        width: 150px;
       }
     }
 
@@ -657,7 +717,7 @@
         <!-- CTA Buttons -->
         <div class="hero-cta-group">
           <a href="https://form.gov.sg/670cf4d58f92af4544f2721f" class="btn-primary-new">Become a Member</a>
-          <a href="events.html" class="btn-secondary-new">View Events</a>
+          <a href="https://go.gov.sg/lai-share" class="btn-secondary-new">Become a Speaker </a>
         </div>
 
         <!-- Statistics -->
@@ -683,72 +743,72 @@
     <!-- FEATURES SECTION                            -->
     <!-- ============================================ -->
     <section class="features-section" id="about">
-      <div class="section-header">
-        <h2 class="section-title-new">What We Offer</h2>
+      <div class="section-header home-section-head">
+        <h2>What We Offer</h2>
       </div>
 
       <!-- Feature 1: Events -->
-      <article class="feature-card" id="events">
+      <a class="feature-card feature-card-link" id="events" href="events.html" aria-label="Go to Events">
         <div class="feature-image">
           <picture>
             <source srcset="assets/img/hero-carousel/Lorong AI Deck (3).webp" type="image/webp">
             <img src="assets/img/hero-carousel/Lorong AI Deck (3).jpg" alt="AI practitioners collaborating at an event" loading="lazy">
           </picture>
-          <a href="events.html" class="arrow-icon" aria-label="View Events">
+          <span class="arrow-icon" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M7 17L17 7M17 7H7M17 7V17"/>
             </svg>
-          </a>
+          </span>
         </div>
         <div class="feature-content">
           <h2>Events</h2>
           <p>Technical deep-dives, hands-on workshops, and knowledge exchanges bringing together AI practitioners, researchers, and industry leaders. From cutting-edge research discussions to practical applications, our curated programming drives innovation and builds expertise across Singapore's AI ecosystem.</p>
         </div>
-      </article>
+      </a>
 
       <!-- Feature 2: Community -->
-      <article class="feature-card" id="community">
+      <a class="feature-card feature-card-link" id="community" href="resources.html" aria-label="Go to Resources">
         <div class="feature-image">
           <picture>
             <source srcset="assets/img/hero-carousel/Min Visit_Image 1.jpeg" type="image/jpeg">
             <img src="assets/img/hero-carousel/Min Visit_Image 1.jpeg" alt="Lorong AI Team and community members" loading="lazy">
           </picture>
-          <a href="resources.html" class="arrow-icon" aria-label="View Community Resources">
+          <span class="arrow-icon" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M7 17L17 7M17 7H7M17 7V17"/>
             </svg>
-          </a>
+          </span>
         </div>
         <div class="feature-content">
           <h2>Community</h2>
           <p>The intellectual home for Singapore's AI ecosystem. We bring together practitioners from government, industry, and research to form the tight-knit knowledge community critical for innovation. Connect with 250+ core members and 4,000+ practitioners, share insights, and collaborate on solutions that advance AI for the public good.</p>
         </div>
-      </article>
+      </a>
 
       <!-- Feature 3: Co-working -->
-      <article class="feature-card" id="coworking">
+      <a class="feature-card feature-card-link" id="coworking" href="about.html" aria-label="Go to About Us">
         <div class="feature-image">
-          <img src="assets/img/events/CCTS/CCTS1.JPG" alt="Lorong AI co-working space" loading="lazy">
-          <a href="about.html" class="arrow-icon" aria-label="View About Us">
+          <img src="assets/img/hero-carousel/cwm12.jpg" alt="Lorong AI co-working space" loading="lazy">
+          <span class="arrow-icon" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M7 17L17 7M17 7H7M17 7V17"/>
             </svg>
-          </a>
+          </span>
         </div>
         <div class="feature-content">
           <h2>Co-working</h2>
           <p>A dedicated space designed to foster collaboration and innovation. Co-locate with AI practitioners across government agencies, industry leaders, and research institutions. Access world-class infrastructure and be part of the community building Singapore's position as a global AI leader.</p>
         </div>
-      </article>
+      </a>
     </section>
 
     <!-- ============================================ -->
     <!-- MEMBERS SECTION - GOVERNMENT & RESEARCH     -->
     <!-- ============================================ -->
     <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <p>Members and affiliates</p>
-    </div><!-- End Section Title -->
+    <div class="container home-section-head" data-aos="fade-up">
+      <h2>Members and Affiliates</h2>
+    </div>
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <div class="swiper" id="members-swiper">
@@ -783,7 +843,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/include.js" defer></script>
+  <script src="assets/js/include.js?v=4" defer></script>
 
 </body>
 

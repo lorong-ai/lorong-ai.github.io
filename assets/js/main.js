@@ -186,32 +186,21 @@ function initMainJS() {
   // Members section
   function createMemberElement(member) {
     return `
-      <div class="col-lg-3 col-md-6 col-6 mb-4">
-        <div class="member-slide d-flex align-items-center justify-content-center" 
-             style="height: 120px; background-color: #f8f9fa; border-radius: 8px;">
-          <img src="assets/img/members/${member.src}" 
-               class="img-fluid" 
-               alt="${member.alt}" 
-               loading="lazy" 
-               style="max-height: 80px; max-width: 80%; object-fit: contain;">
-        </div>
+      <div class="member-slide">
+        <img src="assets/img/members/${member.src}" 
+             class="img-fluid" 
+             alt="${member.alt}" 
+             loading="lazy">
       </div>
     `;
   }
 
   function createSlides(members) {
-    const slides = [];
-    for (let i = 0; i < members.length; i += 8) {
-      const slideMembers = members.slice(i, i + 8);
-      slides.push(`
-        <div class="swiper-slide">
-          <div class="row">
-            ${slideMembers.map(m => createMemberElement(m)).join('')}
-          </div>
-        </div>
-      `);
-    }
-    return slides.join('');
+    return members.map(member => `
+      <div class="swiper-slide">
+        ${createMemberElement(member)}
+      </div>
+    `).join('');
   }
 
   async function initMembers() {
@@ -223,19 +212,20 @@ function initMainJS() {
       const members = await response.json();
       
       members.sort((a, b) => a.alt.localeCompare(b.alt));
-      wrapper.innerHTML = createSlides(members);
+      wrapper.innerHTML = createSlides([...members, ...members]);
       
       new Swiper('#members-swiper', {
         loop: true,
-        speed: 600,
-        autoplay: { delay: 5000 },
-        slidesPerView: 1,
-        spaceBetween: 30,
-        pagination: {
-          el: '.swiper-pagination',
-          type: 'bullets',
-          clickable: true
-        }
+        speed: 5000,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false
+        },
+        allowTouchMove: false,
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        centeredSlides: false,
+        loopAdditionalSlides: members.length
       });
     } catch (error) {
       console.error('Failed to load members:', error);

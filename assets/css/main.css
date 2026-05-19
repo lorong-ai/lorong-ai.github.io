@@ -22,10 +22,10 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #556270; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #0E9443; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #139B48; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-  --primary-green: #006633; /* Brand green used for hero highlight text and primary CTA */
+  --primary-green: #139B48; /* Brand green used for hero highlight text and primary CTA */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -184,10 +184,14 @@ h6 {
   .header .btn-getstarted {
     display: block; /* Show the button on mobile */
     font-size: 14px;
-    padding: 6px 12px;
+    padding: 7px 14px;
     margin: 0;
     white-space: nowrap;
     flex-shrink: 0;
+    border-radius: 24px;
+    background: #139B48 !important;
+    border: 2px solid #139B48 !important;
+    color: var(--contrast-color) !important;
   }
   
   .header .navmenu {
@@ -220,16 +224,21 @@ h6 {
   }
   
   .header .logo {
-    max-width: 90px; /* Smaller logo for mobile */
+    max-width: 118px; /* Make the sticker more legible on phones */
   }
   
   .header img {
-    max-width: 90px;
+    max-width: 118px;
   }
   
   .header .btn-getstarted {
-    font-size: 12px;
-    padding: 4px 8px;
+    font-size: 11px;
+    padding: 4px 10px;
+    line-height: 1.2;
+    border-radius: 24px;
+    background: #139B48 !important;
+    border: 2px solid #139B48 !important;
+    color: var(--contrast-color) !important;
   }
   
   .mobile-nav-toggle {
@@ -246,16 +255,21 @@ h6 {
   }
   
   .header .logo {
-    max-width: 70px; /* Even smaller for very small screens */
+    max-width: 102px; /* Keep the sticker readable on very small screens */
   }
   
   .header img {
-    max-width: 70px;
+    max-width: 102px;
   }
   
   .header .btn-getstarted {
-    font-size: 11px;
-    padding: 3px 6px;
+    font-size: 10px;
+    padding: 4px 8px;
+    line-height: 1.15;
+    border-radius: 22px;
+    background: #139B48 !important;
+    border: 2px solid #139B48 !important;
+    color: var(--contrast-color) !important;
   }
   
   .mobile-nav-toggle {
@@ -276,19 +290,23 @@ h6 {
 
 .header .btn-getstarted,
 .header .btn-getstarted:focus {
-  color: var(--contrast-color);
-  background: var(--primary-green);
+  color: var(--contrast-color) !important;
+  background: #139B48 !important;
   font-size: 16px;
-  padding: 4px 18px;
+  padding: 7px 18px;
   margin: 0 0 0 30px;
-  border-radius: 4px;
-  transition: 0.3s;
+  border-radius: 24px;
+  border: 2px solid #139B48 !important;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .header .btn-getstarted:hover,
 .header .btn-getstarted:focus:hover {
-  color: var(--contrast-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  color: var(--contrast-color) !important;
+  background: #139B48 !important;
+  border-color: #139B48 !important;
+  box-shadow: 0 8px 22px rgba(19, 155, 72, 0.22);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 200px) {
@@ -1023,7 +1041,7 @@ section,
   display: inline-block;
   display: -webkit-inline-block;
   padding: 8px 32px;
-  border-radius: 4px;
+  border-radius: 18px;
   transition: 0.5s;
   margin: 10px;
   animation: fadeInUp 1s both 0.4s;
@@ -2163,7 +2181,7 @@ section,
   color: var(--contrast-color);
   display: inline-block;
   padding: 8px 35px 10px 35px;
-  border-radius: 4px;
+  border-radius: 18px;
   transition: none;
   font-size: 14px;
   font-weight: 400;
@@ -2680,7 +2698,7 @@ section,
   border: 0;
   padding: 10px 30px;
   transition: 0.4s;
-  border-radius: 4px;
+  border-radius: 18px;
 }
 
 .contact .php-email-form button[type=submit]:hover {
@@ -3190,4 +3208,3 @@ section,
 .events-calendar .section-header a:hover {
   color: #0E9443; /* Your green on hover */
 }
-
