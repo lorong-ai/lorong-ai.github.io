@@ -221,13 +221,14 @@ function initMainJS() {
       membersSwiper = new Swiper('#members-swiper', {
         loop: true,
         initialSlide: startIndex,
-        speed: 5000,
+        speed: 1200,
         autoplay: {
-          delay: 0,
+          delay: 4000,
           disableOnInteraction: false
         },
         allowTouchMove: false,
-        slidesPerView: 'auto',
+        slidesPerView: 3,
+        slidesPerGroup: 3,
         spaceBetween: 20,
         centeredSlides: false,
         loopedSlides: membersData.length,
