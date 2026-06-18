@@ -203,19 +203,24 @@ function initMainJS() {
     `).join('');
   }
 
+  // ============ MEMBERS SECTION ============
+  let membersSwiper = null;
+
   async function initMembers() {
     const wrapper = document.getElementById('members-wrapper');
     if (!wrapper) return; // Skip if members section doesn't exist
     
     try {
       const response = await fetch('members.json');
-      const members = await response.json();
+      const membersData = await response.json();
       
-      members.sort((a, b) => a.alt.localeCompare(b.alt));
-      wrapper.innerHTML = createSlides([...members, ...members]);
+      membersData.sort((a, b) => a.alt.localeCompare(b.alt));
+      wrapper.innerHTML = createSlides(membersData);
       
-      new Swiper('#members-swiper', {
+      const startIndex = Math.floor(Math.random() * membersData.length);
+      membersSwiper = new Swiper('#members-swiper', {
         loop: true,
+        initialSlide: startIndex,
         speed: 5000,
         autoplay: {
           delay: 0,
@@ -225,7 +230,8 @@ function initMainJS() {
         slidesPerView: 'auto',
         spaceBetween: 20,
         centeredSlides: false,
-        loopAdditionalSlides: members.length
+        loopedSlides: membersData.length,
+        loopAdditionalSlides: membersData.length
       });
     } catch (error) {
       console.error('Failed to load members:', error);
