@@ -227,12 +227,30 @@ function initMainJS() {
           disableOnInteraction: false
         },
         allowTouchMove: false,
-        slidesPerView: 3,
+        slidesPerView: 5,
         slidesPerGroup: 3,
         spaceBetween: 20,
         centeredSlides: false,
         loopedSlides: membersData.length,
-        loopAdditionalSlides: membersData.length
+        loopAdditionalSlides: membersData.length,
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            slidesPerGroup: 1
+          },
+          480: {
+            slidesPerView: 2,
+            slidesPerGroup: 2
+          },
+          768: {
+            slidesPerView: 3,
+            slidesPerGroup: 3
+          },
+          1024: {
+            slidesPerView: 5,
+            slidesPerGroup: 3
+          }
+        }
       });
     } catch (error) {
       console.error('Failed to load members:', error);
