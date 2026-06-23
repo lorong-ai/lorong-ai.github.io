@@ -217,22 +217,42 @@ function initMainJS() {
       membersData.sort((a, b) => a.alt.localeCompare(b.alt));
       wrapper.innerHTML = createSlides(membersData);
       
-      const startIndex = Math.floor(Math.random() * membersData.length);
+      const membersCount = membersData.length;
+      const randomStart = Math.floor(Math.random() * membersCount);
+      
       membersSwiper = new Swiper('#members-swiper', {
         loop: true,
-        initialSlide: startIndex,
+        initialSlide: randomStart,
         speed: 1200,
         autoplay: {
           delay: 4000,
           disableOnInteraction: false
         },
         allowTouchMove: false,
-        slidesPerView: 3,
+        slidesPerView: 5,
         slidesPerGroup: 3,
         spaceBetween: 20,
         centeredSlides: false,
-        loopedSlides: membersData.length,
-        loopAdditionalSlides: membersData.length
+        loopedSlides: Math.max(membersCount, 15),
+        loopAdditionalSlides: Math.max(membersCount, 15),
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            slidesPerGroup: 1
+          },
+          480: {
+            slidesPerView: 2,
+            slidesPerGroup: 2
+          },
+          768: {
+            slidesPerView: 3,
+            slidesPerGroup: 3
+          },
+          1024: {
+            slidesPerView: 5,
+            slidesPerGroup: 3
+          }
+        }
       });
     } catch (error) {
       console.error('Failed to load members:', error);
