@@ -187,10 +187,12 @@ function initMainJS() {
   function createMemberElement(member) {
     return `
       <div class="member-slide">
-        <img src="assets/img/members/${member.src}" 
-             class="img-fluid" 
-             alt="${member.alt}" 
-             loading="lazy">
+        <a href="members.html" class="member-logo-link" aria-label="View members page">
+          <img src="assets/img/members/${member.src}" 
+               class="img-fluid" 
+               alt="${member.alt}" 
+               loading="lazy">
+        </a>
       </div>
     `;
   }

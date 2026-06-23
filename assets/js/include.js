@@ -13,6 +13,7 @@ const headerHTML = `
                 <li><a href="index.html">Home</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="resources.html">Resources</a></li>
+                <li><a href="members.html">Members</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open mobile menu" aria-controls="navmenu" aria-expanded="false"></i>
@@ -39,6 +40,8 @@ const footerHTML = `
             <a href="events.html">EVENTS</a>
             <span class="separator">|</span>
             <a href="resources.html">RESOURCES</a>
+            <span class="separator">|</span>
+            <a href="members.html">MEMBERS</a>
             <span class="separator">|</span>
             <a href="about.html">ABOUT US</a>
         </div>
