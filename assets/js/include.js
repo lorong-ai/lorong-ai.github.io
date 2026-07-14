@@ -1,25 +1,159 @@
 // include.js - Script to include header and footer across all pages
 
-// Header HTML content
+// Header HTML content with embedded floating CSS
 const headerHTML = `
-<header class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-              <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/lai_logo.png" alt="Lorong AI Logo">
-      </a>
-        <nav id="navmenu" class="navmenu" aria-label="Main navigation">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="about.html">About Us</a></li>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open mobile menu" aria-controls="navmenu" aria-expanded="false"></i>
-        </nav>
-        <a class="btn-getstarted" href="https://form.gov.sg/670cf4d58f92af4544f2721f" style="background:#139B48 !important;border:2px solid #139B48 !important;border-radius:14px !important;color:#fff !important;">Join us!</a>
-    </div>
-</header>`;
+<style>
+  /* Sleek Floating Translucent Header */
+  .floating-header-wrapper {
+    position: fixed;
+    top: 1.5rem;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    pointer-events: none; /* Allows clicks to pass through the empty space */
+  }
+
+  .floating-header {
+    pointer-events: auto; /* Re-enables clicks on the actual header bar */
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 18px; /* Lorong AI logo-style rounding */
+    padding: 0.6rem 1.5rem;
+    width: 92%;
+    max-width: 1100px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+
+  /* When page is scrolled, make it slightly more opaque */
+  body.scrolled .floating-header {
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Flexbox alignment for Left (Logo), Center (Nav), Right (CTA) */
+  .floating-header .logo-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .floating-header .logo-container img {
+    max-height: 42px;
+  }
+
+  .floating-header .navmenu {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+  }
+
+  .floating-header .navmenu ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .floating-header .navmenu a {
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .floating-header .navmenu a:hover,
+  .floating-header .navmenu a.active {
+    color: #139B48; /* Lorong Primary Green */
+  }
+
+  .floating-header .header-cta {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .floating-header .btn-getstarted {
+    background: #139B48;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.6rem 1.4rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .floating-header .btn-getstarted:hover {
+    background: #0f803a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(19, 155, 72, 0.2);
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 1199px) {
+    .floating-header .navmenu ul {
+      display: none; /* Hide default nav on mobile, handled by mobile toggle */
+    }
+    .floating-header .navmenu {
+      justify-content: flex-end;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .floating-header-wrapper {
+      top: 1rem;
+    }
+    .floating-header {
+      width: 95%;
+      padding: 0.5rem 1rem;
+    }
+    .floating-header .btn-getstarted {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+    }
+  }
+</style>
+
+<div class="floating-header-wrapper">
+  <header class="floating-header">
+      <div class="logo-container">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <img src="assets/img/lai_logo.png" alt="Lorong AI Logo">
+          </a>
+      </div>
+      
+      <nav id="navmenu" class="navmenu" aria-label="Main navigation">
+          <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="events.html">Events</a></li>
+              <li><a href="resources.html">Resources</a></li>
+              <li><a href="about.html">About Us</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open mobile menu" aria-controls="navmenu" aria-expanded="false"></i>
+      </nav>
+      
+      <div class="header-cta">
+          <a class="btn-getstarted" href="https://form.gov.sg/670cf4d58f92af4544f2721f">Join us!</a>
+      </div>
+  </header>
+</div>`;
 
 // Footer HTML content
 const footerHTML = `
@@ -125,8 +259,7 @@ function initializeBasicNavigation() {
 
 // Set active navigation item - IMPROVED VERSION
 function setActiveNavItem() {
-    // Get current page filename
-    let currentPage = window.location.pathname.split('/').pop();
+    let currentPage = window.location.pathname;
     
     // Handle empty or root path
     if (!currentPage || currentPage === '' || currentPage === '/') {
@@ -161,7 +294,7 @@ function setActiveNavItem() {
         // Extract filename from href
         const linkPage = linkHref.split('/').pop().split('?')[0].split('#')[0];
         
-        if (linkPage === currentPage) {
+        if (linkPage === currentPage.split('/').pop()) {
             link.classList.add('active');
             activeFound = true;
             
@@ -182,15 +315,12 @@ function setActiveNavItem() {
     });
     
     // Fallback: if no match found and we're on index/home, activate home
-    if (!activeFound && (currentPage === 'index.html' || currentPage === '')) {
+    if (!activeFound && (currentPage === 'index.html' || currentPage === '/' || currentPage === '')) {
         const homeLink = document.querySelector('#navmenu a[href="index.html"]');
         if (homeLink) {
             homeLink.classList.add('active');
         }
     }
-    
-    // Debug log to help troubleshoot
-    console.log('Current page:', currentPage, 'Active found:', activeFound);
 }
 
 // Load everything when DOM is ready

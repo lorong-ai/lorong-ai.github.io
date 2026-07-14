@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Members</title>
+  <meta name="description" content="Explore Lorong AI members and affiliates, and learn how to join our collaborative Singapore AI community.">
+  <meta name="keywords" content="Lorong AI members, AI affiliates, Singapore AI community, membership, partnerships, collaboration">
+  <link rel="canonical" href="https://lorongai.sg/members.html">
+
+  <!-- Favicon -->
+  <link href="assets/img/favicon-32x32.png?v=2" rel="icon">
+  <link href="assets/img/favicon-32x32.png?v=2" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    body.members-page {
+      background:
+        linear-gradient(180deg,
+          #eef7f1 0%,
+          #edf7f0 8%,
+          #f2f9f4 18%,
+          #f7fbf8 30%,
+          #fcfefd 42%,
+          #ffffff 54%);
+    }
+
+    .members-page .main {
+      background: transparent;
+      min-height: 100vh;
+      padding: 1.25rem 0 4rem;
+    }
+
+    .member-hero {
+      padding: 1.25rem 0 1.25rem;
+      background: transparent;
+    }
+
+    .member-hero-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.8fr);
+      gap: 1.1rem;
+      align-items: stretch;
+      min-height: 420px;
+      background:
+        linear-gradient(135deg, rgba(255, 209, 0, 0.12) 0%, rgba(255, 255, 255, 0.96) 24%, rgba(245, 250, 247, 0.98) 100%);
+      border: 1px solid rgba(0, 102, 51, 0.08);
+      border-radius: 28px;
+      padding: 1rem;
+      box-shadow: 0 14px 30px rgba(12, 37, 24, 0.05);
+      overflow: hidden;
+    }
+
+    .member-hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.75rem;
+      min-height: 100%;
+    }
+
+    .member-hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .member-hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+      min-height: 420px;
+    }
+
+    .member-kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255, 209, 0, 0.24);
+      color: #006633;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .member-hero h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 4vw, 3.1rem);
+      line-height: 1.02;
+      font-weight: 800;
+      color: #17221c;
+      max-width: 22ch;
+      text-wrap: balance;
+    }
+
+    .member-hero p {
+      color: #44514c;
+      font-size: 1rem;
+      line-height: 1.85;
+      max-width: 72ch;
+    }
+
+    .member-hero-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 22px;
+      object-fit: cover;
+      max-height: 480px;
+    }
+
+    .member-hero p {
+      color: #44514c;
+      font-size: 1rem;
+      line-height: 1.85;
+      max-width: 72ch;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .feature-card {
+      border-radius: 22px;
+      background: #ffffff;
+      border: 1px solid rgba(19, 155, 72, 0.08);
+      padding: 1.5rem;
+      min-height: 220px;
+      box-shadow: 0 16px 30px rgba(12, 37, 24, 0.05);
+    }
+
+    .members-row {
+      display: flex;
+      align-items: stretch;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 1rem 0;
+      scroll-snap-type: x mandatory;
+    }
+
+    .members-row::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .members-row::-webkit-scrollbar-thumb {
+      background: rgba(19, 155, 72, 0.25);
+      border-radius: 999px;
+    }
+
+    .member-card {
+      flex: 0 0 auto;
+      min-width: 260px;
+      width: 260px;
+      padding: 1.5rem 1.5rem;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 18px 35px rgba(12, 37, 24, 0.08);
+      display: grid;
+      gap: 0.75rem;
+      text-align: center;
+      scroll-snap-align: start;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .member-card-logo {
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: none;
+      border: none;
+    }
+
+    .member-card-logo img {
+      max-height: 56px;
+      max-width: 100%;
+      object-fit: contain;
+      margin: 0 auto;
+      display: block;
+    }
+
+
+    .member-card-title {
+      font-family: var(--heading-font);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #17221c;
+      margin: 0;
+    }
+
+    .member-card-text {
+      color: #4d5b52;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .members-category-title {
+      text-align: left;
+      font-family: var(--heading-font);
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #17221c;
+      margin: 0 0 1.5rem;
+      text-transform: none;
+      letter-spacing: 0;
+      padding-top: 3rem;
+      padding-left: 0;
+    }
+
+    .members-category:first-child .members-category-title {
+      padding-top: 0;
+    }
+
+    .members-section {
+      background: transparent;
+      padding: 0;
+    }
+
+    .members-category {
+      margin-bottom: 0;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 0.85rem;
+      font-size: 1.15rem;
+      color: #17221c;
+    }
+
+    .feature-card p {
+      margin-bottom: 0;
+      color: #4d5b52;
+      line-height: 1.8;
+    }
+
+    .grid-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .btn-primary-new {
+      background: #139B48;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 18px;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      border: 2px solid #139B48;
+      display: inline-block;
+    }
+
+    .btn-primary-new:hover {
+      background: #10833d;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 102, 51, 0.25);
+      color: white;
+    }
+  </style>
+</head>
+
+<body class="members-page">
+
+  <div id="header-placeholder"></div>
+
+  <main class="main">
+    <div class="container">
+      <section class="member-hero section" data-aos="fade-up">
+        <div class="member-hero-shell">
+          <div class="member-hero-copy">
+            <h2>Meet the Ecosystem</h1>
+          </div>
+          <div class="member-hero-visual">
+            <img src="assets/img/hero-carousel/eventsmaybe2.png" alt="Lorong AI member community" loading="lazy">
+          </div>
+        </div>
+      </section>
+
+      <section class="members-section" data-aos="fade-up" data-aos-delay="100">
+        <div class="container">
+          <div class="members-category">
+            <h2 class="members-category-title">Industry</h2>
+            <div class="members-row">
+              <a href="https://cohere.com" target="_blank" rel="noreferrer noopener" class="member-card">
+                <div class="member-card-logo"><img src="assets/img/members/cohere.webp" alt="Cohere"></div>
+                <p class="member-card-title">Cohere</p>
+                <p class="member-card-text">Language and AI tools for faster product development across teams.</p>
+              </a>
+              <a href="https://elevenlabs.com" target="_blank" rel="noreferrer noopener" class="member-card">
+                <div class="member-card-logo"><img src="assets/img/members/Elevenlabs.webp" alt="ElevenLabs"></div>
+                <p class="member-card-title">ElevenLabs</p>
+                <p class="member-card-text">Text-to-speech AI that helps companies create natural voice experiences.</p>
+              </a>
+              <a href="https://www.techinasia.com" target="_blank" rel="noreferrer noopener" class="member-card">
+                <div class="member-card-logo"><img src="assets/img/members/techinasia.png" alt="Tech in Asia"></div>
+                <p class="member-card-title">Tech in Asia</p>
+                <p class="member-card-text">Media and community platform for Southeast Asia’s innovation ecosystem.</p>
+              </a>
+              <a href="https://groq.com" target="_blank" rel="noreferrer noopener" class="member-card">
+                <div class="member-card-logo"><img src="assets/img/members/groq.webp" alt="Groq"></div>
+                <p class="member-card-title">Groq</p>
+                <p class="member-card-text">High-performance compute for AI models and enterprise inference workloads.</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="members-category">
+            <h2 class="members-category-title">Research</h2>
+            <div class="members-row">
+              <a href="https://www.a-star.edu.sg" target="_blank" rel="noreferrer noopener" class="member-card">
+                <div class="member-card-logo"><img src="assets/img/members/ASTAR.webp" alt="A*STAR"></div>
+                <p class="member-card-title">A*STAR</p>
+                <p class="member-card-text">Singapore’s lead research agency driving science and technology innovation.</p>
+              </a>
+              <a href="https://www.nus.edu.sg" target="_blank" rel="noreferrer noopener" class="member-card">
+                <div class="member-card-logo"><img src="assets/img/members/NUS.webp" alt="NUS"></div>
+                <p class="member-card-title">NUS</p>
+                <p class="member-card-text">Leading university research and AI education for the region.</p>
+              </a>
+              <a href="https://www.sutd.edu.sg" target="_blank" rel="noreferrer noopener" class="member-card">
+                <div class="member-card-logo"><img src="assets/img/members/SUTD.webp" alt="SUTD"></div>
+                <p class="member-card-title">SUTD</p>
+                <p class="member-card-text">Engineering and design research focused on technology for society.</p>
+              </a>
+              <a href="https://www.iras.gov.sg" target="_blank" rel="noreferrer noopener" class="member-card">
+                <div class="member-card-logo"><img src="assets/img/members/IRAS.webp" alt="IRAS"></div>
+                <p class="member-card-title">IRAS</p>
+                <p class="member-card-text">Research and analytics supporting data-driven public service policy.</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="members-category">
+            <h2 class="members-category-title">Government</h2>
+            <div class="members-row">
+              <a href="https://www.mas.gov.sg" target="_blank" rel="noreferrer noopener" class="member-card">
+                <div class="member-card-logo"><img src="assets/img/members/MAS.png" alt="MAS"></div>
+                <p class="member-card-title">MAS</p>
+                <p class="member-card-text">Supporting responsible AI adoption across finance and public policy.</p>
+              </a>
+              <a href="https://www.pub.gov.sg" target="_blank" rel="noreferrer noopener" class="member-card">
+                <div class="member-card-logo"><img src="assets/img/members/PUB.webp" alt="PUB"></div>
+                <p class="member-card-title">PUB</p>
+                <p class="member-card-text">Water agency innovation for smart infrastructure and sustainability.</p>
+              </a>
+              <a href="https://www.moe.gov.sg" target="_blank" rel="noreferrer noopener" class="member-card">
+                <div class="member-card-logo"><img src="assets/img/members/moe.webp" alt="MOE"></div>
+                <p class="member-card-title">MOE</p>
+                <p class="member-card-text">Education and reskilling initiatives for emerging AI talent.</p>
+              </a>
+              <a href="https://www.htx.gov.sg" target="_blank" rel="noreferrer noopener" class="member-card">
+                <div class="member-card-logo"><img src="assets/img/members/HTX.webp" alt="HTX"></div>
+                <p class="member-card-title">HTX</p>
+                <p class="member-card-text">Technology innovation for defence and national resilience.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/php-email-form/validate.js" defer></script>
+  <script src="assets/vendor/aos/aos.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js?v=4" defer></script>
+</body>
+
+</html>

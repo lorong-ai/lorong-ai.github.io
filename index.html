@@ -13,11 +13,11 @@
 </script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Lorong AI</title>
-  <meta name="description" content="Lorong AI - Singapore's iconic AI hub bringing together government, industry, and research to build AI for the public good. Join 250+ core members and 4,000+ community network.">
-  <meta name="keywords" content="AI, co-working, Singapore, events, networking, community, Lorong AI, artificial intelligence, tech hub, collaboration">
+  <title>Lorong AI - Where Problems Get Solved</title>
+  <meta name="description" content="From prompt to deployment, AI comes to life here. Join Singapore's premier hub for AI problem solvers.">
+  <meta name="keywords" content="AI, problem solvers, Singapore, events, networking, community, Lorong AI, artificial intelligence, tech hub, collaboration">
   <meta property="og:title" content="Lorong AI - Where AI Innovation Thrives">
-  <meta property="og:description" content="Join Singapore's premier AI community. Connect with 250+ practitioners from leading organizations.">
+  <meta property="og:description" content="Join Singapore's premier community of AI problem solvers. Connect with 16,000+ members.">
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://lorongai.sg/">
 
@@ -28,7 +28,8 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -37,21 +38,12 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKRQ8W4D9R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LKRQ8W4D9R');
-  </script>
-
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
     /* ============================================ */
-    /* NEW LAYOUT STYLES                           */
+    /* LAYOUT STYLES                               */
     /* ============================================ */
     
     :root {
@@ -61,6 +53,7 @@
       --text-medium: #4a4a4a;
       --text-light: #666666;
       --bg-light: #f8f9fa;
+      --members-bg: #dbd8d8;
     }
 
     body {
@@ -72,206 +65,69 @@
     /* ============================================ */
     
     .hero-new {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at top left, rgba(19, 155, 72, 0.16), transparent 28%),
-        linear-gradient(180deg, #eef7f1 0%, #f4fbf6 18%, #fbfefc 38%, #ffffff 62%);
+      min-height: 90vh;
+      background: 
+        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0) 80%),
+        url('assets/img/hero-carousel/ai_header.png') center right no-repeat;
+      background-size: cover;
+      background-color: #ffffff;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 8rem 5% 4rem;
+      align-items: flex-start;
+      text-align: left;
+      padding: 11rem 5% 6rem;
       color: var(--text-dark);
       position: relative;
-      overflow: hidden;
     }
 
     .hero-new::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: 
-        linear-gradient(rgba(255, 209, 0, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 209, 0, 0.05) 1px, transparent 1px);
-      background-size: 50px 50px;
-      opacity: 0.5;
+      display: none;
     }
 
     .hero-content {
-      max-width: 1100px;
+      max-width: 520px; 
       position: relative;
       z-index: 1;
     }
 
-    .hero-subtitle {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: var(--primary-green);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      background: rgba(255, 209, 0, 0.15);
-      border: 2px solid var(--primary-yellow);
-      border-radius: 4px;
-    }
-
+    /* THINNER FONT */
     .hero-new h1 {
-      font-size: 3.5rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--text-dark);
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 700; /* Thinned from 900 */
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      color: var(--text-dark); 
+      letter-spacing: -0.03em;
+      text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
     }
 
-    .hero-new h1 .highlight {
+    .hero-new h1 .life-cursive {
       color: var(--primary-green);
+      font-family: "Playwrite GB S", cursive; 
+      font-weight: 300; /* Thinned from 400 */
+      font-style: normal;
+      text-shadow: none;
     }
 
     .hero-description {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       margin-bottom: 2.5rem;
       color: var(--text-medium);
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 550px;
+      margin-left: 0; 
       line-height: 1.8;
+      font-weight: 400;
     }
 
+    /* THINNER DIVIDER */
     .street-sign-divider {
-      width: 80px;
-      height: 4px;
-      background: var(--primary-yellow);
-      margin: 1.5rem auto;
+      width: 100px;
+      height: 3px; /* Thinned from 5px */
+      background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-yellow) 100%);
+      margin: 1.5rem 0 2.5rem; 
       position: relative;
-    }
-
-    .street-sign-divider::before,
-    .street-sign-divider::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 4px;
-      background: var(--primary-green);
-    }
-
-    .street-sign-divider::before { left: -25px; }
-    .street-sign-divider::after { right: -25px; }
-
-    .hero-cta-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 3rem;
-    }
-
-    .btn-primary-new {
-      background: var(--primary-green);
-      color: white;
-      padding: 1rem 2.5rem;
-      border-radius: 18px;
-      text-decoration: none;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      transition: all 0.3s;
-      border: 2px solid var(--primary-green);
-      display: inline-block;
-    }
-
-    .btn-primary-new:hover {
-      background: #10833d;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(0, 102, 51, 0.3);
-    }
-
-    .btn-secondary-new {
-      background: transparent;
-      color: var(--primary-green);
-      padding: 1rem 2.5rem;
-      border-radius: 18px;
-      text-decoration: none;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      transition: all 0.3s;
-      border: 2px solid var(--primary-green);
-      display: inline-block;
-    }
-
-    .btn-secondary-new:hover {
-      background: var(--primary-green);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    /* ============================================ */
-    /* STATISTICS                                  */
-    /* ============================================ */
-    
-    .stats-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--text-light);
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .stats-bar {
-      display: flex;
-      gap: 3rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 2rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      margin-bottom: 1rem;
-      border: 2px solid #f0f0f0;
-      width: 80%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .stat-item { text-align: center; }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: var(--primary-green);
-      display: block;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 0.5rem;
-    }
-
-    .stats-note {
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-light);
-      max-width: 700px;
-      margin: 0 auto 3rem;
-      line-height: 1.6;
+      border-radius: 3px;
     }
 
     /* ============================================ */
@@ -279,121 +135,84 @@
     /* ============================================ */
     
     .features-section {
-      padding: 6rem 5% 2rem;
+      padding: 6rem 5% 4rem;
       background: white;
     }
 
-    .section-header {
-      max-width: 1200px;
-      margin: 0 auto 2rem;
+    .section-header-left {
+      max-width: 1400px;
+      margin: 0 auto 3rem;
+      text-align: left;
     }
 
-    .home-section-head {
-      max-width: 1200px;
-      margin: 0 auto 2rem;
-    }
-
-    .home-section-head h2 {
+    .section-header-left h2 {
       margin: 0 0 0.65rem;
       font-size: clamp(1.5rem, 2.4vw, 2rem);
       font-weight: 800;
       color: #17231c;
     }
+    
+    .section-header-left p {
+      margin: 0;
+      max-width: 70ch;
+      color: #5b6762;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
 
-    .section-title-new {
-      font-size: 2.5rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--text-dark);
-      margin-bottom: 1rem;
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1400px;
+      margin: 0 auto;
+      gap: 2rem;
+      align-items: start;
     }
 
     .feature-card {
-      max-width: 1200px;
-      margin: 0 auto 4rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      padding: 3rem;
-      background: var(--bg-light);
-      border-radius: 8px;
-      border: 2px solid #e9ecef;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+      border: none;
       transition: all 0.3s;
-      cursor: pointer;
-    }
-
-    .feature-card-link {
-      color: inherit;
-      text-decoration: none;
-      display: grid;
-    }
-
-    .feature-card-link:hover {
-      color: inherit;
-      text-decoration: none;
+      align-items: start;
+      height: 100%;
     }
 
     .feature-card:hover {
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-      border-color: var(--primary-yellow);
       transform: translateY(-5px);
-    }
-
-    .feature-card:nth-child(even) { direction: rtl; }
-    .feature-card:nth-child(even) > * { direction: ltr; }
-
-    .feature-card:last-child {
-      margin-bottom: 0;
     }
 
     .feature-image {
       position: relative;
-      border-radius: 8px;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
 
     .feature-image img {
       width: 100%;
-      height: 350px;
+      height: 100%;
       object-fit: cover;
       display: block;
       transition: transform 0.5s;
     }
 
     .feature-card:hover .feature-image img {
-      transform: scale(1.05);
-    }
-
-    .arrow-icon {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      width: 50px;
-      height: 50px;
-      background: var(--primary-yellow);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-dark);
-      transition: all 0.3s;
-    }
-
-    .feature-card:hover .arrow-icon {
-      background: var(--primary-green);
-      color: white;
-      transform: rotate(45deg);
+      transform: scale(1.03);
     }
 
     .feature-content h2 {
-      font-size: 2rem;
+      font-size: 1.75rem;
       font-weight: 900;
       margin-bottom: 1rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       color: var(--text-dark);
       position: relative;
       display: inline-block;
@@ -402,293 +221,217 @@
     .feature-content h2::after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -8px;
       left: 0;
-      width: 60px;
+      width: 50px;
       height: 4px;
       background: linear-gradient(90deg, var(--primary-yellow) 0%, var(--primary-green) 100%);
+    }
+
+    .feature-content {
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 0;
+      flex: 1;
     }
 
     .feature-content p {
       color: var(--text-medium);
       font-size: 1.05rem;
-      line-height: 1.8;
-      margin-top: 1.5rem;
+      line-height: 1.7;
+      margin: 0;
     }
 
     /* ============================================ */
-    /* COMMUNITY/MEMBERS SECTION                   */
+    /* SUSHI BELT - COLORFUL MEMBERS               */
     /* ============================================ */
     
     .members-section {
-      padding: 4rem 5%;
-      background: var(--bg-light);
+      padding: 4rem 5% 6rem;
+      background: var(--members-bg);
     }
 
-    /* Swiper pagination - hidden for members sliders */
-    .container .swiper-pagination {
-      margin-top: 0.25rem;
-      position: relative;
-      display: none;
-    }
-
-    .members-section .section-title-new {
-      text-align: left;
-      margin-bottom: 0;
-    }
-
-    .members-section .section-subtitle {
-      text-align: center;
-      color: var(--text-light);
-      margin-bottom: 3rem;
-      font-size: 1.1rem;
-    }
-
-    #members-swiper {
-      overflow: hidden;
-      margin-bottom: 4.5rem;
-    }
-
-    #members-swiper .swiper-slide {
-      width: 220px;
-    }
-
-    .member-slide {
-      width: 100%;
-      height: 120px;
-      background-color: white;
-      border-radius: 8px;
+    .members-sushi-section {
+      max-width: 1400px;
+      margin: 0 auto;
       display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .member-slide img {
-      max-height: 80px;
-      max-width: 80%;
-      object-fit: contain;
-    }
-
-    .members-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      flex-direction: column;
       gap: 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto 2rem;
+      padding: 1rem 0;
     }
 
-    .member-logo {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
+    .sushi-belt {
+      width: 100%;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+    }
+
+    .sushi-track {
+      display: flex;
+      gap: 1rem;
+      width: max-content;
+      animation: sushi-scroll var(--duration, 40s) linear infinite;
+      will-change: transform;
+    }
+
+    .sushi-track--left { animation-name: sushi-scroll-left; }
+    .sushi-track--right { animation-name: sushi-scroll-right; }
+    .sushi-track:hover { animation-play-state: paused; }
+
+    @keyframes sushi-scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes sushi-scroll-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    .sushi-item {
+      flex-shrink: 0;
+      width: 180px;
+      height: 100px;
+      background: #ffffff;
+      border: 1px solid rgba(19, 155, 72, 0.1);
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100px;
-      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
-      transition: all 0.3s;
+      padding: 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
     }
 
-    .member-logo:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+    .sushi-item::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 18px;
+      background: linear-gradient(45deg, var(--primary-green), var(--primary-yellow), #00d2ff);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
-    .member-logo img {
-      max-height: 60px;
-      max-width: 90%;
-      object-fit: contain;
-      opacity: 0.8;
-      transition: opacity 0.3s;
+    .sushi-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
-    .member-logo:hover img {
+    .sushi-item:hover::before {
       opacity: 1;
     }
 
-    .members-category-title {
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--primary-green);
-      margin: 3rem 0 2rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* ============================================ */
-    /* EVENT CALENDAR SECTION                      */
-    /* ============================================ */
-    
-    .calendar-section {
-      padding: 2rem 5% 4rem;
-      background: white;
-    }
-
-    .calendar-container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: var(--bg-light);
-      padding: 2rem;
+    .sushi-item img {
+      display: block;
+      max-height: 60px;
+      max-width: 90%;
+      width: auto;
+      object-fit: contain;
+      background: #ffffff;
       border-radius: 8px;
-      border: 2px solid #e9ecef;
-    }
-
-    .calendar-container h3 {
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: var(--text-dark);
+      padding: 4px;
     }
 
     /* ============================================ */
-    /* CTA SECTION                                 */
+    /* CTA BOTTOM SECTION                          */
     /* ============================================ */
     
     .cta-section {
-      padding: 6rem 5%;
-      background: linear-gradient(135deg, var(--text-dark) 0%, #2d2d2d 100%);
+      padding: 5rem 5%; 
+      background: linear-gradient(90deg, #d9fa7685 0%, #a2e88a 100%);
       text-align: center;
-      color: white;
+      color: var(--text-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
     }
 
     .cta-section h2 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 3rem;
-    }
-
-    .cta-options {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .cta-card {
-      background: white;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
       color: var(--text-dark);
-      padding: 2.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-buttons-main {
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-buttons-social {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-dark-pill {
+      background-color: #2a2a2a;
+      color: #ffffff;
       border-radius: 8px;
-      text-align: center;
-      transition: all 0.3s;
-      border-bottom: 4px solid var(--primary-yellow);
-    }
-
-    .cta-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .cta-card-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .cta-card h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .cta-card p {
-      color: var(--text-medium);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-card-button {
-      display: inline-block;
-      background: var(--primary-green);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 18px;
       text-decoration: none;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      transition: all 0.3s;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      border: none;
     }
 
-    .cta-card-button:hover {
-      background: #10833d;
-      color: white;
+    .btn-dark-pill:hover {
+      background-color: #111111;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-dark-pill i {
+      font-size: 1.1em;
+    }
+
+    .cta-buttons-main .btn-dark-pill {
+      padding: 1rem 3rem;
+      font-size: 1.15rem;
+    }
+
+    .cta-buttons-social .btn-dark-pill {
+      padding: 0.6rem 1.4rem;
+      font-size: 0.9rem;
     }
 
     /* ============================================ */
     /* RESPONSIVE DESIGN                           */
     /* ============================================ */
     
+    @media (max-width: 991px) {
+      .features-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .feature-image { aspect-ratio: 21 / 9; }
+      .hero-new h1 { font-size: clamp(2.2rem, 7vw, 3.2rem); }
+      .hero-content { max-width: 100%; }
+      .hero-new {
+        background: 
+          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0) 100%),
+          url('assets/img/hero-carousel/ai_header.png') center center no-repeat;
+        background-size: cover;
+      }
+    }
+
     @media (max-width: 768px) {
-      .hero-new h1 {
-        font-size: 2.5rem;
-      }
-
-      .feature-card {
-        grid-template-columns: 1fr;
-        padding: 2rem;
-      }
-
-      .feature-card:nth-child(even) {
-        direction: ltr;
-      }
-
-      .feature-content h2 {
-        font-size: 1.8rem;
-      }
-
-      .stat-number {
-        font-size: 2rem;
-      }
-
-      .stats-bar {
-        gap: 2rem;
-      }
-
-      .cta-section h2 {
-        font-size: 2rem;
-      }
-
-      .cta-options {
-        grid-template-columns: 1fr;
-      }
-
-      #members-swiper .swiper-slide {
-        width: 180px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      #members-swiper .swiper-slide {
-        width: 150px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-new h1 {
-        font-size: 2rem;
-      }
-
-      .section-title-new {
-        font-size: 2rem;
-      }
-
-      .feature-content h2 {
-        font-size: 1.5rem;
-      }
-
-      .btn-primary-new,
-      .btn-secondary-new {
-        padding: 0.875rem 1.5rem;
-        font-size: 0.9rem;
-      }
+      .sushi-item { width: 140px; height: 80px; }
+      .cta-section { padding: 4rem 5%; }
     }
   </style>
 </head>
@@ -705,121 +448,120 @@
     <section class="hero-new">
       <div class="hero-content">
         
-        <!-- Main Heading -->
-        <h1>AI for the <span class="highlight">Public Good</span><br>For Singapore and the World.</h1>
+        <h1 data-aos="fade-up" data-aos-duration="1000">
+  From prompt to deployment, AI comes to <span class="life-cursive">life</span> here.
+</h1>
         
-        <!-- Decorative Divider -->
-        <div class="street-sign-divider" role="presentation"></div>
+        <div class="street-sign-divider" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="800"></div>
         
-        <!-- Description -->
-        <p class="hero-description">Lorong AI brings together government, industry, and research to build Singapore's AI ecosystem. A collaborative hub where AI practitioners connect, innovate, and shape the future of AI in Singapore.</p>
-        
-        <!-- CTA Buttons -->
-        <div class="hero-cta-group">
-          <a href="https://form.gov.sg/670cf4d58f92af4544f2721f" class="btn-primary-new">Become a Member</a>
-          <a href="https://go.gov.sg/lai-share" class="btn-secondary-new">Become a Speaker </a>
-        </div>
+        <p class="hero-description" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+          Lorong AI brings together government, industry, and research to build Singapore's AI ecosystem. We are a collaborative hub where AI problem solvers connect, innovate, and ensure every problem gets solved here.
+        </p>
 
-        <!-- Statistics -->
-        <p class="stats-title">Lorong AI in numbers</p>
-        <div class="stats-bar">
-          <div class="stat-item">
-            <span class="stat-number">300+</span>
-            <span class="stat-label">Core Members</span>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- MEMBERS SECTION (Colorful Sushi Belt)       -->
+    <!-- ============================================ -->
+    <section class="members-section">
+      <div class="container">
+        <div class="section-header-left" data-aos="fade-right">
+          <h2>Members and Affiliates</h2>
+          <p>The organizations bringing AI to life.</p>
+        </div>
+        
+        <div class="members-sushi-section" data-aos="fade-up" data-aos-delay="200">
+          <div class="sushi-belt">
+            <div class="sushi-track sushi-track--left" id="sushi-track-1">
+              <!-- Sushi items will be populated by JS, ensuring full color logos inside the .sushi-item class -->
+            </div>
           </div>
-          <div class="stat-item">
-            <span class="stat-number">8,500+</span>
-            <span class="stat-label">Community Network</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">200+</span>
-            <span class="stat-label">Events Annually</span>
+          <div class="sushi-belt">
+            <div class="sushi-track sushi-track--right" id="sushi-track-2">
+              <!-- Sushi items will be populated by JS -->
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================ -->
-    <!-- FEATURES SECTION                            -->
+    <!-- FEATURES SECTION (Reasons to Believe)       -->
     <!-- ============================================ -->
     <section class="features-section" id="about">
-      <div class="section-header home-section-head">
-        <h2>What We Offer</h2>
+      <div class="container">
+        <div class="section-header-left" data-aos="fade-right">
+          <h2>Why Lorong AI</h2>
+          <p>The core pillars that make our ecosystem the best place for AI problem solvers.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Card 1: Community -->
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-image">
+              <picture>
+                <source srcset="assets/img/hero-carousel/Min Visit_Image 1.jpeg" type="image/jpeg">
+                <img src="assets/img/hero-carousel/Min Visit_Image 1.jpeg" alt="Community members" loading="lazy">
+              </picture>
+            </div>
+            <div class="feature-content">
+              <h2>Community</h2>
+              <p>Join a culture of generosity and technical curiosity. Connect with 16,000+ AI problem solvers dedicated to peer learning and building AI solutions that matter.</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Services -->
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-image">
+              <img src="assets/img/hero-carousel/cwm12.jpg" alt="Co-working space and services" loading="lazy">
+            </div>
+            <div class="feature-content">
+              <h2>Services</h2>
+              <p>We facilitate active market matching activities. Whether you need talent, tools, or partnerships, we connect you to the right ecosystem partner so your problem gets solved here.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Events -->
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-image">
+              <picture>
+                <source srcset="assets/img/hero-carousel/Lorong AI Deck (3).webp" type="image/webp">
+                <img src="assets/img/hero-carousel/Lorong AI Deck (3).jpg" alt="AI events" loading="lazy">
+              </picture>
+            </div>
+            <div class="feature-content">
+              <h2>Events</h2>
+              <p>With 5 curated events per week—ranging from technical deep-dives to hands-on workshops—you'll always stay at the bleeding edge of AI development and implementation.</p>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
+    
+    <!-- ============================================ -->
+    <!-- CTA BOTTOM SECTION                          -->
+    <!-- ============================================ -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content" data-aos="zoom-in" data-aos-duration="1000">
+          <h2>Join our Community</h2>
+          
+          <div class="cta-buttons-main">
+            <!-- No icon on the main button to match the reference -->
+            <a href="https://form.gov.sg/670cf4d58f92af4544f2721f" class="btn-dark-pill">Become a Member</a>
+          </div>
+          
+          <div class="cta-buttons-social">
+            <a href="events.html" class="btn-dark-pill"><i class="bi bi-calendar-event"></i> View Events</a>
+            <a href="https://go.gov.sg/lai-share" class="btn-dark-pill"><i class="bi bi-mic"></i> Become a Speaker</a>
+            <a href="#" class="btn-dark-pill"><i class="bi bi-linkedin"></i> LinkedIn</a>
+          </div>
 
-      <!-- Feature 1: Events -->
-      <a class="feature-card feature-card-link" id="events" href="events.html" aria-label="Go to Events">
-        <div class="feature-image">
-          <picture>
-            <source srcset="assets/img/hero-carousel/Lorong AI Deck (3).webp" type="image/webp">
-            <img src="assets/img/hero-carousel/Lorong AI Deck (3).jpg" alt="AI practitioners collaborating at an event" loading="lazy">
-          </picture>
-          <span class="arrow-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-          </span>
         </div>
-        <div class="feature-content">
-          <h2>Events</h2>
-          <p>Technical deep-dives, hands-on workshops, and knowledge exchanges bringing together AI practitioners, researchers, and industry leaders. From cutting-edge research discussions to practical applications, our curated programming drives innovation and builds expertise across Singapore's AI ecosystem.</p>
-        </div>
-      </a>
-
-      <!-- Feature 2: Community -->
-      <a class="feature-card feature-card-link" id="community" href="resources.html" aria-label="Go to Resources">
-        <div class="feature-image">
-          <picture>
-            <source srcset="assets/img/hero-carousel/Min Visit_Image 1.jpeg" type="image/jpeg">
-            <img src="assets/img/hero-carousel/Min Visit_Image 1.jpeg" alt="Lorong AI Team and community members" loading="lazy">
-          </picture>
-          <span class="arrow-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-          </span>
-        </div>
-        <div class="feature-content">
-          <h2>Community</h2>
-          <p>The intellectual home for Singapore's AI ecosystem. We bring together practitioners from government, industry, and research to form the tight-knit knowledge community critical for innovation. Connect with 250+ core members and 4,000+ practitioners, share insights, and collaborate on solutions that advance AI for the public good.</p>
-        </div>
-      </a>
-
-      <!-- Feature 3: Co-working -->
-      <a class="feature-card feature-card-link" id="coworking" href="about.html" aria-label="Go to About Us">
-        <div class="feature-image">
-          <img src="assets/img/hero-carousel/cwm12.jpg" alt="Lorong AI co-working space" loading="lazy">
-          <span class="arrow-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-          </span>
-        </div>
-        <div class="feature-content">
-          <h2>Co-working</h2>
-          <p>A dedicated space designed to foster collaboration and innovation. Co-locate with AI practitioners across government agencies, industry leaders, and research institutions. Access world-class infrastructure and be part of the community building Singapore's position as a global AI leader.</p>
-        </div>
-      </a>
+      </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- MEMBERS SECTION - GOVERNMENT & RESEARCH     -->
-    <!-- ============================================ -->
-    <!-- Section Title -->
-    <div class="section-header home-section-head" data-aos="fade-up">
-      <h2>Members and Affiliates</h2>
-    </div>
-    
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="swiper" id="members-swiper">
-        <div class="swiper-wrapper" id="members-wrapper"></div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-
-  </div>
-
-</section><!-- /Members Section -->
   </main>
 
   <div id="footer-placeholder"></div>

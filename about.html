@@ -13,8 +13,8 @@
 </script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta name="description" content="Contact Lorong AI for membership, events, or general inquiries. We're here to help you connect with Singapore's AI community.">
-  <meta name="keywords" content="contact Lorong AI, Singapore, AI community, events, membership, artificial intelligence">
+  <meta name="description" content="Contact Lorong AI for events, or general inquiries. We're here to help you connect with Singapore's AI community.">
+  <meta name="keywords" content="contact Lorong AI, Singapore, AI community, events, artificial intelligence">
   <link rel="canonical" href="https://lorongai.sg/about.html">
 
 <!-- Favicon -->
@@ -40,10 +40,8 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-
   gtag('config', 'G-LKRQ8W4D9R');
 </script>
-
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -58,12 +56,13 @@
         linear-gradient(180deg,
           #eef7f1 0%,
           #edf7f0 8%,
-          #f2f9f4 16%,
-          #f7fbf8 24%,
-          #fcfefd 32%,
-          #ffffff 40%);
+          #f2f9f4 18%,
+          #f7fbf8 30%,
+          #fcfefd 42%,
+          #ffffff 54%);
     }
 
+    /* ORIGINAL HERO SECTION - UNTOUCHED */
     .compact-hero {
       padding: 1.25rem 0 1.25rem;
       background: transparent;
@@ -139,84 +138,204 @@
       display: block;
     }
 
-    .about.section {
-      padding: 1.75rem 0 1.25rem;
-      background: transparent;
-    }
-
-    .slides.section {
-      padding: 0.75rem 0 4rem;
-      background: transparent;
-    }
-
     @media (max-width: 991.98px) {
       .compact-hero-shell {
         grid-template-columns: 1fr;
       }
-
       .compact-hero-copy h1 {
         max-width: none;
       }
     }
 
-    .about-feature-card {
-      padding: 1.25rem 1.35rem;
-      height: 100%;
-      border: 1px solid rgba(0, 102, 51, 0.1);
-      border-radius: var(--about-block-radius);
-      background: #fff;
-      box-shadow: 0 14px 30px rgba(12, 37, 24, 0.05);
+    /* SHARED SPACING & HEADERS (Aligned to edge) */
+    .events-layout-section {
+      padding: 2.75rem 0 4rem;
+      background: transparent;
     }
 
-    .about-feature-card .section-title,
-    .membership-shell .section-title {
+    .section-header-left {
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .section-header-left h2 {
+      margin: 0 0 0.65rem;
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-weight: 800;
+      color: #17231c;
+    }
+
+    .section-header-left p {
+      margin: 0;
+      max-width: 70ch;
+      color: #5b6762;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    /* TWO-COLUMN INTRO SECTION */
+    .brand-story-section {
+      padding: 3rem 0 5rem;
+    }
+
+    .brand-story-img-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .brand-story-img-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      mix-blend-mode: multiply;
+    }
+
+    .brand-story-content {
+      padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand-story-content h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: #17221c;
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+
+    .brand-story-content p {
+      color: #3f4e48;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      text-align: left;
+    }
+
+    /* ACCORDION FAQ STYLES */
+    .faq-container {
+      width: 100%;
+    }
+
+    .lorong-accordion {
+      --bs-accordion-bg: transparent;
+      --bs-accordion-border-color: rgba(0, 102, 51, 0.12);
+      --bs-accordion-btn-focus-box-shadow: none;
+      --bs-accordion-active-bg: transparent;
+      --bs-accordion-active-color: #17221c;
+      --bs-accordion-btn-padding-y: 1.25rem;
+      --bs-accordion-btn-padding-x: 1.5rem;
+    }
+
+    .lorong-accordion .accordion-item {
+      border-radius: 18px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--bs-accordion-border-color);
+      background: rgba(255, 255, 255, 0.95);
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(12, 37, 24, 0.04);
+      transition: all 0.3s ease;
+    }
+
+    .lorong-accordion .accordion-item:hover {
+      box-shadow: 0 10px 25px rgba(12, 37, 24, 0.08);
+      border-color: rgba(0, 102, 51, 0.25);
+    }
+
+    .lorong-accordion .accordion-button {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #17221c;
+    }
+
+    .lorong-accordion .accordion-button:not(.collapsed) {
+      background-color: var(--bs-accordion-active-bg);
+      color: var(--bs-accordion-active-color);
+      box-shadow: none;
+    }
+
+    .lorong-accordion .accordion-body {
+      color: #51605a;
+      line-height: 1.65;
+      font-size: 1rem;
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    /* CARD PANEL STYLE (For Maps) */
+    .about-panel {
+      position: relative;
+      padding: 2rem;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(0, 102, 51, 0.08);
+      box-shadow: 0 16px 34px rgba(9, 33, 20, 0.07);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-panel h3 {
+      font-size: 1.45rem;
+      line-height: 1.2;
+      font-weight: 800;
+      color: #16241b;
       margin-bottom: 0.5rem;
     }
 
-    .about-feature-card .section-title h2,
-    .membership-shell .section-title h2 {
-      letter-spacing: 0.12em;
-    }
-
-    .about-feature-card .content ul {
+    .about-panel p {
+      color: #55635d;
+      font-size: 0.98rem;
+      line-height: 1.6;
       margin-bottom: 0;
     }
 
-    .about-feature-card .content li + li {
-      margin-top: 0.55rem;
-    }
-
-    .membership-shell {
-      padding: 0;
-    }
-
-    .membership-shell .carousel-inner,
-    .membership-shell .carousel-item img {
+    .about-panel iframe {
       border-radius: 18px;
+      margin-bottom: 1.25rem;
     }
 
-    .membership-shell .carousel-item img {
-      display: block;
+    @media (max-width: 991.98px) {
+      .brand-story-content {
+        padding-left: 1rem;
+      }
     }
 
+    @media (max-width: 767.98px) {
+      .events-layout-section {
+        padding: 1.5rem 0 3.2rem;
+      }
+      .brand-story-section {
+        padding: 1rem 0 3rem;
+      }
+      .brand-story-content {
+        padding-left: 0;
+        margin-top: 2.5rem;
+      }
+      .lorong-accordion .accordion-button {
+        font-size: 1.05rem;
+        padding: 1rem 1.25rem;
+      }
+      .lorong-accordion .accordion-body {
+        padding: 0 1.25rem 1.25rem;
+      }
+      .about-panel {
+        padding: 1.5rem;
+      }
+    }
   </style>
 
-  <!-- =======================================================
-  * Template Name: Sailor
-  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="contact-page">
 
   <div id="header-placeholder"></div>
 
-
   <main class="main">
 
+    <!-- ORIGINAL HERO (UNTOUCHED) -->
     <section class="compact-hero section">
       <div class="container">
         <div class="compact-hero-shell" data-aos="fade-up">
@@ -231,175 +350,114 @@
       </div>
     </section>
     
-    <!-- About Section -->
-<section id="about" class="about section">
-  <div class="container">
-    
-    <!-- <div class="section-title" data-aos="fade-up">
-      <h2>About Us</h2>
-      <h1>A space for AI practitioners to connect, learn, and grow through curated programs and a supportive community.</h1>
-    </div> -->
+    <section class="events-layout-section">
+      <div class="container">
+        
+        <!-- TWO-COLUMN STORY INTRO -->
+        <div class="brand-story-section">
+          <div class="row align-items-center">
+            <!-- Left Column: Image -->
+            <div class="col-lg-5 col-md-6" data-aos="fade-right" data-aos-duration="1000">
+              <div class="brand-story-img-wrapper">
+                <img src="assets/img/hero-carousel/kampung.png" alt="Traditional Kampung House Sketch" loading="lazy">
+              </div>
+            </div>
+            
+            <!-- Right Column: Text -->
+            <div class="col-lg-7 col-md-6 brand-story-content" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="150">
+              <h2>A Community of Communities.</h2>
+              <p><strong>"Lorong"</strong> is a Malay word that translates to "alley" or "lane" in English, evoking a sense of connection, exploration, and community.</p>
+              <p>In a fast-paced and ever-evolving field like AI, the need for a regular exchange of ideas and insights is critical.</p>
+              <p>Lorong AI provides a dynamic canvas where practitioners connect, share knowledge, and grow through seamless collaboration and impeccable environments.</p>
+            </div>
+          </div>
+        </div>
 
-    <div class="row gx-5">  
-      <!-- Left Column: About Us -->
-      <div class="col-lg-6">
-        <div class="about-feature-card">
-          <div class="section-title" data-aos="fade-up">
-            <h2>Membership</h2>
-            <p>Benefits</p>
+        <!-- ACCORDION FAQ SECTION (Flush Left) -->
+        <div class="faq-container mt-4">
+          <div class="section-header-left" data-aos="fade-up">
+            <h2>Frequently Asked Questions</h2>
+            <p>Learn more about our community and how things work at Lorong AI.</p>
           </div>
-          <div  class="content" data-aos="fade-up" data-aos-delay="100">
-            <ul style="text-align: justify;">
-              <li><i class="bi bi-check2-circle"></i> <span>Opportunity to<strong> cowork </strong>and access to a <strong>diverse network</strong> of Government, Industry and Research to drive <strong>cross-sector innovations</strong>.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Collaborate on <strong>live projects</strong> that <strong>bridge research and real-world applications.</strong></span></li>
-              <li><i class="bi bi-check2-circle"></i><span><strong>Access invite-only sessions</strong>, exclusive insights, and unique Lorong AI tools and resources.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span><strong>Priority access</strong> to Lorong AI events, workshops, and training.</span></li>
-            </ul>
-        </div>
-        </div>
-      </div>
-      <!-- Right Column -->
-      <div class="col-lg-6">
-        <div class="about-feature-card">
-          <div class="section-title" data-aos="fade-up">
-            <h2>Membership</h2>
-            <p>How it works</p>
-          </div>
-          <div class="content" data-aos="fade-up" data-aos-delay="100">
-            <ul style="text-align: justify;">
-              <li><i class="bi bi-check2-circle"></i> <span>Lorong AI's Membership is tied to <strong>co-working </strong>within our space.</span></li>
-                <li><i class="bi bi-check2-circle"></i> <span>Send in your interest through this <a href="https://form.gov.sg/670cf4d58f92af4544f2721f"> <strong>Interest Form</strong> </a>, we will get back to you ASAP</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Membership is open to all Government, Industry and Research professionals.</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      </div>
-  </div>
-</section>
+          
+          <div class="accordion lorong-accordion" id="faqAccordion">
+            
+            <!-- FAQ Item 1 (Closed by default) -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  What is Lorong AI?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Lorong AI is a collaborative hub bringing together government, industry, and research to build Singapore's AI ecosystem. We aim to connect practitioners to build AI for the public good.
+                </div>
+              </div>
+            </div>
 
-<!-- Slides Section -->
-<section id="slides" class="slides section">
-  <div class="container">
-    <div class="membership-shell">
-      <div class="section-title" data-aos="fade-up">
-        <h2>Membership</h2>
-        <p>How it works</p>
-      </div>
-      <div id="slides-carousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-                        <img src="assets/img/slidesub/AboutLorongSlide1.webp" class="d-block w-100" alt="Slide 1" loading="lazy">
-            <div class="carousel-caption d-none d-md-block">
+            <!-- FAQ Item 2 (Closed by default) -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Who is part of the community?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Our network includes over 300 core members and a community of 16,000+ AI practitioners. Members span across leading tech companies, research institutions, and various government agencies.
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="carousel-item">
-                        <img src="assets/img/slidesub/AboutLorongSlide2.webp" class="d-block w-100" alt="Slide 2" loading="lazy">
-            <div class="carousel-caption d-none d-md-block">
+
+            <!-- FAQ Item 3 (Closed by default) -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  How does the coworking space work?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Our dedicated spaces at 22X and One-North are designed for cross-sector innovation. Membership provides access to world-class infrastructure and allows you to co-locate with other AI professionals.
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="carousel-item">
-                        <img src="assets/img/slidesub/AboutLorongSlide3.jpg" class="d-block w-100" alt="Slide 3" loading="lazy">
-            <div class="carousel-caption d-none d-md-block">
-            </div>
-          </div>
-          <div class="carousel-item">
-                        <img src="assets/img/slidesub/AboutLorongSlide4.webp" class="d-block w-100" alt="Slide 4" loading="lazy">
-            <div class="carousel-caption d-none d-md-block">
-            </div>
-          </div>
-          <div class="carousel-item">
-                        <img src="assets/img/slidesub/AboutLorongSlide5.webp" class="d-block w-100" alt="Slide 5" loading="lazy">
-            <div class="carousel-caption d-none d-md-block">
-            </div>
-          </div>
-          <div class="carousel-item">
-                        <img src="assets/img/slidesub/AboutLorongSlide6.webp" class="d-block w-100" alt="Slide 6" loading="lazy">
-            <div class="carousel-caption d-none d-md-block">
-            </div>
-          </div>
-          <div class="carousel-item">
-                        <img src="assets/img/slidesub/AboutLorongSlide7.webp" class="d-block w-100" alt="Slide 7" loading="lazy">
-            <div class="carousel-caption d-none d-md-block">
-            </div>
-          </div>
-          <div class="carousel-item">
-                        <img src="assets/img/slidesub/AboutLorongSlide8.1.webp" class="d-block w-100" alt="Slide 8" loading="lazy">
-            <div class="carousel-caption d-none d-md-block">
-            </div>
+            
           </div>
         </div>
-        <a class="carousel-control-prev" href="#slides-carousel" role="button" data-bs-slide="prev" style="color: black;">
-          <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
-          <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#slides-carousel" role="button" data-bs-slide="next" style="color: black;">
-          <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
-          <span class="visually-hidden">Next</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="section-title" data-aos="fade-up">
+        <!-- LOCATIONS SECTION (Flush Left) -->
+        <div class="section-header-left" data-aos="fade-up" style="margin-top: 5rem;">
           <h2>Locations</h2>
-          <p>Where we are</p>
+          <p>Where to find us in Singapore.</p>
         </div>
-        <!-- Two Maps Section -->
-        <div class="row gy-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-          <!-- Location 1 Map -->
-          <div class="col-lg-6">
-            <h3 class="mb-3">Lorong AI @ 22X</h3>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.815994222124!2d103.84414787438143!3d1.2843242617841992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da190050378019%3A0x73d95210c9420b5e!2sLorong%20AI!5e0!3m2!1sen!2ssg!4v1745992237630!5m2!1sen!2ssg" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <div class="info-item d-flex mt-3">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h4>Address</h4>
-                <p>22 Cross St, Singapore 048421</p>
-              </div>
+
+        <div class="row gx-4 gy-4">
+          <!-- Location 1 -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="about-panel">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.815994222124!2d103.84414787438143!3d1.2843242617841992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da190050378019%3A0x73d95210c9420b5e!2sLorong%20AI!5e0!3m2!1sen!2ssg!4v1745992237630!5m2!1sen!2ssg" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <h3>Lorong AI @ 22X</h3>
+              <p><i class="bi bi-geo-alt me-2" style="color: #006633;"></i> 22 Cross St, Singapore 048421</p>
             </div>
           </div>
 
-          <!-- Location 2 Map -->
-          <div class="col-lg-6">
-            <h3 class="mb-3">Lorong AI @ One-North </h3>
-            <div style="position: relative; display: inline-block; width: 100%;">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.789!2d103.7866903!3d1.2962541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1b0035c0dfad%3A0xc7709becfd83b939!2s69%20Ayer%20Rajah%20Crescent%2C%20Singapore%20139961!5e0!3m2!1sen!2ssg!4v1745992237630!5m2!1sen!2ssg" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div class="info-item d-flex mt-3">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h4>Address </h4>
-                <p>Block 69 Ayer Rajah Crescent, Singapore 139961</p>
-              </div>
+          <!-- Location 2 -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="about-panel">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.789!2d103.7866903!3d1.2962541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1b0035c0dfad%3A0xc7709becfd83b939!2s69%20Ayer%20Rajah%20Crescent%2C%20Singapore%20139961!5e0!3m2!1sen!2ssg!4v1745992237630!5m2!1sen!2ssg" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <h3>Lorong AI @ One-North</h3>
+              <p><i class="bi bi-geo-alt me-2" style="color: #006633;"></i> Block 69 Ayer Rajah Crescent, Singapore 139961</p>
             </div>
           </div>
-        </div><!-- End Two Maps Section -->
-
-        <div class="row gy-4">
-
-          <!-- <div class="col-lg-4">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Follow us on LinkedIn</h3>
-                <p><a href="https://www.linkedin.com/company/lorong-ai" target="_blank" rel="noopener noreferrer">Lorong AI's Linkedin</a></p>
-              </div>
-            </div>
-          </div> -->
-
-
         </div>
 
       </div>
-
-    </section><!-- /Contact Section -->
+    </section>
 
   </main>
+
 <div id="footer-placeholder"></div>
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
