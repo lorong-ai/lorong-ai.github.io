@@ -21,14 +21,21 @@ const headerHTML = `
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 18px; /* Lorong AI logo-style rounding */
-    padding: 0.6rem 1.5rem;
-    width: 92%;
-    max-width: 1100px;
+    
+    /* Matches the 8px rounding of the "Join Us" button */
+    border-radius: 8px; 
+    
+    padding: 0.5rem 1rem;
+    
+    /* Centralized and tightly wrapped */
+    width: fit-content;
+    max-width: 92vw;
+    
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* Centers contents since we are using fit-content */
+    gap: 3rem; /* Adds even spacing between Logo, Nav, and CTA */
     transition: all 0.3s ease;
   }
 
@@ -38,19 +45,18 @@ const headerHTML = `
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
   }
 
-  /* Flexbox alignment for Left (Logo), Center (Nav), Right (CTA) */
   .floating-header .logo-container {
-    flex: 1;
     display: flex;
     justify-content: flex-start;
   }
   
   .floating-header .logo-container img {
-    max-height: 42px;
+    /* Increased by ~10% */
+    max-height: 46px; 
+    transition: transform 0.3s ease;
   }
 
   .floating-header .navmenu {
-    flex: 2;
     display: flex;
     justify-content: center;
   }
@@ -61,7 +67,7 @@ const headerHTML = `
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 2.5rem;
+    gap: 1.5rem;
   }
 
   .floating-header .navmenu a {
@@ -79,7 +85,6 @@ const headerHTML = `
   }
 
   .floating-header .header-cta {
-    flex: 1;
     display: flex;
     justify-content: flex-end;
   }
@@ -88,8 +93,11 @@ const headerHTML = `
     background: #139B48;
     color: #fff;
     border: none;
-    border-radius: 12px;
-    padding: 0.6rem 1.4rem;
+    
+    /* Ensure this also matches the 8px rounding */
+    border-radius: 8px; 
+    
+    padding: 0.5rem 1.1rem;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 0.9rem;
@@ -106,12 +114,11 @@ const headerHTML = `
 
   /* Mobile responsiveness */
   @media (max-width: 1199px) {
+    .floating-header {
+      gap: 1.5rem; /* Reduce gap on medium screens */
+    }
     .floating-header .navmenu ul {
       display: none; /* Hide default nav on mobile, handled by mobile toggle */
-    }
-    .floating-header .navmenu {
-      justify-content: flex-end;
-      padding-right: 1.5rem;
     }
   }
 
@@ -122,10 +129,15 @@ const headerHTML = `
     .floating-header {
       width: 95%;
       padding: 0.5rem 1rem;
+      gap: 1rem; /* Tighten gap for mobile */
+      justify-content: space-between; /* Spread elements out on tiny screens */
     }
     .floating-header .btn-getstarted {
       padding: 0.5rem 1rem;
       font-size: 0.85rem;
+    }
+    .floating-header .logo-container img {
+      max-height: 38px; /* Slightly smaller on mobile */
     }
   }
 </style>

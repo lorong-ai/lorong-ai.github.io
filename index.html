@@ -34,7 +34,6 @@
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
@@ -58,6 +57,34 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      overflow-x: hidden; /* Prevent horizontal scroll from animations */
+    }
+
+    /* ============================================ */
+    /* CUSTOM MOVEMENT & SCROLL ANIMATIONS         */
+    /* ============================================ */
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Staggered Delays for Groups */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* Parallax Helpers */
+    .parallax-wrapper {
+      overflow: hidden;
+      position: relative;
     }
 
     /* ============================================ */
@@ -67,9 +94,11 @@
     .hero-new {
       min-height: 90vh;
       background: 
-        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0) 80%),
-        url('assets/img/hero-carousel/ai_header.png') center right no-repeat;
-      background-size: cover;
+        /* Tightened gradient so it fades out earlier (at 55% instead of 80%) */
+        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
+        url('assets/img/hero-carousel/lai-header-op2.png') right center no-repeat;
+      /* Changed from cover to contain to prevent cropping the image */
+      background-size: contain;
       background-color: #ffffff;
       display: flex;
       flex-direction: column;
@@ -89,12 +118,13 @@
       max-width: 520px; 
       position: relative;
       z-index: 1;
+      will-change: transform; /* Prep for parallax */
     }
 
     /* THINNER FONT */
     .hero-new h1 {
       font-size: clamp(2.5rem, 4.5vw, 4rem);
-      font-weight: 700; /* Thinned from 900 */
+      font-weight: 700;
       margin-bottom: 1.5rem;
       line-height: 1.1;
       color: var(--text-dark); 
@@ -105,7 +135,7 @@
     .hero-new h1 .life-cursive {
       color: var(--primary-green);
       font-family: "Playwrite GB S", cursive; 
-      font-weight: 300; /* Thinned from 400 */
+      font-weight: 300;
       font-style: normal;
       text-shadow: none;
     }
@@ -120,14 +150,14 @@
       font-weight: 400;
     }
 
-    /* THINNER DIVIDER */
     .street-sign-divider {
       width: 100px;
-      height: 3px; /* Thinned from 5px */
+      height: 3px; 
       background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-yellow) 100%);
       margin: 1.5rem 0 2.5rem; 
       position: relative;
       border-radius: 3px;
+      transform-origin: left;
     }
 
     /* ============================================ */
@@ -177,13 +207,13 @@
       background: transparent;
       border-radius: 0;
       border: none;
-      transition: all 0.3s;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       align-items: start;
       height: 100%;
     }
 
     .feature-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
     }
 
     .feature-image {
@@ -193,18 +223,20 @@
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      will-change: transform;
     }
 
     .feature-image img {
       width: 100%;
-      height: 100%;
+      height: 110%; /* Slightly larger for parallax space */
       object-fit: cover;
       display: block;
-      transition: transform 0.5s;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: center;
     }
 
     .feature-card:hover .feature-image img {
-      transform: scale(1.03);
+      transform: scale(1.05);
     }
 
     .feature-content h2 {
@@ -318,7 +350,7 @@
     }
 
     .sushi-item:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.02);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
@@ -388,14 +420,15 @@
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
       border: none;
     }
 
     .btn-dark-pill:hover {
       background-color: #111111;
       color: #ffffff;
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
 
     .btn-dark-pill i {
@@ -423,9 +456,10 @@
       .hero-content { max-width: 100%; }
       .hero-new {
         background: 
+          /* Updated mobile gradient & image size handling */
           linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0) 100%),
-          url('assets/img/hero-carousel/ai_header.png') center center no-repeat;
-        background-size: cover;
+          url('assets/img/hero-carousel/lai-header-op2.png') center bottom no-repeat;
+        background-size: contain;
       }
     }
 
@@ -446,15 +480,15 @@
     <!-- HERO SECTION                                -->
     <!-- ============================================ -->
     <section class="hero-new">
-      <div class="hero-content">
+      <div class="hero-content scroll-reveal">
         
-        <h1 data-aos="fade-up" data-aos-duration="1000">
-  From prompt to deployment, AI comes to <span class="life-cursive">life</span> here.
-</h1>
+        <h1>
+          From prompt to deployment, AI comes to <span class="life-cursive">life</span> here.
+        </h1>
         
-        <div class="street-sign-divider" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="800"></div>
+        <div class="street-sign-divider scroll-reveal delay-1"></div>
         
-        <p class="hero-description" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+        <p class="hero-description scroll-reveal delay-2">
           Lorong AI brings together government, industry, and research to build Singapore's AI ecosystem. We are a collaborative hub where AI problem solvers connect, innovate, and ensure every problem gets solved here.
         </p>
 
@@ -466,15 +500,15 @@
     <!-- ============================================ -->
     <section class="members-section">
       <div class="container">
-        <div class="section-header-left" data-aos="fade-right">
+        <div class="section-header-left scroll-reveal">
           <h2>Members and Affiliates</h2>
           <p>The organizations bringing AI to life.</p>
         </div>
         
-        <div class="members-sushi-section" data-aos="fade-up" data-aos-delay="200">
+        <div class="members-sushi-section scroll-reveal delay-1">
           <div class="sushi-belt">
             <div class="sushi-track sushi-track--left" id="sushi-track-1">
-              <!-- Sushi items will be populated by JS, ensuring full color logos inside the .sushi-item class -->
+              <!-- Sushi items will be populated by JS -->
             </div>
           </div>
           <div class="sushi-belt">
@@ -491,18 +525,18 @@
     <!-- ============================================ -->
     <section class="features-section" id="about">
       <div class="container">
-        <div class="section-header-left" data-aos="fade-right">
+        <div class="section-header-left scroll-reveal">
           <h2>Why Lorong AI</h2>
           <p>The core pillars that make our ecosystem the best place for AI problem solvers.</p>
         </div>
 
         <div class="features-grid">
           <!-- Card 1: Community -->
-          <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="feature-image">
+          <div class="feature-card scroll-reveal delay-1">
+            <div class="feature-image parallax-img-container">
               <picture>
                 <source srcset="assets/img/hero-carousel/Min Visit_Image 1.jpeg" type="image/jpeg">
-                <img src="assets/img/hero-carousel/Min Visit_Image 1.jpeg" alt="Community members" loading="lazy">
+                <img src="assets/img/hero-carousel/Min Visit_Image 1.jpeg" alt="Community members" class="parallax-img" loading="lazy">
               </picture>
             </div>
             <div class="feature-content">
@@ -512,9 +546,9 @@
           </div>
 
           <!-- Card 2: Services -->
-          <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-image">
-              <img src="assets/img/hero-carousel/cwm12.jpg" alt="Co-working space and services" loading="lazy">
+          <div class="feature-card scroll-reveal delay-2">
+            <div class="feature-image parallax-img-container">
+              <img src="assets/img/hero-carousel/cwm12.jpg" alt="Co-working space and services" class="parallax-img" loading="lazy">
             </div>
             <div class="feature-content">
               <h2>Services</h2>
@@ -523,11 +557,11 @@
           </div>
 
           <!-- Card 3: Events -->
-          <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="feature-image">
+          <div class="feature-card scroll-reveal delay-3">
+            <div class="feature-image parallax-img-container">
               <picture>
                 <source srcset="assets/img/hero-carousel/Lorong AI Deck (3).webp" type="image/webp">
-                <img src="assets/img/hero-carousel/Lorong AI Deck (3).jpg" alt="AI events" loading="lazy">
+                <img src="assets/img/hero-carousel/Lorong AI Deck (3).jpg" alt="AI events" class="parallax-img" loading="lazy">
               </picture>
             </div>
             <div class="feature-content">
@@ -544,15 +578,14 @@
     <!-- ============================================ -->
     <section class="cta-section">
       <div class="container">
-        <div class="cta-content" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="cta-content scroll-reveal">
           <h2>Join our Community</h2>
           
-          <div class="cta-buttons-main">
-            <!-- No icon on the main button to match the reference -->
+          <div class="cta-buttons-main scroll-reveal delay-1">
             <a href="https://form.gov.sg/670cf4d58f92af4544f2721f" class="btn-dark-pill">Become a Member</a>
           </div>
           
-          <div class="cta-buttons-social">
+          <div class="cta-buttons-social scroll-reveal delay-2">
             <a href="events.html" class="btn-dark-pill"><i class="bi bi-calendar-event"></i> View Events</a>
             <a href="https://go.gov.sg/lai-share" class="btn-dark-pill"><i class="bi bi-mic"></i> Become a Speaker</a>
             <a href="#" class="btn-dark-pill"><i class="bi bi-linkedin"></i> LinkedIn</a>
@@ -572,10 +605,9 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
+  <!-- Vendor JS Files (Removed AOS as we use custom logic now) -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
   <script src="assets/vendor/php-email-form/validate.js" defer></script>
-  <script src="assets/vendor/aos/aos.js" defer></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
@@ -587,6 +619,77 @@
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/include.js?v=4" defer></script>
 
-</body>
+  <!-- ============================================ -->
+  <!-- CUSTOM SMOOTH SCROLL & PARALLAX SCRIPT       -->
+  <!-- ============================================ -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      
+      // 1. Bidirectional Reveal on Scroll (Replaces AOS)
+      const revealElements = document.querySelectorAll('.scroll-reveal');
+      
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          } else {
+            // Remove the class when it leaves the viewport to allow it to animate again when scrolling back up
+            entry.target.classList.remove('is-visible');
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -10% 0px', // Triggers slightly before it hits the bottom
+        threshold: 0.1
+      });
 
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      // 2. Smooth Parallax Effect on Hero Text and Feature Images
+      const heroContent = document.querySelector('.hero-content');
+      const parallaxImages = document.querySelectorAll('.parallax-img');
+      
+      let lastScrollY = window.scrollY;
+      let ticking = false;
+
+      function updateParallax() {
+        const scrollY = window.scrollY;
+        
+        // Hero Parallax (moves down slightly as you scroll down)
+        if (heroContent && scrollY < window.innerHeight) {
+          heroContent.style.transform = `translateY(${scrollY * 0.25}px)`;
+        }
+
+        // Feature Images Parallax (subtle image shift based on position)
+        parallaxImages.forEach(img => {
+          const container = img.closest('.parallax-img-container');
+          if (!container) return;
+          
+          const rect = container.getBoundingClientRect();
+          const viewHeight = window.innerHeight;
+          
+          // Only animate if the element is in the viewport
+          if (rect.top <= viewHeight && rect.bottom >= 0) {
+            // Calculate a value between -1 and 1 depending on where the element is in the viewport
+            const scrollPercentage = (rect.top / viewHeight) - 0.5; 
+            img.style.transform = `translateY(${scrollPercentage * 30}px) scale(1.05)`;
+          }
+        });
+
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+          window.requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      });
+      
+      // Trigger once on load
+      updateParallax();
+    });
+  </script>
+</body>
 </html>
