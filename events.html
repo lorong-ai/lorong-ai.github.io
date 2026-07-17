@@ -144,6 +144,7 @@
     }
 
     .events-copy-head {
+      margin-top: 3.75rem;
       margin-bottom: 1.5rem;
     }
 
@@ -502,8 +503,8 @@
     }
 
     .calendar-copy-head {
-      margin-top: 3rem;
-      margin-bottom: 1rem;
+      margin-top: 3.75rem;
+      margin-bottom: 1.25rem;
     }
 
     .calendar-copy-head h2 {
@@ -531,6 +532,75 @@
       background: rgba(255, 255, 255, 0.98);
       border: 1px solid rgba(0, 102, 51, 0.08);
       box-shadow: 0 20px 40px rgba(9, 33, 20, 0.06);
+    }
+
+    .recent-recaps-section {
+      margin-top: 3.75rem;
+    }
+
+    .recent-recaps-card {
+      min-height: 420px;
+      padding: 2rem;
+      border-radius: 28px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 102, 51, 0.08);
+      box-shadow: 0 18px 34px rgba(9, 33, 20, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .recent-recaps-card h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-weight: 800;
+      color: #17231c;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .recent-recaps-card p {
+      margin: 0;
+      color: #53625c;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .recent-recaps-embed {
+      flex: 1;
+      min-height: 560px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #f7faf8;
+      border: 1px solid rgba(0, 102, 51, 0.08);
+    }
+
+    .recent-recaps-embed iframe {
+      width: 100%;
+      min-height: 560px;
+      border: 0;
+      background: #ffffff;
+    }
+
+    .recent-recaps-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: fit-content;
+      padding: 0.8rem 1.15rem;
+      border-radius: 999px;
+      background: #139B48;
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .recent-recaps-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(19, 155, 72, 0.19);
+      color: #ffffff;
     }
 
     .calendar-panel-head {
@@ -659,6 +729,10 @@
 </head>
 
 <body class="services-page events-page-shell">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGRVTMZC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <div id="header-placeholder"></div>
 
   <main class="main">
@@ -678,8 +752,24 @@
 
     <section class="events-layout-section">
       <div class="container">
+        <div class="calendar-copy-head" data-aos="fade-up" data-aos-delay="120">
+          <h2>Join Our Next Session</h2>
+        </div>
+
+        <div class="calendar-panel" data-aos="fade-up" data-aos-delay="140">
+          <div class="luma-calendar-container">
+            <iframe
+              src="https://lu.ma/embed/calendar/cal-6iIeDGNQ7vK8cfx/events?lt=light"
+              frameborder="0"
+              allowfullscreen=""
+              aria-hidden="false"
+              tabindex="0">
+            </iframe>
+          </div>
+        </div>
+
         <div class="events-copy-head" data-aos="fade-up">
-          <h2>Events at Lorong AI</h2>
+          <h2>Explore Our Event Series</h2>
         </div>
 
         <div class="events-slider-shell" data-aos="fade-up" data-aos-delay="80">
@@ -987,21 +1077,23 @@
           </button>
         </div>
 
-        <div class="calendar-copy-head" data-aos="fade-up" data-aos-delay="120">
-          <h2>What’s happening at Lorong AI</h2>
-        </div>
-
-        <div class="calendar-panel" data-aos="fade-up" data-aos-delay="140">
-          <div class="luma-calendar-container">
-            <iframe
-              src="https://lu.ma/embed/calendar/cal-6iIeDGNQ7vK8cfx/events?lt=light"
-              frameborder="0"
-              allowfullscreen=""
-              aria-hidden="false"
-              tabindex="0">
-            </iframe>
+        <section class="recent-recaps-section" data-aos="fade-up" data-aos-delay="100">
+          <div class="recent-recaps-card">
+            <h2>Recent Recaps</h2>
+            <p>Catch the latest Lorong AI updates, event highlights, and community stories from our LinkedIn page.</p>
+            <div class="recent-recaps-embed">
+              <iframe
+                src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7480198962034024449"
+                allowfullscreen=""
+                title="Lorong AI LinkedIn post"
+                loading="lazy"></iframe>
+            </div>
+            <a class="recent-recaps-link" href="https://www.linkedin.com/posts/lorong-ai_ai-llmbehavior-affectivecomputing-activity-7480198962034024449-ppuS" target="_blank" rel="noreferrer noopener">
+              Open latest post on LinkedIn
+            </a>
           </div>
-        </div>
+        </section>
+
       </div>
     </section>
 
