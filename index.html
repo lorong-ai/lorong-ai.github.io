@@ -52,12 +52,12 @@
       --text-medium: #4a4a4a;
       --text-light: #666666;
       --bg-light: #f8f9fa;
-      --members-bg: #dbd8d8;
+      --members-bg: #f4f6f8; 
     }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-      overflow-x: hidden; /* Prevent horizontal scroll from animations */
+      overflow-x: hidden; 
     }
 
     /* ============================================ */
@@ -76,12 +76,21 @@
       transform: translateY(0) scale(1);
     }
 
-    /* Staggered Delays for Groups */
+    /* FLUID SCROLL HEADERS (Tied to scrollbar) */
+    .fluid-header-container {
+      position: relative;
+      width: 100%;
+    }
+    .fluid-header-inner {
+      will-change: transform, opacity;
+      opacity: 0; 
+      transform: translateY(60px) scale(0.85); /* Starting state for the scale effect */
+    }
+
     .delay-1 { transition-delay: 0.1s; }
     .delay-2 { transition-delay: 0.2s; }
     .delay-3 { transition-delay: 0.3s; }
 
-    /* Parallax Helpers */
     .parallax-wrapper {
       overflow: hidden;
       position: relative;
@@ -94,10 +103,8 @@
     .hero-new {
       min-height: 90vh;
       background: 
-        /* Tightened gradient so it fades out earlier (at 55% instead of 80%) */
         linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
         url('assets/img/hero-carousel/lai-header-op2.png') right center no-repeat;
-      /* Changed from cover to contain to prevent cropping the image */
       background-size: contain;
       background-color: #ffffff;
       display: flex;
@@ -118,10 +125,9 @@
       max-width: 520px; 
       position: relative;
       z-index: 1;
-      will-change: transform; /* Prep for parallax */
+      will-change: transform; 
     }
 
-    /* THINNER FONT */
     .hero-new h1 {
       font-size: clamp(2.5rem, 4.5vw, 4rem);
       font-weight: 700;
@@ -161,126 +167,35 @@
     }
 
     /* ============================================ */
-    /* FEATURES SECTION                            */
+    /* SHARED HEADER STYLES                        */
     /* ============================================ */
-    
-    .features-section {
-      padding: 6rem 5% 4rem;
-      background: white;
+
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 5rem;
+      z-index: 10;
     }
 
-    .section-header-left {
-      max-width: 1400px;
-      margin: 0 auto 3rem;
-      text-align: left;
-    }
-
-    .section-header-left h2 {
-      margin: 0 0 0.65rem;
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
-      font-weight: 800;
-      color: #17231c;
-    }
-    
-    .section-header-left p {
-      margin: 0;
-      max-width: 70ch;
-      color: #5b6762;
-      line-height: 1.8;
-      font-size: 1.05rem;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      max-width: 1400px;
-      margin: 0 auto;
-      gap: 2rem;
-      align-items: start;
-    }
-
-    .feature-card {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      padding: 0;
-      background: transparent;
-      border-radius: 0;
-      border: none;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      align-items: start;
-      height: 100%;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-8px);
-    }
-
-    .feature-image {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      will-change: transform;
-    }
-
-    .feature-image img {
-      width: 100%;
-      height: 110%; /* Slightly larger for parallax space */
-      object-fit: cover;
-      display: block;
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-origin: center;
-    }
-
-    .feature-card:hover .feature-image img {
-      transform: scale(1.05);
-    }
-
-    .feature-content h2 {
-      font-size: 1.75rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .section-header-center h2 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 700;
       color: var(--text-dark);
-      position: relative;
-      display: inline-block;
+      letter-spacing: -0.02em;
     }
 
-    .feature-content h2::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 50px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary-yellow) 0%, var(--primary-green) 100%);
-    }
-
-    .feature-content {
-      display: flex;
-      flex-direction: column;
-      padding: 1.5rem 0;
-      flex: 1;
-    }
-
-    .feature-content p {
-      color: var(--text-medium);
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin: 0;
+    .section-header-center p {
+      color: #5b6762;
+      font-size: 1.1rem;
+      margin-top: 1rem;
     }
 
     /* ============================================ */
-    /* SUSHI BELT - COLORFUL MEMBERS               */
+    /* MEMBERS SECTION                             */
     /* ============================================ */
     
     .members-section {
-      padding: 4rem 5% 6rem;
-      background: var(--members-bg);
+      padding: 12rem 5% 10rem;
+      background: var(--members-bg); 
     }
 
     .members-sushi-section {
@@ -305,6 +220,7 @@
       width: max-content;
       animation: sushi-scroll var(--duration, 40s) linear infinite;
       will-change: transform;
+      padding: 15px 0; 
     }
 
     .sushi-track--left { animation-name: sushi-scroll-left; }
@@ -325,8 +241,8 @@
       flex-shrink: 0;
       width: 180px;
       height: 100px;
-      background: #ffffff;
-      border: 1px solid rgba(19, 155, 72, 0.1);
+      background: #ffffff; 
+      border: 1px solid rgba(0, 0, 0, 0.05);
       border-radius: 16px;
       display: flex;
       align-items: center;
@@ -338,13 +254,19 @@
       z-index: 1;
     }
 
+    /* Masking technique for a perfect rounded gradient border */
     .sushi-item::before {
       content: '';
       position: absolute;
-      inset: -2px;
-      border-radius: 18px;
-      background: linear-gradient(45deg, var(--primary-green), var(--primary-yellow), #00d2ff);
-      z-index: -1;
+      inset: -1px; /* Overlaps the default 1px border */
+      border-radius: 16px; /* Matches the card */
+      padding: 2px; /* Border thickness */
+      background: linear-gradient(45deg, var(--primary-green), var(--primary-yellow), #00d2ff); 
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: 2;
+      pointer-events: none;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
@@ -370,79 +292,402 @@
     }
 
     /* ============================================ */
-    /* CTA BOTTOM SECTION                          */
+    /* TESTIMONIALS (Hand-Fan Deck Spread Style)   */
     /* ============================================ */
     
-    .cta-section {
-      padding: 5rem 5%; 
-      background: linear-gradient(90deg, #d9fa7685 0%, #a2e88a 100%);
-      text-align: center;
-      color: var(--text-dark);
+    .testimonials-section {
       position: relative;
-      overflow: hidden;
+      height: 130vh; 
+      background: var(--bg-light);
     }
 
-    .cta-content {
-      max-width: 800px;
-      margin: 0 auto;
+    .testimonials-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 2rem;
     }
 
-    .cta-section h2 {
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 5rem; 
+      z-index: 10;
+    }
+
+    .testimonials-header h2 {
       font-size: clamp(2.2rem, 4vw, 3rem);
       font-weight: 700;
-      margin-bottom: 0.5rem;
       color: var(--text-dark);
       letter-spacing: -0.02em;
     }
 
-    .cta-buttons-main {
-      margin-bottom: 0.5rem;
+    .deck-container {
+      position: relative;
+      width: 500px;
+      height: 280px; 
+      margin: 0 auto;
     }
 
-    .cta-buttons-social {
+    .t-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+      padding: 2.2rem 2.5rem;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.1);
       display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
+      will-change: transform;
+      border: 1px solid rgba(0,0,0,0.04);
+      transform-origin: center bottom;
+      transition: margin-top 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
     }
 
-    .btn-dark-pill {
-      background-color: #2a2a2a;
-      color: #ffffff;
-      border-radius: 8px;
+    .t-card:hover {
+      z-index: 100 !important; 
+      margin-top: -20px; 
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2) !important;
+      cursor: pointer;
+    }
+
+    .t-stars {
+      display: flex;
+      gap: 3px;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .t-card p {
+      font-size: 1.15rem;
+      font-weight: 500;
+      line-height: 1.5;
+      margin: 0 0 auto 0;
+      letter-spacing: -0.01em;
+    }
+
+    .author-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 1rem;
+      position: relative;
+    }
+
+    .author-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .author-info strong {
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: block;
+      line-height: 1.2;
+    }
+
+    .author-info span {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .quote-icon {
+      position: absolute;
+      right: 0;
+      bottom: -10px;
+      font-size: 3rem;
+      opacity: 0.15;
+    }
+
+    .t-card-1 {
+      background-color: #1a1a1c;
+      color: #fff;
+      z-index: 1;
+    }
+    .t-card-1 .t-stars { color: var(--primary-yellow); }
+    .t-card-1 .author-avatar { background: #333; color: #fff; }
+
+    .t-card-2 {
+      background-color: #eef7f1; 
+      color: #111;
+      z-index: 2;
+    }
+    .t-card-2 .t-stars { color: var(--primary-green); }
+    .t-card-2 .author-avatar { background: #139B48; color: #fff; }
+
+    .t-card-3 {
+      background-color: var(--primary-yellow); 
+      color: #111;
+      z-index: 3;
+    }
+    .t-card-3 .t-stars { color: #d19a00; }
+    .t-card-3 .author-avatar { background: #111; color: #FFD100; }
+
+    .t-card-4 {
+      background-color: #ffffff; 
+      border: 2px solid var(--primary-green);
+      color: #111;
+      z-index: 4;
+    }
+    .t-card-4 .t-stars { color: var(--primary-yellow); }
+    .t-card-4 .author-avatar { background: var(--primary-green); color: #fff; }
+
+    .t-card-5 {
+      background-color: var(--primary-green); 
+      color: #fff;
+      z-index: 5;
+    }
+    .t-card-5 .t-stars { color: var(--primary-yellow); }
+    .t-card-5 .author-avatar { background: #fff; color: var(--primary-green); }
+
+    /* ============================================ */
+    /* PROBLEM SOLVERS SECTION (Clean Terminal Layout) */
+    /* ============================================ */
+    
+    .problem-solvers-section {
+      padding: 8rem 5% 7rem;
+      background: #fcfcfc; 
+      color: var(--text-dark);
+    }
+
+    .problem-solvers-section .section-header-center h2 {
+      color: var(--text-dark);
+    }
+
+    .problem-solvers-section .section-header-center p {
+      color: var(--text-medium);
+      font-size: 1.25rem;
+    }
+
+    .terminal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 1100px;
+      margin: 0 auto;
+      gap: 3rem;
+      align-items: stretch; 
+    }
+
+    .terminal-card {
+      background: #ffffff; 
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex-start;
+      flex-direction: column;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3); 
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+      border: 1px solid #cfcfcf;
+      height: 100%; 
+    }
+
+    .terminal-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+    }
+
+    .terminal-header {
+      background: #f1eeee; 
+      padding: 12px 15px;
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid #ece9e9;
+    }
+
+    .term-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .terminal-body {
+      padding: 2.5rem 2rem;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #000000; 
+      flex-grow: 1; 
+      
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .term-line {
+      display: block;
+      margin-bottom: 0.5rem;
+      word-wrap: break-word;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .terminal-card.is-visible .term-line {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .terminal-card .term-line:nth-child(1) { transition-delay: 0.2s; }
+    .terminal-card .term-line:nth-child(2) { transition-delay: 0.35s; }
+    .terminal-card .term-line:nth-child(3) { transition-delay: 0.5s; }
+    .terminal-card .term-line:nth-child(4) { transition-delay: 0.65s; }
+
+    .term-line.highlight {
+      color:#139b47; 
+      font-weight: 700;
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    /* ============================================ */
+    /* CTA BOTTOM SECTION                          */
+    /* ============================================ */
+    
+    .cta-section {
+      padding: 8rem 5%; 
+      background: #ffffff; /* Clear white background */
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .cta-content {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .cta-content .fluid-header-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Header text styling */
+    .cta-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--primary-green); 
+      line-height: 1.2;
+      margin-bottom: 3.5rem;
+      letter-spacing: -0.02em;
+    }
+    
+    /* Override standard scroll-reveal so we can use our custom odometer keyframe */
+    .cta-title.scroll-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    /* Odometer / Flip effect styles */
+    .flip-wrapper {
+      display: inline-block;
+      overflow: hidden; /* Masks the text before it rolls up */
+      vertical-align: bottom;
+      padding: 0.1em; /* Buffer for shadow/overshoot */
+      margin: -0.1em;
+    }
+
+    .flip-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(110%) rotateX(-45deg);
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+
+    /* Triggers when the IntersectionObserver adds .is-visible */
+    .cta-title.is-visible .flip-word {
+      /* cubic-bezier adds that physical, snappy overshoot bounce */
+      animation: odometerRoll 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    /* Stagger the words for the mechanical feel */
+    .cta-title.is-visible .flip-word-1 { animation-delay: 0.0s; }
+    .cta-title.is-visible .flip-word-2 { animation-delay: 0.15s; }
+    .cta-title.is-visible .flip-word-3 { animation-delay: 0.3s; }
+
+    @keyframes odometerRoll {
+      0% {
+        transform: translateY(110%) rotateX(-60deg);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0) rotateX(0deg);
+        opacity: 1;
+      }
+    }
+
+    .cta-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 4rem;
+      width: 100%;
+    }
+
+    .cta-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1.2rem;
+      flex: 0 1 350px; /* Gives them a solid fixed width layout */
+    }
+
+    .cta-card p {
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Outline styling that fills on hover */
+    .btn-action-pill {
+      background-color: transparent;
+      color: var(--text-dark);
+      border: 2px solid var(--text-dark);
+      border-radius: 8px; /* Maintained roundness */
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
-      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-      border: none;
+      transition: all 0.3s ease;
+      padding: 0.9rem 2.2rem;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
     }
 
-    .btn-dark-pill:hover {
-      background-color: #111111;
+    .btn-action-pill:hover {
+      background-color: var(--primary-green);
       color: #ffffff;
+      border-color: var(--primary-green);
       transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 20px rgba(19, 155, 72, 0.25);
     }
 
-    .btn-dark-pill i {
-      font-size: 1.1em;
-    }
-
-    .cta-buttons-main .btn-dark-pill {
-      padding: 1rem 3rem;
-      font-size: 1.15rem;
-    }
-
-    .cta-buttons-social .btn-dark-pill {
-      padding: 0.6rem 1.4rem;
-      font-size: 0.9rem;
+    .btn-action-pill i {
+      font-size: 1.2em;
     }
 
     /* ============================================ */
@@ -450,13 +695,11 @@
     /* ============================================ */
     
     @media (max-width: 991px) {
-      .features-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .feature-image { aspect-ratio: 21 / 9; }
+      .terminal-grid { grid-template-columns: 1fr; gap: 2rem; }
       .hero-new h1 { font-size: clamp(2.2rem, 7vw, 3.2rem); }
       .hero-content { max-width: 100%; }
       .hero-new {
         background: 
-          /* Updated mobile gradient & image size handling */
           linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0) 100%),
           url('assets/img/hero-carousel/lai-header-op2.png') center bottom no-repeat;
         background-size: contain;
@@ -465,7 +708,28 @@
 
     @media (max-width: 768px) {
       .sushi-item { width: 140px; height: 80px; }
-      .cta-section { padding: 4rem 5%; }
+      .deck-container {
+        width: 90vw;
+        height: 280px;
+      }
+      .t-card {
+        padding: 1.5rem 1.5rem;
+      }
+      .t-card p {
+        font-size: 0.95rem;
+      }
+      .quote-icon {
+        font-size: 2rem;
+        bottom: -5px;
+      }
+      .members-section {
+        padding: 8rem 5% 7rem;
+      }
+      .terminal-body { font-size: 1rem; padding: 1.5rem; }
+      .term-line.highlight { font-size: 1.8rem; margin-bottom: 1rem; }
+      .cta-section { padding: 5rem 5%; }
+      .cta-grid { gap: 3.5rem; flex-direction: column; align-items: center; }
+      .cta-title { margin-bottom: 3rem; }
     }
   </style>
 </head>
@@ -496,13 +760,16 @@
     </section>
 
     <!-- ============================================ -->
-    <!-- MEMBERS SECTION (Colorful Sushi Belt)       -->
+    <!-- MEMBERS SECTION                             -->
     <!-- ============================================ -->
     <section class="members-section">
       <div class="container">
-        <div class="section-header-left scroll-reveal">
-          <h2>Members and Affiliates</h2>
-          <p>The organizations bringing AI to life.</p>
+        <!-- Scroll-linked fluid header container -->
+        <div class="section-header-center fluid-header-container">
+          <div class="fluid-header-inner">
+            <h2>Members and Affiliates</h2>
+            <p>The organizations bringing AI to life.</p>
+          </div>
         </div>
         
         <div class="members-sushi-section scroll-reveal delay-1">
@@ -521,52 +788,144 @@
     </section>
 
     <!-- ============================================ -->
-    <!-- FEATURES SECTION (Reasons to Believe)       -->
+    <!-- TESTIMONIALS (Phantom-Style 5-Card Deck)    -->
     <!-- ============================================ -->
-    <section class="features-section" id="about">
+    <section class="testimonials-section">
+      <div class="testimonials-sticky">
+        <div class="container">
+          <!-- Scroll-linked fluid header container -->
+          <div class="testimonials-header fluid-header-container">
+            <div class="fluid-header-inner">
+              <h2>Loved by the Ecosystem</h2>
+            </div>
+          </div>
+          
+          <div class="deck-container mx-auto">
+            <!-- Card 1 (Bottom) -->
+            <div class="t-card t-card-1">
+              <div class="t-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"The scale and focus of this community is unprecedented in Singapore. Lorong AI is exactly what we needed to bridge theory and practice."</p>
+              <div class="author-row">
+                 <div class="author-avatar">J</div>
+                 <div class="author-info">
+                   <strong>James L.</strong>
+                   <span>Research Lead</span>
+                 </div>
+                 <i class="bi bi-quote quote-icon"></i>
+              </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="t-card t-card-2">
+              <div class="t-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"The resources and shared knowledge here have accelerated our startup's deployment timeline by several months."</p>
+              <div class="author-row">
+                 <div class="author-avatar">A</div>
+                 <div class="author-info">
+                   <strong>Anita C.</strong>
+                   <span>Startup Founder</span>
+                 </div>
+                 <i class="bi bi-quote quote-icon"></i>
+              </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="t-card t-card-3">
+              <div class="t-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"I found my technical co-founder at one of the Friday mixers. The caliber of talent in this network is absolutely incredible."</p>
+              <div class="author-row">
+                 <div class="author-avatar">M</div>
+                 <div class="author-info">
+                   <strong>Marcus T.</strong>
+                   <span>AI Developer</span>
+                 </div>
+                 <i class="bi bi-quote quote-icon"></i>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="t-card t-card-4">
+              <div class="t-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"Our team relies heavily on the shared infographics and recap notes. Lorong AI makes keeping up with AI progress manageable."</p>
+              <div class="author-row">
+                 <div class="author-avatar">S</div>
+                 <div class="author-info">
+                   <strong>Sarah W.</strong>
+                   <span>Product Manager</span>
+                 </div>
+                 <i class="bi bi-quote quote-icon"></i>
+              </div>
+            </div>
+
+            <!-- Card 5 (Top) -->
+            <div class="t-card t-card-5">
+              <div class="t-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"Lorong AI completely transformed the way our team approaches machine learning. The co-working space feels like home."</p>
+              <div class="author-row">
+                 <div class="author-avatar">D</div>
+                 <div class="author-info">
+                   <strong>David K.</strong>
+                   <span>Data Scientist</span>
+                 </div>
+                 <i class="bi bi-quote quote-icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PROBLEM SOLVERS SECTION (Clean Terminal Layout) -->
+    <!-- ============================================ -->
+    <section class="problem-solvers-section" id="about">
       <div class="container">
-        <div class="section-header-left scroll-reveal">
-          <h2>Why Lorong AI</h2>
-          <p>The core pillars that make our ecosystem the best place for AI problem solvers.</p>
+        <!-- Scroll-linked fluid header container -->
+        <div class="section-header-center fluid-header-container">
+          <div class="fluid-header-inner">
+            <h2>A community of AI problem solvers.</h2>
+            <p>This means two things at once, by design:</p>
+          </div>
         </div>
 
-        <div class="features-grid">
-          <!-- Card 1: Community -->
-          <div class="feature-card scroll-reveal delay-1">
-            <div class="feature-image parallax-img-container">
-              <picture>
-                <source srcset="assets/img/hero-carousel/Min Visit_Image 1.jpeg" type="image/jpeg">
-                <img src="assets/img/hero-carousel/Min Visit_Image 1.jpeg" alt="Community members" class="parallax-img" loading="lazy">
-              </picture>
+        <div class="terminal-grid">
+          <!-- Terminal 1 -->
+          <div class="terminal-card scroll-reveal delay-1">
+            <div class="terminal-header">
+              <span class="term-dot dot-red"></span>
+              <span class="term-dot dot-yellow"></span>
+              <span class="term-dot dot-green"></span>
             </div>
-            <div class="feature-content">
-              <h2>Community</h2>
-              <p>Join a culture of generosity and technical curiosity. Connect with 16,000+ AI problem solvers dedicated to peer learning and building AI solutions that matter.</p>
-            </div>
-          </div>
-
-          <!-- Card 2: Services -->
-          <div class="feature-card scroll-reveal delay-2">
-            <div class="feature-image parallax-img-container">
-              <img src="assets/img/hero-carousel/cwm12.jpg" alt="Co-working space and services" class="parallax-img" loading="lazy">
-            </div>
-            <div class="feature-content">
-              <h2>Services</h2>
-              <p>We facilitate active market matching activities. Whether you need talent, tools, or partnerships, we connect you to the right ecosystem partner so your problem gets solved here.</p>
+            <div class="terminal-body">
+              <span class="term-line highlight">Solving AI problems</span>
+              <span class="term-line">Practitioners, researchers and builders</span>
+              <span class="term-line">pushing what AI can do.</span>
+              <span class="term-line">  </span>
             </div>
           </div>
 
-          <!-- Card 3: Events -->
-          <div class="feature-card scroll-reveal delay-3">
-            <div class="feature-image parallax-img-container">
-              <picture>
-                <source srcset="assets/img/hero-carousel/Lorong AI Deck (3).webp" type="image/webp">
-                <img src="assets/img/hero-carousel/Lorong AI Deck (3).jpg" alt="AI events" class="parallax-img" loading="lazy">
-              </picture>
+          <!-- Terminal 2 -->
+          <div class="terminal-card scroll-reveal delay-2">
+            <div class="terminal-header">
+              <span class="term-dot dot-red"></span>
+              <span class="term-dot dot-yellow"></span>
+              <span class="term-dot dot-green"></span>
             </div>
-            <div class="feature-content">
-              <h2>Events</h2>
-              <p>With 5 curated events per week—ranging from technical deep-dives to hands-on workshops—you'll always stay at the bleeding edge of AI development and implementation.</p>
+            <div class="terminal-body">
+              <span class="term-line highlight">Solving problems with AI</span>
+              <span class="term-line">Agencies, enterprises and teams with real</span>
+              <span class="term-line">problem statements looking to deploy AI</span>
+              <span class="term-line">against them.</span>
             </div>
           </div>
         </div>
@@ -578,19 +937,34 @@
     <!-- ============================================ -->
     <section class="cta-section">
       <div class="container">
-        <div class="cta-content scroll-reveal">
-          <h2>Join our Community</h2>
-          
-          <div class="cta-buttons-main scroll-reveal delay-1">
-            <a href="https://form.gov.sg/670cf4d58f92af4544f2721f" class="btn-dark-pill">Become a Member</a>
-          </div>
-          
-          <div class="cta-buttons-social scroll-reveal delay-2">
-            <a href="events.html" class="btn-dark-pill"><i class="bi bi-calendar-event"></i> View Events</a>
-            <a href="https://go.gov.sg/lai-share" class="btn-dark-pill"><i class="bi bi-mic"></i> Become a Speaker</a>
-            <a href="#" class="btn-dark-pill"><i class="bi bi-linkedin"></i> LinkedIn</a>
-          </div>
+        <!-- Scroll-linked fluid header container handles the scaling -->
+        <div class="cta-content fluid-header-container">
+          <div class="fluid-header-inner">
+            
+            <!-- Adding scroll-reveal triggers the odometer roll when in view -->
+            <h2 class="cta-title scroll-reveal">
+              <span class="flip-wrapper"><span class="flip-word flip-word-1">Join</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-2">the</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-3">Fam!</span></span>
+            </h2>
+            
+            <div class="cta-grid">
+              
+              <!-- Card 1: Member -->
+              <div class="cta-card">
+                <p>Plug into the ecosystem and build the future of AI in Singapore.</p>
+                <a href="https://form.gov.sg/670cf4d58f92af4544f2721f" class="btn-action-pill">Become a Member</a>
+              </div>
+              
+              <!-- Card 2: Speaker -->
+              <div class="cta-card">
+                <p>Have a real-world AI deployment story? The stage is yours.</p>
+                <a href="https://go.gov.sg/lai-share" class="btn-action-pill"><i class="bi bi-mic"></i> Be a Speaker</a>
+              </div>
 
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
@@ -605,7 +979,7 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files (Removed AOS as we use custom logic now) -->
+  <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
   <script src="assets/vendor/php-email-form/validate.js" defer></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
@@ -625,7 +999,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       
-      // 1. Bidirectional Reveal on Scroll (Replaces AOS)
+      // 1. Bidirectional Reveal on Scroll (For standard elements & odometer trigger)
       const revealElements = document.querySelectorAll('.scroll-reveal');
       
       const revealObserver = new IntersectionObserver((entries) => {
@@ -633,48 +1007,129 @@
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
           } else {
-            // Remove the class when it leaves the viewport to allow it to animate again when scrolling back up
             entry.target.classList.remove('is-visible');
           }
         });
       }, {
         root: null,
-        rootMargin: '0px 0px -10% 0px', // Triggers slightly before it hits the bottom
+        rootMargin: '0px 0px -10% 0px',
         threshold: 0.1
       });
 
       revealElements.forEach(el => revealObserver.observe(el));
 
-      // 2. Smooth Parallax Effect on Hero Text and Feature Images
+      // 2. Smooth Parallax, 5-Card Deck Effect, and Fluid Headers
       const heroContent = document.querySelector('.hero-content');
       const parallaxImages = document.querySelectorAll('.parallax-img');
+      const tSection = document.querySelector('.testimonials-section');
+      const tCards = document.querySelectorAll('.t-card');
+      const fluidContainers = document.querySelectorAll('.fluid-header-container');
       
       let lastScrollY = window.scrollY;
       let ticking = false;
 
-      function updateParallax() {
+      function updateScrollAnimations() {
         const scrollY = window.scrollY;
+        const viewHeight = window.innerHeight;
         
-        // Hero Parallax (moves down slightly as you scroll down)
-        if (heroContent && scrollY < window.innerHeight) {
+        // --- Hero Parallax ---
+        if (heroContent && scrollY < viewHeight) {
           heroContent.style.transform = `translateY(${scrollY * 0.25}px)`;
         }
 
-        // Feature Images Parallax (subtle image shift based on position)
+        // --- Fluid Scroll-Linked Headers (Dynamic Scaling) ---
+        fluidContainers.forEach(container => {
+           const inner = container.querySelector('.fluid-header-inner');
+           if (!inner) return;
+
+           const rect = container.getBoundingClientRect();
+           
+           // Config: when to start revealing and when to fully reveal
+           const revealStart = viewHeight * 0.95; 
+           const revealEnd = viewHeight * 0.70; 
+           
+           let opacity = 1;
+           let yOffset = 0;
+           let scale = 1;
+
+           if (rect.top > revealStart) {
+             // Container is off-screen at bottom
+             opacity = 0;
+             yOffset = 60;
+             scale = 0.85; // Start slightly smaller
+           } else if (rect.top > revealEnd) {
+             // Container is actively scrolling into the reveal zone
+             const progress = (revealStart - rect.top) / (revealStart - revealEnd);
+             // Apply cubic ease-out for ultra smooth entry
+             const ease = 1 - Math.pow(1 - progress, 3);
+             
+             opacity = ease;
+             yOffset = (1 - ease) * 60;
+             scale = 0.85 + (ease * 0.15); // Smoothly scale up to full size
+           } else {
+             // Container is above reveal point -> apply subtle parallax drift, keep full size
+             opacity = 1;
+             scale = 1;
+             const parallaxProgress = (revealEnd - rect.top) / revealEnd; 
+             yOffset = -(parallaxProgress * 40); 
+           }
+
+           inner.style.opacity = opacity;
+           inner.style.transform = `translateY(${yOffset}px) scale(${scale})`;
+        });
+
+        // --- Feature Images Parallax (Kept for safe fallback if used elsewhere) ---
         parallaxImages.forEach(img => {
           const container = img.closest('.parallax-img-container');
           if (!container) return;
-          
           const rect = container.getBoundingClientRect();
-          const viewHeight = window.innerHeight;
           
-          // Only animate if the element is in the viewport
           if (rect.top <= viewHeight && rect.bottom >= 0) {
-            // Calculate a value between -1 and 1 depending on where the element is in the viewport
             const scrollPercentage = (rect.top / viewHeight) - 0.5; 
             img.style.transform = `translateY(${scrollPercentage * 30}px) scale(1.05)`;
           }
         });
+
+        // --- Testimonial Deck 5-Card Spread ---
+        if (tSection && tCards.length === 5) {
+          const rect = tSection.getBoundingClientRect();
+          
+          let progress = 0;
+          if (rect.top <= 0) {
+            progress = Math.min(1, Math.abs(rect.top) / (viewHeight * 0.25));
+          }
+
+          const easeP = 1 - Math.pow(1 - progress, 3);
+          
+          const spreadX = window.innerWidth > 992 ? 260 : 180;
+          const spreadYMobile = 140; 
+          
+          for(let i=0; i<5; i++) {
+            const colScale = 0.8 + (i * 0.05); 
+            const colY = (4 - i) * -12; 
+            
+            if (window.innerWidth <= 768) {
+              const targetY = (i - 2) * spreadYMobile; 
+              
+              const currentY = colY + (targetY - colY) * easeP;
+              const currentScale = colScale + (1 - colScale) * easeP;
+              
+              tCards[i].style.transform = `translateY(${currentY}px) scale(${currentScale})`;
+            } else {
+              const indexOffset = i - 2; 
+              const targetX = indexOffset * spreadX;
+              const targetY = Math.abs(indexOffset) * 35; 
+              const targetRot = indexOffset * 6; 
+              
+              const currentX = targetX * easeP;
+              const currentY = colY + (targetY - colY) * easeP;
+              const currentScale = colScale + (1 - colScale) * easeP;
+              const currentRot = targetRot * easeP;
+              
+              tCards[i].style.transform = `translate(${currentX}px, ${currentY}px) scale(${currentScale}) rotate(${currentRot}deg)`;
+            }
+          }
+        }
 
         ticking = false;
       }
@@ -682,13 +1137,13 @@
       window.addEventListener('scroll', () => {
         lastScrollY = window.scrollY;
         if (!ticking) {
-          window.requestAnimationFrame(updateParallax);
+          window.requestAnimationFrame(updateScrollAnimations);
           ticking = true;
         }
       });
       
-      // Trigger once on load
-      updateParallax();
+      // Trigger once on load to calculate initial positions
+      updateScrollAnimations();
     });
   </script>
 </body>
