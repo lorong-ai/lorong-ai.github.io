@@ -4,6 +4,7 @@
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KC0CD5SNDE"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -20,10 +21,11 @@
   <link href="assets/img/favicon-32x32.png?v=2" rel="icon">
   <link href="assets/img/favicon-32x32.png?v=2" rel="apple-touch-icon">
 
-  <!-- Fonts (Updated to match main design system) -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -45,10 +47,15 @@
       --text-medium: #4a4a4a;
       --text-light: #666666;
       --bg-light: #f8f9fa;
+      --members-bg: #f4f6f8; 
+      
+      /* Timeline specific colors */
+      --timeline-bg: #fffdf7;
+      --timeline-text: #139b47;
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
       overflow-x: hidden;
       background-color: var(--bg-light);
     }
@@ -57,7 +64,7 @@
     .scroll-reveal {
       opacity: 0;
       transform: translateY(40px) scale(0.98);
-      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
 
@@ -68,22 +75,26 @@
 
     .delay-1 { transition-delay: 0.1s; }
     .delay-2 { transition-delay: 0.2s; }
-    .delay-3 { transition-delay: 0.3s; }
 
     /* FLUID SCROLL HEADERS */
     .fluid-header-container {
       position: relative;
       width: 100%;
-      margin-bottom: 3rem;
     }
     
     .fluid-header-inner {
       will-change: transform, opacity;
       opacity: 0; 
-      transform: translateY(60px);
+      transform: translateY(60px) scale(0.85);
     }
 
-    .fluid-header-inner h2 {
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 5rem;
+      z-index: 10;
+    }
+
+    .section-header-center h2 {
       font-size: clamp(2.2rem, 4vw, 3rem);
       font-weight: 700;
       color: var(--text-dark);
@@ -91,238 +102,324 @@
       margin-bottom: 0.5rem;
     }
 
-    .fluid-header-inner p {
-      color: var(--text-medium);
-      font-size: 1.15rem;
-      max-width: 600px;
+    /* ODOMETER FLIP EFFECT FOR HEADERS */
+    .flip-wrapper {
+      display: inline-block;
+      overflow: hidden; 
+      vertical-align: bottom;
+      padding: 0.1em; 
+      margin: -0.1em;
+    }
+
+    .flip-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(110%) rotateX(-45deg);
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+
+    .is-visible .flip-word,
+    .fluid-header-inner.is-revealed .flip-word {
+      animation: odometerRoll 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    .flip-word-1 { animation-delay: 0.0s; }
+    .flip-word-2 { animation-delay: 0.15s; }
+    .flip-word-3 { animation-delay: 0.3s; }
+
+    @keyframes odometerRoll {
+      0% { transform: translateY(110%) rotateX(-60deg); opacity: 0; }
+      100% { transform: translateY(0) rotateX(0deg); opacity: 1; }
     }
 
     /* ============================================ */
     /* HERO SECTION                                 */
     /* ============================================ */
-    .compact-hero {
-      padding: 8rem 0 4rem;
-      background: transparent;
-    }
-
-    .compact-hero-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(240px, 0.6fr);
-      gap: 1.1rem;
-      align-items: stretch;
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      border-radius: 28px;
-      padding: 1.5rem;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
-      overflow: hidden;
-    }
-
-    .compact-hero-copy {
+    .hero-new {
+      min-height: 90vh;
+      background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%);
+      background-color: #ffffff;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 1rem;
-      padding: 1rem 2rem 1rem 1rem;
+      align-items: center; 
+      text-align: center; 
+      padding: 11rem 5% 6rem;
+      color: var(--text-dark);
+      position: relative;
     }
 
-    .compact-hero-copy h1 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.1;
+    .hero-content {
+      max-width: 900px; 
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-new h1 {
+      font-size: clamp(3rem, 6vw, 4.5rem);
       font-weight: 800;
-      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      color: var(--text-dark); 
       letter-spacing: -0.03em;
     }
 
-    .compact-hero-visual {
-      position: relative;
-      min-height: 250px;
-      border-radius: 18px;
-      overflow: hidden;
-    }
-
-    .compact-hero-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .street-sign-divider {
+      width: 100px;
+      height: 3px; 
+      background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-yellow) 100%);
+      margin: 1.5rem 0 2.5rem; 
+      border-radius: 3px;
     }
 
     /* ============================================ */
-    /* BRAND STORY SECTION                          */
+    /* HORIZONTAL SCROLL TIMELINE SECTION           */
     /* ============================================ */
-    .brand-story-section {
-      padding: 4rem 0 6rem;
-    }
-
-    .brand-story-img-wrapper {
+    .horizontal-timeline-section {
+      height: 400vh; /* Adjust for more/less scroll duration */
       position: relative;
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
+      background-color: var(--timeline-bg);
     }
 
-    .brand-story-img-wrapper img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 24px;
-    }
-
-    .brand-story-content {
-      padding-left: 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .brand-story-content h2 {
-      font-size: clamp(2rem, 3.5vw, 2.6rem);
-      font-weight: 800;
-      color: var(--text-dark);
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-story-content p {
-      color: var(--text-medium);
-      font-size: 1.15rem;
-      line-height: 1.8;
-      margin-bottom: 1.25rem;
-    }
-/* ============================================ */
-    /* MOTION TIMELINE SECTION                      */
-    /* ============================================ */
-    .motion-timeline-section {
-      /* 400vh gives enough vertical scrolling room to complete the horizontal move */
-      height: 400vh;
-      position: relative;
-      background-color: var(--bg-light);
-    }
-
-    .motion-sticky-container {
+    .timeline-sticky-container {
       position: sticky;
       top: 0;
       height: 100vh;
       width: 100%;
       overflow: hidden;
       display: flex;
+      align-items: center;
+    }
+
+    /* Bottom progress bar line */
+    .h-timeline-progress-bar {
+      position: absolute;
+      bottom: 40px;
+      left: 5%;
+      width: 90%;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.2);
+      z-index: 20;
+    }
+
+    .h-progress-fill {
+      height: 100%;
+      background: var(--timeline-text);
+      width: 0%;
+      transition: width 0.1s ease-out;
+      position: relative;
+    }
+    
+    .h-progress-dot {
+      position: absolute;
+      right: -4px;
+      top: -3px;
+      width: 8px;
+      height: 8px;
+      background: var(--timeline-text);
+      border-radius: 50%;
+    }
+
+    .horizontal-scroll-wrapper {
+      display: flex;
+      align-items: center;
+      will-change: transform;
+      height: 100%;
+      width: 400vw; /* 4 slides = 400vw */
+    }
+
+    .h-slide-block {
+      width: 100vw; /* strictly 100vw to ensure proper stopping math */
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .h-slide-content {
+      width: 85%;
+      max-width: 1200px;
+      display: flex;
+      gap: 5%;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Left Column Styling */
+    .h-slide-left {
+      flex: 0 0 50%;
+      display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .motion-header {
-      position: absolute;
-      top: 15%;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      z-index: 10;
-    }
-
-    .motion-header h2 {
-      font-size: clamp(2.2rem, 4vw, 3rem);
-      font-weight: 700;
-      color: var(--text-dark);
-      letter-spacing: -0.02em;
+    .h-slide-subtitle {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--timeline-text);
       margin-bottom: 0.5rem;
+      opacity: 0.8;
     }
 
-    .motion-header p {
-      color: var(--text-medium);
-      font-size: 1.15rem;
-    }
-
-    .motion-track {
-      display: flex;
-      width: 300vw; /* 100vw for each of the 3 items */
-      height: 100%;
+    .h-year-wrapper {
       position: relative;
-      will-change: transform;
-    }
-
-    .motion-line {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-yellow) 100%);
-      transform: translateY(-50%);
-      z-index: 1;
-    }
-
-    .motion-panel {
-      width: 100vw;
-      height: 100%;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      width: fit-content;
+      margin-bottom: 1.5rem;
+    }
+
+    .h-huge-year {
+      font-size: clamp(8rem, 16vw, 18rem);
+      font-weight: 900;
+      line-height: 0.85;
+      color: var(--timeline-text);
+      letter-spacing: -0.04em;
+    }
+
+    .h-year-img {
+      width: 280px;
+      height: 180px;
+      object-fit: cover;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      border: 3px solid #fff;
       z-index: 2;
     }
 
-    .motion-card {
-      background: #ffffff;
-      padding: 2.5rem;
-      border-radius: 24px;
-      width: 90%;
-      max-width: 550px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      position: relative;
-      text-align: center;
-      /* Animation setup for scale/opacity as they enter the screen */
-      transform: scale(0.8) translateY(30px);
-      opacity: 0.3;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+    .h-slide-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--timeline-text);
+      max-width: 80%;
+      margin: 0;
+      opacity: 0.85;
     }
 
-    .motion-panel.is-active .motion-card {
-      transform: scale(1) translateY(0);
+    /* Right Column Styling */
+    .h-slide-right {
+      flex: 0 0 45%;
+      display: flex;
+      align-items: center;
+    }
+
+    .h-slide-right h2 {
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--timeline-text);
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    /* Intro Slide specific override */
+    .h-intro .h-slide-content {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    
+    .h-intro h2 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      color: var(--timeline-text);
+      line-height: 1.1;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .h-slide-content {
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+      }
+      .h-slide-left, .h-slide-right {
+        flex: 1 1 auto;
+      }
+      .h-huge-year {
+        font-size: 8rem;
+      }
+      .h-year-img {
+        width: 200px;
+        height: 130px;
+      }
+      .h-slide-desc {
+        max-width: 100%;
+      }
+    }
+
+    /* ============================================ */
+    /* VALUE PROPOSITIONS SECTION                   */
+    /* ============================================ */
+    .value-props-section {
+      padding: 8rem 5% 7rem; 
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+
+    .vp-group {
+      position: relative;
+      margin-bottom: 8rem; 
+    }
+
+    .cards-spread-container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 2rem; 
+      max-width: 1200px;
+      margin: 0 auto; 
+      padding: 0 1rem;
+      flex-wrap: wrap;
+    }
+
+    .prop-card-wrapper {
+      flex: 1;
+      min-width: 300px;
+      max-width: 380px;
+      transition: opacity 0.8s ease, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .prop-card-wrapper:nth-child(1) { transform: translateX(100%) scale(0.9) rotate(8deg); opacity: 0; }
+    .prop-card-wrapper:nth-child(2) { transform: translateY(120px) scale(0.95); opacity: 0; z-index: 2; }
+    .prop-card-wrapper:nth-child(3) { transform: translateX(-100%) scale(0.9) rotate(-8deg); opacity: 0; }
+
+    .cards-spread-container.is-spread .prop-card-wrapper {
+      transform: translate(0, 0) scale(1) rotate(0deg);
       opacity: 1;
     }
 
-    .motion-dot {
-      position: absolute;
-      top: -12px; /* Pulls dot up to sit on the horizontal line */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: #ffffff;
-      border: 5px solid var(--primary-green);
-      box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.8);
-      z-index: 3;
+    .prop-card {
+      position: relative;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      height: 100%;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+      z-index: 1;
+      border: 2px solid #139b47;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      background-color: #ffffff;
     }
 
-    .motion-dot.border-green-light { border-color: #8ac62c; }
-    .motion-dot.border-yellow { border-color: var(--primary-yellow); }
-
-    .motion-card .timeline-date {
-      display: inline-block;
-      font-size: 1rem;
+    .prop-card h3 {
+      font-size: 1.35rem;
       font-weight: 700;
-      color: var(--primary-green);
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .motion-card h3 {
-      font-size: 1.6rem;
-      font-weight: 800;
       color: var(--text-dark);
       margin-bottom: 1rem;
+      line-height: 1.4;
     }
 
-    .motion-card p {
-      color: var(--text-medium);
-      font-size: 1.1rem;
-      line-height: 1.7;
+    .prop-card p {
+      color: #333333;
+      font-size: 1.05rem;
+      line-height: 1.6;
       margin: 0;
     }
 
@@ -330,13 +427,11 @@
     /* FAQ SECTION                                  */
     /* ============================================ */
     .faq-section {
-      padding: 2rem 0 6rem;
+      padding: 8rem 5% 7rem;
+      background: var(--bg-light);
     }
 
-    .lorong-accordion {
-      max-width: 900px;
-    }
-
+    .lorong-accordion { max-width: 900px; }
     .lorong-accordion .accordion-item {
       border-radius: 16px !important;
       margin-bottom: 1rem;
@@ -371,7 +466,7 @@
       filter: grayscale(1);
     }
     
-    .lorong-accordion .accordion-button:not(.collapsed)::after {
+    .lorong-accordion .accordion-button:not(.collapsed):after {
       filter: none;
     }
 
@@ -386,7 +481,8 @@
     /* LOCATIONS / MAPS SECTION                     */
     /* ============================================ */
     .locations-section {
-      padding: 2rem 0 6rem;
+      padding: 8rem 5% 7rem;
+      background: #ffffff;
     }
 
     .about-panel {
@@ -400,10 +496,11 @@
       display: flex;
       flex-direction: column;
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+      z-index: 1;
     }
 
     .about-panel:hover {
-      transform: translateY(-8px);
+      transform: translateY(-8px) scale(1.02);
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
     }
 
@@ -428,34 +525,6 @@
       height: 280px;
       background: #f8f9fa;
     }
-
-    /* ============================================ */
-    /* RESPONSIVE STYLES                            */
-    /* ============================================ */
-    @media (max-width: 991.98px) {
-      .compact-hero-shell {
-        grid-template-columns: 1fr;
-      }
-      .brand-story-content {
-        padding-left: 0;
-        margin-top: 3rem;
-      }
-    }
-
-    @media (max-width: 767.98px) {
-      .compact-hero {
-        padding: 6rem 0 2rem;
-      }
-      .timeline-wrapper {
-        padding-left: 1.5rem;
-      }
-      .timeline-dot {
-        left: -1.95rem;
-      }
-      .timeline-content {
-        padding: 1.5rem;
-      }
-    }
   </style>
 </head>
 
@@ -468,108 +537,173 @@
     <!-- ============================================ -->
     <!-- HERO SECTION                                 -->
     <!-- ============================================ -->
-    <section class="compact-hero">
-      <div class="container">
-        <div class="compact-hero-shell scroll-reveal">
-          <div class="compact-hero-copy">
-            <h1>Connect, cowork, and build with the community.</h1>
-          </div>
-          <div class="compact-hero-visual">
-            <img src="assets/img/ccts/cowork.jpg" alt="Lorong AI coworking space" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- ============================================ -->
-    <!-- BRAND STORY SECTION                          -->
-    <!-- ============================================ -->
-    <section class="brand-story-section overflow-hidden">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-5 col-md-6">
-            <div class="brand-story-img-wrapper scroll-reveal">
-              <img src="assets/img/hero-carousel/kampung.png" alt="Traditional Kampung House Sketch" loading="lazy">
-            </div>
-          </div>
-          
-          <div class="col-lg-7 col-md-6 brand-story-content">
-            <h2 class="scroll-reveal delay-1">A Community of Communities.</h2>
-            <p class="scroll-reveal delay-2"><strong>"Lorong"</strong> is a Malay word that translates to "alley" or "lane" in English, evoking a sense of connection, exploration, and community.</p>
-            <p class="scroll-reveal delay-2">In a fast-paced and ever-evolving field like AI, the need for a regular exchange of ideas and insights is critical.</p>
-            <p class="scroll-reveal delay-3">Lorong AI provides a dynamic canvas where practitioners connect, share knowledge, and grow through seamless collaboration and impeccable environments.</p>
-          </div>
-        </div>
+    <section class="hero-new">
+      <div class="hero-content scroll-reveal">
+        <h1>A Community of Communities.</h1>
+        <div class="street-sign-divider scroll-reveal delay-1"></div>
       </div>
     </section>
 
-   <!-- ============================================ -->
-    <!-- MOTION TIMELINE SECTION                      -->
     <!-- ============================================ -->
-    <section class="motion-timeline-section" id="motion-timeline">
-      <div class="motion-sticky-container">
+    <!-- HORIZONTAL SCROLL TIMELINE SECTION           -->
+    <!-- ============================================ -->
+    <section class="horizontal-timeline-section" id="horizontal-timeline">
+      <div class="timeline-sticky-container">
         
-        <!-- Fixed Header overlaying the timeline -->
-        <div class="motion-header">
-          <h2>Our Journey</h2>
-          <p>How we grew alongside Singapore's AI ecosystem.</p>
+        <div class="h-timeline-progress-bar">
+          <div class="h-progress-fill" id="h-progress-fill">
+            <div class="h-progress-dot"></div>
+          </div>
         </div>
 
-        <!-- The Track that moves horizontally -->
-        <div class="motion-track" id="motion-track">
+        <div class="horizontal-scroll-wrapper" id="h-scroll-wrapper">
           
-          <!-- Continuous Connection Line -->
-          <div class="motion-line"></div>
-
-          <!-- Step 1 -->
-          <div class="motion-panel">
-            <div class="motion-card">
-              <div class="motion-dot"></div>
-              <span class="timeline-date">2024</span>
-              <h3>The Beginning</h3>
-              <p>Started off with just "AI Wednesdays" gathering practitioners and enthusiasts in Funan.</p>
+          <!-- Slide 1: Intro -->
+          <div class="h-slide-block h-intro">
+            <div class="h-slide-content">
+              <h2>How it all started.</h2>
+              <p style="font-size: 1.25rem; opacity: 0.8; margin-top: 1rem;">Scroll down to see how we grew alongside Singapore's AI ecosystem.</p>
             </div>
           </div>
 
-          <!-- Step 2 -->
-          <div class="motion-panel">
-            <div class="motion-card">
-              <div class="motion-dot border-green-light"></div>
-              <span class="timeline-date">Jan 2025</span>
-              <h3>Lorong AI Chinatown</h3>
-              <p>Opened our dedicated space at 22X, allowing us to host more frequent events, workshops, and build a tighter core community.</p>
+          <!-- Slide 2: 2024 -->
+          <div class="h-slide-block">
+            <div class="h-slide-content">
+              <div class="h-slide-left">
+                <div class="h-year-wrapper">
+                  <span class="h-huge-year">2024</span>
+                  <!-- Fill in your image path in the src below -->
+                  <img src="" alt="Placeholder image for 2024" class="h-year-img">
+                </div>
+                <p class="h-slide-desc">In 2024, our dream of bringing AI practitioners together started as casual "AI Wednesdays".</p>
+              </div>
+              <div class="h-slide-right">
+                <h2>We launched our first community gathering in Funan to share ideas and foster connections.</h2>
+              </div>
             </div>
           </div>
 
-          <!-- Step 3 -->
-          <div class="motion-panel">
-            <div class="motion-card">
-              <div class="motion-dot border-yellow"></div>
-              <span class="timeline-date">March 2026</span>
-              <h3>One-North Expansion</h3>
-              <p>Expanded our footprint to One-North to be at the physical center of the Singapore AI and tech ecosystem, bridging startups and research.</p>
+          <!-- Slide 3: 2025 -->
+          <div class="h-slide-block">
+            <div class="h-slide-content">
+              <div class="h-slide-left">
+                <div class="h-year-wrapper">
+                  <span class="h-huge-year">2025</span>
+                  <!-- Fill in your image path in the src below -->
+                  <img src="" alt=" image for 2025" class="h-year-img">
+                </div>
+                <p class="h-slide-desc">In 2025, we realised that an occasional meetup wasn't enough to sustain the momentum.</p>
+              </div>
+              <div class="h-slide-right">
+                <h2>We moved Lorong AI to Chinatown at 22X, establishing a dedicated co-working space for builders.</h2>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: 2026 -->
+          <div class="h-slide-block">
+            <div class="h-slide-content">
+              <div class="h-slide-left">
+                <span class="h-slide-subtitle">Bridging the gap</span>
+                <div class="h-year-wrapper">
+                  <span class="h-huge-year">2026</span>
+                  <!-- Fill in your image path in the src below -->
+                  <img src="" alt="Placeholder image for 2026" class="h-year-img">
+                </div>
+                <p class="h-slide-desc">In 2026, we expanded to One-North to be at the physical center of the Singapore tech ecosystem.</p>
+              </div>
+              <div class="h-slide-right">
+                <h2>We bridged cutting-edge startups with deep research and government innovation.</h2>
+              </div>
             </div>
           </div>
 
         </div>
       </div>
     </section>
+
+    <!-- ============================================ -->
+    <!-- VALUE PROPOSITIONS SECTION                   -->
+    <!-- ============================================ -->
+    <section class="value-props-section">
+      <div class="container">
+        
+        <div class="vp-group">
+          <div class="section-header-center fluid-header-container">
+            <div class="fluid-header-inner">
+              <h2>For those solving problems with AI</h2>
+            </div>
+          </div>
+          <div class="cards-spread-container scroll-trigger-spread">
+            <div class="prop-card-wrapper">
+              <div class="prop-card">
+                <h3>We connect you to the people who can solve your problem</h3>
+                <p>Tell us your problem and we curate the introductions: practitioners, researchers and builders who've actually shipped. No vendor roulette.</p>
+              </div>
+            </div>
+            <div class="prop-card-wrapper">
+              <div class="prop-card">
+                <h3>We put what's real in front of you</h3>
+                <p>Live demos by the people who built them, vetted by a community that asks hard questions. Signal, not sales decks.</p>
+              </div>
+            </div>
+            <div class="prop-card-wrapper">
+              <div class="prop-card">
+                <h3>We help you sharpen the problem before you spend on it</h3>
+                <p>Weekly programmes and co-learning turn vague ambition into a workable problem statement.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vp-group">
+          <div class="section-header-center fluid-header-container">
+            <div class="fluid-header-inner">
+              <h2>For those solving AI problems</h2>
+            </div>
+          </div>
+          <div class="cards-spread-container scroll-trigger-spread">
+            <div class="prop-card-wrapper">
+              <div class="prop-card">
+                <h3>We put you in front of people with real problems</h3>
+                <p>Curated exposure to adopters, partners and problem owners with mandates and budgets, not just fellow builders.</p>
+              </div>
+            </div>
+            <div class="prop-card-wrapper">
+              <div class="prop-card">
+                <h3>We build your credibility, not just your visibility</h3>
+                <p>Demo, teach and contribute in a nationally recognised community. Trust earned here carries weight a conference booth doesn't.</p>
+              </div>
+            </div>
+            <div class="prop-card-wrapper">
+              <div class="prop-card">
+                <h3>We broker partnerships, not name-card stacks</h3>
+                <p>Introductions across government, industry and research designed to convert into pilots and deployments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ============================================ -->
     <!-- FAQ SECTION                                  -->
     <!-- ============================================ -->
     <section class="faq-section">
       <div class="container">
-        <!-- Fluid Header -->
-        <div class="fluid-header-container">
+        <div class="section-header-center fluid-header-container">
           <div class="fluid-header-inner">
-            <h2>Frequently Asked Questions</h2>
-            <p>Learn more about our community and how things work at Lorong AI.</p>
+            <h2 class="scroll-reveal" style="opacity: 1; transform: none; transition: none;">
+              <span class="flip-wrapper"><span class="flip-word flip-word-1">Frequently</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-2">Asked</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-3">Questions</span></span>
+            </h2>
+            <p class="mx-auto mt-3">Learn more about our community and how things work at Lorong AI.</p>
           </div>
         </div>
         
         <div class="accordion lorong-accordion mx-auto scroll-reveal delay-1" id="faqAccordion">
-          
-          <!-- Q1 -->
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -582,8 +716,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Q2 -->
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -596,49 +728,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Q3 -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                How does the coworking space work?
-              </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">
-                Our dedicated spaces at 22X and One-North are designed for cross-sector innovation. Membership provides access to world-class infrastructure and allows you to co-locate with other AI professionals.
-              </div>
-            </div>
-          </div>
-
-          <!-- Q4 (New) -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingFour">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                How can I attend an event?
-              </button>
-            </h2>
-            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">
-                We host events regularly ranging from casual mixers to deep-dive technical workshops. Keep an eye on our Events page or join our community newsletter to secure your spot when registrations open.
-              </div>
-            </div>
-          </div>
-
-          <!-- Q5 (New) -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingFive">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                Can my organization partner with Lorong AI?
-              </button>
-            </h2>
-            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">
-                Absolutely. We actively collaborate with enterprises, government agencies, and research bodies to tackle real-world problem statements. Reach out to our team to discuss partnership and deployment opportunities.
-              </div>
-            </div>
-          </div>
-          
         </div>
       </div>
     </section>
@@ -648,16 +737,17 @@
     <!-- ============================================ -->
     <section class="locations-section">
       <div class="container">
-        <!-- Fluid Header -->
-        <div class="fluid-header-container">
+        <div class="section-header-center fluid-header-container">
           <div class="fluid-header-inner">
-            <h2>Locations</h2>
-            <p>Where to find us in Singapore.</p>
+            <h2 class="scroll-reveal" style="opacity: 1; transform: none; transition: none;">
+              <span class="flip-wrapper"><span class="flip-word flip-word-1">Our</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-2">Locations</span></span>
+            </h2>
+            <p class="mx-auto mt-3">Where to find us in Singapore.</p>
           </div>
         </div>
 
         <div class="row gx-4 gy-4">
-          <!-- Location 1 -->
           <div class="col-lg-6 scroll-reveal delay-1">
             <div class="about-panel">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.815994222124!2d103.84414787438143!3d1.2843242617841992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da190050378019%3A0x73d95210c9420b5e!2sLorong%20AI!5e0!3m2!1sen!2ssg!4v1745992237630!5m2!1sen!2ssg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -665,8 +755,6 @@
               <p><i class="bi bi-geo-alt me-2" style="color: var(--primary-green);"></i> 22 Cross St, Singapore 048421</p>
             </div>
           </div>
-
-          <!-- Location 2 -->
           <div class="col-lg-6 scroll-reveal delay-2">
             <div class="about-panel">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.789!2d103.7866903!3d1.2962541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1b0035c0dfad%3A0xc7709becfd83b939!2s69%20Ayer%20Rajah%20Crescent%2C%20Singapore%20139961!5e0!3m2!1sen!2ssg!4v1745992237630!5m2!1sen!2ssg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -675,18 +763,13 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
-
   </main>
 
   <div id="footer-placeholder"></div>
   
-  <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
@@ -703,68 +786,57 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/include.js?v=4"></script>
 
-  <!-- ============================================ -->
-  <!-- CUSTOM SMOOTH SCROLL SCRIPT                  -->
-  <!-- ============================================ -->
+  <!-- MAIN ANIMATION SCRIPT -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      
-      // 1. Bidirectional Reveal on Scroll (For standard elements)
-      const revealElements = document.querySelectorAll('.scroll-reveal');
-      
+      const revealElements = document.querySelectorAll('.scroll-reveal:not(.scroll-trigger-spread)');
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          } else {
-            entry.target.classList.remove('is-visible');
-          }
+          if (entry.isIntersecting) { entry.target.classList.add('is-visible'); } 
+          else { entry.target.classList.remove('is-visible'); }
         });
-      }, {
-        root: null,
-        rootMargin: '0px 0px -10% 0px',
-        threshold: 0.1
-      });
-
+      }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
       revealElements.forEach(el => revealObserver.observe(el));
 
-      // 2. Fluid Scroll-Linked Headers
+      const spreadContainers = document.querySelectorAll('.scroll-trigger-spread');
+      const spreadObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('is-spread'); }
+        });
+      }, { root: null, rootMargin: '0px 0px -15% 0px', threshold: 0.15 });
+      spreadContainers.forEach(container => spreadObserver.observe(container));
+
       const fluidContainers = document.querySelectorAll('.fluid-header-container');
       let ticking = false;
 
       function updateScrollAnimations() {
         const viewHeight = window.innerHeight;
-        
         fluidContainers.forEach(container => {
            const inner = container.querySelector('.fluid-header-inner');
            if (!inner) return;
 
            const rect = container.getBoundingClientRect();
-           
            const revealStart = viewHeight * 0.95; 
            const revealEnd = viewHeight * 0.70; 
            
-           let opacity = 1;
-           let yOffset = 0;
+           let opacity = 1, yOffset = 0, scale = 1;
 
            if (rect.top > revealStart) {
-             opacity = 0;
-             yOffset = 60;
+             opacity = 0; yOffset = 60; scale = 0.85; 
+             inner.classList.remove('is-revealed');
            } else if (rect.top > revealEnd) {
              const progress = (revealStart - rect.top) / (revealStart - revealEnd);
              const ease = 1 - Math.pow(1 - progress, 3);
-             opacity = ease;
-             yOffset = (1 - ease) * 60;
+             opacity = ease; yOffset = (1 - ease) * 60; scale = 0.85 + (ease * 0.15); 
+             inner.classList.add('is-revealed'); 
            } else {
-             opacity = 1;
              const parallaxProgress = (revealEnd - rect.top) / revealEnd; 
              yOffset = -(parallaxProgress * 40); 
            }
 
            inner.style.opacity = opacity;
-           inner.style.transform = `translateY(${yOffset}px)`;
+           inner.style.transform = `translateY(${yOffset}px) scale(${scale})`;
         });
-
         ticking = false;
       }
 
@@ -774,79 +846,76 @@
           ticking = true;
         }
       });
-      
       updateScrollAnimations();
     });
   </script>
 
-  <!-- ============================================ -->
-  <!-- MOTION TIMELINE JS SCRIPT                    -->
-  <!-- ============================================ -->
+  <!-- HORIZONTAL SCROLL TIMELINE WITH SNAPPING -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const motionSection = document.getElementById('motion-timeline');
-      const motionTrack = document.getElementById('motion-track');
-      const motionPanels = document.querySelectorAll('.motion-panel');
+      const hSection = document.getElementById('horizontal-timeline');
+      const hWrapper = document.getElementById('h-scroll-wrapper');
+      const hProgressFill = document.getElementById('h-progress-fill');
       
-      let motionTicking = false;
+      let hTicking = false;
 
-      function updateMotionTimeline() {
-        if (!motionSection || !motionTrack) return;
+      // Easing function for smooth slide transitions
+      function easeInOutQuad(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+      }
+
+      function updateHorizontalScroll() {
+        if (!hSection || !hWrapper) return;
         
-        const rect = motionSection.getBoundingClientRect();
-        const sectionTop = rect.top;
-        // The total amount of scrollable space inside the section
+        const rect = hSection.getBoundingClientRect();
         const scrollableDistance = rect.height - window.innerHeight;
         
-        // If we are currently scrolling inside the motion section
-        if (sectionTop <= 0 && sectionTop >= -scrollableDistance) {
-          // Progress is a value between 0 and 1
-          const progress = Math.abs(sectionTop) / scrollableDistance;
-          
-          // Translate the track horizontally. 
-          // Max translation is 200vw because there are 3 panels (1st is 0vw, 2nd is -100vw, 3rd is -200vw)
-          const translateX = progress * 200;
-          motionTrack.style.transform = `translateX(-${translateX}vw)`;
-          
-          // Scale and fade in the active card based on horizontal position
-          motionPanels.forEach((panel, index) => {
-            // Check if this specific panel is currently centered in the viewport
-            const panelCenterProgress = index * 0.5; // Panel 0 is at 0, Panel 1 at 0.5, Panel 2 at 1.0
-            
-            // If the user's scroll progress is close to this panel's center point
-            if (Math.abs(progress - panelCenterProgress) < 0.25) {
-              panel.classList.add('is-active');
-            } else {
-              panel.classList.remove('is-active');
-            }
-          });
-          
-        } else if (sectionTop > 0) {
-          // User is above the section
-          motionTrack.style.transform = `translateX(0vw)`;
-          motionPanels[0].classList.add('is-active');
-          if(motionPanels[1]) motionPanels[1].classList.remove('is-active');
-        } else if (sectionTop < -scrollableDistance) {
-          // User has scrolled past the section
-          motionTrack.style.transform = `translateX(-200vw)`;
-          motionPanels[2].classList.add('is-active');
-          if(motionPanels[1]) motionPanels[1].classList.remove('is-active');
+        let progress = 0; // Overall progress from 0.0 to 1.0
+
+        if (rect.top <= 0 && rect.top >= -scrollableDistance) {
+          progress = Math.abs(rect.top) / scrollableDistance;
+        } else if (rect.top < -scrollableDistance) {
+          progress = 1;
         }
+
+        const numSlides = 4;
+        const pauseRatio = 0.65; // 65% of scroll time spent paused on the slide, 35% spent transitioning
+        const maxIndex = numSlides - 1;
         
-        motionTicking = false;
+        // Scale progress to the number of segments
+        const progressScaled = progress * maxIndex;
+        const currentIndex = Math.min(Math.floor(progressScaled), maxIndex - 1);
+        const segmentProgress = progressScaled - currentIndex;
+
+        let slideTransition = 0;
+        
+        // If we are past the 'pause' portion of the segment, calculate the transition
+        if (segmentProgress > pauseRatio) {
+          const transitionProgress = (segmentProgress - pauseRatio) / (1 - pauseRatio);
+          slideTransition = easeInOutQuad(transitionProgress);
+        }
+
+        // Calculate final translation based on viewport width
+        const currentTranslate = (currentIndex + slideTransition) * window.innerWidth;
+        hWrapper.style.transform = `translateX(-${currentTranslate}px)`;
+        
+        if(hProgressFill) {
+            hProgressFill.style.width = `${progress * 100}%`;
+        }
+
+        hTicking = false;
       }
 
       window.addEventListener('scroll', () => {
-        if (!motionTicking) {
-          window.requestAnimationFrame(updateMotionTimeline);
-          motionTicking = true;
+        if (!hTicking) {
+          window.requestAnimationFrame(updateHorizontalScroll);
+          hTicking = true;
         }
       });
       
-      // Initialize the first panel state
-      updateMotionTimeline();
+      updateHorizontalScroll();
+      window.addEventListener('resize', updateHorizontalScroll);
     });
   </script>
-  
 </body>
 </html>

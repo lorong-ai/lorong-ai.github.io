@@ -29,7 +29,6 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -138,14 +137,6 @@
       text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
     }
 
-    .hero-new h1 .life-cursive {
-      color: var(--primary-green);
-      font-family: "Playwrite GB S", cursive; 
-      font-weight: 300;
-      font-style: normal;
-      text-shadow: none;
-    }
-
     .hero-description {
       font-size: 1.15rem;
       margin-bottom: 2.5rem;
@@ -251,7 +242,10 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
       transition: all 0.3s ease;
       position: relative;
-      z-index: 1;
+      z-index: 10;
+      pointer-events: auto;
+      cursor: pointer;
+      text-decoration: none;
     }
 
     /* Masking technique for a perfect rounded gradient border */
@@ -454,7 +448,7 @@
     .t-card-5 .author-avatar { background: #fff; color: var(--primary-green); }
 
     /* ============================================ */
-    /* PROBLEM SOLVERS SECTION (Clean Terminal Layout) */
+    /* CONTENT CARDS (Replaced Terminals)           */
     /* ============================================ */
     
     .problem-solvers-section {
@@ -472,7 +466,7 @@
       font-size: 1.25rem;
     }
 
-    .terminal-grid {
+    .content-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       max-width: 1100px;
@@ -481,50 +475,36 @@
       align-items: stretch; 
     }
 
-    .terminal-card {
+    /* Clean rounded rectangle styling inspired by reference */
+    .content-card {
       background: #ffffff; 
-      border-radius: 12px;
+      border-radius: 24px; /* Pronounced rounded corners */
       overflow: hidden;
-      display: flex-start;
-      flex-direction: column;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.3); 
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-      border: 1px solid #cfcfcf;
-      height: 100%; 
-    }
-
-    .terminal-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.4);
-    }
-
-    .terminal-header {
-      background: #f1eeee; 
-      padding: 12px 15px;
       display: flex;
-      gap: 8px;
-      border-bottom: 1px solid #ece9e9;
+      flex-direction: column;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.06); 
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+      border: 1px solid rgba(0,0,0,0.05);
+      height: 100%; 
+      padding: 3rem 2.5rem; /* Spacious padding */
     }
 
-    .term-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
+    .content-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.12);
     }
-    .dot-red { background: #ff5f56; }
-    .dot-yellow { background: #ffbd2e; }
-    .dot-green { background: #27c93f; }
 
-    .terminal-body {
-      padding: 2.5rem 2rem;
+    .content-card-body {
       line-height: 1.8;
       font-size: 1.1rem;
       color: #000000; 
       flex-grow: 1; 
-      
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+
+    .content-card-body.text-center {
       align-items: center;
       text-align: center;
     }
@@ -538,15 +518,18 @@
       transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .terminal-card.is-visible .term-line {
+    .content-card.is-visible .term-line {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .terminal-card .term-line:nth-child(1) { transition-delay: 0.2s; }
-    .terminal-card .term-line:nth-child(2) { transition-delay: 0.35s; }
-    .terminal-card .term-line:nth-child(3) { transition-delay: 0.5s; }
-    .terminal-card .term-line:nth-child(4) { transition-delay: 0.65s; }
+    .content-card .term-line:nth-child(1) { transition-delay: 0.2s; }
+    .content-card .term-line:nth-child(2) { transition-delay: 0.35s; }
+    .content-card .term-line:nth-child(3) { transition-delay: 0.5s; }
+    .content-card .term-line:nth-child(4) { transition-delay: 0.65s; }
+    .content-card .term-line:nth-child(5) { transition-delay: 0.8s; }
+    .content-card .term-line:nth-child(6) { transition-delay: 0.95s; }
+    .content-card .term-line:nth-child(7) { transition-delay: 1.1s; }
 
     .term-line.highlight {
       color:#139b47; 
@@ -583,7 +566,7 @@
     .cta-title {
       font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: 700;
-      color: var(--primary-green); 
+      color: var(--primary-black); 
       line-height: 1.2;
       margin-bottom: 3.5rem;
       letter-spacing: -0.02em;
@@ -660,11 +643,11 @@
       line-height: 1.5;
     }
 
-    /* Outline styling that fills on hover */
+    /* Solid Green styling that turns Yellow on hover */
     .btn-action-pill {
-      background-color: transparent;
-      color: var(--text-dark);
-      border: 2px solid var(--text-dark);
+      background-color: var(--primary-green);
+      color: #ffffff;
+      border: 2px solid var(--primary-green);
       border-radius: 8px; /* Maintained roundness */
       text-decoration: none;
       font-weight: 700;
@@ -676,14 +659,15 @@
       padding: 0.9rem 2.2rem;
       font-size: 1rem;
       letter-spacing: 0.02em;
+      box-shadow: 0 8px 16px rgba(19, 155, 72, 0.2);
     }
 
     .btn-action-pill:hover {
-      background-color: var(--primary-green);
-      color: #ffffff;
-      border-color: var(--primary-green);
+      background-color: var(--primary-yellow);
+      color: var(--text-dark);
+      border-color: var(--primary-yellow);
       transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(19, 155, 72, 0.25);
+      box-shadow: 0 10px 20px rgba(255, 209, 0, 0.3);
     }
 
     .btn-action-pill i {
@@ -695,7 +679,7 @@
     /* ============================================ */
     
     @media (max-width: 991px) {
-      .terminal-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .content-grid { grid-template-columns: 1fr; gap: 2rem; }
       .hero-new h1 { font-size: clamp(2.2rem, 7vw, 3.2rem); }
       .hero-content { max-width: 100%; }
       .hero-new {
@@ -725,7 +709,8 @@
       .members-section {
         padding: 8rem 5% 7rem;
       }
-      .terminal-body { font-size: 1rem; padding: 1.5rem; }
+      .content-card { padding: 2rem 1.5rem; }
+      .content-card-body { font-size: 1rem; }
       .term-line.highlight { font-size: 1.8rem; margin-bottom: 1rem; }
       .cta-section { padding: 5rem 5%; }
       .cta-grid { gap: 3.5rem; flex-direction: column; align-items: center; }
@@ -747,18 +732,93 @@
       <div class="hero-content scroll-reveal">
         
         <h1>
-          From prompt to deployment, AI comes to <span class="life-cursive">life</span> here.
+          From prompt to deployment, AI comes to life here.
         </h1>
         
         <div class="street-sign-divider scroll-reveal delay-1"></div>
         
         <p class="hero-description scroll-reveal delay-2">
-          Lorong AI brings together government, industry, and research to build Singapore's AI ecosystem. We are a collaborative hub where AI problem solvers connect, innovate, and ensure every problem gets solved here.
+          Lorong AI is a collaborative hub where AI problem solvers connect, innovate, and ensure every problem gets solved here.
         </p>
 
       </div>
     </section>
 
+    <!-- ============================================ -->
+    <!-- PROBLEM SOLVERS SECTION (Rounded Cards)      -->
+    <!-- ============================================ -->
+    <section class="problem-solvers-section" id="about">
+      <div class="container">
+        <!-- Scroll-linked fluid header container -->
+        <div class="section-header-center fluid-header-container">
+          <div class="fluid-header-inner">
+            <h2>A community of AI problem solvers.</h2>
+            <p>This means two things at once, by design:</p>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <!-- Card 1 -->
+          <div class="content-card scroll-reveal delay-1">
+            <div class="content-card-body text-center">
+              <span class="term-line highlight">Solving AI problems</span>
+              <span class="term-line">Practitioners, researchers and builders</span>
+              <span class="term-line">pushing what AI can do.</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="content-card scroll-reveal delay-2">
+            <div class="content-card-body text-center">
+              <span class="term-line highlight">Solving problems with AI</span>
+              <span class="term-line">Agencies, enterprises and teams with real</span>
+              <span class="term-line">problem statements looking to deploy AI</span>
+              <span class="term-line">against them.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 30-DAY PILOT SECTION (Rounded Cards)        -->
+    <!-- ============================================ -->
+    <section class="problem-solvers-section" style="background: #ffffff; padding-top: 4rem; padding-bottom: 6rem;">
+      <div class="container">
+        <!-- Scroll-linked fluid header container -->
+        <div class="section-header-center fluid-header-container">
+          <div class="fluid-header-inner">
+            <h2>Making your Market for you</h2>
+            <p style="max-width: 800px; margin: 1rem auto 0; line-height: 1.6;">Turn your roadblocks and problem statements into validated opportunities by engaging Singapore's AI ecosystem through a structured market-making process.</p>
+          </div>
+        </div>
+
+        <div class="content-grid" style="grid-template-columns: 1fr; max-width: 900px;">
+          <div class="content-card scroll-reveal delay-1">
+            <div class="content-card-body" style="align-items: flex-start; text-align: left;">
+              <span class="term-line" style="font-weight: 700; font-size: 1.25rem; margin-bottom: 1.8rem; color: var(--text-dark);">
+                Instead of sourcing for solutions blindly, we help you:
+              </span>
+              
+              <div style="display: flex; flex-direction: column; gap: 1rem; width: 100%; margin-bottom: 2.5rem;">
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Refine the right problem</span>
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Bring it to the right builders</span>
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Discover promising solutions</span>
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Identify teams worth working with</span>
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Continue collaboration beyond the event</span>
+              </div>
+
+              <div style="width: 100%; padding-top: 1.8rem; border-top: 1px solid #ece9e9;">
+                <span class="term-line" style="font-weight: 600; color: var(--primary-green); font-size: 1.15rem; line-height: 1.5;">
+                  Am engagement package designed to move from problem statements to real partnerships.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
     <!-- ============================================ -->
     <!-- MEMBERS SECTION                             -->
     <!-- ============================================ -->
@@ -768,7 +828,7 @@
         <div class="section-header-center fluid-header-container">
           <div class="fluid-header-inner">
             <h2>Members and Affiliates</h2>
-            <p>The organizations bringing AI to life.</p>
+            <p>The organisations bringing AI to life.</p>
           </div>
         </div>
         
@@ -810,8 +870,8 @@
               <div class="author-row">
                  <div class="author-avatar">J</div>
                  <div class="author-info">
-                   <strong>James L.</strong>
-                   <span>Research Lead</span>
+                   <strong>----</strong>
+                   <span>Deep Learning maybe</span>
                  </div>
                  <i class="bi bi-quote quote-icon"></i>
               </div>
@@ -822,12 +882,12 @@
               <div class="t-stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
               </div>
-              <p>"The resources and shared knowledge here have accelerated our startup's deployment timeline by several months."</p>
+              <p>"-------------"</p>
               <div class="author-row">
                  <div class="author-avatar">A</div>
                  <div class="author-info">
-                   <strong>Anita C.</strong>
-                   <span>Startup Founder</span>
+                   <strong>---</strong>
+                   <span>-----</span>
                  </div>
                  <i class="bi bi-quote quote-icon"></i>
               </div>
@@ -838,12 +898,12 @@
               <div class="t-stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
               </div>
-              <p>"I found my technical co-founder at one of the Friday mixers. The caliber of talent in this network is absolutely incredible."</p>
+              <p>"Something about ACE Partnership"</p>
               <div class="author-row">
                  <div class="author-avatar">M</div>
                  <div class="author-info">
-                   <strong>Marcus T.</strong>
-                   <span>AI Developer</span>
+                   <strong>Mia?</strong>
+                   <span>Nora Parenting</span>
                  </div>
                  <i class="bi bi-quote quote-icon"></i>
               </div>
@@ -858,8 +918,8 @@
               <div class="author-row">
                  <div class="author-avatar">S</div>
                  <div class="author-info">
-                   <strong>Sarah W.</strong>
-                   <span>Product Manager</span>
+                   <strong>--------</strong>
+                   <span>---------</span>
                  </div>
                  <i class="bi bi-quote quote-icon"></i>
               </div>
@@ -874,8 +934,8 @@
               <div class="author-row">
                  <div class="author-avatar">D</div>
                  <div class="author-info">
-                   <strong>David K.</strong>
-                   <span>Data Scientist</span>
+                   <strong>-------</strong>
+                   <span>----------------</span>
                  </div>
                  <i class="bi bi-quote quote-icon"></i>
               </div>
@@ -885,53 +945,7 @@
       </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- PROBLEM SOLVERS SECTION (Clean Terminal Layout) -->
-    <!-- ============================================ -->
-    <section class="problem-solvers-section" id="about">
-      <div class="container">
-        <!-- Scroll-linked fluid header container -->
-        <div class="section-header-center fluid-header-container">
-          <div class="fluid-header-inner">
-            <h2>A community of AI problem solvers.</h2>
-            <p>This means two things at once, by design:</p>
-          </div>
-        </div>
-
-        <div class="terminal-grid">
-          <!-- Terminal 1 -->
-          <div class="terminal-card scroll-reveal delay-1">
-            <div class="terminal-header">
-              <span class="term-dot dot-red"></span>
-              <span class="term-dot dot-yellow"></span>
-              <span class="term-dot dot-green"></span>
-            </div>
-            <div class="terminal-body">
-              <span class="term-line highlight">Solving AI problems</span>
-              <span class="term-line">Practitioners, researchers and builders</span>
-              <span class="term-line">pushing what AI can do.</span>
-              <span class="term-line">  </span>
-            </div>
-          </div>
-
-          <!-- Terminal 2 -->
-          <div class="terminal-card scroll-reveal delay-2">
-            <div class="terminal-header">
-              <span class="term-dot dot-red"></span>
-              <span class="term-dot dot-yellow"></span>
-              <span class="term-dot dot-green"></span>
-            </div>
-            <div class="terminal-body">
-              <span class="term-line highlight">Solving problems with AI</span>
-              <span class="term-line">Agencies, enterprises and teams with real</span>
-              <span class="term-line">problem statements looking to deploy AI</span>
-              <span class="term-line">against them.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
+  
     <!-- ============================================ -->
     <!-- CTA BOTTOM SECTION                          -->
     <!-- ============================================ -->
@@ -997,7 +1011,121 @@
   <!-- CUSTOM SMOOTH SCROLL & PARALLAX SCRIPT       -->
   <!-- ============================================ -->
   <script>
+    // ============================================
+    // MEMBERS JSON & SUSHI BELT POPULATION
+    // ============================================
+    const membersData = [
+      { "src": "acesg.png", "alt": "ACESG", "url": "https://ace.sg" },
+      { "src": "agd.webp", "alt": "AGD", "url": "https://www.agd.gov.sg" },
+      { "src": "aisg.png", "alt": "AISG", "url": "https://aisingapore.org" },
+      { "src": "airia.png", "alt": "AISG", "url": "https://airia.com" },
+      { "src": "aleph.png", "alt": "Aleph", "url": "https://alephtech.ai" },
+      { "src": "ASTAR.webp", "alt": "ASTAR", "url": "https://www.a-star.edu.sg" },
+      { "src": "b71.png", "alt": "Block71", "url": "https://www.blk71.sg" },
+      { "src": "BCA.png", "alt": "BCA", "url": "https://www.bca.gov.sg" },
+      { "src": "ccs.webp", "alt": "CCS", "url": "https://www.ccs.gov.sg" },
+      { "src": "centari.webp", "alt": "Centari", "url": "https://www.centari.com" },
+      { "src": "chatandbuild.png", "alt": "ChatAndBuild", "url": "https://chatandbuild.com" },
+      { "src": "checkmate.png", "alt": "Checkmate", "url": "https://checkmate.sg" },
+      { "src": "cohere.webp", "alt": "Cohere", "url": "https://cohere.com" },
+      { "src": "CPF.webp", "alt": "CPF", "url": "https://www.cpf.gov.sg" },
+      { "src": "csclogo.png", "alt": "CSC", "url": "https://www.csc.gov.sg" },
+      { "src": "csitr.webp", "alt": "CSIT", "url": "https://www.csit.gov.sg" },
+      { "src": "datascience.png", "alt": "DataScience SG", "url": "https://datascience.sg" },
+      { "src": "deepinsights.webp", "alt": "Deep Insights Labs", "url": "https://deepinsightlabs.ai" },
+      { "src": "digitalind.webp", "alt": "Digital Industry", "url": "https://www.disg.gov.sg" },
+      { "src": "dso.avif", "alt": "DSO", "url": "https://www.dso.org.sg" },
+      { "src": "e27.webp", "alt": "e27", "url": "https://e27.co" },
+      { "src": "edb.png", "alt": "EDB", "url": "https://www.edb.gov.sg" },
+      { "src": "Elevenlabs.webp", "alt": "ElevenLabs", "url": "https://elevenlabs.io" },
+      { "src": "elgo.jpeg", "alt": "Elgo", "url": "https://www.elgo.app" },
+      { "src": "featherless.png", "alt": "Featherless.ai", "url": "https://featherless.ai" },
+      { "src": "geovector.webp", "alt": "Geovector", "url": "https://www.geovector.ai" },
+      { "src": "govtech.png", "alt": "GovTech", "url": "https://www.tech.gov.sg" },
+      { "src": "groq.webp", "alt": "Groq", "url": "https://groq.com" },
+      { "src": "hasky.webp", "alt": "Hasky Tech", "url": "https://www.haskytech.com" },
+      { "src": "hepha.webp", "alt": "Hepha", "url": "https://hepha.ai" },
+      { "src": "htx.webp", "alt": "HTX", "url": "https://www.htx.gov.sg" },
+      { "src": "IMDA.webp", "alt": "IMDA", "url": "https://www.imda.gov.sg" },
+      { "src": "interfaze.png", "alt": "Interfaze", "url": "https://interfaze.ai" },
+      { "src": "IRAS.webp", "alt": "IRAS", "url": "https://www.iras.gov.sg" },
+      { "src": "jdi.webp", "alt": "JDI", "url": "https://jdi.group" },
+      { "src": "JigsawStack.png", "alt": "JigsawStack", "url": "https://www.jigsawstack.com" },
+      { "src": "manus.png", "alt": "Manus", "url": "https://manus.im" },
+      { "src": "marymountlabs.png", "alt": "Marymount Labs", "url": "https://www.marymountlabs.com" },
+      { "src": "mas.png", "alt": "MAS", "url": "https://www.mas.gov.sg" },
+      { "src": "MDDI.webp", "alt": "MDDI", "url": "https://www.mddi.gov.sg" },
+      { "src": "mfa.webp", "alt": "MFA", "url": "https://www.mfa.gov.sg" },
+      { "src": "mha.png", "alt": "MHA", "url": "https://www.mha.gov.sg" },
+      { "src": "mindef.webp", "alt": "MINDEF", "url": "https://www.mindef.gov.sg" },
+      { "src": "moe.webp", "alt": "MOE", "url": "https://www.moe.gov.sg" },
+      { "src": "MPA.webp", "alt": "MPA", "url": "https://www.mpa.gov.sg" },
+      { "src": "mti.webp", "alt": "MTI", "url": "https://www.mti.gov.sg" },
+      { "src": "nanobrowser.webp", "alt": "NanoBrowser", "url": "https://nanobrowser.ai" },
+      { "src": "nea.jpg", "alt": "NEA", "url": "https://www.nea.gov.sg" },
+      { "src": "nhb.png", "alt": "NHB", "url": "https://www.nhb.gov.sg" },
+      { "src": "NLB.webp", "alt": "NLB", "url": "https://www.nlb.gov.sg" },
+      { "src": "noraai.png", "alt": "Nora", "url": "https://noramum.app" },
+      { "src": "notion.webp", "alt": "Notion", "url": "https://www.notion.so" },
+      { "src": "nrp.webp", "alt": "NRP", "url": "https://nrp.gov.sg" },
+      { "src": "nus.webp", "alt": "NUS", "url": "https://www.nus.edu.sg" },
+      { "src": "pub.webp", "alt": "PUB", "url": "https://www.pub.gov.sg" },
+      { "src": "sambanova.webp", "alt": "Sambanova", "url": "https://sambanova.ai" },
+      { "src": "sash.jpeg", "alt": "SASH", "url": "https://www.aisafety.sg" },
+      { "src": "scantist.png", "alt": "Scantist", "url": "https://scantist.com" },
+      { "src": "sgi.png", "alt": "SG Innovate", "url": "https://www.sginnovate.com" },
+      { "src": "southbridge.png", "alt": "Southbridge", "url": "https://www.southbridge.ai" },
+      { "src": "sps.png", "alt": "Singapore Police Service", "url": "https://www.police.gov.sg" },
+      { "src": "superx.webp", "alt": "SuperX", "url": "https://www.superx.sg" },
+      { "src": "sutd.webp", "alt": "SUTD", "url": "https://www.sutd.edu.sg" },
+      { "src": "temasek.png", "alt": "Temasek", "url": "https://www.temasek.com.sg" },
+      { "src": "thoth.png", "alt": "Thoth", "url": "https://www.aithoth.com" },
+      { "src": "tosba.webp", "alt": "Tosba", "url": "https://tosba.tech" },
+      { "src": "trantorlabs.webp", "alt": "Trantor Labs", "url": "https://www.trantorlabs.sg" },
+      { "src": "vida.webp", "alt": "VidaCity", "url": "https://vidacity.com.sg" },
+      { "src": "zunoc.webp", "alt": "Zuno Carbon", "url": "https://www.zunocarbon.com" }
+    ];
+
     document.addEventListener("DOMContentLoaded", () => {
+      
+      // --- POPULATE SUSHI BELTS WITH HYPERLINKS ---
+      const track1 = document.getElementById('sushi-track-1');
+      const track2 = document.getElementById('sushi-track-2');
+
+      function createSushiCard(member) {
+        const link = document.createElement('a');
+        link.href = member.url || 'https://ace.sg';
+        link.className = 'sushi-item';
+        link.target = '_blank'; // Opens link in a new tab/page
+        link.rel = 'noopener noreferrer'; // Security best practice
+        
+        const img = document.createElement('img');
+        img.src = `assets/img/members/${member.src}`;
+        img.alt = member.alt;
+        
+        link.appendChild(img);
+        return link;
+      }
+
+      if (track1 && track2) {
+        // Split array in half for Track 1 and Track 2
+        const midPoint = Math.ceil(membersData.length / 2);
+        const track1Data = membersData.slice(0, midPoint);
+        const track2Data = membersData.slice(midPoint);
+
+        function populateTrack(trackElement, dataArray) {
+          const loopData = [...dataArray, ...dataArray]; 
+          loopData.forEach(member => {
+            trackElement.appendChild(createSushiCard(member));
+          });
+        }
+
+        populateTrack(track1, track1Data);
+        populateTrack(track2, track2Data);
+      }
+
+
+      // --- ORIGINAL SCROLL REVEAL & PARALLAX ---
       
       // 1. Bidirectional Reveal on Scroll (For standard elements & odometer trigger)
       const revealElements = document.querySelectorAll('.scroll-reveal');

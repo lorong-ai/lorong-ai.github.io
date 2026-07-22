@@ -103,7 +103,7 @@ const headerHTML = `
     font-size: 0.9rem;
     text-decoration: none;
     transition: all 0.3s ease;
-    white-space: nowrap;
+    white-space: nowrap;i
   }
 
   .floating-header .btn-getstarted:hover {

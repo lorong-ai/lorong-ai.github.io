@@ -3,14 +3,13 @@
 
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KC0CD5SNDE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-KC0CD5SNDE');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KC0CD5SNDE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KC0CD5SNDE');
+  </script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Community Resources - Lorong AI</title>
@@ -25,428 +24,300 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKRQ8W4D9R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LKRQ8W4D9R');
-  </script>
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <style>
-    .resources-page .main {
-      background:
-        linear-gradient(180deg,
-          #eef7f1 0%,
-          #edf7f0 8%,
-          #f2f9f4 18%,
-          #f7fbf8 30%,
-          #fcfefd 42%,
-          #ffffff 54%);
+    /* ============================================ */
+    /* GLOBAL VARIABLES & SHARED STYLES             */
+    /* ============================================ */
+    :root {
+      --primary-green: #139B48;
+      --primary-yellow: #FFD100;
+      --text-dark: #1a1a1a;
+      --text-medium: #4a4a4a;
+      --text-light: #666666;
+      --bg-light: #f8f9fa;
     }
 
-    .compact-hero {
-      padding: 1.25rem 0 1.25rem;
-      background: transparent;
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      overflow-x: hidden;
+      background-color: var(--bg-light);
     }
 
-    .compact-hero-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.8fr);
-      gap: 1.1rem;
-      align-items: stretch;
-      background:
-        linear-gradient(135deg, rgba(255, 209, 0, 0.12) 0%, rgba(255, 255, 255, 0.96) 24%, rgba(245, 250, 247, 0.98) 100%);
-      border: 1px solid rgba(0, 102, 51, 0.08);
-      border-radius: 28px;
-      padding: 1rem;
-      box-shadow: 0 14px 30px rgba(12, 37, 24, 0.05);
+    /* CUSTOM MOVEMENT & SCROLL ANIMATIONS */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
     }
 
-    .compact-hero-copy {
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* FLUID SCROLL HEADERS */
+    .fluid-header-container {
+      position: relative;
+      width: 100%;
+    }
+    
+    .fluid-header-inner {
+      will-change: transform, opacity;
+      opacity: 0; 
+      transform: translateY(60px) scale(0.85);
+    }
+
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 5rem;
+      z-index: 10;
+    }
+
+    .section-header-center h2 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ODOMETER FLIP EFFECT FOR HEADERS */
+    .flip-wrapper {
+      display: inline-block;
+      overflow: hidden; 
+      vertical-align: bottom;
+      padding: 0.1em; 
+      margin: -0.1em;
+    }
+
+    .flip-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(110%) rotateX(-45deg);
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+
+    .is-visible .flip-word,
+    .fluid-header-inner.is-revealed .flip-word {
+      animation: odometerRoll 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .flip-word-1 { animation-delay: 0.0s; }
+    .flip-word-2 { animation-delay: 0.15s; }
+    .flip-word-3 { animation-delay: 0.3s; }
+    .flip-word-4 { animation-delay: 0.45s; }
+
+    @keyframes odometerRoll {
+      0% {
+        transform: translateY(110%) rotateX(-60deg);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0) rotateX(0deg);
+        opacity: 1;
+      }
+    }
+
+    /* ============================================ */
+    /* HERO SECTION (Clean, no background image)    */
+    /* ============================================ */
+    .hero-new {
+      min-height: 50vh;
+      background: #ffffff;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 0.75rem;
-    }
-
-    .compact-hero-kicker {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.45rem 0.85rem;
-      border-radius: 999px;
-      background: rgba(255, 209, 0, 0.24);
-      color: #006633;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .compact-hero-copy h1 {
-      margin: 0;
-      font-size: clamp(1.9rem, 4vw, 3.1rem);
-      line-height: 1.02;
-      font-weight: 800;
-      color: #17221c;
-      max-width: 22ch;
-      text-wrap: balance;
-    }
-
-    .compact-hero-copy p {
-      margin: 0;
-      max-width: 64ch;
-      font-size: 0.92rem;
-      line-height: 1.55;
-      color: #51605a;
-    }
-
-    .compact-hero-visual {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-      gap: 0.8rem;
-      min-height: 150px;
-      box-shadow: inset 0 0 0 1px rgba(255, 209, 0, 0.14);
-      border-radius: 18px;
-    }
-
-    .compact-mini-card {
+      align-items: center; 
+      text-align: center; 
+      padding: 10rem 5% 4rem;
+      color: var(--text-dark);
       position: relative;
-      min-height: 150px;
-      height: 100%;
-      border-radius: 18px;
-      overflow: hidden;
-      background: #eef4ef;
-      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
     }
 
-    .compact-mini-card--stack {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      gap: 0.8rem;
-      background: transparent;
-      box-shadow: none;
-      overflow: visible;
-    }
-
-    .compact-mini-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .compact-mini-label {
-      position: absolute;
-      left: 0.65rem;
-      right: 0.65rem;
-      bottom: 0.65rem;
-      padding: 0.55rem 0.7rem;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(12px);
-      color: #153224;
-      font-size: 0.8rem;
-      font-weight: 700;
-      line-height: 1.4;
-    }
-
-    .resources-section {
-      padding: 5rem 0;
-      background: transparent;
-    }
-
-    .resource-category {
-      margin-bottom: 0;
-    }
-
-    .resource-category h2 {
-      margin: 0 0 1.5rem;
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
-      font-weight: 800;
-      color: #17231c;
-      text-transform: none;
-      letter-spacing: 0;
-    }
-
-    .resource-stack {
+    .hero-content {
+      max-width: 1000px; 
+      position: relative;
+      z-index: 1;
+      will-change: transform;
       display: flex;
       flex-direction: column;
-      gap: 2.75rem;
-    }
-
-    .resource-row {
-      display: grid;
-      grid-template-columns: minmax(220px, 280px) 1fr;
-      gap: 2rem;
-      align-items: start;
-      background: #ffffff;
-      border: 2px solid #e9ecef;
-      border-radius: 28px;
-      padding: 2rem;
-      box-shadow: 0 8px 22px rgba(12, 37, 24, 0.04);
-    }
-
-    .resource-row-intro {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 0.8rem;
-      padding: 0 1rem 0 0;
-      border-right: 1px solid #ececec;
-      align-self: stretch;
-      margin: 0;
-    }
-
-    .resource-kicker {
-      display: inline-block;
-      width: fit-content;
-      background: rgba(255, 209, 0, 0.16);
-      color: #006633;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
-    }
-
-    .resource-row-intro h3 {
-      font-size: 1.55rem;
-      font-weight: 800;
-      color: #1a1a1a;
-      margin: 0;
-      line-height: 1.2;
-    }
-
-    .resource-row-panel {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding-top: 0;
-      margin: 0;
-      align-self: start;
-    }
-
-    .resource-row-action {
-      align-self: flex-start;
-    }
-
-    .resource-row-copy p {
-      color: #4a4a4a;
-      font-size: 1rem;
-      line-height: 1.7;
-      margin: 0;
-      max-width: 820px;
-    }
-
-    .resource-row-copy {
-      padding-bottom: 1.2rem;
-      margin: 0;
-    }
-
-    .resource-row--secondary .resource-row-panel {
-      padding-top: 0;
-    }
-
-    .resource-row--secondary .resource-row-copy {
-      max-width: 860px;
-    }
-
-    .resource-row--secondary .resource-row-intro,
-    .resource-row--secondary .resource-row-panel,
-    .resource-row--secondary .resource-row-copy,
-    .resource-row--secondary .resource-row-copy p {
-      margin-top: 0;
-    }
-
-    .resource-row-action {
-      display: inline-flex;
       align-items: center;
-      gap: 0.65rem;
-      width: fit-content;
-      background: #139B48;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.92rem;
-      padding: 0.85rem 1.2rem;
-      border-radius: 18px;
-      transition: background 0.3s ease, transform 0.3s ease;
     }
 
-    .resource-row-action:hover {
-      background: #10833d;
-      color: #ffffff;
-      transform: translateX(2px);
+    .hero-new h1 {
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      color: var(--text-dark); 
+      letter-spacing: -0.03em;
     }
 
-    .spotlight-wrap {
-      margin-top: 0.5rem;
+    .street-sign-divider {
+      width: 100px;
+      height: 3px; 
+      background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-yellow) 100%);
+      margin: 1.5rem 0 2.5rem; 
+      position: relative;
+      border-radius: 3px;
     }
 
-    .spotlight-label {
+    /* ============================================ */
+    /* RESOURCES SECTION                            */
+    /* ============================================ */
+    .resources-section {
+      padding: 6rem 5% 7rem;
+      background: var(--bg-light);
+    }
+
+    .resource-block {
+      margin-bottom: 6rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .column-subheader {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
       display: block;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #666666;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 0.9rem;
+      letter-spacing: -0.02em;
     }
 
-    .spotlight-scroller {
-      overflow-x: auto;
-      padding-bottom: 0.5rem;
-      scrollbar-width: thin;
-      scrollbar-color: #006633 #e9ecef;
+    .resource-desc {
+      font-size: 1.15rem;
+      color: var(--text-medium);
+      max-width: 700px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.6;
     }
 
-    .spotlight-track {
+    /* Centered Horizontal Scroller */
+    .info-scroller {
       display: flex;
-      gap: 1rem;
+      justify-content: center;
+      padding-bottom: 2rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    
+    .info-scroller::-webkit-scrollbar {
+      display: none;
+    }
+
+    .info-track {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
       width: max-content;
+      padding: 0.5rem 0;
     }
 
-    .spotlight-card {
-      flex: 0 0 180px;
-      width: 180px;
+    /* Soft Shadow Cards */
+    .info-card {
+      width: 280px;
       background: #ffffff;
-      border: 1px solid #ececec;
-      border-radius: 18px;
+      border-radius: 16px;
       overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.02);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
       text-decoration: none;
-      color: inherit;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
     }
 
-    .spotlight-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
 
-    .spotlight-card img {
+    .info-card img {
       width: 100%;
-      height: 220px;
+      height: 200px;
       object-fit: cover;
-      display: block;
       background: #f2f2f2;
     }
 
-    .spotlight-card span {
-      display: block;
-      padding: 0.85rem 0.9rem 1rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #1a1a1a;
+    .info-card span {
+      padding: 1.5rem 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      font-size: 1.1rem;
       line-height: 1.4;
     }
 
-    @media (max-width: 992px) {
-      .compact-hero-shell {
-        grid-template-columns: 1fr;
-      }
-
-      .compact-hero-copy h1 {
-        max-width: none;
-      }
-
-      .compact-hero-visual {
-        grid-template-columns: 1fr;
-      }
-
-      .compact-mini-card--stack {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: none;
-      }
-
-      .resource-row {
-        grid-template-columns: 1fr;
-      }
-
-      .resource-row-intro {
-        border-right: 0;
-        border-bottom: 1px solid #ececec;
-        padding-right: 0;
-        padding-bottom: 1rem;
-      }
+    /* Solid Green Button styling that turns Yellow on hover */
+    .btn-action-pill {
+      background-color: var(--primary-green);
+      color: #ffffff;
+      border: 2px solid var(--primary-green);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 16px rgba(19, 155, 72, 0.2);
     }
 
-    @media (max-width: 768px) {
+    .btn-action-pill:hover {
+      background-color: var(--primary-yellow);
+      color: var(--text-dark);
+      border-color: var(--primary-yellow);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(255, 209, 0, 0.3);
+    }
+
+    /* ============================================ */
+    /* RESPONSIVE DESIGN                            */
+    /* ============================================ */
+    @media (max-width: 767.98px) {
       .resources-section {
-        padding: 4rem 0;
+        padding: 5rem 5%;
       }
-
-      .resource-category h2 {
-        font-size: 1.6rem;
+      .resource-block {
+        margin-bottom: 4rem;
       }
-
-      .resource-row {
-        padding: 1.4rem;
-        border-radius: 22px;
+      .info-track {
+        justify-content: flex-start;
       }
-
-      .resource-row-intro h3 {
-        font-size: 1.3rem;
+      .info-scroller {
+        justify-content: flex-start;
       }
-
-      .spotlight-scroller {
-        width: 100%;
-        overflow: visible;
+      .info-card {
+        width: 240px;
       }
-
-      .spotlight-track {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.85rem;
-        width: 100%;
-      }
-
-      .spotlight-card {
-        flex: none;
-        width: 100%;
-        min-width: 0;
-      }
-
-      .spotlight-card img {
-        height: 190px;
+      .info-card img {
+        height: 160px;
       }
     }
   </style>
@@ -458,105 +329,78 @@
 
   <main class="main">
 
-    <section class="compact-hero section">
-      <div class="container">
-        <div class="compact-hero-shell" data-aos="fade-up">
-          <div class="compact-hero-copy">
-            <h1>Purposefully chosen essentials</h1>
-          </div>
-
-          <div class="compact-hero-visual">
-            <div class="compact-mini-card">
-              <img src="assets/img/infographics/05_07_ Multimodal AI V (Wenti Labs).png" alt="Lorong AI infographic spotlight" loading="lazy">
-            </div>
-            <div class="compact-mini-card compact-mini-card--stack">
-              <div class="compact-mini-card">
-                <img src="assets/img/infographics/08_20_ Agents &amp; Inference (Groq Andrew).jpg" alt="Agents and Inference infographic" loading="lazy">
-              </div>
-              <div class="compact-mini-card">
-                <img src="assets/img/infographics/08_27_ Agents &amp; Guardrails (GovTech RAI Shaun).jpg" alt="Guardrails infographic" loading="lazy">
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- ============================================ -->
+    <!-- HERO SECTION                                 -->
+    <!-- ============================================ -->
+    <section class="hero-new">
+      <div class="hero-content scroll-reveal">
+        <h1>Purposefully chosen essentials.</h1>
+        <div class="street-sign-divider scroll-reveal delay-1"></div>
       </div>
     </section>
 
-    <!-- Resources Section -->
-    <section id="resources-main" class="resources-section section">
+    <!-- ============================================ -->
+    <!-- RESOURCES SECTION                            -->
+    <!-- ============================================ -->
+    <section id="resources-main" class="resources-section">
       <div class="container">
 
-
-
-
-
-
-
-                <!-- Community Resources -->
-        <div class="resource-category">
-          <h2>Community Resources</h2>
-
-          <div class="resource-stack">
-            <div class="resource-row">
-              <div class="resource-row-intro">
-                <h3>Lorong AI Infographics</h3>
-              </div>
-
-              <div class="resource-row-panel">
-                <div class="resource-row-copy">
-                  <p>Browse highlights and recaps from previous Lorong AI sessions. Click here to view more.</p>
-                  <p> </p>
-
-                  <div class="spotlight-scroller">
-                    <div class="spotlight-track">
-                      <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="spotlight-card">
-                        <img src="assets/img/infographics/09_09_ AI x Education II (Shiva).png" alt="Education II" loading="lazy">
-                        <span>Education II</span>
-                      </a>
-
-                      <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="spotlight-card">
-                        <img src="assets/img/infographics/08_20_ Agents &amp; Inference (Groq Andrew).jpg" alt="Agents and Inference" loading="lazy">
-                        <span>Agents &amp; Inference</span>
-                      </a>
-
-                      <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="spotlight-card">
-                        <img src="assets/img/infographics/07_02_ Multimodal AI VI (AISG).png" alt="Multimodal AI VI" loading="lazy">
-                        <span>Multimodal AI VI</span>
-                      </a>
-
-                      <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="spotlight-card">
-                        <img src="assets/img/infographics/08_27_ Agents &amp; Guardrails (GovTech RAI Shaun).jpg" alt="Guardrails" loading="lazy">
-                        <span>Guardrails</span>
-                      </a>
-
-                     
-                    </div>
-                  </div>
-                </div>
-
-                <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="resource-row-action">
-                  Open Infographics Drive <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-row resource-row--secondary">
-              <div class="resource-row-intro">
-                <h3>AI Wednesdays sessions</h3>
-              </div>
-
-              <div class="resource-row-panel">
-                <div class="resource-row-copy">
-                  <p>Explore materials from past AI Wednesdays sharing sessions. Note: these materials are currently WOG-accessible only, so reach out if you are interested in getting access.</p>
-                </div>
-
-                <a href="https://go.gov.sg/aiweds-pastmaterials" target="_blank" rel="noopener noreferrer" class="resource-row-action">
-                  Open AI Wednesdays Materials <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </div>
+        <!-- Fluid Header -->
+        <div class="section-header-center fluid-header-container">
+          <div class="fluid-header-inner text-center">
+            <h2 class="scroll-reveal" style="opacity: 1; transform: none; transition: none;">
+              <span class="flip-wrapper"><span class="flip-word flip-word-1">Community</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-2">Resources</span></span>
+            </h2>
           </div>
         </div>
+
+        <!-- Block 1: Infographics -->
+        <div class="resource-block scroll-reveal delay-1">
+          <h3 class="column-subheader">Lorong AI Infographics</h3>
+          <p class="resource-desc">Browse highlights and recaps from previous Lorong AI sessions. Scroll to preview, or access the full drive below.</p>
+          
+          <div class="info-scroller">
+            <div class="info-track">
+              
+              <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="info-card">
+                <img src="assets/img/infographics/09_09_ AI x Education II (Shiva).png" alt="Education II" loading="lazy">
+                <span>Education II</span>
+              </a>
+
+              <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="info-card">
+                <img src="assets/img/infographics/08_20_ Agents &amp; Inference (Groq Andrew).jpg" alt="Agents and Inference" loading="lazy">
+                <span>Agents &amp; Inference</span>
+              </a>
+
+              <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="info-card">
+                <img src="assets/img/infographics/07_02_ Multimodal AI VI (AISG).png" alt="Multimodal AI VI" loading="lazy">
+                <span>Multimodal AI VI</span>
+              </a>
+
+              <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="info-card">
+                <img src="assets/img/infographics/08_27_ Agents &amp; Guardrails (GovTech RAI Shaun).jpg" alt="Guardrails" loading="lazy">
+                <span>Guardrails</span>
+              </a>
+
+            </div>
+          </div>
+
+          <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="btn-action-pill">
+            Open Infographics Drive <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Block 2: AI Wednesdays -->
+        <div class="resource-block scroll-reveal delay-2">
+          <h3 class="column-subheader">AI Wednesdays Sessions</h3>
+          <p class="resource-desc">Explore materials from past AI Wednesdays sharing sessions. Note: these materials are currently WOG-accessible only, so reach out if you are interested in getting access.</p>
+          
+          <a href="https://go.gov.sg/aiweds-pastmaterials" target="_blank" rel="noopener noreferrer" class="btn-action-pill">
+            Open Past Materials <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
       </div>
     </section>
 
@@ -573,7 +417,6 @@
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
   <script src="assets/vendor/php-email-form/validate.js" defer></script>
-  <script src="assets/vendor/aos/aos.js" defer></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
@@ -585,6 +428,58 @@
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/include.js?v=4" defer></script>
 
-</body>
+  <!-- ============================================ -->
+  <!-- CUSTOM SMOOTH SCROLL LOGIC                   -->
+  <!-- ============================================ -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Bidirectional Reveal on Scroll
+      const revealElements = document.querySelectorAll('.scroll-reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          } else {
+            entry.target.classList.remove('is-visible');
+          }
+        });
+      }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+      revealElements.forEach(el => revealObserver.observe(el));
 
+      // 2. Fluid Scroll-Linked Headers (Dynamic Scaling & Odometer Reveal)
+      const fluidContainers = document.querySelectorAll('.fluid-header-container');
+      let ticking = false;
+      function updateScrollAnimations() {
+        const viewHeight = window.innerHeight;
+        fluidContainers.forEach(container => {
+           const inner = container.querySelector('.fluid-header-inner');
+           if (!inner) return;
+           const rect = container.getBoundingClientRect();
+           const revealStart = viewHeight * 0.95;
+           const revealEnd = viewHeight * 0.70;
+           let opacity = 1; let yOffset = 0; let scale = 1;
+           if (rect.top > revealStart) {
+             opacity = 0; yOffset = 60; scale = 0.85;
+             inner.classList.remove('is-revealed');
+           } else if (rect.top > revealEnd) {
+             const progress = (revealStart - rect.top) / (revealStart - revealEnd);
+             const ease = 1 - Math.pow(1 - progress, 3);
+             opacity = ease; yOffset = (1 - ease) * 60; scale = 0.85 + (ease * 0.15);
+             inner.classList.add('is-revealed'); 
+           } else {
+             opacity = 1; scale = 1;
+             const parallaxProgress = (revealEnd - rect.top) / revealEnd;
+             yOffset = -(parallaxProgress * 40);
+           }
+           inner.style.opacity = opacity;
+           inner.style.transform = `translateY(${yOffset}px) scale(${scale})`;
+        });
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => { if (!ticking) { window.requestAnimationFrame(updateScrollAnimations); ticking = true; } });
+      updateScrollAnimations();
+    });
+  </script>
+
+</body>
 </html>

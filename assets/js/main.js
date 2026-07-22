@@ -260,35 +260,6 @@ console.error('Failed to load members:', error);
 window.addEventListener('load', initMembers);
 // ============ END MEMBERS SECTION ============
 // ============ SUSHI BELT — ALL MEMBER LOGOS IN TWO OPPOSING ROWS ============
-const allMemberImages = [
-// Industry
-'acesg.png','agd.webp','aisg.png','aleph.png','ASTAR.webp','b71.png','BCA.png','ccs.webp','centari.webp','chatandbuild.png',
-'checkmate.png','cohere.webp','CPF.webp','csclogo.png','csitr.webp','datascience.png','deepinsights.webp','digitalind.webp','dso.avif','e27.webp',
-// Research
-'edb.png','Elevenlabs.webp','elgo.jpeg','featherless.png','geovector.webp','govtech.png','groq.webp','hasky.webp','hepha.webp','htx.webp',
-'IMDA.webp','interfaze.png','IRAS.webp','jdi.webp','JigsawStack.png','manus.png','marymountlabs.png','mas.png','MDDI.webp','mfa.webp',
-// Government
-'mha.png','mindef.webp','moe.webp','MPA.webp','mti.webp','nanobrowser.webp','nea.jpg','nhb.png','NLB.webp','noraai.png',
-'notion.webp','nrp.webp','nus.webp','pub.webp','riotgames.webp','sambanova.webp','sash.jpeg','scantist.png','sgi.png','southbridge.png'
-];
-
-function shuffleArray(arr) {
-for (let i = arr.length - 1; i > 0; i--) {
-const j = Math.floor(Math.random() * (i + 1));
-[arr[i], arr[j]] = [arr[j], arr[i]];
-}
-return arr;
-}
-
-function buildSushiItem(src) {
-const alt = src.replace(/\.(png|webp|jpeg|jpg|avif)$/i, '');
-return `<div class="sushi-item"><img src="assets/img/members/${src}" alt="${alt}" loading="lazy"></div>`;
-}
-
-function initSushiBelts() {
-const track1 = document.getElementById('sushi-track-1');
-const track2 = document.getElementById('sushi-track-2');
-if (!track1 || !track2) return;
 
 // Shuffle all images, then split into two halves
 const shuffled = shuffleArray([...allMemberImages]);
@@ -304,8 +275,7 @@ track1.innerHTML = items1;
 track2.innerHTML = items2;
 }
 
-window.addEventListener('load', initSushiBelts);
-}
+
 
 // If header is static, run on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
