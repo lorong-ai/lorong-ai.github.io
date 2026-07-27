@@ -845,7 +845,7 @@ h6 {
 .page-title {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 25px 0;
+  padding: 8rem 0 25px;
   position: relative;
 }
 
@@ -875,6 +875,12 @@ h6 {
   display: -webkit-inline-block;
   padding-right: 10px;
   color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    padding-top: 5.5rem;
+  }
 }
 
 /*--------------------------------------------------------------

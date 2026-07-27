@@ -101,7 +101,7 @@
     
     .hero-new {
       min-height: 90vh;
-      background: 
+      background:
         linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
         url('assets/img/hero-carousel/lai-header-op2.png') right center no-repeat;
       background-size: contain;
@@ -120,11 +120,22 @@
       display: none;
     }
 
+    .hero-image {
+      display: none;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
     .hero-content {
-      max-width: 520px; 
+      max-width: 520px;
       position: relative;
       z-index: 1;
-      will-change: transform; 
+      will-change: transform;
     }
 
     .hero-new h1 {
@@ -132,7 +143,7 @@
       font-weight: 700;
       margin-bottom: 1.5rem;
       line-height: 1.1;
-      color: var(--text-dark); 
+      color: var(--text-dark);
       letter-spacing: -0.03em;
       text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
     }
@@ -142,7 +153,7 @@
       margin-bottom: 2.5rem;
       color: var(--text-medium);
       max-width: 550px;
-      margin-left: 0; 
+      margin-left: 0;
       line-height: 1.8;
       font-weight: 400;
     }
@@ -151,7 +162,7 @@
       width: 100px;
       height: 3px; 
       background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-yellow) 100%);
-      margin: 1.5rem 0 2.5rem; 
+      margin: 1.5rem 0 2.5rem;
       position: relative;
       border-radius: 3px;
       transform-origin: left;
@@ -291,7 +302,7 @@
     
     .testimonials-section {
       position: relative;
-      height: 130vh; 
+      height: 130vh;
       background: var(--bg-light);
     }
 
@@ -309,7 +320,7 @@
 
     .testimonials-header {
       text-align: center;
-      margin-bottom: 5rem; 
+      margin-bottom: 5rem;
       z-index: 10;
     }
 
@@ -323,7 +334,7 @@
     .deck-container {
       position: relative;
       width: 500px;
-      height: 280px; 
+      height: 280px;
       margin: 0 auto;
     }
 
@@ -345,8 +356,8 @@
     }
 
     .t-card:hover {
-      z-index: 100 !important; 
-      margin-top: -20px; 
+      z-index: 100 !important;
+      margin-top: -20px;
       box-shadow: 0 25px 50px rgba(0,0,0,0.2) !important;
       cursor: pointer;
     }
@@ -544,7 +555,7 @@
     /* ============================================ */
     
     .cta-section {
-      padding: 8rem 5%; 
+      padding: 8rem 5%;
       background: #ffffff; /* Clear white background */
       text-align: center;
       position: relative;
@@ -566,7 +577,7 @@
     .cta-title {
       font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: 700;
-      color: var(--primary-black); 
+      color: var(--primary-black);
       line-height: 1.2;
       margin-bottom: 3.5rem;
       letter-spacing: -0.02em;
@@ -632,7 +643,7 @@
       align-items: center;
       justify-content: flex-end;
       gap: 1.2rem;
-      flex: 0 1 350px; /* Gives them a solid fixed width layout */
+      flex: 0 1 350px;
     }
 
     .cta-card p {
@@ -683,7 +694,7 @@
       .hero-new h1 { font-size: clamp(2.2rem, 7vw, 3.2rem); }
       .hero-content { max-width: 100%; }
       .hero-new {
-        background: 
+        background:
           linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0) 100%),
           url('assets/img/hero-carousel/lai-header-op2.png') center bottom no-repeat;
         background-size: contain;
@@ -691,16 +702,76 @@
     }
 
     @media (max-width: 768px) {
+      .hero-new {
+        min-height: auto;
+        background: #ffffff;
+        align-items: center;
+        text-align: center;
+        padding: 5.75rem 0 3.5rem;
+      }
+      .hero-image {
+        display: block;
+        width: 100%;
+        margin: 0 0 1.75rem;
+      }
+      .hero-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+      }
+      .hero-content {
+        padding: 0 5%;
+      }
+      .hero-new h1 {
+        font-size: clamp(2rem, 9vw, 3rem);
+        line-height: 1.08;
+        margin-bottom: 1rem;
+      }
+      .hero-description {
+        font-size: 1rem;
+        line-height: 1.65;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+      }
+      .street-sign-divider {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1.5rem;
+      }
       .sushi-item { width: 140px; height: 80px; }
+      .testimonials-section {
+        height: auto;
+        padding: 5rem 5%;
+      }
+      .testimonials-sticky {
+        position: relative;
+        height: auto;
+        overflow: visible;
+        padding-top: 0;
+      }
+      .testimonials-header {
+        margin-bottom: 3rem;
+      }
       .deck-container {
-        width: 90vw;
-        height: 280px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: min(520px, 100%);
+        height: auto;
       }
       .t-card {
+        position: relative;
         padding: 1.5rem 1.5rem;
+        min-height: 250px;
+        height: auto;
+        border-radius: 8px;
       }
+      .t-card:hover { margin-top: 0; }
       .t-card p {
         font-size: 0.95rem;
+        overflow-wrap: anywhere;
       }
       .quote-icon {
         font-size: 2rem;
@@ -712,9 +783,16 @@
       .content-card { padding: 2rem 1.5rem; }
       .content-card-body { font-size: 1rem; }
       .term-line.highlight { font-size: 1.8rem; margin-bottom: 1rem; }
-      .cta-section { padding: 5rem 5%; }
-      .cta-grid { gap: 3.5rem; flex-direction: column; align-items: center; }
-      .cta-title { margin-bottom: 3rem; }
+      .cta-section { padding: 4rem 5%; }
+      .cta-grid { gap: 2rem; flex-direction: column; align-items: center; }
+      .cta-title { margin-bottom: 1.5rem; }
+      .cta-card {
+        justify-content: flex-start;
+        gap: 0.85rem;
+        flex-basis: auto;
+        width: 100%;
+        max-width: 420px;
+      }
     }
   </style>
 </head>
@@ -729,6 +807,10 @@
     <!-- HERO SECTION                                -->
     <!-- ============================================ -->
     <section class="hero-new">
+      <div class="hero-image">
+        <img src="assets/img/hero-carousel/lai-header-op2.png" alt="Lorong AI community with robots">
+      </div>
+
       <div class="hero-content scroll-reveal">
         
         <h1>
@@ -738,7 +820,7 @@
         <div class="street-sign-divider scroll-reveal delay-1"></div>
         
         <p class="hero-description scroll-reveal delay-2">
-          Lorong AI is a collaborative hub where AI problem solvers connect, innovate, and ensure every problem gets solved here.
+          Lorong AI is a collaborative hub where AI problem solvers connect, innovate, and ensure every problem gets solved.
         </p>
 
       </div>
@@ -763,7 +845,7 @@
             <div class="content-card-body text-center">
               <span class="term-line highlight">Solving AI problems</span>
               <span class="term-line">Practitioners, researchers and builders</span>
-              <span class="term-line">pushing what AI can do.</span>
+              <span class="term-line">pushing the limits of AI.</span>
             </div>
           </div>
 
@@ -771,9 +853,8 @@
           <div class="content-card scroll-reveal delay-2">
             <div class="content-card-body text-center">
               <span class="term-line highlight">Solving problems with AI</span>
-              <span class="term-line">Agencies, enterprises and teams with real</span>
-              <span class="term-line">problem statements looking to deploy AI</span>
-              <span class="term-line">against them.</span>
+              <span class="term-line">Agencies and enterprises looking to deploy AI</span>
+              <span class="term-line">against real problem statements.</span>
             </div>
           </div>
         </div>
@@ -788,8 +869,8 @@
         <!-- Scroll-linked fluid header container -->
         <div class="section-header-center fluid-header-container">
           <div class="fluid-header-inner">
-            <h2>Making your Market for you</h2>
-            <p style="max-width: 800px; margin: 1rem auto 0; line-height: 1.6;">Turn your roadblocks and problem statements into validated opportunities by engaging Singapore's AI ecosystem through a structured market-making process.</p>
+            <h2>Market Making</h2>
+              <p style="max-width: 800px; margin: 1rem auto 0; line-height: 1.6;">An engagement framework for organisations seeking to work with Singapore's AI ecosystem.</p>
           </div>
         </div>
 
@@ -797,20 +878,20 @@
           <div class="content-card scroll-reveal delay-1">
             <div class="content-card-body" style="align-items: flex-start; text-align: left;">
               <span class="term-line" style="font-weight: 700; font-size: 1.25rem; margin-bottom: 1.8rem; color: var(--text-dark);">
-                Instead of sourcing for solutions blindly, we help you:
+                This process supports organisations in:
               </span>
               
               <div style="display: flex; flex-direction: column; gap: 1rem; width: 100%; margin-bottom: 2.5rem;">
-                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Refine the right problem</span>
-                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Bring it to the right builders</span>
-                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Discover promising solutions</span>
-                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Identify teams worth working with</span>
-                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Continue collaboration beyond the event</span>
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Refining problem statements</span>
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Engaging the broader AI community</span>
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Surfacing potential solution pathways</span>
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Connecting with relevant teams</span>
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Building relationships that extend beyond the programme</span>
               </div>
 
               <div style="width: 100%; padding-top: 1.8rem; border-top: 1px solid #ece9e9;">
                 <span class="term-line" style="font-weight: 600; color: var(--primary-green); font-size: 1.15rem; line-height: 1.5;">
-                  Am engagement package designed to move from problem statements to real partnerships.
+                 We create opportunities for problem owners and practitioners to explore and solve real challenges together.
                 </span>
               </div>
             </div>
@@ -973,7 +1054,7 @@
               <!-- Card 2: Speaker -->
               <div class="cta-card">
                 <p>Have a real-world AI deployment story? The stage is yours.</p>
-                <a href="https://go.gov.sg/lai-share" class="btn-action-pill"><i class="bi bi-mic"></i> Be a Speaker</a>
+                <a href="https://go.gov.sg/lai-collaborate" class="btn-action-pill">Collaborate with Us</a>
               </div>
 
             </div>
@@ -1005,7 +1086,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/include.js?v=4" defer></script>
+  <script src="assets/js/include.js?v=5" defer></script>
 
   <!-- ============================================ -->
   <!-- CUSTOM SMOOTH SCROLL & PARALLAX SCRIPT       -->
@@ -1161,7 +1242,7 @@
         const viewHeight = window.innerHeight;
         
         // --- Hero Parallax ---
-        if (heroContent && scrollY < viewHeight) {
+        if (heroContent && scrollY < viewHeight && window.innerWidth > 768) {
           heroContent.style.transform = `translateY(${scrollY * 0.25}px)`;
         }
 
@@ -1169,6 +1250,11 @@
         fluidContainers.forEach(container => {
            const inner = container.querySelector('.fluid-header-inner');
            if (!inner) return;
+           if (window.innerWidth <= 768 && container.classList.contains('cta-content')) {
+             inner.style.opacity = 1;
+             inner.style.transform = 'none';
+             return;
+           }
 
            const rect = container.getBoundingClientRect();
            
@@ -1220,41 +1306,45 @@
 
         // --- Testimonial Deck 5-Card Spread ---
         if (tSection && tCards.length === 5) {
-          const rect = tSection.getBoundingClientRect();
-          
-          let progress = 0;
-          if (rect.top <= 0) {
-            progress = Math.min(1, Math.abs(rect.top) / (viewHeight * 0.25));
-          }
+          if (window.innerWidth <= 768) {
+            tCards.forEach(card => {
+              card.style.transform = '';
+            });
+          } else {
+            const rect = tSection.getBoundingClientRect();
 
-          const easeP = 1 - Math.pow(1 - progress, 3);
-          
-          const spreadX = window.innerWidth > 992 ? 260 : 180;
-          const spreadYMobile = 140; 
-          
-          for(let i=0; i<5; i++) {
-            const colScale = 0.8 + (i * 0.05); 
-            const colY = (4 - i) * -12; 
-            
-            if (window.innerWidth <= 768) {
-              const targetY = (i - 2) * spreadYMobile; 
-              
-              const currentY = colY + (targetY - colY) * easeP;
-              const currentScale = colScale + (1 - colScale) * easeP;
-              
-              tCards[i].style.transform = `translateY(${currentY}px) scale(${currentScale})`;
-            } else {
-              const indexOffset = i - 2; 
-              const targetX = indexOffset * spreadX;
-              const targetY = Math.abs(indexOffset) * 35; 
-              const targetRot = indexOffset * 6; 
-              
-              const currentX = targetX * easeP;
-              const currentY = colY + (targetY - colY) * easeP;
-              const currentScale = colScale + (1 - colScale) * easeP;
-              const currentRot = targetRot * easeP;
-              
-              tCards[i].style.transform = `translate(${currentX}px, ${currentY}px) scale(${currentScale}) rotate(${currentRot}deg)`;
+            let progress = 0;
+            if (rect.top <= 0) {
+              progress = Math.min(1, Math.abs(rect.top) / (viewHeight * 0.25));
+            }
+
+            const easeP = 1 - Math.pow(1 - progress, 3);
+            const spreadX = window.innerWidth > 992 ? 260 : 180;
+            const spreadYMobile = 140;
+
+            for(let i=0; i<5; i++) {
+              const colScale = 0.8 + (i * 0.05);
+              const colY = (4 - i) * -12;
+
+              if (window.innerWidth <= 768) {
+                const targetY = (i - 2) * spreadYMobile;
+                const currentY = colY + (targetY - colY) * easeP;
+                const currentScale = colScale + (1 - colScale) * easeP;
+
+                tCards[i].style.transform = `translateY(${currentY}px) scale(${currentScale})`;
+              } else {
+                const indexOffset = i - 2;
+                const targetX = indexOffset * spreadX;
+                const targetY = Math.abs(indexOffset) * 35;
+                const targetRot = indexOffset * 6;
+
+                const currentX = targetX * easeP;
+                const currentY = colY + (targetY - colY) * easeP;
+                const currentScale = colScale + (1 - colScale) * easeP;
+                const currentRot = targetRot * easeP;
+
+                tCards[i].style.transform = `translate(${currentX}px, ${currentY}px) scale(${currentScale}) rotate(${currentRot}deg)`;
+              }
             }
           }
         }

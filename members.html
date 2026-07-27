@@ -43,41 +43,37 @@
     .members-page .main {
       background: transparent;
       min-height: 100vh;
-      padding: 1.25rem 0 4rem;
+      padding: 0 0 4rem;
     }
 
     .member-hero {
-      padding: 1.25rem 0 1.25rem;
-      background: transparent;
+      min-height: 90vh;
+      padding: 11rem 5% 6rem;
+      background:
+        linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
+        url('assets/img/hero-carousel/lai-header-op2.png') right center no-repeat;
+      background-size: contain;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
     }
 
     .member-hero-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.8fr);
-      gap: 1.1rem;
-      align-items: stretch;
-      min-height: 420px;
-      background:
-        linear-gradient(135deg, rgba(255, 209, 0, 0.12) 0%, rgba(255, 255, 255, 0.96) 24%, rgba(245, 250, 247, 0.98) 100%);
-      border: 1px solid rgba(0, 102, 51, 0.08);
-      border-radius: 28px;
-      padding: 1rem;
-      box-shadow: 0 14px 30px rgba(12, 37, 24, 0.05);
-      overflow: hidden;
+      display: block;
+      width: 100%;
+      max-width: 520px;
     }
 
     .member-hero-copy {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 0.75rem;
-      min-height: 100%;
+      align-items: flex-start;
+      gap: 1.5rem;
     }
 
     .member-hero-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: none;
     }
 
     .member-hero-visual img {
@@ -105,12 +101,13 @@
 
     .member-hero h2 {
       margin: 0;
-      font-size: clamp(1.9rem, 4vw, 3.1rem);
-      line-height: 1.02;
-      font-weight: 800;
-      color: #17221c;
-      max-width: 22ch;
-      text-wrap: balance;
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      line-height: 1.1;
+      font-weight: 700;
+      color: #1a1a1a;
+      max-width: 10ch;
+      letter-spacing: -0.03em;
+      text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
     }
 
     .member-hero p {
@@ -118,6 +115,15 @@
       font-size: 1rem;
       line-height: 1.85;
       max-width: 72ch;
+    }
+
+    .member-hero-copy::after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, #139B48 0%, #FFD100 100%);
+      border-radius: 3px;
     }
 
     .member-hero-visual img {
@@ -286,6 +292,47 @@
       box-shadow: 0 6px 25px rgba(0, 102, 51, 0.25);
       color: white;
     }
+
+    @media (max-width: 768px) {
+      .member-hero {
+        min-height: auto;
+        padding: 5.75rem 0 3.5rem;
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .member-hero-shell {
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+      }
+      .member-hero-visual {
+        display: block;
+        order: 1;
+        width: 100%;
+        margin: 0 0 1.75rem;
+      }
+      .member-hero-copy {
+        order: 2;
+        align-items: center;
+        padding: 0 5%;
+      }
+      .member-hero h2 {
+        font-size: clamp(2rem, 9vw, 3rem);
+        line-height: 1.08;
+        max-width: 12ch;
+      }
+      .member-hero-copy::after {
+        margin: 0 auto;
+      }
+      .member-hero-visual img {
+        border-radius: 0;
+        max-height: none;
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
@@ -298,7 +345,7 @@
       <section class="member-hero section" data-aos="fade-up">
         <div class="member-hero-shell">
           <div class="member-hero-copy">
-            <h2>Meet the Ecosystem</h1>
+            <h2>Meet the Ecosystem</h2>
           </div>
           <div class="member-hero-visual">
             <img src="assets/img/hero-carousel/eventsmaybe2.png" alt="Lorong AI member community" loading="lazy">
@@ -411,7 +458,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/include.js?v=4" defer></script>
+  <script src="assets/js/include.js?v=5" defer></script>
 </body>
 
 </html>
