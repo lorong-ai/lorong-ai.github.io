@@ -2,204 +2,622 @@
 <html lang="en">
 
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TGRVTMZC');</script>
-<!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KC0CD5SNDE"></script>
 
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KC0CD5SNDE');
+  </script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>About - Sailor Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="Contact Lorong AI for events, or general inquiries. We're here to help you connect with Singapore's AI community.">
+  <meta name="keywords" content="contact Lorong AI, Singapore, AI community, events, artificial intelligence">
+  <link rel="canonical" href="https://lorongai.sg/about.html">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Favicon -->
+  <link href="assets/img/favicon-32x32.png?v=2" rel="icon">
+  <link href="assets/img/favicon-32x32.png?v=2" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <style>
-    .events-hero {
-      padding: 1.25rem 0 1.25rem;
-      background: transparent;
-    }
-
-    .events-hero-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.8fr);
-      gap: 1.1rem;
-      align-items: center;
-      background:
-        linear-gradient(135deg, rgba(255, 209, 0, 0.12) 0%, rgba(255, 255, 255, 0.96) 24%, rgba(245, 250, 247, 0.98) 100%);
-      border: 1px solid rgba(0, 102, 51, 0.08);
-      border-radius: 28px;
-      padding: 1rem;
-      box-shadow: 0 14px 30px rgba(12, 37, 24, 0.05);
-      overflow: hidden;
-    }
-
-    .events-hero-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0.75rem;
-    }
-
-    .events-hero-copy p {
-      margin: 0;
-      color: #53625c;
-      max-width: 40ch;
-      font-size: clamp(1rem, 1.1vw, 1.12rem);
-      line-height: 1.8;
-    }
-
-    .events-hero-visual img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 22px;
-      object-fit: cover;
-    }
-
-    .events-hero-copy h1 {
-      margin: 0;
-      font-size: clamp(1.9rem, 4vw, 3.1rem);
-      line-height: 1.02;
-      font-weight: 800;
-      color: #16241b;
-      max-width: 22ch;
-      text-wrap: balance;
-    }
-
-    .about-2.section {
-      padding: 5rem 0;
-      background: transparent;
-    }
-    .nav-our-mission {
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
-      font-weight: 800;
-      color: #17231c !important;
-      padding: 0;
-      line-height: 1;
-    }
-    .nav-our-story {
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
-      font-weight: 800;
-      color: #17231c !important;
-      padding: 0;
-      line-height: 1;
-    }
-    .nav-our-hubs {
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
-      font-weight: 800;
-      color: #17231c !important;
-      padding: 0;
-      line-height: 1;
-    }
-    /* Match homepage h2 for tab headings and connect h2 */
-    .about-2 h3,
-    .connect h2 {
-      margin: 0 0 0.65rem;
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
-      font-weight: 800;
-      color: #17231c;
-    }
-    .connect-social a {
-      font-size: clamp(1.5rem, 3vw, 2.25rem);
-      color: #17231c;
-      margin-right: 1rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .connect-social a:hover {
-      color: #006633;
-    }
-    /* Ensure home-section h2 is available on this page */
-    .home-section-head h2 {
-      margin: 0 0 0.65rem;
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
-      font-weight: 800;
-      color: #17231c;
-    }
-
-    /* Find Us map styling */
-    .find-us .map-embed iframe {
-      width: 100%;
-      height: 300px;
-      border: 0;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-    .find-us {
-      background: #ffffff;
-    }
-    /* Force white background in case global variables override it */
-    section.find-us {
-      background-color: #ffffff !important;
-    }
-    .find-us h3 {
-      margin: 0 0 0.5rem;
-      font-size: clamp(1.25rem, 2.0vw, 1.5rem);
-      font-weight: 800;
-      color: #17231c;
-    }
-    .find-address {
-      display: flex;
-      gap: .5rem;
-      align-items: center;
-      color: #17231c;
-      margin-top: .75rem;
-      font-weight: 600;
-    }
-    .find-address i {
-      font-size: 1.25rem;
-      color: #006633;
-    }
-    /* FAQ section styles */
-    .faq-section {
-      padding: 3rem 0 4rem;
-      background: var(--background-color);
-    }
-    .faq-section .section-header.home-section-head h2 {
-      margin-bottom: 1rem;
-    }
-    .faq-section h3 {
-      margin: 1.25rem 0 0.75rem;
-      font-size: clamp(1.125rem, 1.8vw, 1.35rem);
-      font-weight: 800;
-      color: #17231c;
-    }
-    .faq-section .accordion-button {
-      font-weight: 600;
-      color: #17231c;
-    }
-  </style>
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Sailor
-  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    /* ============================================ */
+    /* GLOBAL VARIABLES & SHARED STYLES             */
+    /* ============================================ */
+    :root {
+      --primary-green: #139B48;
+      --primary-yellow: #FFD100;
+      --text-dark: #1a1a1a;
+      --text-medium: #4a4a4a;
+      --text-light: #666666;
+      --bg-light: #f8f9fa;
+      --members-bg: #f4f6f8; 
+      
+      /* Timeline specific colors */
+      --timeline-bg: #ffffff; 
+      --timeline-text: #139b47;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      overflow-x: hidden;
+      background-color: var(--bg-light);
+    }
+
+    /* CUSTOM MOVEMENT & SCROLL ANIMATIONS */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+
+    /* FLUID SCROLL HEADERS */
+    .fluid-header-container {
+      position: relative;
+      width: 100%;
+    }
+    
+    .fluid-header-inner {
+      will-change: transform, opacity;
+      opacity: 0; 
+      transform: translateY(60px) scale(0.85);
+    }
+
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 5rem;
+      z-index: 10;
+    }
+
+    .section-header-center h2 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ODOMETER FLIP EFFECT FOR HEADERS */
+    .flip-wrapper {
+      display: inline-block;
+      overflow: hidden; 
+      vertical-align: bottom;
+      padding: 0.1em; 
+      margin: -0.1em;
+    }
+
+    .flip-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(110%) rotateX(-45deg);
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+
+    .is-visible .flip-word,
+    .fluid-header-inner.is-revealed .flip-word {
+      animation: odometerRoll 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    .flip-word-1 { animation-delay: 0.0s; }
+    .flip-word-2 { animation-delay: 0.15s; }
+    .flip-word-3 { animation-delay: 0.3s; }
+
+    @keyframes odometerRoll {
+      0% { transform: translateY(110%) rotateX(-60deg); opacity: 0; }
+      100% { transform: translateY(0) rotateX(0deg); opacity: 1; }
+    }
+
+    /* ============================================ */
+    /* HERO SECTION                                 */
+    /* ============================================ */
+    .hero-new {
+      min-height: 90vh;
+      background:
+        linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
+        url('') right center no-repeat;
+      background-size: contain;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start; 
+      text-align: left; 
+      padding: 11rem 5% 6rem;
+      color: var(--text-dark);
+      position: relative;
+    }
+
+    .hero-image {
+      display: none;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-content {
+      max-width: 520px; 
+      position: relative;
+      z-index: 1;
+      will-change: transform;
+    }
+
+    .hero-new h1 {
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      color: var(--text-dark); 
+      letter-spacing: -0.03em;
+      text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .street-sign-divider {
+      width: 100px;
+      height: 3px; 
+      background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-yellow) 100%);
+      margin: 1.5rem 0 2.5rem; 
+      position: relative;
+      border-radius: 3px;
+      transform-origin: left;
+    }
+
+    /* Responsive Design for Hero */
+    @media (max-width: 991.98px) {
+      .hero-new {
+        background:
+          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0) 100%),
+          url('assets/img/hero-carousel/lai-header-op2.png') center bottom no-repeat;
+        background-size: contain;
+        align-items: center;
+        text-align: center;
+      }
+      .hero-content {
+        align-items: center;
+        max-width: 100%;
+      }
+    }
+    
+    @media (max-width: 767.98px) {
+      .hero-new {
+        min-height: auto;
+        background: #ffffff;
+        padding: 5.75rem 0 3.5rem;
+      }
+      .hero-image {
+        display: block;
+        width: 100%;
+        margin: 0 0 1.75rem;
+      }
+      .hero-content {
+        padding: 0 5%;
+      }
+      .hero-new h1 {
+        font-size: clamp(2rem, 9vw, 3rem);
+        line-height: 1.08;
+        margin-bottom: 1rem;
+      }
+      .street-sign-divider {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    /* ============================================ */
+    /* HORIZONTAL SCROLL TIMELINE SECTION           */
+    /* ============================================ */
+    .horizontal-timeline-section {
+      height: 500vh;
+      position: relative;
+      background-color: var(--timeline-bg);
+    }
+
+    .timeline-sticky-container {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Gravel Road Timeline Replacement */
+    .h-timeline-road {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-image: url('assets/img/road.png');
+      background-color: #4a4a4a; /* Fallback */
+      background-size: contain; 
+      background-position: center;
+      background-repeat: repeat-x; 
+      border-top: 3px solid #d3d3d3;
+      box-shadow: inset 0 10px 15px -10px rgba(0,0,0,0.5);
+      z-index: 50; 
+    }
+
+    .h-progress-car-wrapper {
+      height: 100%;
+      width: 0%;
+      max-width: calc(100% - 80px);
+      transition: width 0.1s ease-out;
+      position: relative;
+    }
+    
+    .h-progress-car {
+      position: absolute;
+      right: -30px; 
+      bottom: 18px; 
+      font-size: 3.2rem; 
+      line-height: 1;
+      filter: drop-shadow(3px 5px 4px rgba(0,0,0,0.4));
+      transform: scaleX(-1); 
+      z-index: 51;
+    }
+
+    .horizontal-scroll-wrapper {
+      display: flex;
+      align-items: center;
+      will-change: transform;
+      height: 100%;
+      width: 400vw;
+    }
+
+    .h-slide-block {
+      width: 100vw; 
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 80px; 
+    }
+
+    .h-slide-content {
+      width: 88%; 
+      max-width: 1300px;
+      display: flex;
+      gap: 6%; 
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Left Column Styling */
+    .h-slide-left {
+      flex: 0 0 42%; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .h-year-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .h-huge-year {
+      font-size: clamp(6rem, 10vw, 10rem);
+      font-weight: 900;
+      line-height: 0.85;
+      color: var(--text-dark);
+      letter-spacing: -0.04em;
+      margin-bottom: -1rem; 
+      z-index: 10;
+      position: relative;
+      text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
+    }
+
+    .h-year-img {
+      width: 100%;
+      max-width: 450px;
+      height: 320px;
+      object-fit: cover;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      border-radius: 12px;
+      border: 6px solid #fff;
+      z-index: 2;
+    }
+
+    /* Right Column Styling & Text */
+    .h-slide-right {
+      flex: 0 0 52%; 
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Clean Text Panel without borders */
+    .text-panel {
+      padding: 1rem 0;
+      max-width: 650px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .text-panel .h-slide-subtitle {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary-green); 
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: block;
+    }
+
+    .text-panel p.h-slide-desc {
+      color: var(--text-medium);
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .text-panel h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    /* Intro Slide specific override */
+    .h-intro .h-slide-content {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .h-intro h2 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      color: var(--text-dark);
+      line-height: 1.1;
+    }
+    .h-intro p {
+      font-size: 1.25rem;
+      opacity: 0.8;
+      margin-top: 1rem;
+      color: var(--text-dark);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .h-slide-content {
+        flex-direction: column;
+        justify-content: center;
+        gap: 2.5rem;
+        width: 90%;
+      }
+      .h-slide-left, .h-slide-right {
+        flex: 1 1 auto;
+      }
+      .h-timeline-road {
+        height: 60px;
+      }
+      .h-progress-car {
+        font-size: 2.5rem;
+        bottom: 12px;
+        right: -25px;
+      }
+      .h-slide-block {
+        padding-bottom: 60px;
+      }
+      .h-huge-year {
+        font-size: 5rem;
+      }
+      .h-year-img {
+        height: 220px;
+      }
+    }
+
+    /* ============================================ */
+    /* VALUE PROPOSITIONS SECTION                   */
+    /* ============================================ */
+    .value-props-section {
+      padding: 8rem 5% 7rem; 
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+
+    .vp-group {
+      position: relative;
+      margin-bottom: 8rem; 
+    }
+
+    .cards-spread-container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 2rem; 
+      max-width: 1200px;
+      margin: 0 auto; 
+      padding: 0 1rem;
+      flex-wrap: wrap;
+    }
+
+    .prop-card-wrapper {
+      flex: 1;
+      min-width: 300px;
+      max-width: 380px;
+      transition: opacity 0.8s ease, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .prop-card-wrapper:nth-child(1) { transform: translateX(100%) scale(0.9) rotate(8deg); opacity: 0; }
+    .prop-card-wrapper:nth-child(2) { transform: translateY(120px) scale(0.95); opacity: 0; z-index: 2; }
+    .prop-card-wrapper:nth-child(3) { transform: translateX(-100%) scale(0.9) rotate(-8deg); opacity: 0; }
+
+    .cards-spread-container.is-spread .prop-card-wrapper {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+      opacity: 1;
+    }
+
+    .prop-card {
+      position: relative;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      height: 100%;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+      z-index: 1;
+      border: 2px solid #139b47;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      background-color: #ffffff;
+    }
+
+    .prop-card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .prop-card p {
+      color: #333333;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ============================================ */
+    /* FAQ SECTION                                  */
+    /* ============================================ */
+    .faq-section {
+      padding: 8rem 5% 7rem;
+      background: var(--bg-light);
+    }
+
+    .lorong-accordion { max-width: 900px; }
+    .lorong-accordion .accordion-item {
+      border-radius: 16px !important;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: #ffffff;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+      transition: all 0.3s ease;
+    }
+
+    .lorong-accordion .accordion-item:hover {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+      border-color: rgba(19, 155, 72, 0.3);
+    }
+
+    .lorong-accordion .accordion-button {
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      padding: 1.5rem;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .lorong-accordion .accordion-button:not(.collapsed) {
+      color: var(--primary-green);
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .lorong-accordion .accordion-button::after {
+      filter: grayscale(1);
+    }
+    
+    .lorong-accordion .accordion-button:not(.collapsed):after {
+      filter: none;
+    }
+
+    .lorong-accordion .accordion-body {
+      color: var(--text-medium);
+      line-height: 1.7;
+      font-size: 1.05rem;
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    /* ============================================ */
+    /* LOCATIONS / MAPS SECTION                     */
+    /* ============================================ */
+    .locations-section {
+      padding: 8rem 5% 7rem;
+      background: #ffffff;
+    }
+
+    .about-panel {
+      position: relative;
+      padding: 1.5rem;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+      z-index: 1;
+    }
+
+    .about-panel:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+    }
+
+    .about-panel h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-panel p {
+      color: var(--text-medium);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .about-panel iframe {
+      border-radius: 12px;
+      width: 100%;
+      height: 280px;
+      background: #f8f9fa;
+    }
+  </style>
 </head>
 
 <body class="about-page">
@@ -211,305 +629,257 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/LAI.jpeg" alt="">
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="resources.html">Resources</a></li>
-          <li><a href="members.html">Members</a></li>
-          <li><a href="about.html" class="active">About Us</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="https://form.gov.sg/670cf4d58f92af4544f2721f">Join us!</a>
-
-    </div>
-  </header>
-
   <main class="main">
 
-    <section class="events-hero">
-      <div class="container">
-        <div class="events-hero-shell" data-aos="fade-up">
-          <div class="events-hero-copy">
-            <h1>Connect, Cowork and Build With The Community</h1>
-            <p>Connect, cowork, and collaborate in spaces designed for makers, learners, and local AI builders.</p>
+    <!-- ============================================ -->
+    <!-- HERO SECTION                                 -->
+    <!-- ============================================ -->
+    <section class="hero-new">
+      <!-- Included hero-image div for mobile support -->
+      <div class="hero-image">
+        <img src="assets/img/hero-carousel/lai-header-op2.png" alt="Lorong AI community with robots">
+      </div>
+      <div class="hero-content scroll-reveal">
+        <h1>A Community of Communities.</h1>
+        <div class="street-sign-divider scroll-reveal delay-1"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- HORIZONTAL SCROLL TIMELINE SECTION           -->
+    <!-- ============================================ -->
+    <section class="horizontal-timeline-section" id="horizontal-timeline">
+      <div class="timeline-sticky-container">
+        
+        <!-- The Gravel Road and Car -->
+        <div class="h-timeline-road">
+          <div class="h-progress-car-wrapper" id="h-progress-fill">
+            <div class="h-progress-car">🚗</div>
           </div>
-          <div class="events-hero-visual">
-            <img src="assets/img/hero-carousel/eventsmaybe2.png" alt="Lorong AI community and events" loading="lazy">
+        </div>
+
+        <div class="horizontal-scroll-wrapper" id="h-scroll-wrapper">
+          
+          <!-- Slide 1: Intro -->
+          <div class="h-slide-block h-intro">
+            <div class="h-slide-content">
+              <h2>Lorong throughout the years.</h2>
+              <p>(sorry the car is just a placeholder...)</p>
+            </div>
+          </div>
+
+          <!-- Slide 2: 2024 -->
+          <div class="h-slide-block">
+            <div class="h-slide-content">
+              <div class="h-slide-left">
+                <div class="h-year-wrapper">
+                  <span class="h-huge-year">2024</span>
+                  <img src="assets/img/hero-carousel/mddi-tt.jpeg" alt="Lorong AI 2024" class="h-year-img">
+                </div>
+              </div>
+              <div class="h-slide-right">
+                <div class="text-panel">
+                  <p class="h-slide-desc">In 2024, our dream of bringing AI practitioners together started as casual "AI Wednesdays".</p>
+                  <h2>We launched our first community gathering in Funan(or mddi?) to share ideas and foster connections.</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: 2025 -->
+          <div class="h-slide-block">
+            <div class="h-slide-content">
+              <div class="h-slide-left">
+                <div class="h-year-wrapper">
+                  <span class="h-huge-year">2025</span>
+                  <!-- Fill in your image path in the src below -->
+                  <img src="" alt=" image for 2025" class="h-year-img">
+                </div>
+              </div>
+              <div class="h-slide-right">
+                <div class="text-panel">
+                  <p class="h-slide-desc">In 2025, we realised that an occasional meetup wasn't enough to sustain the momentum.</p>
+                  <h2>We moved Lorong AI to Chinatown at 22X, establishing a dedicated co-working space for builders.</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: 2026 -->
+          <div class="h-slide-block">
+            <div class="h-slide-content">
+              <div class="h-slide-left">
+                <div class="h-year-wrapper">
+                  <span class="h-huge-year">2026</span>
+                  <img src="assets/img/hero-carousel/one-north-tt.jpeg" alt="Lorong AI 2026" class="h-year-img">
+                </div>
+              </div>
+              <div class="h-slide-right">
+                <div class="text-panel">
+                  <p class="h-slide-desc">In 2026, we expanded to One-North to be at the physical center of the Singapore tech ecosystem and Kampung AI.</p>
+                  <h2>With our own space, we run over 5 events weekly, catering to people from all backgrounds.</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- VALUE PROPOSITIONS SECTION                   -->
+    <!-- ============================================ -->
+    <section class="value-props-section">
+      <div class="container">
+        
+        <div class="vp-group">
+          <div class="section-header-center fluid-header-container">
+            <div class="fluid-header-inner">
+              <h2>For those solving problems with AI</h2>
+            </div>
+          </div>
+          <div class="cards-spread-container scroll-trigger-spread">
+            <div class="prop-card-wrapper">
+              <div class="prop-card">
+                <h3>We connect you to the those who can solve your problem</h3>
+                <p>Tell us your problem and we curate the introductions.</p>
+              </div>
+            </div>
+            <div class="prop-card-wrapper">
+              <div class="prop-card">
+                <h3>We put what's real in front of you</h3>
+                <p>Live demos by the people who built them, vetted by a community that asks hard questions.</p>
+              </div>
+            </div>
+            <div class="prop-card-wrapper">
+              <div class="prop-card">
+                <h3>We help you sharpen the problem before you spend on it</h3>
+                <p>Curation and co-learning turn pain points into a workable problem statement.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vp-group">
+          <div class="section-header-center fluid-header-container">
+            <div class="fluid-header-inner">
+              <h2>For those solving AI problems</h2>
+            </div>
+          </div>
+          <div class="cards-spread-container scroll-trigger-spread">
+            <div class="prop-card-wrapper">
+              <div class="prop-card">
+                <h3>We put you in front of people with real problems</h3>
+                <p>Curated exposure to adopters, partners and problem owners with mandates and budgets.</p>
+              </div>
+            </div>
+            <div class="prop-card-wrapper">
+              <div class="prop-card">
+                <h3>We build your credibility, not just your visibility</h3>
+                <p>Demo, teach and contribute in a nationally recognised community.</p>
+              </div>
+            </div>
+            <div class="prop-card-wrapper">
+              <div class="prop-card">
+                <h3>We broker partnerships, not name-card stacks</h3>
+                <p>Introductions across government, industry and research designed to convert into pilots and deployments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FAQ SECTION                                  -->
+    <!-- ============================================ -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header-center fluid-header-container">
+          <div class="fluid-header-inner">
+            <h2 class="scroll-reveal" style="opacity: 1; transform: none; transition: none;">
+              <span class="flip-wrapper"><span class="flip-word flip-word-1">Frequently</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-2">Asked</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-3">Questions</span></span>
+            </h2>
+            <p class="mx-auto mt-3">Learn more about our community and how things work at Lorong AI.</p>
+          </div>
+        </div>
+        
+        <div class="accordion lorong-accordion mx-auto scroll-reveal delay-1" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                What is Lorong AI?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Lorong AI is a collaborative hub bringing together government, industry, and research to build Singapore's AI ecosystem. We aim to connect practitioners to build AI for the public good.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Who is part of the community?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Our network includes over 300 core members and a community of 16,000+ AI practitioners. Members span across leading tech companies, research institutions, and various government agencies.
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About 2 Section -->
-    <section id="about-2" class="about-2 section">
-
-      <div class="container" data-aos="fade-up">
-
-        <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-5">
-            <div class="about-img">
-              <img src="assets/img/about-portrait.jpg" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-7">
-            <!-- Tabs -->
-            <ul class="nav nav-pills mb-3">
-              <li><a class="nav-link active nav-our-mission" data-bs-toggle="pill" href="#about-2-tab1">Our Mission</a></li>
-              <li><a class="nav-link nav-our-story" data-bs-toggle="pill" href="#about-2-tab2">Our Story</a></li>
-              <li><a class="nav-link nav-our-hubs" data-bs-toggle="pill" href="#about-2-tab3">Our Hubs</a></li>
-            </ul><!-- End Tabs -->
-
-            <!-- Tab Content -->
-            <div class="tab-content">
-
-              <div class="tab-pane fade show active" id="about-2-tab1">
-
-                <h3>Accelerating AI Innovation in Singapore</h3>
-                <p>We bridge the gap between theory and execution. Lorong AI serves as the <strong>premier AI hub in Singapore</strong>, where AI practitioners, government agencies, industry leaders, and research talent connect. We provide a collaborative environment dedicated to building <strong>AI for the public good</strong>, transforming national AI strategies into real-world applications.</p>
-
-              </div><!-- End Tab 1 Content -->
-
-              <div class="tab-pane fade" id="about-2-tab2">
-
-                <h3>Bridging Communities</h3>
-                <p>Named after the Malay word for "alley" or "lane," <em>Lorong</em> embodies our commitment to discovery and community-led growth. Since launching our pilot at <strong>22 Cross Street</strong> in early 2025 and expanding to the <strong>one-north innovation district</strong> in 2026, we have cultivated a high-density network designed to foster the serendipitous professional connections that define Singapore's most vibrant innovation clusters.</p>
-
-                
-              </div><!-- End Tab 2 Content -->
-
-              <div class="tab-pane fade" id="about-2-tab3">
-
-                <h3>Dynamic Environment for AI Builders</h3>
-                <p>We provide more than just desk space; we build the connective tissue for the ecosystem. Our facilities integrate <strong>dedicated AI co-working infrastructure</strong> with <strong>high-intensity technical programming</strong>. By co-locating builders in Singapore’s strategic innovation hubs, we accelerate the journey from foundational research to scalable, impactful AI implementation.</p>
-
-              </div><!-- End Tab 3 Content -->
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /About 2 Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section light-background">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="300" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Core Members</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="16000" data-purecounter-duration="1" data-purecounter-suffix="+" class="purecounter"></span>
-              <p>Community Network</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="280" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Events and Programmes Annually</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Collaboration Facilitated</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
-    <!-- Skills Section removed -->
-
-    <!-- Find Us Section -->
-    <section id="find-us" class="find-us section light-background">
-      <div class="container section-header home-section-head" data-aos="fade-up">
-        <h2>Find Us</h2>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <h3>Lorong AI @ One-North</h3>
-            <div class="map-embed">
-              <iframe loading="lazy" allowfullscreen src="https://www.google.com/maps?q=Lorong+AI+one-north+Singapore&output=embed"></iframe>
-            </div>
-            <div class="find-address"><i class="bi bi-geo-alt"></i><span>Block 69 Ayer Rajah Crescent, Singapore 139961<br>Vidacity, Level 3</span></div>
-          </div>
-
-          <div class="col-lg-6">
-            <h3>Lorong AI @ 22 Cross St</h3>
-            <div class="map-embed">
-              <iframe loading="lazy" allowfullscreen src="https://www.google.com/maps?q=Lorong+AI+22+Cross+Street+Singapore&output=embed"></iframe>
-            </div>
-            <div class="find-address"><i class="bi bi-geo-alt"></i><span>22 Cross Street, Singapore 048421<br>WeWork, Level 3</span></div>
-          </div>
-        </div>
-      </div>
-    </section><!-- /Find Us Section -->
-
-    <!-- FAQ Section -->
-    <section id="faq" class="faq-section">
-      <div class="container section-header home-section-head" data-aos="fade-up">
-        <h2>FAQ</h2>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <!-- Section 1: General & Identity -->
-        <h3>General &amp; Identity</h3>
-        <div class="accordion" id="accordionGeneral">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="gen-headingOne">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#gen-collapseOne" aria-expanded="false" aria-controls="gen-collapseOne">
-                Is Lorong AI a government-run initiative?
-              </button>
+    <!-- ============================================ -->
+    <!-- LOCATIONS SECTION                            -->
+    <!-- ============================================ -->
+    <section class="locations-section">
+      <div class="container">
+        <div class="section-header-center fluid-header-container">
+          <div class="fluid-header-inner">
+            <h2 class="scroll-reveal" style="opacity: 1; transform: none; transition: none;">
+              <span class="flip-wrapper"><span class="flip-word flip-word-1">Our</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-2">Locations</span></span>
             </h2>
-            <div id="gen-collapseOne" class="accordion-collapse collapse" aria-labelledby="gen-headingOne" data-bs-parent="#accordionGeneral">
-              <div class="accordion-body">Lorong AI is a national initiative serving as the community engine for Singapore’s National AI Strategy 2.0 (NAIS 2.0), providing the essential framework to mobilize the nation's AI ecosystem. As a community-driven hub, we bridge the gap between government, industry, and research, blurring the lines between these sectors to foster a high-density environment where policy, innovation, and academic research converge to accelerate real-world AI solutions.</div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="gen-headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#gen-collapseTwo" aria-expanded="false" aria-controls="gen-collapseTwo">
-                What makes Lorong AI different from other co-working spaces?
-              </button>
-            </h2>
-            <div id="gen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="gen-headingTwo" data-bs-parent="#accordionGeneral">
-              <div class="accordion-body">While standard co-working spaces focus on amenities, we focus on <strong>collaboration</strong>. Every member is part of a curated group of AI practitioners, founders, and researchers. We don't just provide desks; we provide a high-density network of peers building real-world AI applications.</div>
-            </div>
+            <p class="mx-auto mt-3">Where to find us in Singapore.</p>
           </div>
         </div>
 
-        <!-- Section 2: Membership & Benefits -->
-        <h3>Membership &amp; Benefits</h3>
-        <div class="accordion" id="accordionMembership">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="mem-headingOne">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mem-collapseOne" aria-expanded="false" aria-controls="mem-collapseOne">
-                Who can join Lorong AI?
-              </button>
-            </h2>
-            <div id="mem-collapseOne" class="accordion-collapse collapse" aria-labelledby="mem-headingOne" data-bs-parent="#accordionMembership">
-              <div class="accordion-body">We curate our community to ensure a high-value environment. We welcome AI practitioners, startup founders, researchers, and technical talent who are actively building or researching in the AI space.</div>
+        <div class="row gx-4 gy-4">
+          <div class="col-lg-6 scroll-reveal delay-1">
+            <div class="about-panel">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.815994222124!2d103.84414787438143!3d1.2843242617841992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da190050378019%3A0x73d95210c9420b5e!2sLorong%20AI!5e0!3m2!1sen!2ssg!4v1745992237630!5m2!1sen!2ssg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <h3>Lorong AI @ 22X</h3>
+              <p><i class="bi bi-geo-alt me-2" style="color: var(--primary-green);"></i> 22 Cross St, Singapore 048421</p>
             </div>
           </div>
-
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="mem-headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mem-collapseTwo" aria-expanded="false" aria-controls="mem-collapseTwo">
-                What are the key benefits of membership?
-              </button>
-            </h2>
-            <div id="mem-collapseTwo" class="accordion-collapse collapse" aria-labelledby="mem-headingTwo" data-bs-parent="#accordionMembership">
-              <div class="accordion-body">Members get 24/7 access to our specialized hubs at 22 Cross Street and one-north, priority access to our 200+ annual technical workshops, and direct inclusion in our member directory—connecting you to Singapore's top AI talent.</div>
+          <div class="col-lg-6 scroll-reveal delay-2">
+            <div class="about-panel">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.789!2d103.7866903!3d1.2962541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1b0035c0dfad%3A0xc7709becfd83b939!2s69%20Ayer%20Rajah%20Crescent%2C%20Singapore%20139961!5e0!3m2!1sen!2ssg!4v1745992237630!5m2!1sen!2ssg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <h3>Lorong AI @ One-North</h3>
+              <p><i class="bi bi-geo-alt me-2" style="color: var(--primary-green);"></i> Block 69 Ayer Rajah Crescent, Singapore 139961</p>
             </div>
           </div>
         </div>
-
-        <!-- Section 3: Participation & Speaking -->
-        <h3>Participation &amp; Speaking</h3>
-        <div class="accordion" id="accordionParticipation">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="par-headingOne">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#par-collapseOne" aria-expanded="false" aria-controls="par-collapseOne">
-                I’m interested in speaking at an event. How can I get involved?
-              </button>
-            </h2>
-            <div id="par-collapseOne" class="accordion-collapse collapse" aria-labelledby="par-headingOne" data-bs-parent="#accordionParticipation">
-              <div class="accordion-body">We love community-led programming! If you have a technical talk, demo, or paper study to lead, please reach out to our community team via the contact form <a href="https://go.gov.sg/lai-share" target="_blank" rel="noopener noreferrer">here</a>. We review submissions based on their relevance to our "deep dive" and "hands-on" event pillars.</div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="par-headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#par-collapseTwo" aria-expanded="false" aria-controls="par-collapseTwo">
-                I’m new to AI. Is Lorong AI suitable for beginners?
-              </button>
-            </h2>
-            <div id="par-collapseTwo" class="accordion-collapse collapse" aria-labelledby="par-headingTwo" data-bs-parent="#accordionParticipation">
-              <div class="accordion-body">Absolutely! While we host deep-dive technical sessions for advanced practitioners, we are committed to lowering the barrier to entry for the next generation of builders. We encourage beginners to join our "ChopChop" sessions and open community events, where the focus is on collaborative learning and mentorship. We believe the best way to learn AI is by building alongside those who are already in the field.</div>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </section><!-- /FAQ Section -->
-
+    </section>
   </main>
 
-  <footer id="footer" class="footer dark-background">
-    <div class="container footer-content text-center">
-        <!-- Social Media Icons -->
-        <div class="social-icons-container">
-            <a href="https://lu.ma/lorong-ai" class="social-icon" aria-label="Events Calendar"><i class="bi bi-calendar-event"></i></a>
-            <a href="https://www.linkedin.com/company/lorong-ai" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-            <a href="https://x.com/Lorong_AI" class="social-icon" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
-        </div>
-        
-        <!-- Primary Navigation - Larger with pipe separators -->
-        <div class="primary-menu">
-            <a href="index.html">HOME</a>
-            <span class="separator">|</span>
-            <a href="events.html">EVENTS</a>
-            <span class="separator">|</span>
-            <a href="resources.html">RESOURCES</a>
-            <span class="separator">|</span>
-            <a href="members.html">MEMBERS</a>
-            <span class="separator">|</span>
-            <a href="about.html">ABOUT US</a>
-        </div>
-                
-        <!-- Secondary Navigation - Smaller with pipe separators -->
-        <!-- 
-        <div class="secondary-menu">
-            <a href="resources.html">Resources</a>
-            <span class="separator">|</span>
-            <a href="https://form.gov.sg/670cf4d58f92af4544f2721f">Join us</a>
-            <span class="separator">|</span>
-            <a href="about.html">About Us</a>
-        </div>
-        -->
-    </div>
-  </footer>
-
-  <!-- Scroll Top -->
+  <div id="footer-placeholder"></div>
+  
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
@@ -519,7 +889,173 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/include.js?v=5"></script>
 
+  <!-- MAIN ANIMATION SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const revealElements = document.querySelectorAll('.scroll-reveal:not(.scroll-trigger-spread)');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('is-visible'); } 
+          else { entry.target.classList.remove('is-visible'); }
+        });
+      }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      const spreadContainers = document.querySelectorAll('.scroll-trigger-spread');
+      const spreadObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('is-spread'); }
+        });
+      }, { root: null, rootMargin: '0px 0px -15% 0px', threshold: 0.15 });
+      spreadContainers.forEach(container => spreadObserver.observe(container));
+
+      const fluidContainers = document.querySelectorAll('.fluid-header-container');
+      let ticking = false;
+
+      function updateScrollAnimations() {
+        const viewHeight = window.innerHeight;
+        fluidContainers.forEach(container => {
+           const inner = container.querySelector('.fluid-header-inner');
+           if (!inner) return;
+
+           const rect = container.getBoundingClientRect();
+           const revealStart = viewHeight * 0.95; 
+           const revealEnd = viewHeight * 0.70; 
+           
+           let opacity = 1, yOffset = 0, scale = 1;
+
+           if (rect.top > revealStart) {
+             opacity = 0; yOffset = 60; scale = 0.85; 
+             inner.classList.remove('is-revealed');
+           } else if (rect.top > revealEnd) {
+             const progress = (revealStart - rect.top) / (revealStart - revealEnd);
+             const ease = 1 - Math.pow(1 - progress, 3);
+             opacity = ease; yOffset = (1 - ease) * 60; scale = 0.85 + (ease * 0.15); 
+             inner.classList.add('is-revealed'); 
+           } else {
+             const parallaxProgress = (revealEnd - rect.top) / revealEnd; 
+             yOffset = -(parallaxProgress * 40); 
+           }
+
+           inner.style.opacity = opacity;
+           inner.style.transform = `translateY(${yOffset}px) scale(${scale})`;
+        });
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateScrollAnimations);
+          ticking = true;
+        }
+      });
+      updateScrollAnimations();
+    });
+  </script>
+
+  <!-- HORIZONTAL SCROLL TIMELINE WITH SNAPPING AND FINAL HOLD -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hSection = document.getElementById('horizontal-timeline');
+      const hWrapper = document.getElementById('h-scroll-wrapper');
+      const hProgressFill = document.getElementById('h-progress-fill');
+      
+      let hTicking = false;
+      let snapTimeout;
+
+      function easeInOutQuad(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+      }
+
+      function updateHorizontalScroll() {
+        if (!hSection || !hWrapper) return;
+        
+        const rect = hSection.getBoundingClientRect();
+        const scrollableDistance = rect.height - window.innerHeight;
+        
+        let progress = 0; 
+
+        if (rect.top <= 0 && rect.top >= -scrollableDistance) {
+          progress = Math.abs(rect.top) / scrollableDistance;
+        } else if (rect.top < -scrollableDistance) {
+          progress = 1;
+        }
+
+        const numSlides = 4;
+        const pauseRatio = 0.65; 
+        const maxIndex = numSlides - 1; // 3
+        const numSegments = 4; // 3 transitions + 1 end hold segment
+        
+        const progressScaled = progress * numSegments;
+        const currentIndex = Math.min(Math.floor(progressScaled), maxIndex);
+        const segmentProgress = progressScaled - Math.floor(progressScaled);
+
+        let slideTransition = 0;
+        
+        // Only apply a sliding transition if we are not in the final "hold" segment
+        if (currentIndex < maxIndex && segmentProgress > pauseRatio) {
+          const transitionProgress = (segmentProgress - pauseRatio) / (1 - pauseRatio);
+          slideTransition = easeInOutQuad(transitionProgress);
+        }
+
+        const currentTranslate = (currentIndex + slideTransition) * window.innerWidth;
+        hWrapper.style.transform = `translateX(-${currentTranslate}px)`;
+        
+        if (hProgressFill) {
+            // Calculate progress line so it hits 100% right as we hit the final hold segment
+            const lineProgress = Math.min(progress * (numSegments / maxIndex), 1);
+            hProgressFill.style.width = `${lineProgress * 100}%`;
+        }
+
+        hTicking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!hTicking) {
+          window.requestAnimationFrame(updateHorizontalScroll);
+          hTicking = true;
+        }
+        
+        // --- AUTO-SNAP LOGIC ---
+        clearTimeout(snapTimeout);
+        snapTimeout = setTimeout(() => {
+          const hSection = document.getElementById('horizontal-timeline');
+          if (!hSection) return;
+          
+          const rect = hSection.getBoundingClientRect();
+          const scrollableDistance = rect.height - window.innerHeight;
+          
+          // Only snap if you are fully inside the timeline block (allow smooth entry/exit)
+          if (rect.top <= 0 && rect.top > -(scrollableDistance - 10)) {
+              const progress = Math.abs(rect.top) / scrollableDistance;
+              
+              // Allow free scrolling in the final "hold" zone so they can exit downwards naturally
+              if (progress > 0.8) return; 
+
+              // Defined parking spots: Intro, 2024, 2025, 2026
+              const snapPoints = [0, 0.25, 0.5, 0.75];
+              
+              // Find the closest parking spot to current progress
+              let closest = snapPoints.reduce((prev, curr) => 
+                Math.abs(curr - progress) < Math.abs(prev - progress) ? curr : prev
+              );
+
+              // Calculate exact pixel position on page for that spot
+              const targetY = (window.scrollY + rect.top) + (closest * scrollableDistance);
+              
+              // Smooth scroll to the spot if you're not already precisely there
+              if (Math.abs(window.scrollY - targetY) > 5) {
+                window.scrollTo({ top: targetY, behavior: 'smooth' });
+              }
+          }
+        }, 120); // Waits 120 milliseconds after you stop scrolling to snap
+      });
+      
+      updateHorizontalScroll();
+      window.addEventListener('resize', updateHorizontalScroll);
+    });
+  </script>
 </body>
-
 </html>

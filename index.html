@@ -13,11 +13,11 @@
 </script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Lorong AI</title>
-  <meta name="description" content="Lorong AI - Singapore's iconic AI hub bringing together government, industry, and research to build AI for the public good. Join 250+ core members and 4,000+ community network.">
-  <meta name="keywords" content="AI, co-working, Singapore, events, networking, community, Lorong AI, artificial intelligence, tech hub, collaboration">
+  <title>Lorong AI - Where Problems Get Solved</title>
+  <meta name="description" content="From prompt to deployment, AI comes to life here. Join Singapore's premier hub for AI problem solvers.">
+  <meta name="keywords" content="AI, problem solvers, Singapore, events, networking, community, Lorong AI, artificial intelligence, tech hub, collaboration">
   <meta property="og:title" content="Lorong AI - Where AI Innovation Thrives">
-  <meta property="og:description" content="Join Singapore's premier AI community. Connect with 250+ practitioners from leading organizations.">
+  <meta property="og:description" content="Join Singapore's premier community of AI problem solvers. Connect with 16,000+ members.">
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://lorongai.sg/">
 
@@ -28,30 +28,20 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKRQ8W4D9R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LKRQ8W4D9R');
-  </script>
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
     /* ============================================ */
-    /* NEW LAYOUT STYLES                           */
+    /* LAYOUT STYLES                               */
     /* ============================================ */
     
     :root {
@@ -61,10 +51,48 @@
       --text-medium: #4a4a4a;
       --text-light: #666666;
       --bg-light: #f8f9fa;
+      --members-bg: #f4f6f8; 
     }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      overflow-x: hidden; 
+    }
+
+    /* ============================================ */
+    /* CUSTOM MOVEMENT & SCROLL ANIMATIONS         */
+    /* ============================================ */
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* FLUID SCROLL HEADERS (Tied to scrollbar) */
+    .fluid-header-container {
+      position: relative;
+      width: 100%;
+    }
+    .fluid-header-inner {
+      will-change: transform, opacity;
+      opacity: 0; 
+      transform: translateY(60px) scale(0.85); /* Starting state for the scale effect */
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    .parallax-wrapper {
+      overflow: hidden;
+      position: relative;
     }
 
     /* ============================================ */
@@ -72,622 +100,698 @@
     /* ============================================ */
     
     .hero-new {
-      min-height: 100vh;
+      min-height: 90vh;
       background:
-        radial-gradient(circle at top left, rgba(19, 155, 72, 0.16), transparent 28%),
-        linear-gradient(180deg, #eef7f1 0%, #f4fbf6 18%, #fbfefc 38%, #ffffff 62%);
+        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
+        url('assets/img/hero-carousel/lai-header-op2.png') right center no-repeat;
+      background-size: contain;
+      background-color: #ffffff;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 8rem 5% 4rem;
+      align-items: flex-start;
+      text-align: left;
+      padding: 11rem 5% 6rem;
       color: var(--text-dark);
       position: relative;
-      overflow: hidden;
     }
 
     .hero-new::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: 
-        linear-gradient(rgba(255, 209, 0, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 209, 0, 0.05) 1px, transparent 1px);
-      background-size: 50px 50px;
-      opacity: 0.5;
+      display: none;
+    }
+
+    .hero-image {
+      display: none;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
     }
 
     .hero-content {
-      max-width: 1100px;
+      max-width: 520px;
       position: relative;
       z-index: 1;
-    }
-
-    .hero-subtitle {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: var(--primary-green);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      background: rgba(255, 209, 0, 0.15);
-      border: 2px solid var(--primary-yellow);
-      border-radius: 4px;
+      will-change: transform;
     }
 
     .hero-new h1 {
-      font-size: 3.5rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
       color: var(--text-dark);
-    }
-
-    .hero-new h1 .highlight {
-      color: var(--primary-green);
+      letter-spacing: -0.03em;
+      text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
     }
 
     .hero-description {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       margin-bottom: 2.5rem;
       color: var(--text-medium);
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 550px;
+      margin-left: 0;
       line-height: 1.8;
+      font-weight: 400;
     }
 
     .street-sign-divider {
-      width: 80px;
-      height: 4px;
-      background: var(--primary-yellow);
-      margin: 1.5rem auto;
+      width: 100px;
+      height: 3px; 
+      background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-yellow) 100%);
+      margin: 1.5rem 0 2.5rem;
       position: relative;
+      border-radius: 3px;
+      transform-origin: left;
     }
 
-    .street-sign-divider::before,
-    .street-sign-divider::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 4px;
-      background: var(--primary-green);
+    /* ============================================ */
+    /* SHARED HEADER STYLES                        */
+    /* ============================================ */
+
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 5rem;
+      z-index: 10;
     }
 
-    .street-sign-divider::before { left: -25px; }
-    .street-sign-divider::after { right: -25px; }
+    .section-header-center h2 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+    }
 
-    .hero-cta-group {
+    .section-header-center p {
+      color: #5b6762;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    /* ============================================ */
+    /* MEMBERS SECTION                             */
+    /* ============================================ */
+    
+    .members-section {
+      padding: 12rem 5% 10rem;
+      background: var(--members-bg); 
+    }
+
+    .members-sushi-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1rem 0;
+    }
+
+    .sushi-belt {
+      width: 100%;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+    }
+
+    .sushi-track {
       display: flex;
       gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 3rem;
+      width: max-content;
+      animation: sushi-scroll var(--duration, 40s) linear infinite;
+      will-change: transform;
+      padding: 15px 0; 
     }
 
-    .btn-primary-new {
-      background: var(--primary-green);
-      color: white;
-      padding: 1rem 2.5rem;
-      border-radius: 18px;
-      text-decoration: none;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      transition: all 0.3s;
-      border: 2px solid var(--primary-green);
-      display: inline-block;
+    .sushi-track--left { animation-name: sushi-scroll-left; }
+    .sushi-track--right { animation-name: sushi-scroll-right; }
+    .sushi-track:hover { animation-play-state: paused; }
+
+    @keyframes sushi-scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
-    .btn-primary-new:hover {
-      background: #10833d;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(0, 102, 51, 0.3);
+    @keyframes sushi-scroll-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
     }
 
-    .btn-secondary-new {
-      background: transparent;
-      color: var(--primary-green);
-      padding: 1rem 2.5rem;
-      border-radius: 18px;
-      text-decoration: none;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      transition: all 0.3s;
-      border: 2px solid var(--primary-green);
-      display: inline-block;
-    }
-
-    .btn-secondary-new:hover {
-      background: var(--primary-green);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    /* ============================================ */
-    /* STATISTICS                                  */
-    /* ============================================ */
-    
-    .stats-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--text-light);
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .stats-bar {
+    .sushi-item {
+      flex-shrink: 0;
+      width: 180px;
+      height: 100px;
+      background: #ffffff; 
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 16px;
       display: flex;
-      gap: 3rem;
+      align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
-      padding: 2rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      margin-bottom: 1rem;
-      border: 2px solid #f0f0f0;
-      width: 80%;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 10;
+      pointer-events: auto;
+      cursor: pointer;
+      text-decoration: none;
     }
 
-    .stat-item { text-align: center; }
+    /* Masking technique for a perfect rounded gradient border */
+    .sushi-item::before {
+      content: '';
+      position: absolute;
+      inset: -1px; /* Overlaps the default 1px border */
+      border-radius: 16px; /* Matches the card */
+      padding: 2px; /* Border thickness */
+      background: linear-gradient(45deg, var(--primary-green), var(--primary-yellow), #00d2ff); 
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: var(--primary-green);
+    .sushi-item:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .sushi-item:hover::before {
+      opacity: 1;
+    }
+
+    .sushi-item img {
       display: block;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 0.5rem;
-    }
-
-    .stats-note {
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-light);
-      max-width: 700px;
-      margin: 0 auto 3rem;
-      line-height: 1.6;
+      max-height: 60px;
+      max-width: 90%;
+      width: auto;
+      object-fit: contain;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 4px;
     }
 
     /* ============================================ */
-    /* FEATURES SECTION                            */
+    /* TESTIMONIALS (Hand-Fan Deck Spread Style)   */
     /* ============================================ */
     
-    .features-section {
-      padding: 6rem 5% 2rem;
-      background: white;
-    }
-
-    .section-header {
-      max-width: 1200px;
-      margin: 0 auto 2rem;
-    }
-
-    .home-section-head {
-      max-width: 1200px;
-      margin: 0 auto 2rem;
-    }
-
-    .home-section-head h2 {
-      margin: 0 0 0.65rem;
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
-      font-weight: 800;
-      color: #17231c;
-    }
-
-    .section-title-new {
-      font-size: 2.5rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--text-dark);
-      margin-bottom: 1rem;
-    }
-
-    .feature-card {
-      max-width: 1200px;
-      margin: 0 auto 4rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      padding: 3rem;
+    .testimonials-section {
+      position: relative;
+      height: 130vh;
       background: var(--bg-light);
-      border-radius: 8px;
-      border: 2px solid #e9ecef;
-      transition: all 0.3s;
+    }
+
+    .testimonials-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 2rem;
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 5rem;
+      z-index: 10;
+    }
+
+    .testimonials-header h2 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .deck-container {
+      position: relative;
+      width: 500px;
+      height: 280px;
+      margin: 0 auto;
+    }
+
+    .t-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+      padding: 2.2rem 2.5rem;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      will-change: transform;
+      border: 1px solid rgba(0,0,0,0.04);
+      transform-origin: center bottom;
+      transition: margin-top 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+
+    .t-card:hover {
+      z-index: 100 !important;
+      margin-top: -20px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2) !important;
       cursor: pointer;
     }
 
-    .feature-card-link {
-      color: inherit;
-      text-decoration: none;
-      display: grid;
+    .t-stars {
+      display: flex;
+      gap: 3px;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
     }
 
-    .feature-card-link:hover {
-      color: inherit;
-      text-decoration: none;
+    .t-card p {
+      font-size: 1.15rem;
+      font-weight: 500;
+      line-height: 1.5;
+      margin: 0 0 auto 0;
+      letter-spacing: -0.01em;
     }
 
-    .feature-card:hover {
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-      border-color: var(--primary-yellow);
-      transform: translateY(-5px);
-    }
-
-    .feature-card:nth-child(even) { direction: rtl; }
-    .feature-card:nth-child(even) > * { direction: ltr; }
-
-    .feature-card:last-child {
-      margin-bottom: 0;
-    }
-
-    .feature-image {
+    .author-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 1rem;
       position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
 
-    .feature-image img {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s;
-    }
-
-    .feature-card:hover .feature-image img {
-      transform: scale(1.05);
-    }
-
-    .arrow-icon {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      width: 50px;
-      height: 50px;
-      background: var(--primary-yellow);
+    .author-avatar {
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-dark);
-      transition: all 0.3s;
-    }
-
-    .feature-card:hover .arrow-icon {
-      background: var(--primary-green);
-      color: white;
-      transform: rotate(45deg);
-    }
-
-    .feature-content h2 {
-      font-size: 2rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--text-dark);
-      position: relative;
-      display: inline-block;
-    }
-
-    .feature-content h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary-yellow) 0%, var(--primary-green) 100%);
-    }
-
-    .feature-content p {
-      color: var(--text-medium);
-      font-size: 1.05rem;
-      line-height: 1.8;
-      margin-top: 1.5rem;
-    }
-
-    /* ============================================ */
-    /* COMMUNITY/MEMBERS SECTION                   */
-    /* ============================================ */
-    
-    .members-section {
-      padding: 4rem 5%;
-      background: var(--bg-light);
-    }
-
-    /* Swiper pagination - hidden for members sliders */
-    .container .swiper-pagination {
-      margin-top: 0.25rem;
-      position: relative;
-      display: none;
-    }
-
-    .members-section .section-title-new {
-      text-align: left;
-      margin-bottom: 0;
-    }
-
-    .members-section .section-subtitle {
-      text-align: center;
-      color: var(--text-light);
-      margin-bottom: 3rem;
+      font-weight: 700;
       font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    #members-swiper {
-      overflow: hidden;
-      margin-bottom: 4.5rem;
-    }
-
-    #members-swiper .swiper-slide {
-      width: 220px;
-    }
-
-    .member-slide {
-      width: 100%;
-      height: 120px;
-      background-color: white;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .member-slide img {
-      max-height: 80px;
-      max-width: 80%;
-      object-fit: contain;
-    }
-
-    .members-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto 2rem;
-    }
-
-    .member-logo {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100px;
-      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
-      transition: all 0.3s;
-    }
-
-    .member-logo:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
-    }
-
-    .member-logo img {
-      max-height: 60px;
-      max-width: 90%;
-      object-fit: contain;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-
-    .member-logo:hover img {
-      opacity: 1;
-    }
-
-    .members-category-title {
-      text-align: center;
-      font-size: 1.2rem;
+    .author-info strong {
+      font-size: 1.05rem;
       font-weight: 700;
-      color: var(--primary-green);
-      margin: 3rem 0 2rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      display: block;
+      line-height: 1.2;
     }
+
+    .author-info span {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .quote-icon {
+      position: absolute;
+      right: 0;
+      bottom: -10px;
+      font-size: 3rem;
+      opacity: 0.15;
+    }
+
+    .t-card-1 {
+      background-color: #1a1a1c;
+      color: #fff;
+      z-index: 1;
+    }
+    .t-card-1 .t-stars { color: var(--primary-yellow); }
+    .t-card-1 .author-avatar { background: #333; color: #fff; }
+
+    .t-card-2 {
+      background-color: #eef7f1; 
+      color: #111;
+      z-index: 2;
+    }
+    .t-card-2 .t-stars { color: var(--primary-green); }
+    .t-card-2 .author-avatar { background: #139B48; color: #fff; }
+
+    .t-card-3 {
+      background-color: var(--primary-yellow); 
+      color: #111;
+      z-index: 3;
+    }
+    .t-card-3 .t-stars { color: #d19a00; }
+    .t-card-3 .author-avatar { background: #111; color: #FFD100; }
+
+    .t-card-4 {
+      background-color: #ffffff; 
+      border: 2px solid var(--primary-green);
+      color: #111;
+      z-index: 4;
+    }
+    .t-card-4 .t-stars { color: var(--primary-yellow); }
+    .t-card-4 .author-avatar { background: var(--primary-green); color: #fff; }
+
+    .t-card-5 {
+      background-color: var(--primary-green); 
+      color: #fff;
+      z-index: 5;
+    }
+    .t-card-5 .t-stars { color: var(--primary-yellow); }
+    .t-card-5 .author-avatar { background: #fff; color: var(--primary-green); }
 
     /* ============================================ */
-    /* EVENT CALENDAR SECTION                      */
+    /* CONTENT CARDS (Replaced Terminals)           */
     /* ============================================ */
     
-    .calendar-section {
-      padding: 2rem 5% 4rem;
-      background: white;
-    }
-
-    .calendar-container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: var(--bg-light);
-      padding: 2rem;
-      border-radius: 8px;
-      border: 2px solid #e9ecef;
-    }
-
-    .calendar-container h3 {
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
+    .problem-solvers-section {
+      padding: 8rem 5% 7rem;
+      background: #fcfcfc; 
       color: var(--text-dark);
     }
 
+    .problem-solvers-section .section-header-center h2 {
+      color: var(--text-dark);
+    }
+
+    .problem-solvers-section .section-header-center p {
+      color: var(--text-medium);
+      font-size: 1.25rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 1100px;
+      margin: 0 auto;
+      gap: 3rem;
+      align-items: stretch; 
+    }
+
+    /* Clean rounded rectangle styling inspired by reference */
+    .content-card {
+      background: #ffffff; 
+      border-radius: 24px; /* Pronounced rounded corners */
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.06); 
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+      border: 1px solid rgba(0,0,0,0.05);
+      height: 100%; 
+      padding: 3rem 2.5rem; /* Spacious padding */
+    }
+
+    .content-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+    }
+
+    .content-card-body {
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #000000; 
+      flex-grow: 1; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .content-card-body.text-center {
+      align-items: center;
+      text-align: center;
+    }
+
+    .term-line {
+      display: block;
+      margin-bottom: 0.5rem;
+      word-wrap: break-word;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .content-card.is-visible .term-line {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .content-card .term-line:nth-child(1) { transition-delay: 0.2s; }
+    .content-card .term-line:nth-child(2) { transition-delay: 0.35s; }
+    .content-card .term-line:nth-child(3) { transition-delay: 0.5s; }
+    .content-card .term-line:nth-child(4) { transition-delay: 0.65s; }
+    .content-card .term-line:nth-child(5) { transition-delay: 0.8s; }
+    .content-card .term-line:nth-child(6) { transition-delay: 0.95s; }
+    .content-card .term-line:nth-child(7) { transition-delay: 1.1s; }
+
+    .term-line.highlight {
+      color:#139b47; 
+      font-weight: 700;
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
     /* ============================================ */
-    /* CTA SECTION                                 */
+    /* CTA BOTTOM SECTION                          */
     /* ============================================ */
     
     .cta-section {
-      padding: 6rem 5%;
-      background: linear-gradient(135deg, var(--text-dark) 0%, #2d2d2d 100%);
+      padding: 8rem 5%;
+      background: #ffffff; /* Clear white background */
       text-align: center;
-      color: white;
+      position: relative;
+      z-index: 10;
     }
 
-    .cta-section h2 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 3rem;
-    }
-
-    .cta-options {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      max-width: 1200px;
+    .cta-content {
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    .cta-card {
-      background: white;
-      color: var(--text-dark);
-      padding: 2.5rem;
-      border-radius: 8px;
-      text-align: center;
-      transition: all 0.3s;
-      border-bottom: 4px solid var(--primary-yellow);
+    .cta-content .fluid-header-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .cta-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .cta-card-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .cta-card h3 {
-      font-size: 1.3rem;
+    /* Header text styling */
+    .cta-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: 700;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      color: var(--primary-black);
+      line-height: 1.2;
+      margin-bottom: 3.5rem;
+      letter-spacing: -0.02em;
+    }
+    
+    /* Override standard scroll-reveal so we can use our custom odometer keyframe */
+    .cta-title.scroll-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    /* Odometer / Flip effect styles */
+    .flip-wrapper {
+      display: inline-block;
+      overflow: hidden; /* Masks the text before it rolls up */
+      vertical-align: bottom;
+      padding: 0.1em; /* Buffer for shadow/overshoot */
+      margin: -0.1em;
+    }
+
+    .flip-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(110%) rotateX(-45deg);
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+
+    /* Triggers when the IntersectionObserver adds .is-visible */
+    .cta-title.is-visible .flip-word {
+      /* cubic-bezier adds that physical, snappy overshoot bounce */
+      animation: odometerRoll 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    /* Stagger the words for the mechanical feel */
+    .cta-title.is-visible .flip-word-1 { animation-delay: 0.0s; }
+    .cta-title.is-visible .flip-word-2 { animation-delay: 0.15s; }
+    .cta-title.is-visible .flip-word-3 { animation-delay: 0.3s; }
+
+    @keyframes odometerRoll {
+      0% {
+        transform: translateY(110%) rotateX(-60deg);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0) rotateX(0deg);
+        opacity: 1;
+      }
+    }
+
+    .cta-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 4rem;
+      width: 100%;
+    }
+
+    .cta-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1.2rem;
+      flex: 0 1 350px;
     }
 
     .cta-card p {
-      color: var(--text-medium);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      margin: 0;
+      line-height: 1.5;
     }
 
-    .cta-card-button {
-      display: inline-block;
-      background: var(--primary-green);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 18px;
+    /* Solid Green styling that turns Yellow on hover */
+    .btn-action-pill {
+      background-color: var(--primary-green);
+      color: #ffffff;
+      border: 2px solid var(--primary-green);
+      border-radius: 8px; /* Maintained roundness */
       text-decoration: none;
       font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+      padding: 0.9rem 2.2rem;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 16px rgba(19, 155, 72, 0.2);
     }
 
-    .cta-card-button:hover {
-      background: #10833d;
-      color: white;
+    .btn-action-pill:hover {
+      background-color: var(--primary-yellow);
+      color: var(--text-dark);
+      border-color: var(--primary-yellow);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(255, 209, 0, 0.3);
+    }
+
+    .btn-action-pill i {
+      font-size: 1.2em;
     }
 
     /* ============================================ */
     /* RESPONSIVE DESIGN                           */
     /* ============================================ */
     
+    @media (max-width: 991px) {
+      .content-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-new h1 { font-size: clamp(2.2rem, 7vw, 3.2rem); }
+      .hero-content { max-width: 100%; }
+      .hero-new {
+        background:
+          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0) 100%),
+          url('assets/img/hero-carousel/lai-header-op2.png') center bottom no-repeat;
+        background-size: contain;
+      }
+    }
+
     @media (max-width: 768px) {
+      .hero-new {
+        min-height: auto;
+        background: #ffffff;
+        align-items: center;
+        text-align: center;
+        padding: 5.75rem 0 3.5rem;
+      }
+      .hero-image {
+        display: block;
+        width: 100%;
+        margin: 0 0 1.75rem;
+      }
+      .hero-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+      }
+      .hero-content {
+        padding: 0 5%;
+      }
       .hero-new h1 {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 9vw, 3rem);
+        line-height: 1.08;
+        margin-bottom: 1rem;
       }
-
-      .feature-card {
+      .hero-description {
+        font-size: 1rem;
+        line-height: 1.65;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+      }
+      .street-sign-divider {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1.5rem;
+      }
+      .sushi-item { width: 140px; height: 80px; }
+      .testimonials-section {
+        height: auto;
+        padding: 5rem 5%;
+      }
+      .testimonials-sticky {
+        position: relative;
+        height: auto;
+        overflow: visible;
+        padding-top: 0;
+      }
+      .testimonials-header {
+        margin-bottom: 3rem;
+      }
+      .deck-container {
+        display: grid;
         grid-template-columns: 1fr;
-        padding: 2rem;
+        gap: 1rem;
+        width: min(520px, 100%);
+        height: auto;
       }
-
-      .feature-card:nth-child(even) {
-        direction: ltr;
+      .t-card {
+        position: relative;
+        padding: 1.5rem 1.5rem;
+        min-height: 250px;
+        height: auto;
+        border-radius: 8px;
       }
-
-      .feature-content h2 {
-        font-size: 1.8rem;
+      .t-card:hover { margin-top: 0; }
+      .t-card p {
+        font-size: 0.95rem;
+        overflow-wrap: anywhere;
       }
-
-      .stat-number {
+      .quote-icon {
         font-size: 2rem;
+        bottom: -5px;
       }
-
-      .stats-bar {
-        gap: 2rem;
+      .members-section {
+        padding: 8rem 5% 7rem;
       }
-
-      .cta-section h2 {
-        font-size: 2rem;
-      }
-
-      .cta-options {
-        grid-template-columns: 1fr;
-      }
-
-      #members-swiper .swiper-slide {
-        width: 180px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      #members-swiper .swiper-slide {
-        width: 150px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-new h1 {
-        font-size: 2rem;
-      }
-
-      .section-title-new {
-        font-size: 2rem;
-      }
-
-      .feature-content h2 {
-        font-size: 1.5rem;
-      }
-
-      .btn-primary-new,
-      .btn-secondary-new {
-        padding: 0.875rem 1.5rem;
-        font-size: 0.9rem;
+      .content-card { padding: 2rem 1.5rem; }
+      .content-card-body { font-size: 1rem; }
+      .term-line.highlight { font-size: 1.8rem; margin-bottom: 1rem; }
+      .cta-section { padding: 4rem 5%; }
+      .cta-grid { gap: 2rem; flex-direction: column; align-items: center; }
+      .cta-title { margin-bottom: 1.5rem; }
+      .cta-card {
+        justify-content: flex-start;
+        gap: 0.85rem;
+        flex-basis: auto;
+        width: 100%;
+        max-width: 420px;
       }
     }
   </style>
@@ -707,119 +811,263 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- HERO SECTION                                -->
     <!-- ============================================ -->
     <section class="hero-new">
-      <div class="hero-content">
-        
-        <!-- Main Heading -->
-        <h1>AI for the public good.</h1>
-        
-        <!-- Decorative Divider -->
-        <div class="street-sign-divider" role="presentation"></div>
-        
-        <!-- Description -->
-        <p class="hero-description">Singapore’s collaborative hub for practitioners, founders, and researchers to build the future of AI together.</p>
-        
-        <!-- CTA Buttons -->
-        <div class="hero-cta-group">
-          <a href="https://form.gov.sg/670cf4d58f92af4544f2721f" class="btn-primary-new">Become a Member</a>
-          <a href="https://go.gov.sg/lai-share" class="btn-secondary-new">Become a Speaker </a>
-        </div>
+      <div class="hero-image">
+        <img src="assets/img/hero-carousel/lai-header-op2.png" alt="Lorong AI community with robots">
+      </div>
 
-        <div class="section-header home-section-head" data-aos="fade-up">
-          <h2>Building The Ecosystem With:</h2>
-        </div>
+      <div class="hero-content scroll-reveal">
+        
+        <h1>
+          From prompt to deployment, AI comes to life here.
+        </h1>
+        
+        <div class="street-sign-divider scroll-reveal delay-1"></div>
+        
+        <p class="hero-description scroll-reveal delay-2">
+          Lorong AI is a collaborative hub where AI problem solvers connect, innovate, and ensure every problem gets solved.
+        </p>
 
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper" id="members-swiper">
-            <div class="swiper-wrapper" id="members-wrapper"></div>
-            <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PROBLEM SOLVERS SECTION (Rounded Cards)      -->
+    <!-- ============================================ -->
+    <section class="problem-solvers-section" id="about">
+      <div class="container">
+        <!-- Scroll-linked fluid header container -->
+        <div class="section-header-center fluid-header-container">
+          <div class="fluid-header-inner">
+            <h2>A community of AI problem solvers.</h2>
+            <p>This means two things at once, by design:</p>
           </div>
         </div>
 
-        <!-- Statistics -->
-        <p class="stats-title">Lorong AI in numbers</p>
-        <div class="stats-bar">
-          <div class="stat-item">
-            <span class="stat-number">300+</span>
-            <span class="stat-label">Core Members</span>
+        <div class="content-grid">
+          <!-- Card 1 -->
+          <div class="content-card scroll-reveal delay-1">
+            <div class="content-card-body text-center">
+              <span class="term-line highlight">Solving AI problems</span>
+              <span class="term-line">Practitioners, researchers and builders</span>
+              <span class="term-line">pushing the limits of AI.</span>
+            </div>
           </div>
-          <div class="stat-item">
-            <span class="stat-number">8,500+</span>
-            <span class="stat-label">Community Network</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">200+</span>
-            <span class="stat-label">Events Annually</span>
+
+          <!-- Card 2 -->
+          <div class="content-card scroll-reveal delay-2">
+            <div class="content-card-body text-center">
+              <span class="term-line highlight">Solving problems with AI</span>
+              <span class="term-line">Agencies and enterprises looking to deploy AI</span>
+              <span class="term-line">against real problem statements.</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================ -->
-    <!-- FEATURES SECTION                            -->
+    <!-- 30-DAY PILOT SECTION (Rounded Cards)        -->
     <!-- ============================================ -->
-    <section class="features-section" id="about">
-      <div class="section-header home-section-head">
-        <h2>What We Offer</h2>
+    <section class="problem-solvers-section" style="background: #ffffff; padding-top: 4rem; padding-bottom: 6rem;">
+      <div class="container">
+        <!-- Scroll-linked fluid header container -->
+        <div class="section-header-center fluid-header-container">
+          <div class="fluid-header-inner">
+            <h2>Market Making</h2>
+              <p style="max-width: 800px; margin: 1rem auto 0; line-height: 1.6;">An engagement framework for organisations seeking to work with Singapore's AI ecosystem.</p>
+          </div>
+        </div>
+
+        <div class="content-grid" style="grid-template-columns: 1fr; max-width: 900px;">
+          <div class="content-card scroll-reveal delay-1">
+            <div class="content-card-body" style="align-items: flex-start; text-align: left;">
+              <span class="term-line" style="font-weight: 700; font-size: 1.25rem; margin-bottom: 1.8rem; color: var(--text-dark);">
+                This process supports organisations in:
+              </span>
+              
+              <div style="display: flex; flex-direction: column; gap: 1rem; width: 100%; margin-bottom: 2.5rem;">
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Refining problem statements</span>
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Engaging the broader AI community</span>
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Surfacing potential solution pathways</span>
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Connecting with relevant teams</span>
+                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Building relationships that extend beyond the programme</span>
+              </div>
+
+              <div style="width: 100%; padding-top: 1.8rem; border-top: 1px solid #ece9e9;">
+                <span class="term-line" style="font-weight: 600; color: var(--primary-green); font-size: 1.15rem; line-height: 1.5;">
+                 We create opportunities for problem owners and practitioners to explore and solve real challenges together.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Feature 1: Events -->
-      <a class="feature-card feature-card-link" id="events" href="events.html" aria-label="Go to Events">
-        <div class="feature-image">
-          <picture>
-            <source srcset="assets/img/hero-carousel/Lorong AI Deck (3).webp" type="image/webp">
-            <img src="assets/img/hero-carousel/Lorong AI Deck (3).jpg" alt="AI practitioners collaborating at an event" loading="lazy">
-          </picture>
-          <span class="arrow-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-          </span>
+    </section>
+    
+    <!-- ============================================ -->
+    <!-- MEMBERS SECTION                             -->
+    <!-- ============================================ -->
+    <section class="members-section">
+      <div class="container">
+        <!-- Scroll-linked fluid header container -->
+        <div class="section-header-center fluid-header-container">
+          <div class="fluid-header-inner">
+            <h2>Members and Affiliates</h2>
+            <p>The organisations bringing AI to life.</p>
+          </div>
         </div>
-        <div class="feature-content">
-          <h2>Events</h2>
-          <p>Master AI through hands-on collaboration. Our events range from technical deep-dives to intimate founder breakfast sessions. Join practitioners, researchers, and industry leaders to move from research to practical application in Singapore's AI ecosystem.</p>
+        
+        <div class="members-sushi-section scroll-reveal delay-1">
+          <div class="sushi-belt">
+            <div class="sushi-track sushi-track--left" id="sushi-track-1">
+              <!-- Sushi items will be populated by JS -->
+            </div>
+          </div>
+          <div class="sushi-belt">
+            <div class="sushi-track sushi-track--right" id="sushi-track-2">
+              <!-- Sushi items will be populated by JS -->
+            </div>
+          </div>
         </div>
-      </a>
-
-      <!-- Feature 2: Community -->
-      <a class="feature-card feature-card-link" id="community" href="members.html" aria-label="Go to Members">
-        <div class="feature-image">
-          <picture>
-            <source srcset="assets/img/hero-carousel/Min Visit_Image 1.jpeg" type="image/jpeg">
-            <img src="assets/img/hero-carousel/Min Visit_Image 1.jpeg" alt="Lorong AI Team and community members" loading="lazy">
-          </picture>
-          <span class="arrow-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-          </span>
-        </div>
-        <div class="feature-content">
-          <h2>Community</h2>
-          <p>Connect with Singapore’s AI Community. We are the intellectual home for 4,000+ practitioners, researchers, and government leaders. Collaborate on real-world solutions, share insights, and join 250+ core members dedicated to advancing AI for the public good.</p>
-        </div>
-      </a>
-
-      <!-- Feature 3: Co-working -->
-      <a class="feature-card feature-card-link" id="coworking" href="about.html" aria-label="Go to About Us">
-        <div class="feature-image">
-          <img src="assets/img/hero-carousel/cwm12.jpg" alt="Lorong AI co-working space" loading="lazy">
-          <span class="arrow-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-          </span>
-        </div>
-        <div class="feature-content">
-          <h2>Co-working</h2>
-          <p>Work alongside AI innovators. Co-locate with fellow practitioners from government agencies and industry leaders in our dedicated space. Access world-class infrastructure and join the community building Singapore’s position as a global AI leader.</p>
-        </div>
-      </a>
+      </div>
     </section>
 
-  </div>
+    <!-- ============================================ -->
+    <!-- TESTIMONIALS (Phantom-Style 5-Card Deck)    -->
+    <!-- ============================================ -->
+    <section class="testimonials-section">
+      <div class="testimonials-sticky">
+        <div class="container">
+          <!-- Scroll-linked fluid header container -->
+          <div class="testimonials-header fluid-header-container">
+            <div class="fluid-header-inner">
+              <h2>Loved by the Ecosystem</h2>
+            </div>
+          </div>
+          
+          <div class="deck-container mx-auto">
+            <!-- Card 1 (Bottom) -->
+            <div class="t-card t-card-1">
+              <div class="t-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"The scale and focus of this community is unprecedented in Singapore. Lorong AI is exactly what we needed to bridge theory and practice."</p>
+              <div class="author-row">
+                 <div class="author-avatar">J</div>
+                 <div class="author-info">
+                   <strong>----</strong>
+                   <span>Deep Learning maybe</span>
+                 </div>
+                 <i class="bi bi-quote quote-icon"></i>
+              </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="t-card t-card-2">
+              <div class="t-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"-------------"</p>
+              <div class="author-row">
+                 <div class="author-avatar">A</div>
+                 <div class="author-info">
+                   <strong>---</strong>
+                   <span>-----</span>
+                 </div>
+                 <i class="bi bi-quote quote-icon"></i>
+              </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="t-card t-card-3">
+              <div class="t-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"Something about ACE Partnership"</p>
+              <div class="author-row">
+                 <div class="author-avatar">M</div>
+                 <div class="author-info">
+                   <strong>Mia?</strong>
+                   <span>Nora Parenting</span>
+                 </div>
+                 <i class="bi bi-quote quote-icon"></i>
+              </div>
+            </div>
 
-</section><!-- /Members Section -->
+            <!-- Card 4 -->
+            <div class="t-card t-card-4">
+              <div class="t-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"Our team relies heavily on the shared infographics and recap notes. Lorong AI makes keeping up with AI progress manageable."</p>
+              <div class="author-row">
+                 <div class="author-avatar">S</div>
+                 <div class="author-info">
+                   <strong>--------</strong>
+                   <span>---------</span>
+                 </div>
+                 <i class="bi bi-quote quote-icon"></i>
+              </div>
+            </div>
+
+            <!-- Card 5 (Top) -->
+            <div class="t-card t-card-5">
+              <div class="t-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"Lorong AI completely transformed the way our team approaches machine learning. The co-working space feels like home."</p>
+              <div class="author-row">
+                 <div class="author-avatar">D</div>
+                 <div class="author-info">
+                   <strong>-------</strong>
+                   <span>----------------</span>
+                 </div>
+                 <i class="bi bi-quote quote-icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+    <!-- ============================================ -->
+    <!-- CTA BOTTOM SECTION                          -->
+    <!-- ============================================ -->
+    <section class="cta-section">
+      <div class="container">
+        <!-- Scroll-linked fluid header container handles the scaling -->
+        <div class="cta-content fluid-header-container">
+          <div class="fluid-header-inner">
+            
+            <!-- Adding scroll-reveal triggers the odometer roll when in view -->
+            <h2 class="cta-title scroll-reveal">
+              <span class="flip-wrapper"><span class="flip-word flip-word-1">Join</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-2">the</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-3">Fam!</span></span>
+            </h2>
+            
+            <div class="cta-grid">
+              
+              <!-- Card 1: Member -->
+              <div class="cta-card">
+                <p>Plug into the ecosystem and build the future of AI in Singapore.</p>
+                <a href="https://form.gov.sg/670cf4d58f92af4544f2721f" class="btn-action-pill">Become a Member</a>
+              </div>
+              
+              <!-- Card 2: Speaker -->
+              <div class="cta-card">
+                <p>Have a real-world AI deployment story? The stage is yours.</p>
+                <a href="https://go.gov.sg/lai-collaborate" class="btn-action-pill">Collaborate with Us</a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <div id="footer-placeholder"></div>
@@ -833,7 +1081,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
   <script src="assets/vendor/php-email-form/validate.js" defer></script>
-  <script src="assets/vendor/aos/aos.js" defer></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
@@ -843,8 +1090,283 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/include.js?v=4" defer></script>
+  <script src="assets/js/include.js?v=5" defer></script>
 
+  <!-- ============================================ -->
+  <!-- CUSTOM SMOOTH SCROLL & PARALLAX SCRIPT       -->
+  <!-- ============================================ -->
+  <script>
+    // ============================================
+    // MEMBERS JSON & SUSHI BELT POPULATION
+    // ============================================
+    const membersData = [
+      { "src": "acesg.png", "alt": "ACESG", "url": "https://ace.sg" },
+      { "src": "agd.webp", "alt": "AGD", "url": "https://www.agd.gov.sg" },
+      { "src": "aisg.png", "alt": "AISG", "url": "https://aisingapore.org" },
+      { "src": "airia.png", "alt": "AISG", "url": "https://airia.com" },
+      { "src": "aleph.png", "alt": "Aleph", "url": "https://alephtech.ai" },
+      { "src": "ASTAR.webp", "alt": "ASTAR", "url": "https://www.a-star.edu.sg" },
+      { "src": "b71.png", "alt": "Block71", "url": "https://www.blk71.sg" },
+      { "src": "BCA.png", "alt": "BCA", "url": "https://www.bca.gov.sg" },
+      { "src": "ccs.webp", "alt": "CCS", "url": "https://www.ccs.gov.sg" },
+      { "src": "centari.webp", "alt": "Centari", "url": "https://www.centari.com" },
+      { "src": "chatandbuild.png", "alt": "ChatAndBuild", "url": "https://chatandbuild.com" },
+      { "src": "checkmate.png", "alt": "Checkmate", "url": "https://checkmate.sg" },
+      { "src": "cohere.webp", "alt": "Cohere", "url": "https://cohere.com" },
+      { "src": "CPF.webp", "alt": "CPF", "url": "https://www.cpf.gov.sg" },
+      { "src": "csclogo.png", "alt": "CSC", "url": "https://www.csc.gov.sg" },
+      { "src": "csitr.webp", "alt": "CSIT", "url": "https://www.csit.gov.sg" },
+      { "src": "datascience.png", "alt": "DataScience SG", "url": "https://datascience.sg" },
+      { "src": "deepinsights.webp", "alt": "Deep Insights Labs", "url": "https://deepinsightlabs.ai" },
+      { "src": "digitalind.webp", "alt": "Digital Industry", "url": "https://www.disg.gov.sg" },
+      { "src": "dso.avif", "alt": "DSO", "url": "https://www.dso.org.sg" },
+      { "src": "e27.webp", "alt": "e27", "url": "https://e27.co" },
+      { "src": "edb.png", "alt": "EDB", "url": "https://www.edb.gov.sg" },
+      { "src": "Elevenlabs.webp", "alt": "ElevenLabs", "url": "https://elevenlabs.io" },
+      { "src": "elgo.jpeg", "alt": "Elgo", "url": "https://www.elgo.app" },
+      { "src": "featherless.png", "alt": "Featherless.ai", "url": "https://featherless.ai" },
+      { "src": "geovector.webp", "alt": "Geovector", "url": "https://www.geovector.ai" },
+      { "src": "govtech.png", "alt": "GovTech", "url": "https://www.tech.gov.sg" },
+      { "src": "groq.webp", "alt": "Groq", "url": "https://groq.com" },
+      { "src": "hasky.webp", "alt": "Hasky Tech", "url": "https://www.haskytech.com" },
+      { "src": "hepha.webp", "alt": "Hepha", "url": "https://hepha.ai" },
+      { "src": "htx.webp", "alt": "HTX", "url": "https://www.htx.gov.sg" },
+      { "src": "IMDA.webp", "alt": "IMDA", "url": "https://www.imda.gov.sg" },
+      { "src": "interfaze.png", "alt": "Interfaze", "url": "https://interfaze.ai" },
+      { "src": "IRAS.webp", "alt": "IRAS", "url": "https://www.iras.gov.sg" },
+      { "src": "jdi.webp", "alt": "JDI", "url": "https://jdi.group" },
+      { "src": "JigsawStack.png", "alt": "JigsawStack", "url": "https://www.jigsawstack.com" },
+      { "src": "manus.png", "alt": "Manus", "url": "https://manus.im" },
+      { "src": "marymountlabs.png", "alt": "Marymount Labs", "url": "https://www.marymountlabs.com" },
+      { "src": "mas.png", "alt": "MAS", "url": "https://www.mas.gov.sg" },
+      { "src": "MDDI.webp", "alt": "MDDI", "url": "https://www.mddi.gov.sg" },
+      { "src": "mfa.webp", "alt": "MFA", "url": "https://www.mfa.gov.sg" },
+      { "src": "mha.png", "alt": "MHA", "url": "https://www.mha.gov.sg" },
+      { "src": "mindef.webp", "alt": "MINDEF", "url": "https://www.mindef.gov.sg" },
+      { "src": "moe.webp", "alt": "MOE", "url": "https://www.moe.gov.sg" },
+      { "src": "MPA.webp", "alt": "MPA", "url": "https://www.mpa.gov.sg" },
+      { "src": "mti.webp", "alt": "MTI", "url": "https://www.mti.gov.sg" },
+      { "src": "nanobrowser.webp", "alt": "NanoBrowser", "url": "https://nanobrowser.ai" },
+      { "src": "nea.jpg", "alt": "NEA", "url": "https://www.nea.gov.sg" },
+      { "src": "nhb.png", "alt": "NHB", "url": "https://www.nhb.gov.sg" },
+      { "src": "NLB.webp", "alt": "NLB", "url": "https://www.nlb.gov.sg" },
+      { "src": "noraai.png", "alt": "Nora", "url": "https://noramum.app" },
+      { "src": "notion.webp", "alt": "Notion", "url": "https://www.notion.so" },
+      { "src": "nrp.webp", "alt": "NRP", "url": "https://nrp.gov.sg" },
+      { "src": "nus.webp", "alt": "NUS", "url": "https://www.nus.edu.sg" },
+      { "src": "pub.webp", "alt": "PUB", "url": "https://www.pub.gov.sg" },
+      { "src": "sambanova.webp", "alt": "Sambanova", "url": "https://sambanova.ai" },
+      { "src": "sash.jpeg", "alt": "SASH", "url": "https://www.aisafety.sg" },
+      { "src": "scantist.png", "alt": "Scantist", "url": "https://scantist.com" },
+      { "src": "sgi.png", "alt": "SG Innovate", "url": "https://www.sginnovate.com" },
+      { "src": "southbridge.png", "alt": "Southbridge", "url": "https://www.southbridge.ai" },
+      { "src": "sps.png", "alt": "Singapore Police Service", "url": "https://www.police.gov.sg" },
+      { "src": "superx.webp", "alt": "SuperX", "url": "https://www.superx.sg" },
+      { "src": "sutd.webp", "alt": "SUTD", "url": "https://www.sutd.edu.sg" },
+      { "src": "temasek.png", "alt": "Temasek", "url": "https://www.temasek.com.sg" },
+      { "src": "thoth.png", "alt": "Thoth", "url": "https://www.aithoth.com" },
+      { "src": "tosba.webp", "alt": "Tosba", "url": "https://tosba.tech" },
+      { "src": "trantorlabs.webp", "alt": "Trantor Labs", "url": "https://www.trantorlabs.sg" },
+      { "src": "vida.webp", "alt": "VidaCity", "url": "https://vidacity.com.sg" },
+      { "src": "zunoc.webp", "alt": "Zuno Carbon", "url": "https://www.zunocarbon.com" }
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      
+      // --- POPULATE SUSHI BELTS WITH HYPERLINKS ---
+      const track1 = document.getElementById('sushi-track-1');
+      const track2 = document.getElementById('sushi-track-2');
+
+      function createSushiCard(member) {
+        const link = document.createElement('a');
+        link.href = member.url || 'https://ace.sg';
+        link.className = 'sushi-item';
+        link.target = '_blank'; // Opens link in a new tab/page
+        link.rel = 'noopener noreferrer'; // Security best practice
+        
+        const img = document.createElement('img');
+        img.src = `assets/img/members/${member.src}`;
+        img.alt = member.alt;
+        
+        link.appendChild(img);
+        return link;
+      }
+
+      if (track1 && track2) {
+        // Split array in half for Track 1 and Track 2
+        const midPoint = Math.ceil(membersData.length / 2);
+        const track1Data = membersData.slice(0, midPoint);
+        const track2Data = membersData.slice(midPoint);
+
+        function populateTrack(trackElement, dataArray) {
+          const loopData = [...dataArray, ...dataArray]; 
+          loopData.forEach(member => {
+            trackElement.appendChild(createSushiCard(member));
+          });
+        }
+
+        populateTrack(track1, track1Data);
+        populateTrack(track2, track2Data);
+      }
+
+
+      // --- ORIGINAL SCROLL REVEAL & PARALLAX ---
+      
+      // 1. Bidirectional Reveal on Scroll (For standard elements & odometer trigger)
+      const revealElements = document.querySelectorAll('.scroll-reveal');
+      
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          } else {
+            entry.target.classList.remove('is-visible');
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -10% 0px',
+        threshold: 0.1
+      });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      // 2. Smooth Parallax, 5-Card Deck Effect, and Fluid Headers
+      const heroContent = document.querySelector('.hero-content');
+      const parallaxImages = document.querySelectorAll('.parallax-img');
+      const tSection = document.querySelector('.testimonials-section');
+      const tCards = document.querySelectorAll('.t-card');
+      const fluidContainers = document.querySelectorAll('.fluid-header-container');
+      
+      let lastScrollY = window.scrollY;
+      let ticking = false;
+
+      function updateScrollAnimations() {
+        const scrollY = window.scrollY;
+        const viewHeight = window.innerHeight;
+        
+        // --- Hero Parallax ---
+        if (heroContent && scrollY < viewHeight && window.innerWidth > 768) {
+          heroContent.style.transform = `translateY(${scrollY * 0.25}px)`;
+        }
+
+        // --- Fluid Scroll-Linked Headers (Dynamic Scaling) ---
+        fluidContainers.forEach(container => {
+           const inner = container.querySelector('.fluid-header-inner');
+           if (!inner) return;
+           if (window.innerWidth <= 768 && container.classList.contains('cta-content')) {
+             inner.style.opacity = 1;
+             inner.style.transform = 'none';
+             return;
+           }
+
+           const rect = container.getBoundingClientRect();
+           
+           // Config: when to start revealing and when to fully reveal
+           const revealStart = viewHeight * 0.95; 
+           const revealEnd = viewHeight * 0.70; 
+           
+           let opacity = 1;
+           let yOffset = 0;
+           let scale = 1;
+
+           if (rect.top > revealStart) {
+             // Container is off-screen at bottom
+             opacity = 0;
+             yOffset = 60;
+             scale = 0.85; // Start slightly smaller
+           } else if (rect.top > revealEnd) {
+             // Container is actively scrolling into the reveal zone
+             const progress = (revealStart - rect.top) / (revealStart - revealEnd);
+             // Apply cubic ease-out for ultra smooth entry
+             const ease = 1 - Math.pow(1 - progress, 3);
+             
+             opacity = ease;
+             yOffset = (1 - ease) * 60;
+             scale = 0.85 + (ease * 0.15); // Smoothly scale up to full size
+           } else {
+             // Container is above reveal point -> apply subtle parallax drift, keep full size
+             opacity = 1;
+             scale = 1;
+             const parallaxProgress = (revealEnd - rect.top) / revealEnd; 
+             yOffset = -(parallaxProgress * 40); 
+           }
+
+           inner.style.opacity = opacity;
+           inner.style.transform = `translateY(${yOffset}px) scale(${scale})`;
+        });
+
+        // --- Feature Images Parallax (Kept for safe fallback if used elsewhere) ---
+        parallaxImages.forEach(img => {
+          const container = img.closest('.parallax-img-container');
+          if (!container) return;
+          const rect = container.getBoundingClientRect();
+          
+          if (rect.top <= viewHeight && rect.bottom >= 0) {
+            const scrollPercentage = (rect.top / viewHeight) - 0.5; 
+            img.style.transform = `translateY(${scrollPercentage * 30}px) scale(1.05)`;
+          }
+        });
+
+        // --- Testimonial Deck 5-Card Spread ---
+        if (tSection && tCards.length === 5) {
+          if (window.innerWidth <= 768) {
+            tCards.forEach(card => {
+              card.style.transform = '';
+            });
+          } else {
+            const rect = tSection.getBoundingClientRect();
+
+            let progress = 0;
+            if (rect.top <= 0) {
+              progress = Math.min(1, Math.abs(rect.top) / (viewHeight * 0.25));
+            }
+
+            const easeP = 1 - Math.pow(1 - progress, 3);
+            const spreadX = window.innerWidth > 992 ? 260 : 180;
+            const spreadYMobile = 140;
+
+            for(let i=0; i<5; i++) {
+              const colScale = 0.8 + (i * 0.05);
+              const colY = (4 - i) * -12;
+
+              if (window.innerWidth <= 768) {
+                const targetY = (i - 2) * spreadYMobile;
+                const currentY = colY + (targetY - colY) * easeP;
+                const currentScale = colScale + (1 - colScale) * easeP;
+
+                tCards[i].style.transform = `translateY(${currentY}px) scale(${currentScale})`;
+              } else {
+                const indexOffset = i - 2;
+                const targetX = indexOffset * spreadX;
+                const targetY = Math.abs(indexOffset) * 35;
+                const targetRot = indexOffset * 6;
+
+                const currentX = targetX * easeP;
+                const currentY = colY + (targetY - colY) * easeP;
+                const currentScale = colScale + (1 - colScale) * easeP;
+                const currentRot = targetRot * easeP;
+
+                tCards[i].style.transform = `translate(${currentX}px, ${currentY}px) scale(${currentScale}) rotate(${currentRot}deg)`;
+              }
+            }
+          }
+        }
+
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+          window.requestAnimationFrame(updateScrollAnimations);
+          ticking = true;
+        }
+      });
+      
+      // Trigger once on load to calculate initial positions
+      updateScrollAnimations();
+    });
+  </script>
 </body>
-
 </html>

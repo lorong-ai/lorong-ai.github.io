@@ -2,14 +2,6 @@
 <html lang="en">
 
 <head>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TGRVTMZC');</script>
-<!-- End Google Tag Manager -->
-
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Members</title>
@@ -51,41 +43,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .members-page .main {
       background: transparent;
       min-height: 100vh;
-      padding: 1.25rem 0 4rem;
+      padding: 0 0 4rem;
     }
 
     .member-hero {
-      padding: 1.25rem 0 1.25rem;
-      background: transparent;
+      min-height: 90vh;
+      padding: 11rem 5% 6rem;
+      background:
+        linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
+        url('assets/img/hero-carousel/lai-header-op2.png') right center no-repeat;
+      background-size: contain;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
     }
 
     .member-hero-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.8fr);
-      gap: 1.1rem;
-      align-items: stretch;
-      min-height: 420px;
-      background:
-        linear-gradient(135deg, rgba(255, 209, 0, 0.12) 0%, rgba(255, 255, 255, 0.96) 24%, rgba(245, 250, 247, 0.98) 100%);
-      border: 1px solid rgba(0, 102, 51, 0.08);
-      border-radius: 28px;
-      padding: 1rem;
-      box-shadow: 0 14px 30px rgba(12, 37, 24, 0.05);
-      overflow: hidden;
+      display: block;
+      width: 100%;
+      max-width: 520px;
     }
 
     .member-hero-copy {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 0.75rem;
-      min-height: 100%;
+      align-items: flex-start;
+      gap: 1.5rem;
     }
 
     .member-hero-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: none;
     }
 
     .member-hero-visual img {
@@ -113,12 +101,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .member-hero h2 {
       margin: 0;
-      font-size: clamp(1.9rem, 4vw, 3.1rem);
-      line-height: 1.02;
-      font-weight: 800;
-      color: #17221c;
-      max-width: 22ch;
-      text-wrap: balance;
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      line-height: 1.1;
+      font-weight: 700;
+      color: #1a1a1a;
+      max-width: 10ch;
+      letter-spacing: -0.03em;
+      text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
     }
 
     .member-hero p {
@@ -126,6 +115,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size: 1rem;
       line-height: 1.85;
       max-width: 72ch;
+    }
+
+    .member-hero-copy::after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, #139B48 0%, #FFD100 100%);
+      border-radius: 3px;
     }
 
     .member-hero-visual img {
@@ -165,7 +163,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       overflow-x: auto;
       padding: 1rem 0;
       scroll-snap-type: x mandatory;
-      background: #ffffff;
     }
 
     .members-row::-webkit-scrollbar {
@@ -267,50 +264,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       line-height: 1.8;
     }
 
-    .why-join {
-      padding: 3rem 0 4rem;
-      background: #ffffff;
-    }
-    .why-join .why-join-inner {
-      display: grid;
-      gap: 2rem;
-    }
-    .why-join .why-join-item {
-      display: grid;
-      grid-template-columns: 180px minmax(0, 1fr);
-      gap: 1.25rem;
-      align-items: center;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid rgba(19, 155, 72, 0.08);
-    }
-    .why-join .why-join-item:last-child {
-      border-bottom: none;
-    }
-    .why-join .why-join-image {
-      min-width: 180px;
-      min-height: 180px;
-      border-radius: 24px;
-      background: #e7f3e8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #17221c;
-      font-weight: 700;
-      text-align: center;
-      padding: 1rem;
-    }
-    .why-join .why-join-item h4 {
-      margin: 0 0 0.5rem;
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: #17221c;
-    }
-    .why-join .why-join-item p {
-      margin: 0;
-      color: #4d5b52;
-      line-height: 1.8;
-    }
-
     .grid-cta {
       display: inline-flex;
       align-items: center;
@@ -339,14 +292,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       box-shadow: 0 6px 25px rgba(0, 102, 51, 0.25);
       color: white;
     }
+
+    @media (max-width: 768px) {
+      .member-hero {
+        min-height: auto;
+        padding: 5.75rem 0 3.5rem;
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .member-hero-shell {
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+      }
+      .member-hero-visual {
+        display: block;
+        order: 1;
+        width: 100%;
+        margin: 0 0 1.75rem;
+      }
+      .member-hero-copy {
+        order: 2;
+        align-items: center;
+        padding: 0 5%;
+      }
+      .member-hero h2 {
+        font-size: clamp(2rem, 9vw, 3rem);
+        line-height: 1.08;
+        max-width: 12ch;
+      }
+      .member-hero-copy::after {
+        margin: 0 auto;
+      }
+      .member-hero-visual img {
+        border-radius: 0;
+        max-height: none;
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
 <body class="members-page">
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGRVTMZC"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
   <div id="header-placeholder"></div>
 
@@ -356,7 +346,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="member-hero-shell">
           <div class="member-hero-copy">
             <h2>Meet the Ecosystem</h2>
-            <p>Discover the builders, startups, and teams driving real-world AI adoption from the heart of our community</p>
           </div>
           <div class="member-hero-visual">
             <img src="assets/img/hero-carousel/eventsmaybe2.png" alt="Lorong AI member community" loading="lazy">
@@ -445,38 +434,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </section>
-
-      <section class="why-join" data-aos="fade-up" data-aos-delay="100">
-        <div class="container">
-          <div class="section-header home-section-head">
-            <h2>Why Join the Lorong AI Ecosystem</h2>
-          </div>
-          <div class="why-join-inner">
-            <p>We don’t just provide desks; we provide a high-density network where innovation scales.</p>
-            <div class="why-join-item">
-              <div class="why-join-image">Image 1</div>
-              <div>
-                <h4>Collaborative Innovation</h4>
-                <p><strong>Drive Cross-Sector Impact.</strong> Cowork alongside leaders from government, industry, and research to scale real-world AI applications.</p>
-              </div>
-            </div>
-            <div class="why-join-item">
-              <div class="why-join-image">Image 2</div>
-              <div>
-                <h4>Exclusive Resources</h4>
-                <p><strong>Sharpen Your AI Edge.</strong> Access our curated programming, including technical workshops and "Out of Lorong" (OLE) learning journeys that provide firsthand insight into industry-leading innovation.</p>
-              </div>
-            </div>
-            <div class="why-join-item">
-              <div class="why-join-image">Image 3</div>
-              <div>
-                <h4>Growth</h4>
-                <p><strong>Amplify Your Expertise.</strong> Get recognized. Our members receive first-priority access to speaking slots, spotlights, and project representation across our entire AI ecosystem.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   </main>
 
@@ -501,7 +458,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/include.js?v=4" defer></script>
+  <script src="assets/js/include.js?v=5" defer></script>
 </body>
 
 </html>
