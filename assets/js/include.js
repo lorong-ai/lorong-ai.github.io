@@ -207,9 +207,9 @@ const headerHTML = `
       <nav id="navmenu" class="floating-navmenu" aria-label="Main navigation">
           <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="events.html">Events</a></li>
-              <li><a href="resources.html">Resources</a></li>
-              <li><a href="about.html">About Us</a></li>
+              <li><a href="events.html">Happenings</a></li>
+              <li><a href="resources.html">Archive & Insights</a></li>
+              <li><a href="about.html">Our Story</a></li>
           </ul>
           <i class="floating-nav-toggle d-xl-none bi bi-list" role="button" tabindex="0" aria-label="Open menu" aria-controls="navmenu" aria-expanded="false"></i>
       </nav>
@@ -235,13 +235,13 @@ const footerHTML = `
         <div class="primary-menu">
             <a href="index.html">HOME</a>
             <span class="separator">|</span>
-            <a href="events.html">EVENTS</a>
+            <a href="events.html">HAPPENINGS</a>
             <span class="separator">|</span>
-            <a href="resources.html">RESOURCES</a>
+            <a href="resources.html">ARCHIVE & INSIGHTS</a>
             <span class="separator">|</span>
             <a href="members.html">MEMBERS</a>
             <span class="separator">|</span>
-            <a href="about.html">ABOUT US</a>
+            <a href="about.html">OUR STORY</a>
         </div>
                 
         <!-- Secondary Navigation - Smaller with pipe separators -->

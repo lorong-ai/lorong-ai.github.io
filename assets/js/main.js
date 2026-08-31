@@ -283,3 +283,11 @@ if (document.querySelector('.header')) {
 initMainJS();
 }
 });
+
+window.addEventListener('scroll', function() {
+  const roadBg = document.querySelector('.v-road-background');
+  if (!roadBg) return;
+  
+  const scrollPosition = window.pageYOffset;
+  roadBg.style.backgroundPositionY = -(scrollPosition * 0.3) + 'px';
+});
