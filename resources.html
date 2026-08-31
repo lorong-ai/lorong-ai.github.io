@@ -3,14 +3,13 @@
 
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KC0CD5SNDE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-KC0CD5SNDE');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KC0CD5SNDE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KC0CD5SNDE');
+  </script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Community Resources - Lorong AI</title>
@@ -25,544 +24,819 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKRQ8W4D9R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LKRQ8W4D9R');
-  </script>
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <style>
-    .resources-page .main {
+    /* ============================================ */
+    /* GLOBAL VARIABLES & SHARED STYLES             */
+    /* ============================================ */
+    :root {
+      --primary-green: #139B48;
+      --primary-yellow: #FFD100;
+      --text-dark: #1a1a1a;
+      --text-medium: #4a4a4a;
+      --text-light: #666666;
+      --bg-light: #f8f9fa;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      overflow-x: hidden;
+      background-color: var(--bg-light);
+    }
+
+    /* CUSTOM MOVEMENT & SCROLL ANIMATIONS */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* FLUID SCROLL HEADERS */
+    .fluid-header-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .fluid-header-inner {
+      will-change: transform, opacity;
+      opacity: 0;
+      transform: translateY(60px) scale(0.85);
+    }
+
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 5rem;
+      z-index: 10;
+    }
+
+    .section-header-center h2 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ODOMETER FLIP EFFECT FOR HEADERS */
+    .flip-wrapper {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      padding: 0.1em;
+      margin: -0.1em;
+    }
+
+    .flip-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(110%) rotateX(-45deg);
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+
+    .is-visible .flip-word,
+    .fluid-header-inner.is-revealed .flip-word {
+      animation: odometerRoll 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .flip-word-1 { animation-delay: 0.0s; }
+    .flip-word-2 { animation-delay: 0.15s; }
+    .flip-word-3 { animation-delay: 0.3s; }
+    .flip-word-4 { animation-delay: 0.45s; }
+
+    @keyframes odometerRoll {
+      0% {
+        transform: translateY(110%) rotateX(-60deg);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0) rotateX(0deg);
+        opacity: 1;
+      }
+    }
+
+    /* ============================================ */
+    /* HERO SECTION                                 */
+    /* ============================================ */
+    .hero-new {
+      min-height: 90vh;
       background:
-        linear-gradient(180deg,
-          #eef7f1 0%,
-          #edf7f0 8%,
-          #f2f9f4 18%,
-          #f7fbf8 30%,
-          #fcfefd 42%,
-          #ffffff 54%);
-    }
-
-    .compact-hero {
-      padding: 1.25rem 0 1.25rem;
-      background: transparent;
-    }
-
-    .compact-hero-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.8fr);
-      gap: 1.1rem;
-      align-items: stretch;
-      background:
-        linear-gradient(135deg, rgba(255, 209, 0, 0.12) 0%, rgba(255, 255, 255, 0.96) 24%, rgba(245, 250, 247, 0.98) 100%);
-      border: 1px solid rgba(0, 102, 51, 0.08);
-      border-radius: 28px;
-      padding: 1rem;
-      box-shadow: 0 14px 30px rgba(12, 37, 24, 0.05);
-    }
-
-    .compact-hero-copy {
+        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.98) 40%, rgba(255,255,255,0.78) 58%, rgba(255,255,255,0) 83%),
+        url('assets/img/hero-carousel/Resources.png') right center no-repeat;
+      background-size: cover;
+      background-position: center right;
+      background-color: #ffffff;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 0.75rem;
-    }
-
-    .compact-hero-kicker {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.45rem 0.85rem;
-      border-radius: 999px;
-      background: rgba(255, 209, 0, 0.24);
-      color: #006633;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .compact-hero-copy h1 {
-      margin: 0;
-      font-size: clamp(1.9rem, 4vw, 3.1rem);
-      line-height: 1.02;
-      font-weight: 800;
-      color: #17221c;
-      max-width: 22ch;
-      text-wrap: balance;
-    }
-
-    .compact-hero-copy p {
-      margin: 0;
-      max-width: 64ch;
-      font-size: 0.92rem;
-      line-height: 1.55;
-      color: #51605a;
-    }
-
-    .compact-hero-visual {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-      gap: 0.8rem;
-      min-height: 150px;
-      box-shadow: inset 0 0 0 1px rgba(255, 209, 0, 0.14);
-      border-radius: 18px;
-    }
-
-    .compact-mini-card {
+      align-items: flex-start;
+      text-align: left;
+      padding: 11rem 5% 6rem;
+      color: var(--text-dark);
       position: relative;
-      min-height: 150px;
-      height: 100%;
-      border-radius: 18px;
-      overflow: hidden;
-      background: #eef4ef;
-      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
     }
 
-    .compact-mini-card--stack {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      gap: 0.8rem;
-      background: transparent;
-      box-shadow: none;
-      overflow: visible;
+    .hero-image {
+      display: none;
     }
 
-    .compact-mini-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .hero-image img {
       display: block;
+      width: 100%;
+      height: auto;
     }
 
-    .compact-mini-label {
-      position: absolute;
-      left: 0.65rem;
-      right: 0.65rem;
-      bottom: 0.65rem;
-      padding: 0.55rem 0.7rem;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(12px);
-      color: #153224;
-      font-size: 0.8rem;
-      font-weight: 700;
-      line-height: 1.4;
-    }
-
-    .resources-section {
-      padding: 5rem 0;
-      background: transparent;
-    }
-
-    .resource-category {
-      margin-bottom: 0;
-    }
-
-    .resource-category h2 {
-      margin: 0 0 1.5rem;
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
-      font-weight: 800;
-      color: #17231c;
-      text-transform: none;
-      letter-spacing: 0;
-    }
-
-    .resource-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 2.75rem;
-    }
-
-    .resource-row {
-      display: grid;
-      grid-template-columns: minmax(220px, 280px) 1fr;
-      gap: 2rem;
-      align-items: start;
-      background: #ffffff;
-      border: 2px solid #e9ecef;
-      border-radius: 28px;
-      padding: 2rem;
-      box-shadow: 0 8px 22px rgba(12, 37, 24, 0.04);
-    }
-
-    .resource-row-intro {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 0.8rem;
-      padding: 0 1rem 0 0;
-      border-right: 1px solid #ececec;
-      align-self: stretch;
-      margin: 0;
-    }
-
-    .resource-kicker {
-      display: inline-block;
-      width: fit-content;
-      background: rgba(255, 209, 0, 0.16);
-      color: #006633;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
-    }
-
-    .resource-row-intro h3 {
-      font-size: 1.55rem;
-      font-weight: 800;
-      color: #1a1a1a;
-      margin: 0;
-      line-height: 1.2;
-    }
-
-    .resource-row-panel {
+    .hero-content {
+      max-width: 520px;
+      position: relative;
+      z-index: 1;
+      will-change: transform;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      justify-content: flex-start;
-      padding-top: 0;
-      margin: 0;
-      align-self: start;
     }
 
-    .resource-row-action {
-      align-self: flex-start;
+    .hero-new h1 {
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      color: var(--text-dark);
+      letter-spacing: -0.03em;
+      text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
     }
 
-    .resource-row-copy p {
-      color: #4a4a4a;
-      font-size: 1rem;
-      line-height: 1.7;
-      margin: 0;
-      max-width: 820px;
+    .street-sign-divider {
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-yellow) 100%);
+      margin: 1.5rem 0 2.5rem;
+      position: relative;
+      border-radius: 3px;
     }
 
-    .resource-row-copy {
-      padding-bottom: 1.2rem;
-      margin: 0;
+    /* ============================================ */
+    /* RESOURCES SECTION                            */
+    /* ============================================ */
+    .resources-section {
+      padding: 6rem 5% 7rem;
+      background: var(--bg-light);
     }
 
-    .resource-row--secondary .resource-row-panel {
-      padding-top: 0;
+    .resource-block {
+      margin-bottom: 6rem;
+      max-width: 1300px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
 
-    .resource-row--secondary .resource-row-copy {
-      max-width: 860px;
+    .column-subheader {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      display: block;
+      letter-spacing: -0.02em;
     }
 
-    .resource-row--secondary .resource-row-intro,
-    .resource-row--secondary .resource-row-panel,
-    .resource-row--secondary .resource-row-copy,
-    .resource-row--secondary .resource-row-copy p {
-      margin-top: 0;
+    .resource-desc {
+      font-size: 1.15rem;
+      color: var(--text-medium);
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      line-height: 1.6;
     }
 
-    .resource-row-action {
+    /* ============================================ */
+    /* TOOLBAR: FILTER BUTTON + RESULT COUNT        */
+    /* ============================================ */
+    .infographics-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1300px;
+      margin: 0 auto 1.5rem auto;
+      padding: 0 0 1.2rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      text-align: left;
+      position: relative;
+      gap: 1rem;
+    }
+
+    .toolbar-left {
       display: inline-flex;
       align-items: center;
-      gap: 0.65rem;
-      width: fit-content;
-      background: #139B48;
-      color: #ffffff;
-      text-decoration: none;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: none;
+      border: none;
+      font-family: inherit;
       font-weight: 700;
-      font-size: 0.92rem;
-      padding: 0.85rem 1.2rem;
-      border-radius: 18px;
-      transition: background 0.3s ease, transform 0.3s ease;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: var(--text-dark);
+      cursor: pointer;
+      padding: 0.4rem 0.2rem;
     }
 
-    .resource-row-action:hover {
-      background: #10833d;
-      color: #ffffff;
-      transform: translateX(2px);
+    .filter-toggle-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--text-dark);
     }
 
-    .spotlight-wrap {
-      margin-top: 0.5rem;
-    }
-
-    .spotlight-label {
-      display: block;
-      font-size: 0.85rem;
+    .filter-toggle-btn .filter-count {
+      background: var(--primary-green);
+      color: #fff;
+      font-size: 0.72rem;
       font-weight: 700;
-      color: #666666;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 0.9rem;
+      border-radius: 999px;
+      padding: 0.1rem 0.5rem;
+      display: none;
     }
 
-    .spotlight-scroller {
-      overflow-x: auto;
-      padding-bottom: 0.5rem;
-      scrollbar-width: thin;
-      scrollbar-color: #006633 #e9ecef;
+    .filter-toggle-btn.has-active .filter-count {
+      display: inline-block;
     }
 
-    .spotlight-track {
-      display: flex;
-      gap: 1rem;
-      width: max-content;
-    }
-
-    .spotlight-card {
-      flex: 0 0 180px;
-      width: 180px;
+    .resource-search-wrap {
+      display: inline-flex;
+      align-items: center;
+      min-width: min(280px, 40vw);
       background: #ffffff;
-      border: 1px solid #ececec;
-      border-radius: 18px;
-      overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 999px;
+      padding: 0.38rem 0.86rem;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
     }
 
-    .spotlight-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    .resource-search-wrap svg {
+      width: 17px;
+      height: 17px;
+      color: var(--text-light);
+      flex: none;
     }
 
-    .spotlight-card img {
+    .resource-search-wrap input {
       width: 100%;
-      height: 220px;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      padding-left: 0.55rem;
+    }
+
+    .resource-search-wrap input::placeholder {
+      color: var(--text-light);
+    }
+
+    .results-count {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* ============================================ */
+    /* FILTER DROPDOWN PANEL                        */
+    /* ============================================ */
+    .filter-panel {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 12px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+      padding: 0 1.8rem;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.35s ease, margin 0.35s ease;
+      text-align: left;
+    }
+
+    .filter-panel.is-open {
+      max-height: 900px;
+      opacity: 1;
+      padding: 1.8rem;
+      margin: 0 auto 2.5rem auto;
+    }
+
+    .filter-panel-group {
+      margin-bottom: 1.4rem;
+    }
+
+    .filter-panel-group:last-of-type {
+      margin-bottom: 0.5rem;
+    }
+
+    .filter-panel-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-light);
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+
+    .filter-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .filter-chip {
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--text-medium);
+      background: var(--bg-light);
+      border: 2px solid transparent;
+      border-radius: 999px;
+      padding: 0.45rem 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-chip:hover {
+      border-color: var(--primary-green);
+      color: var(--primary-green);
+    }
+
+    .filter-chip.active {
+      background: var(--primary-green);
+      color: #ffffff;
+    }
+
+    .filter-panel-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .filter-clear-btn {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .filter-clear-btn:hover {
+      color: var(--text-dark);
+    }
+
+    /* ============================================ */
+    /* GRID, COLLAPSE WRAPPER & FADE EFFECT         */
+    /* ============================================ */
+    .grid-wrapper {
+      position: relative;
+      max-height: 850px; /* Shows approx 2 rows depending on screen width */
+      overflow: hidden;
+      transition: max-height 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .grid-blur-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 250px;
+      /* Removed backdrop-filter to prevent the venom shadow artifact */
+      /* Made the gradient slightly sharper and opaque to handle the visual fade */
+      background: linear-gradient(to bottom, rgba(248, 249, 250, 0) 0%, rgba(248, 249, 250, 0.95) 40%, rgba(248, 249, 250, 1) 100%);
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      z-index: 2;
+    }
+
+    .infographics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.8rem 1.6rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .infographic-card {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .infographic-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+    }
+
+    .infographic-card.is-hidden {
+      display: none;
+    }
+
+    .infographic-card-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #eeeeee;
+      overflow: hidden;
+    }
+
+    .infographic-card-media img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
-      background: #f2f2f2;
+      transition: transform 0.5s ease;
     }
 
-    .spotlight-card span {
+    .infographic-card:hover .infographic-card-media img {
+      transform: scale(1.04);
+    }
+
+    .infographic-card-body {
+      padding: 1rem 1.1rem 1.2rem;
+    }
+
+    .infographic-title {
       display: block;
-      padding: 0.85rem 0.9rem 1rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #1a1a1a;
+      font-weight: 700;
+      color: var(--text-dark);
+      font-size: 0.98rem;
       line-height: 1.4;
+      margin-bottom: 0.7rem;
     }
 
-    @media (max-width: 992px) {
-      .compact-hero-shell {
-        grid-template-columns: 1fr;
-      }
-
-      .compact-hero-copy h1 {
-        max-width: none;
-      }
-
-      .compact-hero-visual {
-        grid-template-columns: 1fr;
-      }
-
-      .compact-mini-card--stack {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: none;
-      }
-
-      .resource-row {
-        grid-template-columns: 1fr;
-      }
-
-      .resource-row-intro {
-        border-right: 0;
-        border-bottom: 1px solid #ececec;
-        padding-right: 0;
-        padding-bottom: 1rem;
-      }
+    .infographic-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
     }
 
-    @media (max-width: 768px) {
+    .tag-pill {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--primary-green);
+      background: rgba(19, 155, 72, 0.1);
+      border-radius: 999px;
+      padding: 0.22rem 0.65rem;
+    }
+
+    .no-results-msg {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 1.05rem;
+      padding: 3rem 0;
+      grid-column: 1 / -1;
+      display: none;
+    }
+
+    .no-results-msg.is-visible {
+      display: block;
+    }
+
+    /* ============================================ */
+    /* VIEW MORE MINIMALIST BUTTON STYLING          */
+    /* ============================================ */
+    .view-more-container {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .view-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: var(--text-dark);
+      cursor: pointer;
+      padding: 0.4rem 0.2rem;
+      transition: color 0.2s ease;
+    }
+
+    .view-more-btn:hover {
+      color: var(--primary-green);
+    }
+
+    .view-more-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--text-dark);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.2s ease;
+    }
+
+    .view-more-btn:hover svg {
+      stroke: var(--primary-green);
+    }
+
+    .view-more-btn.is-active svg {
+      transform: rotate(180deg);
+    }
+
+    /* ============================================ */
+    /* LIGHTBOX                                     */
+    /* ============================================ */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.92);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .lightbox-overlay.is-open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-content img {
+      max-width: 90vw;
+      max-height: 78vh;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .lightbox-caption {
+      color: #fff;
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 700;
+      font-size: 1rem;
+      max-width: 700px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -3rem;
+      right: -0.5rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2.2rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0.3rem;
+    }
+
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: #fff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+
+    .lightbox-nav:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .lightbox-prev { left: 2rem; }
+    .lightbox-next { right: 2rem; }
+
+    
+     /* ============================================ */
+    /* HERO SECTION                                */
+    /* ============================================ */
+    
+    .hero-new {
+      min-height: 90vh;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
+        url('assets/img/hero-carousel/Resources.png') right center no-repeat;
+      background-size: cover;
+      background-position: center right;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      padding: 11rem 5% 6rem;
+      color: var(--text-dark);
+      position: relative;
+    }
+
+    .hero-new::before {
+      display: none;
+    }
+
+    .hero-image {
+      display: none;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .hero-content {
+      max-width: 520px;
+      position: relative;
+      z-index: 1;
+      will-change: transform;
+    }
+      .street-sign-divider {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1.5rem;
+      }
       .resources-section {
-        padding: 4rem 0;
+        padding: 5rem 5%;
       }
-
-      .resource-category h2 {
-        font-size: 1.6rem;
+      .resource-block {
+        margin-bottom: 4rem;
       }
-
-      .resource-row {
-        padding: 1.4rem;
-        border-radius: 22px;
+      .infographics-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.2rem;
       }
-
-      .resource-row-intro h3 {
-        font-size: 1.3rem;
+      .lightbox-nav {
+        width: 40px;
+        height: 40px;
       }
-
-      .spotlight-scroller {
-        width: 100%;
-        overflow: visible;
+      .lightbox-prev { left: 0.5rem; }
+      .lightbox-next { right: 0.5rem; }
+      .lightbox-close {
+        top: -2.6rem;
+        right: 0;
       }
-
-      .spotlight-track {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.85rem;
-        width: 100%;
-      }
-
-      .spotlight-card {
-        flex: none;
-        width: 100%;
-        min-width: 0;
-      }
-
-      .spotlight-card img {
-        height: 190px;
-      }
-    }
   </style>
 </head>
 
 <body class="resources-page">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGRVTMZC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   <div id="header-placeholder"></div>
 
   <main class="main">
 
-    <section class="compact-hero section">
-      <div class="container">
-        <div class="compact-hero-shell" data-aos="fade-up">
-          <div class="compact-hero-copy">
-            <h1>Purposefully chosen essentials</h1>
-          </div>
-
-          <div class="compact-hero-visual">
-            <div class="compact-mini-card">
-              <img src="assets/img/infographics/05_07_ Multimodal AI V (Wenti Labs).png" alt="Lorong AI infographic spotlight" loading="lazy">
-            </div>
-            <div class="compact-mini-card compact-mini-card--stack">
-              <div class="compact-mini-card">
-                <img src="assets/img/infographics/08_20_ Agents &amp; Inference (Groq Andrew).jpg" alt="Agents and Inference infographic" loading="lazy">
-              </div>
-              <div class="compact-mini-card">
-                <img src="assets/img/infographics/08_27_ Agents &amp; Guardrails (GovTech RAI Shaun).jpg" alt="Guardrails infographic" loading="lazy">
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- ============================================ -->
+    <!-- HERO SECTION                                 -->
+    <!-- ============================================ -->
+    <section class="hero-new">
+      <div class="hero-image">
+        <img src="assets/img/hero-carousel/Resources.png" alt="Lorong AI Resources from Past Events">
+      </div>
+      <div class="hero-content scroll-reveal">
+        <h1>Purposefully chosen essentials</h1>
+        <div class="street-sign-divider scroll-reveal delay-1"></div>
       </div>
     </section>
 
-    <!-- Resources Section -->
-    <section id="resources-main" class="resources-section section">
+    <!-- ============================================ -->
+    <!-- RESOURCES SECTION                            -->
+    <!-- ============================================ -->
+    <section id="resources-main" class="resources-section">
       <div class="container">
 
-
-
-
-
-
-
-                <!-- Community Resources -->
-        <div class="resource-category">
-          <h2>Community Resources</h2>
-
-          <div class="resource-stack">
-            <div class="resource-row">
-              <div class="resource-row-intro">
-                <h3>Lorong AI Infographics</h3>
-              </div>
-
-              <div class="resource-row-panel">
-                <div class="resource-row-copy">
-                  <p>Browse highlights and recaps from previous Lorong AI sessions. Click here to view more.</p>
-                  <p> </p>
-
-                  <div class="spotlight-scroller">
-                    <div class="spotlight-track">
-                      <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="spotlight-card">
-                        <img src="assets/img/infographics/09_09_ AI x Education II (Shiva).png" alt="Education II" loading="lazy">
-                        <span>Education II</span>
-                      </a>
-
-                      <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="spotlight-card">
-                        <img src="assets/img/infographics/08_20_ Agents &amp; Inference (Groq Andrew).jpg" alt="Agents and Inference" loading="lazy">
-                        <span>Agents &amp; Inference</span>
-                      </a>
-
-                      <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="spotlight-card">
-                        <img src="assets/img/infographics/07_02_ Multimodal AI VI (AISG).png" alt="Multimodal AI VI" loading="lazy">
-                        <span>Multimodal AI VI</span>
-                      </a>
-
-                      <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="spotlight-card">
-                        <img src="assets/img/infographics/08_27_ Agents &amp; Guardrails (GovTech RAI Shaun).jpg" alt="Guardrails" loading="lazy">
-                        <span>Guardrails</span>
-                      </a>
-
-                     
-                    </div>
-                  </div>
-                </div>
-
-                <a href="https://go.gov.sg/lai-infographics" target="_blank" rel="noopener noreferrer" class="resource-row-action">
-                  Open Infographics Drive <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-row resource-row--secondary">
-              <div class="resource-row-intro">
-                <h3>AI Wednesdays sessions</h3>
-              </div>
-
-              <div class="resource-row-panel">
-                <div class="resource-row-copy">
-                  <p>Explore materials from past AI Wednesdays sharing sessions. Note: these materials are currently WOG-accessible only, so reach out if you are interested in getting access.</p>
-                </div>
-
-                <a href="https://go.gov.sg/aiweds-pastmaterials" target="_blank" rel="noopener noreferrer" class="resource-row-action">
-                  Open AI Wednesdays Materials <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </div>
+        <!-- Fluid Header -->
+        <div class="section-header-center fluid-header-container">
+          <div class="fluid-header-inner text-center">
+            <h2 class="scroll-reveal" style="opacity: 1; transform: none; transition: none;">
+              <span class="flip-wrapper"><span class="flip-word flip-word-1">Community</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-2">Resources</span></span>
+            </h2>
           </div>
         </div>
+
+        <!-- Infographics: Shop-Style Filterable Card System -->
+        <div class="resource-block scroll-reveal delay-1">
+          <h3 class="column-subheader">Lorong AI Infographics</h3>
+          <p class="resource-desc" style="font-size: 1.3rem;">Browse recaps from past Lorong AI sessions.</p>
+
+          <div class="infographics-toolbar">
+            <div class="toolbar-left">
+              <button type="button" class="filter-toggle-btn" id="filter-toggle-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="14" y2="6"></line><circle cx="17" cy="6" r="2.2"></circle><line x1="10" y1="12" x2="20" y2="12"></line><circle cx="7" cy="12" r="2.2"></circle><line x1="4" y1="18" x2="14" y2="18"></line><circle cx="17" cy="18" r="2.2"></circle></svg>
+                FILTER
+                <span class="filter-count" id="filter-count">0</span>
+              </button>
+
+              <label class="resource-search-wrap" for="resource-search-input">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="search" id="resource-search-input" aria-label="Search infographics" placeholder="Search by keyword">
+              </label>
+            </div>
+            <span class="results-count" id="results-count"></span>
+          </div>
+
+          <div class="filter-panel" id="filter-panel">
+            <div class="filter-panel-group">
+              <span class="filter-panel-label">Topic</span>
+              <div class="filter-chip-row" id="tag-chip-row"></div>
+            </div>
+            <div class="filter-panel-footer">
+              <button type="button" class="filter-clear-btn" id="filter-clear-btn">Clear all</button>
+            </div>
+          </div>
+
+          <div class="grid-wrapper" id="grid-wrapper">
+            <div class="infographics-grid" id="infographics-grid"></div>
+            <div class="grid-blur-overlay" id="grid-blur-overlay"></div>
+          </div>
+
+          <p class="no-results-msg" id="no-results-msg">No infographics match the selected filters.</p>
+
+          <!-- View More Button Container -->
+          <div class="view-more-container mt-4" style="display: none;" id="view-more-wrapper">
+            <button id="view-more-btn" class="view-more-btn">
+              VIEW MORE
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
   </main>
 
   <div id="footer-placeholder"></div>
+
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox-overlay">
+    <button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous">&#8249;</button>
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+      <img id="lightbox-image" src="" alt="">
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+    <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next">&#8250;</button>
+  </div>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -573,7 +847,6 @@
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
   <script src="assets/vendor/php-email-form/validate.js" defer></script>
-  <script src="assets/vendor/aos/aos.js" defer></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
@@ -583,8 +856,376 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/include.js?v=4" defer></script>
+  <script src="assets/js/include.js?v=5" defer></script>
+
+  <!-- ============================================ -->
+  <!-- CUSTOM SMOOTH SCROLL LOGIC                   -->
+  <!-- ============================================ -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. One-time Reveal on Scroll
+      const revealElements = document.querySelectorAll('.scroll-reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      // 2. Fluid Scroll-Linked Headers (Dynamic Scaling & Odometer Reveal)
+      const fluidContainers = document.querySelectorAll('.fluid-header-container');
+      let ticking = false;
+      function updateScrollAnimations() {
+        const viewHeight = window.innerHeight;
+        fluidContainers.forEach(container => {
+           const inner = container.querySelector('.fluid-header-inner');
+           if (!inner) return;
+           const rect = container.getBoundingClientRect();
+           const revealStart = viewHeight * 0.95;
+           const revealEnd = viewHeight * 0.70;
+           let opacity = 1; let yOffset = 0; let scale = 1;
+           if (rect.top > revealStart) {
+             opacity = 0; yOffset = 60; scale = 0.85;
+             inner.classList.remove('is-revealed');
+           } else if (rect.top > revealEnd) {
+             const progress = (revealStart - rect.top) / (revealStart - revealEnd);
+             const ease = 1 - Math.pow(1 - progress, 3);
+             opacity = ease; yOffset = (1 - ease) * 60; scale = 0.85 + (ease * 0.15);
+             inner.classList.add('is-revealed');
+           } else {
+             opacity = 1; scale = 1;
+             const parallaxProgress = (revealEnd - rect.top) / revealEnd;
+             yOffset = -(parallaxProgress * 40);
+           }
+           inner.style.opacity = opacity;
+           inner.style.transform = `translateY(${yOffset}px) scale(${scale})`;
+        });
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => { if (!ticking) { window.requestAnimationFrame(updateScrollAnimations); ticking = true; } });
+      updateScrollAnimations();
+    });
+  </script>
+
+  <!-- ============================================ -->
+  <!-- INFOGRAPHICS: DATA, FILTER PANEL, LIGHTBOX   -->
+  <!-- ============================================ -->
+  <script>
+    const INFOGRAPHICS = [
+      { title: "05/06 AI x Trustworthiness (CloudsineAI Matthias)", img: "assets/img/infographics/2026/05_06 AI x Trustworthiness (CloudsineAI Matthias).jpg", tags: ["Agentic AI", "Security"] },
+      { title: "04/22 AI x Assurance (Ailantis Xin Xin)", img: "assets/img/infographics/2026/04_22 AI x Assurance (Ailantis Xin Xin).jpg", tags: ["Evals", "Security"] },
+      { title: "04/15 AI x Sustainability (Singapore-ETH Centre Matias)", img: "assets/img/infographics/2026/04_15 AI x Sustainability (Singapore-ETH Centre Matias).jpg", tags: ["Computer Vision", "Sustainability"] },
+      { title: "05/06 AI x Trustworthiness (NUS AI Institute Dr Eric)", img: "assets/img/infographics/2026/05_06 AI x Trustworthiness (NUS AI Institute Dr Eric).jpg", tags: ["Alignment", "NLP"] },
+      { title: "04/22 AI x Assurance (SUTD Marie)", img: "assets/img/infographics/2026/04_22 AI x Assurance (SUTD Marie).jpg", tags: ["Federated Learning", "Privacy"] },
+      { title: "03/18 AI x Information (SkillsFuture Merson)", img: "assets/img/infographics/2026/03_18 AI x Information (SkillsFuture Merson).jpg", tags: ["NLP", "Workforce"] },
+      { title: "04/15 AI x Sustainability (Zuno Carbon Khairul Nazran)", img: "assets/img/infographics/2026/04_15 AI x Sustainability (Zuno Carbon Khairul Nazran).jpg", tags: ["RAG", "Sustainability"] },
+      { title: "03/25 AI x BioPharma (Calico Life ZhengHao)", img: "assets/img/infographics/2026/03_25 AI x BioPharma (Calico Life ZhengHao)_.jpg", tags: ["BioPharma", "Generative AI"] },
+      { title: "04/01 AI x Reinforcement Learning (Sean Cole)", img: "assets/img/infographics/2026/04_01 AI x Reinforcement Learning (Sean Cole).jpg", tags: ["Reinforcement Learning", "Neuroscience"] },
+      { title: "04/01 AI x Reinforcement Learning (Sonzai Labs Nasrudin)", img: "assets/img/infographics/2026/04_01 AI x Reinforcement Learning (Sonzai Labs Nasrudin).jpg", tags: ["Reinforcement Learning", "Agentic AI"] },
+      { title: "01/14 AI x Evals Round III (OpenAI Gabriel)", img: "assets/img/infographics/2026/01_14 AI x Evals Round III (OpenAI Gabriel).png", tags: ["Evals", "RAG", "LLM Ops"] },
+      { title: "03/04 AI x Healthcare Round IV (Navo Health Joshua)", img: "assets/img/infographics/2026/03_04 AI x Healthcare Round IV (Navo Health Joshua).png", tags: ["Healthcare", "LLM Ops"] },
+      { title: "01/14 AI x Evals Round III (Visa Aritejh)", img: "assets/img/infographics/2026/01_14 AI x Evals Round III (Visa Aritejh).png", tags: ["Evals", "RAG"] },
+      { title: "03/04 AI x Healthcare Round IV (ASTAR Zhou Yang)", img: "assets/img/infographics/2026/03_04 AI x Healthcare Round IV (ASTAR Zhou Yang).png", tags: ["Healthcare", "NLP"] },
+
+      { title: "10/22 Digital Twins (Aarthi)", img: "assets/img/infographics/2025/10_22_ Digital Twins (Aarthi).png", tags: ["Digital Twins", "Sustainability"] },
+      { title: "10/22 Digital Twins (Dr Wen)", img: "assets/img/infographics/2025/10_22_ Digital Twins (Dr Wen).png", tags: ["Digital Twins", "Sustainability"] },
+      { title: "10/22 Digital Twins (Marcel)", img: "assets/img/infographics/2025/10_22_ Digital Twins (Marcel).png", tags: ["Digital Twins", "Sustainability"] },
+      { title: "10/29 AI x Quantum (Dr. Thomas)", img: "assets/img/infographics/2025/10_29_ AI x Quantum (Dr. Thomas).png", tags: ["Quantum Computing"] },
+      { title: "10/15 LLMs & Hallucinations (GovTech AIP Ale)", img: "assets/img/infographics/2025/10_15_ LLMs & Hallucinations (GovTech AIP Ale).png", tags: ["NLP", "LLM Ops"] },
+      { title: "11/12 AI Agents III (Agora)", img: "assets/img/infographics/2025/11_12_ AI Agents III (Agora).png", tags: ["Voice AI", "Agentic AI"] },
+      { title: "07/16 AI Testing (AIVF)", img: "assets/img/infographics/2025/07_16_ AI Testing (AIVF).png", tags: ["Evals", "Security"] },
+      { title: "07/16 AI Testing (GovTech RAI Gabriel)", img: "assets/img/infographics/2025/07_16_ AI Testing (GovTech RAI Gabriel).png", tags: ["Evals", "Security", "NLP"] },
+      { title: "07/23 AI x Gaming (ego)", img: "assets/img/infographics/2025/07_23_ AI x Gaming (ego).png", tags: ["Gaming", "Agentic AI"] },
+      { title: "10/08 Recruitment & Recommenders (SUTD Sun Zhu)", img: "assets/img/infographics/2025/10_08_ Recruitment & Recommenders (SUTD Sun Zhu).png", tags: ["Recommender Systems", "Generative AI"] },
+      { title: "11/19 Embodied AI II (NTU Jianfei)", img: "assets/img/infographics/2025/11_19_ Embodied AI II (NTU Jianfei).png", tags: ["Embodied AI", "Robotics"] },
+      { title: "09/24 LLMs in Practice II (OCBC)", img: "assets/img/infographics/2025/09_24_ LLMs in Practice II (OCBC).png", tags: ["LLM Ops", "Finance"] },
+      { title: "11/05 Synthetic Data & Evals (CareerKaki)", img: "assets/img/infographics/2025/11_05_ Synthetic Data & Evals (CareerKaki).png", tags: ["Evals", "Synthetic Data"] },
+      { title: "11/05 Synthetic Data & Evals (GovTech Anshu)", img: "assets/img/infographics/2025/11_05_ Synthetic Data & Evals (GovTech Anshu).png", tags: ["Synthetic Data", "Privacy"] },
+      { title: "11/05 Synthetic Data & Evals (Aqumen)", img: "assets/img/infographics/2025/11_05_ Synthetic Data & Evals (Aqumen).png", tags: ["Synthetic Data", "Evals"] },
+      { title: "11/26 LLM Safety (IMDA Seok Min)", img: "assets/img/infographics/2025/11_26_ LLM Safety (IMDA Seok Min).png", tags: ["Security", "Deepfakes"] },
+      { title: "07/09 Optimization (FlintX)", img: "assets/img/infographics/2025/07_09_ Optimization (FlintX)_.jpg", tags: ["Privacy", "Infrastructure"] },
+      { title: "08/20 Agents & Inference (Groq Andrew)", img: "assets/img/infographics/2025/08_20_ Agents & Inference (Groq Andrew).jpg", tags: ["Infrastructure", "Agentic AI"] },
+      { title: "08/27 Agents & Guardrails (GovTech RAI Shaun)", img: "assets/img/infographics/2025/08_27_ Agents & Guardrails (GovTech RAI Shaun).jpg", tags: ["Agentic AI", "Security"] },
+      { title: "08/20 Agents & Inference (GovTech AIP Wilson)", img: "assets/img/infographics/2025/08_20_ Agents & Inference (GovTech AIP Wilson).jpg", tags: ["Agentic AI", "Workforce"] },
+      { title: "08/13 Secure AI (GovTech RAI)", img: "assets/img/infographics/2025/08_13_ Secure AI (GovTech RAI).jpg", tags: ["Security", "NLP"] },
+      { title: "07/09 Optimization (AI Capitol)", img: "assets/img/infographics/2025/07_09_ Optimization (AI Capitol).jpg", tags: ["Marketing", "NLP"] },
+      { title: "10/08 Recruitment & Recommenders (GovTech RAI Shaun)", img: "assets/img/infographics/2025/10_08_ Recruitment & Recommenders (GovTech RAI Shaun).png", tags: ["Recommender Systems", "Fairness & Bias"] },
+      { title: "07/02 Multimodal VI (DocuWare)", img: "assets/img/infographics/2025/07_02_ Multimodal VI (DocuWare).png", tags: ["Multimodal AI", "Computer Vision"] },
+      { title: "11/19 Embodied AI II (KLASS)", img: "assets/img/infographics/2025/11_19_ Embodied AI II (KLASS).png", tags: ["Robotics", "Embodied AI"] },
+      { title: "11/12 AI Agents III (CSIT)", img: "assets/img/infographics/2025/11_12_ AI Agents III (CSIT).png", tags: ["Agentic AI", "RAG"] },
+      { title: "09/28 LLMs in Practice II (NUS Reza)", img: "assets/img/infographics/2025/09_28_ LLMs in Practice II (NUS Reza).png", tags: ["NLP"] },
+      { title: "11/12 AI Agents III (Akool)", img: "assets/img/infographics/2025/11_12_ AI Agents III (Akool).png", tags: ["Voice AI", "Generative AI"] },
+      { title: "11/19 Embodied AI II (GovTech Jiayi)", img: "assets/img/infographics/2025/11_19_ Embodied AI II (GovTech Jiayi).png", tags: ["Robotics", "Embodied AI"] },
+      { title: "10/15 LLMs & Hallucinations (NUS Ziwei)", img: "assets/img/infographics/2025/10_15_ LLMs & Hallucinations (NUS Ziwei).png", tags: ["Hallucinations", "Alignment"] },
+      { title: "06/11 LLM Robustness (GovTech RAI Pradyu)", img: "assets/img/infographics/2025/06_11_ LLM Robustness (GovTech RAI Pradyu).png", tags: ["Hallucinations", "Evals"] },
+      { title: "06/11 LLM Robustness (NUS Brian)", img: "assets/img/infographics/2025/06_11_ LLM Robustness (NUS Brian).png", tags: ["Security", "Alignment"] },
+      { title: "08/06 Evals (Truthful AI)", img: "assets/img/infographics/2025/08_06_ Evals (Truthful AI).jpg", tags: ["Alignment", "Evals"] },
+      { title: "05/07 Multimodal AI V (Wenti Labs)", img: "assets/img/infographics/2025/05_07_ Multimodal AI V (Wenti Labs).png", tags: ["Multimodal AI", "Agentic AI"] },
+      { title: "08/06 Evals (Hui Chien)", img: "assets/img/infographics/2025/08_06_ Evals (Hui Chien).jpg", tags: ["Alignment"] },
+      { title: "08/06 Evals (CMU - Digital Vaccines)", img: "assets/img/infographics/2025/08_06_ Evals (CMU - Digital Vaccines)_.jpg", tags: ["Healthcare", "Education"] },
+      { title: "08/06 Evals (CMU - Dynamic Benchmarks)", img: "assets/img/infographics/2025/08_06_ Evals (CMU - Dynamic Benchmarks)_.jpg", tags: ["Evals", "Security"] },
+      { title: "05/21 Embodied AI (Menlo)", img: "assets/img/infographics/2025/05_21_ Embodied AI (Menlo).jpg", tags: ["Robotics", "Embodied AI"] },
+      { title: "05/14 AI Agents & Imposters (Meetstream)", img: "assets/img/infographics/2025/05_14_ AI Agents & Imposters (Meetstream).jpg", tags: ["Voice AI", "Agentic AI"] },
+      { title: "09/10 AI x Robotics (KLASS)", img: "assets/img/infographics/2025/09_10_ AI x Robotics (KLASS).png", tags: ["Robotics", "Computer Vision"] },
+      { title: "09/10 AI x Robotics (Menlo)", img: "assets/img/infographics/2025/09_10_ AI x Robotics (Menlo).png", tags: ["Robotics", "Embodied AI"] },
+      { title: "09/03 Infra (Runsun & Rafay)", img: "assets/img/infographics/2025/09_03_ Infra (Runsun & Rafay).jpg", tags: ["Infrastructure"] },
+      { title: "07/02 Multimodal AI VI (AISG)", img: "assets/img/infographics/2025/07_02_ Multimodal AI VI (AISG).png", tags: ["Reinforcement Learning", "Multimodal AI"] },
+      { title: "09/03 Infra (ASTAR Luo Tao)", img: "assets/img/infographics/2025/09_03_ Infra (ASTAR Luo Tao).jpg", tags: ["Infrastructure", "Sustainability", "Quantum Computing"] },
+      { title: "07/23 AI x Gaming (Sonzai Labs)", img: "assets/img/infographics/2025/07_23_ AI x Gaming (Sonzai Labs).png", tags: ["Gaming", "Generative AI"] },
+      { title: "10/24 Responsible AI (Dr. Shlomi)", img: "assets/img/infographics/2025/10_24_ Responsible AI (Dr. Shlomi).png", tags: ["Alignment", "Fairness & Bias"] },
+      { title: "09/17 Healthcare III (Yan Chun)", img: "assets/img/infographics/2025/09_17_ Healthcare III (Yan Chun).png", tags: ["Healthcare", "Computer Vision"] },
+      { title: "09/17 Healthcare III (Dr. Alvin NTU)", img: "assets/img/infographics/2025/09_17_ Healthcare III (Dr. Alvin NTU).jpg", tags: ["Healthcare", "BioPharma"] },
+      { title: "11/26 LLM Safety (GovTech RAI)", img: "assets/img/infographics/2025/11_26_ LLM Safety (GovTech RAI).png", tags: ["Evals", "Security"] },
+      { title: "10/01 VLM (GovTech Suresh)", img: "assets/img/infographics/2025/10_01_ VLM (GovTech Suresh).png", tags: ["Computer Vision", "Workforce"] },
+      { title: "10/01 VLMs (Opsis)", img: "assets/img/infographics/2025/10_01_ VLMs (Opsis).png", tags: ["Computer Vision", "Healthcare"] },
+      { title: "06/25 Manus AI", img: "assets/img/infographics/2025/06_25_ Manus AI.png", tags: ["Agentic AI", "Generative AI"] },
+      { title: "11/05 Synthetic Data & Evals (AIVF)", img: "assets/img/infographics/2025/11_05_ Synthetic Data & Evals (AIVF).png", tags: ["Synthetic Data", "Security"] },
+      { title: "09/09 AI x Education II (Ruth)", img: "assets/img/infographics/2025/09_09_ AI x Education II (Ruth).jpg", tags: ["Education", "NLP"] },
+      { title: "05/28 Societal (Microsoft Asia)", img: "assets/img/infographics/2025/05_28_ Societal (Microsoft Asia).png", tags: ["Alignment", "Culture"] },
+      { title: "08/20 Agents & Inference (AnyGen)", img: "assets/img/infographics/2025/08_20_ Agents & Inference (AnyGen).jpg", tags: ["Agentic AI", "Workforce"] },
+      { title: "08/20 Agents & Inference (OCBC)", img: "assets/img/infographics/2025/08_20_ Agents & Inference (OCBC).jpg", tags: ["Agentic AI", "Finance"] },
+      { title: "09/19 Context Engineering (Gang Rui)", img: "assets/img/infographics/2025/09_19_ Context Engineering (Gang Rui).png", tags: ["Context Engineering", "Agentic AI"] },
+      { title: "08/27 Agents & Guardrails (Temus)", img: "assets/img/infographics/2025/08_27_ Agents & Guardrails (Temus).jpg", tags: ["Agentic AI", "Infrastructure"] },
+      { title: "06/04 AI x Culture (Kevin)", img: "assets/img/infographics/2025/06_04_ AI x Culture (Kevin).png", tags: ["Culture", "Generative AI"] },
+      { title: "05/14 AI Agents & Imposters (Stealth)", img: "assets/img/infographics/2025/05_14_ AI Agents & Imposters (Stealth).png", tags: ["Deepfakes", "Security"] },
+      { title: "05/21 Embodied (dConstruct)", img: "assets/img/infographics/2025/05_21_ Embodied (dConstruct).png", tags: ["Robotics", "Computer Vision"] },
+      { title: "06/04 AI x Culture (Amira)", img: "assets/img/infographics/2025/06_04_ AI x Culture (Amira).png", tags: ["Culture", "Generative AI"] },
+      { title: "09/03 Infra (Semianalysis)", img: "assets/img/infographics/2025/09_03_ Infra (Semianalysis).jpg", tags: ["Infrastructure"] },
+      { title: "09/09 AI x Education II (Anieyrudh)", img: "assets/img/infographics/2025/09_09_ AI x Education II (Anieyrudh).jpg", tags: ["Education", "Generative AI"] },
+      { title: "09/09 AI x Education II (Han Xian)", img: "assets/img/infographics/2025/09_09_ AI x Education II (Han Xian).jpg", tags: ["Education", "NLP"] },
+      { title: "09/09 AI x Education II (Shiva)", img: "assets/img/infographics/2025/09_09_ AI x Education II (Shiva).png", tags: ["Education"] },
+      { title: "10/08 Recruitment & Recommenders (Fuku AI)", img: "assets/img/infographics/2025/10_08_ Recruitment & Recommenders (Fuku AI).png", tags: ["Recommender Systems", "Workforce"] }
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const grid = document.getElementById('infographics-grid');
+      const gridWrapper = document.getElementById('grid-wrapper');
+      const gridBlur = document.getElementById('grid-blur-overlay');
+      const viewMoreWrapper = document.getElementById('view-more-wrapper');
+      const viewMoreBtn = document.getElementById('view-more-btn');
+
+      const noResultsMsg = document.getElementById('no-results-msg');
+      const resultsCount = document.getElementById('results-count');
+      const filterToggleBtn = document.getElementById('filter-toggle-btn');
+      const filterCount = document.getElementById('filter-count');
+      const filterPanel = document.getElementById('filter-panel');
+      const tagChipRow = document.getElementById('tag-chip-row');
+      const filterClearBtn = document.getElementById('filter-clear-btn');
+      const searchInput = document.getElementById('resource-search-input');
+
+      const lightboxOverlay = document.getElementById('lightbox-overlay');
+      const lightboxImage = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const lightboxClose = document.getElementById('lightbox-close');
+      const lightboxPrev = document.getElementById('lightbox-prev');
+      const lightboxNext = document.getElementById('lightbox-next');
+
+      let activeTags = new Set();
+      let visibleItems = [...INFOGRAPHICS];
+      let currentLightboxIndex = 0;
+      let isExpanded = false;
+
+      // Build tag chips
+      const allTags = [...new Set(INFOGRAPHICS.flatMap(item => item.tags))].sort();
+      allTags.forEach(tag => {
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'filter-chip';
+        chip.dataset.tag = tag;
+        chip.textContent = tag;
+        chip.addEventListener('click', () => {
+          chip.classList.toggle('active');
+          activeTags.has(tag) ? activeTags.delete(tag) : activeTags.add(tag);
+          renderGrid();
+          updateFilterCount();
+        });
+        tagChipRow.appendChild(chip);
+      });
+
+      function updateFilterCount() {
+        const total = activeTags.size;
+        filterCount.textContent = total;
+        filterToggleBtn.classList.toggle('has-active', total > 0);
+      }
+
+      function buildCard(item, index) {
+        const card = document.createElement('div');
+        card.className = 'infographic-card';
+        card.dataset.index = index;
+
+        const media = document.createElement('div');
+        media.className = 'infographic-card-media';
+
+        const img = document.createElement('img');
+        img.src = item.img;
+        img.alt = item.title;
+        img.loading = 'lazy';
+        media.appendChild(img);
+
+        const body = document.createElement('div');
+        body.className = 'infographic-card-body';
+
+        const title = document.createElement('span');
+        title.className = 'infographic-title';
+        title.textContent = item.title;
+
+        const tagsWrap = document.createElement('div');
+        tagsWrap.className = 'infographic-tags';
+        item.tags.forEach(tag => {
+          const pill = document.createElement('span');
+          pill.className = 'tag-pill';
+          pill.textContent = tag;
+          tagsWrap.appendChild(pill);
+        });
+
+        body.appendChild(title);
+        body.appendChild(tagsWrap);
+        card.appendChild(media);
+        card.appendChild(body);
+
+        card.addEventListener('click', () => openLightbox(index));
+
+        return card;
+      }
+
+      function renderGrid() {
+        const searchTerm = (searchInput.value || '').trim().toLowerCase();
+
+        grid.innerHTML = '';
+        visibleItems = INFOGRAPHICS.filter(item => {
+          const matchesTags = activeTags.size === 0 || item.tags.some(t => activeTags.has(t));
+          const searchableText = [item.title, ...(item.tags || [])]
+            .join(' ')
+            .toLowerCase();
+          const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
+
+          return matchesTags && matchesSearch;
+        });
+
+        visibleItems.forEach((item) => {
+          const realIndex = INFOGRAPHICS.indexOf(item);
+          grid.appendChild(buildCard(item, realIndex));
+        });
+
+        noResultsMsg.classList.toggle('is-visible', visibleItems.length === 0);
+        resultsCount.textContent = visibleItems.length + (visibleItems.length === 1 ? ' infographic' : ' infographics');
+
+        // Check layout to toggle the view more button and blur appropriately
+        isExpanded = false;
+        viewMoreBtn.classList.remove('is-active');
+        viewMoreBtn.innerHTML = 'VIEW MORE <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+
+        if (visibleItems.length <= 6) {
+          viewMoreWrapper.style.display = 'none';
+          gridBlur.style.display = 'none';
+          gridWrapper.style.maxHeight = 'none';
+        } else {
+          viewMoreWrapper.style.display = 'block';
+          gridBlur.style.display = 'block';
+          gridBlur.style.opacity = '1';
+          gridWrapper.style.maxHeight = '850px';
+        }
+      }
+
+      // View More Button Toggle Logic using JS scrollHeight for smooth natural reveal
+      const iconSvg = `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+
+      viewMoreBtn.addEventListener('click', () => {
+        isExpanded = !isExpanded;
+        if (isExpanded) {
+          // Set to actual total pixel height to trigger smooth CSS transition
+          gridWrapper.style.maxHeight = gridWrapper.scrollHeight + "px";
+          viewMoreBtn.classList.add('is-active');
+          viewMoreBtn.innerHTML = `COLLAPSE ${iconSvg}`;
+          gridBlur.style.opacity = '0';
+
+          // Once transition finishes, switch to 'none' so window resizing works properly
+          setTimeout(() => {
+            if (isExpanded) gridWrapper.style.maxHeight = 'none';
+          }, 800);
+
+        } else {
+          // Need to lock the height to exact pixels before transitioning back down
+          gridWrapper.style.maxHeight = gridWrapper.scrollHeight + "px";
+          void gridWrapper.offsetHeight; // force browser reflow
+
+          gridWrapper.style.maxHeight = '850px';
+          viewMoreBtn.classList.remove('is-active');
+          viewMoreBtn.innerHTML = `VIEW MORE ${iconSvg}`;
+          gridBlur.style.opacity = '1';
+
+          document.querySelector('.infographics-toolbar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+
+      // Filter panel toggle
+      filterToggleBtn.addEventListener('click', () => {
+        filterPanel.classList.toggle('is-open');
+      });
+
+      filterClearBtn.addEventListener('click', () => {
+        activeTags.clear();
+        tagChipRow.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+        updateFilterCount();
+        renderGrid();
+      });
+
+      searchInput.addEventListener('input', () => {
+        renderGrid();
+      });
+
+      // Lightbox logic
+      function openLightbox(index) {
+        currentLightboxIndex = index;
+        showLightboxItem();
+        lightboxOverlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function showLightboxItem() {
+        const item = INFOGRAPHICS[currentLightboxIndex];
+        lightboxImage.src = item.img;
+        lightboxImage.alt = item.title;
+        lightboxCaption.textContent = item.title;
+      }
+
+      function closeLightbox() {
+        lightboxOverlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      function showNext(step) {
+        // Navigate within the currently visible/filtered set if possible
+        const pool = visibleItems.length > 0 ? visibleItems : INFOGRAPHICS;
+        const currentItem = INFOGRAPHICS[currentLightboxIndex];
+        let poolIndex = pool.indexOf(currentItem);
+        if (poolIndex === -1) poolIndex = 0;
+        poolIndex = (poolIndex + step + pool.length) % pool.length;
+        currentLightboxIndex = INFOGRAPHICS.indexOf(pool[poolIndex]);
+        showLightboxItem();
+      }
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightboxOverlay.addEventListener('click', (e) => {
+        if (e.target === lightboxOverlay) closeLightbox();
+      });
+      lightboxPrev.addEventListener('click', () => showNext(-1));
+      lightboxNext.addEventListener('click', () => showNext(1));
+
+      document.addEventListener('keydown', (e) => {
+        if (!lightboxOverlay.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showNext(-1);
+        if (e.key === 'ArrowRight') showNext(1);
+      });
+
+      // Initial render
+      renderGrid();
+    });
+  </script>
 
 </body>
-
 </html>

@@ -3,17 +3,16 @@
 
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KC0CD5SNDE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-KC0CD5SNDE');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KC0CD5SNDE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KC0CD5SNDE');
+  </script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Events</title>
+  <title>Events - Lorong AI</title>
   <meta name="description" content="Lorong AI hosts regular AI events, workshops, and networking sessions in Singapore. Check out our events calendar and join the community!">
   <meta name="keywords" content="AI events, Singapore, workshops, networking, Lorong AI, artificial intelligence, tech events, community">
   <link rel="canonical" href="https://lorongai.sg/events.html">
@@ -25,1000 +24,747 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKRQ8W4D9R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LKRQ8W4D9R');
-  </script>
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
-    .events-page-shell {
-      background: #ffffff;
+    /* ============================================ */
+    /* GLOBAL VARIABLES & SHARED STYLES             */
+    /* ============================================ */
+    :root {
+      --primary-green: #139B48;
+      --primary-yellow: #FFD100;
+      --text-dark: #1a1a1a;
+      --text-medium: #4a4a4a;
+      --text-light: #666666;
+      --bg-light: #f8f9fa;
+      --members-bg: #f4f6f8; 
     }
 
-    .events-page-shell .main {
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      overflow-x: hidden;
+      background-color: var(--bg-light);
+    }
+
+    /* CUSTOM MOVEMENT & SCROLL ANIMATIONS */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* FLUID SCROLL HEADERS */
+    .fluid-header-container {
+      position: relative;
+      width: 100%;
+    }
+    
+    .fluid-header-inner {
+      will-change: transform, opacity;
+      opacity: 0; 
+      transform: translateY(60px) scale(0.85);
+    }
+
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 5rem;
+      z-index: 10;
+    }
+
+    .section-header-center h2 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header-center p {
+      color: var(--text-medium);
+      font-size: 1.15rem;
+      margin-top: 1rem;
+    }
+
+    /* ODOMETER FLIP EFFECT FOR HEADERS */
+    .flip-wrapper {
+      display: inline-block;
+      overflow: hidden; 
+      vertical-align: bottom;
+      padding: 0.1em; 
+      margin: -0.1em;
+    }
+
+    .flip-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(110%) rotateX(-45deg);
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+
+    .is-visible .flip-word,
+    .fluid-header-inner.is-revealed .flip-word {
+      animation: odometerRoll 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .flip-word-1 { animation-delay: 0.0s; }
+    .flip-word-2 { animation-delay: 0.15s; }
+    .flip-word-3 { animation-delay: 0.3s; }
+    .flip-word-4 { animation-delay: 0.45s; }
+    .flip-word-5 { animation-delay: 0.6s; }
+    .flip-word-6 { animation-delay: 0.75s; }
+
+    @keyframes odometerRoll {
+      0% {
+        transform: translateY(110%) rotateX(-60deg);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0) rotateX(0deg);
+        opacity: 1;
+      }
+    }
+
+    /* ============================================ */
+    /* HERO SECTION                                 */
+    /* ============================================ */
+
+    .hero-new {
+      min-height: 90vh;
       background:
-        linear-gradient(180deg,
-          #eef7f1 0%,
-          #edf7f0 8%,
-          #f2f9f4 18%,
-          #f7fbf8 30%,
-          #fcfefd 42%,
-          #ffffff 54%);
-    }
-
-    .events-hero {
-      padding: 1.25rem 0 1.25rem;
-      background: transparent;
-    }
-
-    .events-hero-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.8fr);
-      gap: 1.1rem;
-      align-items: stretch;
-      background:
-        linear-gradient(135deg, rgba(255, 209, 0, 0.12) 0%, rgba(255, 255, 255, 0.96) 24%, rgba(245, 250, 247, 0.98) 100%);
-      border: 1px solid rgba(0, 102, 51, 0.08);
-      border-radius: 28px;
-      padding: 1rem;
-      box-shadow: 0 14px 30px rgba(12, 37, 24, 0.05);
-      overflow: hidden;
-    }
-
-    .events-hero-copy {
+        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.96) 38%, rgba(255,255,255,0.55) 62%, rgba(255,255,255,0) 74%),
+        url('assets/img/hero-carousel/Event.png') right center no-repeat;
+      background-size: cover;
+      background-position: center right;
+      background-color: #ffffff;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 0.75rem;
-    }
-
-    .events-kicker {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.45rem 0.85rem;
-      border-radius: 999px;
-      background: rgba(255, 209, 0, 0.24);
-      color: #006633;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .events-hero-copy h1 {
-      margin: 0;
-      font-size: clamp(1.9rem, 4vw, 3.1rem);
-      line-height: 1.02;
-      font-weight: 800;
-      color: #16241b;
-      max-width: 22ch;
-      text-wrap: balance;
-    }
-
-    .events-hero-copy p {
-      margin: 0;
-      max-width: 64ch;
-      color: #53625c;
-      font-size: 0.92rem;
-      line-height: 1.55;
-    }
-
-    .events-hero-visual {
+      align-items: flex-start;
+      text-align: left;
+      padding: 11rem 5% 6rem;
+      color: var(--text-dark);
       position: relative;
-      min-height: 150px;
-      border-radius: 18px;
-      overflow: hidden;
-      background: #e6efe8;
-      box-shadow: inset 0 0 0 1px rgba(255, 209, 0, 0.14);
     }
 
-    .events-hero-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .hero-new::before {
+      display: none;
+    }
+
+    .hero-image {
+      display: none;
+    }
+
+    .hero-image img {
       display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
     }
 
-    .events-layout-section {
-      padding: 1.75rem 0 4rem;
-      background: transparent;
+    .hero-content {
+      max-width: 520px;
+      position: relative;
+      z-index: 1;
+      will-change: transform;
     }
 
-    .events-copy-head {
+    .hero-new h1 {
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 700;
       margin-bottom: 1.5rem;
+      line-height: 1.1;
+      color: var(--text-dark); 
+      letter-spacing: -0.03em;
+      text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
     }
 
-    .events-copy-head h2 {
-      margin: 0 0 0.65rem;
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
-      font-weight: 800;
-      color: #17231c;
+    .street-sign-divider {
+      width: 100px;
+      height: 3px; 
+      background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-yellow) 100%);
+      margin: 1.5rem 0 2.5rem; 
+      position: relative;
+      border-radius: 3px;
+      transform-origin: left;
     }
 
-    .events-copy-head p {
-      margin: 0;
-      max-width: 70ch;
-      color: #5b6762;
-      line-height: 1.8;
-      font-size: 1.05rem;
+    /* ============================================ */
+    /* AUTO-ROLL MARQUEE EVENTS SECTION             */
+    /* ============================================ */
+    .events-layout-section {
+      padding: 8rem 0 7rem;
+      background: #ffffff;
+      position: relative;
     }
 
     .events-slider-shell {
-      --events-edge-fade: clamp(46px, 5.5vw, 80px);
       position: relative;
       margin-top: 1.75rem;
       width: 100vw;
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
       overflow: hidden;
-      padding: 0 5.25rem;
+      padding: 1rem 0; 
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
     }
 
     .events-products-swiper {
+      width: 100%;
       overflow: visible;
-      cursor: grab;
-      touch-action: pan-y;
-      -webkit-mask-image: linear-gradient(90deg,
-        transparent 0,
-        rgba(0, 0, 0, 0.06) calc(var(--events-edge-fade) * 0.24),
-        rgba(0, 0, 0, 0.26) calc(var(--events-edge-fade) * 0.64),
-        #000 var(--events-edge-fade),
-        #000 calc(100% - var(--events-edge-fade)),
-        rgba(0, 0, 0, 0.26) calc(100% - (var(--events-edge-fade) * 0.64)),
-        rgba(0, 0, 0, 0.06) calc(100% - (var(--events-edge-fade) * 0.24)),
-        transparent 100%);
-      mask-image: linear-gradient(90deg,
-        transparent 0,
-        rgba(0, 0, 0, 0.06) calc(var(--events-edge-fade) * 0.24),
-        rgba(0, 0, 0, 0.26) calc(var(--events-edge-fade) * 0.64),
-        #000 var(--events-edge-fade),
-        #000 calc(100% - var(--events-edge-fade)),
-        rgba(0, 0, 0, 0.26) calc(100% - (var(--events-edge-fade) * 0.64)),
-        rgba(0, 0, 0, 0.06) calc(100% - (var(--events-edge-fade) * 0.24)),
-        transparent 100%);
+      margin-bottom: 24px; 
     }
 
     .events-products-swiper .swiper-wrapper {
-      transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+      transition-timing-function: linear !important;
     }
 
-    .events-products-swiper .swiper-slide {
-      width: 420px;
+    .event-level-filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: -1rem auto 1.5rem;
+    }
+
+    .event-level-filter {
+      padding: 0.65rem 1.1rem;
+      border: 1px solid rgba(19, 155, 72, 0.35);
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--text-dark);
+      cursor: default;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .event-level-filter:hover,
+    .event-level-filter.is-active {
+      border-color: var(--primary-green);
+      background: var(--primary-green);
+      color: #ffffff;
+    }
+
+    .swiper-slide {
+      width: 360px; 
+      height: 360px;
     }
 
     .event-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      min-height: 490px;
-      height: 490px;
-      border-radius: 26px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.98);
-      border: 1px solid rgba(0, 102, 51, 0.08);
-      box-shadow: 0 16px 34px rgba(9, 33, 20, 0.07);
-      color: inherit;
-      isolation: isolate;
-      width: 420px;
-    }
-
-    .event-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 22%);
-      opacity: 1;
-      z-index: -1;
-    }
-
-    .event-card-content {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      padding: 1.3rem 1.3rem 0.95rem;
-      flex: 1;
-    }
-
-    .event-card-topline {
-      display: flex;
-      justify-content: flex-start;
-      gap: 0.75rem;
-      align-items: flex-start;
-    }
-
-    .event-card-tag {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(0, 102, 51, 0.08);
-      color: #006633;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .event-card h3 {
-      margin: 0;
-      font-size: 1.45rem;
-      line-height: 1.14;
-      font-weight: 800;
-      color: #16241b;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .event-card p {
-      margin: 0;
-      color: #55635d;
-      font-size: 0.98rem;
-      line-height: 1.6;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .event-card-title-art {
-      --logo-scale: 1.26;
-      --logo-pad-y: 0.55rem;
-      --logo-pad-x: 0.85rem;
-      width: 100%;
-      min-height: 96px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: var(--logo-pad-y) var(--logo-pad-x);
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.92);
-    }
-
-    .event-card-title-art span {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #2b4236;
-      letter-spacing: 0.02em;
-    }
-
-    .event-card-title-art img {
-      max-width: 94%;
-      max-height: 78px;
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      display: block;
-      transform: scale(var(--logo-scale));
-      transform-origin: center center;
-    }
-
-    .event-card-title-art.logo-fit--aiw,
-    .event-card-title-art.logo-fit--ait,
-    .event-card-title-art.logo-fit--thurs {
-      --logo-scale: 1.18;
-    }
-
-    .event-card-title-art.logo-fit--cwm,
-    .event-card-title-art.logo-fit--fridiy,
-    .event-card-title-art.logo-fit--praxis,
-    .event-card-title-art.logo-fit--offscript,
-    .event-card-title-art.logo-fit--ole,
-    .event-card-title-art.logo-fit--nn {
-      --logo-scale: 1.08;
-    }
-
-    .event-card-title-art.logo-fit--tinker,
-    .event-card-title-art.logo-fit--paperclub,
-    .event-card-title-art.logo-fit--gotong,
-    .event-card-title-art.logo-fit--ctrl {
-      --logo-scale: 1.36;
-      --logo-pad-y: 0.4rem;
-      --logo-pad-x: 0.65rem;
-    }
-
-    .event-card-title-art.logo-fit--afterdark {
-      --logo-scale: 1.14;
-    }
-
-    .event-card-title-art.logo-fit--chop {
-      --logo-scale: 1.26;
-    }
-
-    .event-card-title-art.logo-fit--fridiy,
-    .event-card-title-art.logo-fit--praxis,
-    .event-card-title-art.logo-fit--offscript,
-    .event-card-title-art.logo-fit--ole {
-      --logo-scale: 0.54;
-    }
-
-    .event-card-title-art.logo-fit--tinker,
-    .event-card-title-art.logo-fit--paperclub {
-      --logo-scale: 2.04;
-    }
-
-    .event-card-title-art.logo-fit--fridiy,
-    .event-card-title-art.logo-fit--praxis {
-      --logo-scale: 0.81;
-    }
-
-    .event-card-title-art.logo-fit--tinker {
-      --logo-scale: 1.02;
-      --logo-pad-y: 0.52rem;
-      --logo-pad-x: 0.72rem;
-    }
-
-    .event-card-title-art.logo-fit--paperclub {
-      --logo-scale: 1.12;
-      --logo-pad-y: 0.5rem;
-      --logo-pad-x: 0.7rem;
-    }
-
-    .event-card-title-art.logo-fit--gotong {
-      --logo-scale: 1.02;
-      --logo-pad-y: 0.52rem;
-      --logo-pad-x: 0.72rem;
-    }
-
-    .event-card-title-art.logo-fit--chop {
-      --logo-scale: 1.01;
-    }
-
-    .event-card-title-art.logo-fit--ole {
-      --logo-scale: 0.82;
-    }
-
-    .event-card-title-art.logo-fit--cwm {
-      --logo-scale: 0.86;
-    }
-
-    .event-card-title-art.logo-fit--tinker {
-      --logo-scale: 0.92;
-    }
-
-    .event-card-title-art.logo-fit--praxis {
-      --logo-scale: 0.73;
-    }
-
-    .event-card-title-art.logo-fit--nn {
-      --logo-scale: 0.97;
-    }
-
-    .event-card-title-art.logo-fit--offscript {
-      --logo-scale: 0.7;
-    }
-
-    .event-card-title-art.logo-fit--gotong {
-      --logo-scale: 1.12;
-    }
-
-    .event-card-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: auto;
-      padding-top: 0.1rem;
-    }
-
-    .event-card-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.48rem 0.72rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.82);
-      color: #274235;
-      font-size: 0.82rem;
-      font-weight: 600;
-    }
-
-    .event-card-thumb {
       position: relative;
-      min-height: 230px;
-      height: 230px;
-      margin: 0 0.9rem 1.35rem;
-      border-radius: 18px;
+      border-radius: 16px; 
       overflow: hidden;
-      background: #dfe9e2;
-    }
-
-    .event-card-thumb-link {
+      background: #1a1a1a;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.03);
       display: block;
-      color: inherit;
+      padding: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
 
-    .event-card-thumb img {
+    .event-card-image {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .event-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 28%, rgba(0, 0, 0, 0.88) 100%);
+      pointer-events: none;
+    }
+
+    .event-card-info {
+      position: absolute;
+      right: 5.75rem;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      z-index: 2;
+      color: #ffffff;
+      text-align: left;
+    }
+
+    .event-card-info h3 {
+      margin: 0 0 0.3rem;
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .event-card-info p {
+      margin: 0 0 0.5rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .event-card-level {
+      color: var(--primary-yellow);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .event-card-logo {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 2;
+      box-sizing: border-box;
+      width: 64px;
+      height: 64px;
+      padding: 0.5rem;
+      border-radius: 6px;
+      background: #ffffff;
+      object-fit: contain;
       object-position: center;
-      display: block;
+    }
+
+    .event-card:hover .event-card-image,
+    .swiper-slide.selected .event-card-image {
+      transform: scale(1.06);
+    }
+
+    .event-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 16px;
+      padding: 2px;
+      background: linear-gradient(45deg, var(--primary-green), var(--primary-yellow), #00d2ff);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    .event-card:hover,
+    .swiper-slide.selected .event-card {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+      z-index: 10;
+      border-color: rgba(19, 155, 72, 0.2);
+    }
+
+    .event-card:hover::before,
+    .swiper-slide.selected .event-card::before {
+      opacity: 1;
+    }
+
+    /* Navigation Arrows */
+    .event-nav-button {
+      position: static;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary-green);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(19, 155, 72, 0.2);
+      z-index: 10;
+    }
+
+    .event-nav-button:hover {
+      background: var(--primary-yellow);
+      color: var(--text-dark);
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(255, 209, 0, 0.3);
+    }
+
+    .event-nav-button:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+      box-shadow: none;
+      opacity: 0.5;
+    }
+
+    .event-nav-button:disabled:hover {
+      transform: none;
+    }
+
+    .event-detail-navigation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      width: 100%;
+      max-width: 620px;
+      margin-top: 0.25rem;
+    }
+
+    .gallery-navigation {
+      margin: 1rem auto 0;
     }
 
     .events-slider-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 8;
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      border: 0;
-      background: rgba(222, 225, 229, 0.62);
-      color: #3d4349;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
-      backdrop-filter: blur(10px);
-      transition: transform 0.25s ease, background 0.25s ease, opacity 0.25s ease;
-      touch-action: manipulation;
-      pointer-events: auto;
+      display: none !important; 
     }
 
-    .events-slider-prev {
-      left: 0;
+    /* ============================================ */
+    /* WHAT'S HAPPENING LAYOUT                      */
+    /* ============================================ */
+    .whatshappening-section {
+      padding: 8rem 5% 7rem; 
+      background: var(--bg-light);
     }
 
-    .events-slider-next {
-      right: 0;
+    .column-subheader {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1.2rem;
+      display: block;
+      letter-spacing: -0.01em;
     }
-
-    .events-slider-nav.is-hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .events-slider-nav.is-disabled {
-      opacity: 0.45;
-      pointer-events: none;
-    }
-
-    .events-slider-nav:hover {
-      transform: translateY(-50%) scale(1.06);
-      background: rgba(208, 212, 217, 0.82);
-    }
-
-    .calendar-copy-head {
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .calendar-copy-head h2 {
-      margin: 0 0 0.55rem;
-      font-size: clamp(1.45rem, 2.3vw, 1.95rem);
-      font-weight: 800;
-      color: #17231c;
-    }
-
-    .calendar-copy-head p {
-      margin: 0;
-      max-width: 72ch;
-      color: #5b6762;
-      line-height: 1.7;
-      font-size: 1rem;
-    }
-
-    .calendar-panel {
-      margin-top: 0;
-      max-width: min(48vw, 660px);
-      margin-left: auto;
-      margin-right: auto;
-      padding: 1.8rem;
-      border-radius: 30px;
-      background: rgba(255, 255, 255, 0.98);
-      border: 1px solid rgba(0, 102, 51, 0.08);
-      box-shadow: 0 20px 40px rgba(9, 33, 20, 0.06);
-    }
-
-    .calendar-panel-head {
-      display: none;
-    }
-
+    
     .luma-calendar-container iframe {
-      width: 100%;
-      height: 460px;
-      border: 1px solid #dce6df;
-      border-radius: 22px;
+      width: 100%; 
+      height: 460px; 
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: #ffffff;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+    }
+
+    /* ============================================ */
+    /* BOTTOM CTA SECTION                           */
+    /* ============================================ */
+    .partner-cta-section {
+      padding: 6rem 5% 6rem;
       background: #ffffff;
     }
 
-    @media (max-width: 991.98px) {
-      .events-hero-shell {
-        grid-template-columns: 1fr;
-      }
-
-      .events-layout-section {
-        padding-top: 1.25rem;
-      }
+    .partner-cta-section .section-header-center {
+      margin-bottom: 1.5rem;
     }
 
+    .partner-cta-section .btn-action-pill {
+      margin-top: 0.75rem;
+    }
+
+    .btn-action-pill {
+      background-color: var(--primary-green);
+      color: #ffffff;
+      border: 2px solid var(--primary-green);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      margin-top: 2rem;
+      box-shadow: 0 8px 16px rgba(19, 155, 72, 0.2);
+    }
+
+    .btn-action-pill:hover {
+      background-color: var(--primary-yellow);
+      color: var(--text-dark);
+      border-color: var(--primary-yellow);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(255, 209, 0, 0.3);
+    }
+
+     /* ============================================ */
+    /* HERO SECTION                                */
+    /* ============================================ */
+    
+    .hero-new {
+      min-height: 90vh;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
+        url('assets/img/hero-carousel/Event.png') right center no-repeat;
+      background-size: cover;
+      background-position: center right;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      padding: 11rem 5% 6rem;
+      color: var(--text-dark);
+      position: relative;
+    }
+
+    .hero-new::before {
+      display: none;
+    }
+
+    .hero-image {
+      display: none;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .hero-content {
+      max-width: 520px;
+      position: relative;
+      z-index: 1;
+      will-change: transform;
+    }
+    
     @media (max-width: 767.98px) {
-      .events-hero {
-        padding: 1rem 0 0.85rem;
+      .hero-new {
+        min-height: 68vh;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 55%, rgba(255,255,255,0) 100%),
+          url('assets/img/hero-carousel/Event.png') center center no-repeat;
+        background-size: cover;
+        background-position: center center;
       }
-
-      .events-hero-shell {
-        padding: 0.9rem;
-        gap: 0.95rem;
+      .street-sign-divider {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1.5rem;
       }
-
-      .events-hero-copy {
-        gap: 0.6rem;
+      .events-slider-shell { padding: 1rem 0; margin-top: 1.1rem; }
+      .swiper-slide {
+        width: min(86vw, 400px);
+        height: 400px;
       }
-
-      .events-hero-copy p {
-        font-size: 0.96rem;
-        line-height: 1.5;
-      }
-
-      .events-hero-visual {
-        min-height: 200px;
-      }
-
-      .events-layout-section {
-        padding: 0.9rem 0 3.2rem;
-      }
-
-      .events-copy-head {
-        margin-bottom: 1rem;
-      }
-
-      .events-copy-head p {
-        line-height: 1.65;
-      }
-
-      .events-slider-shell {
-        --events-edge-fade: clamp(29px, 8vw, 52px);
-        padding: 0;
-        margin-top: 1.1rem;
-      }
-
-      .events-products-swiper {
-        -webkit-mask-image: none !important;
-        mask-image: none !important;
-      }
-
-      .event-card {
-        min-height: 440px;
-        height: 440px;
-        width: 84vw;
-      }
-
-      .events-products-swiper .swiper-slide {
-        width: 84vw;
-      }
-
-      .events-slider-prev {
-        left: 0.35rem;
-      }
-
-      .events-slider-next {
-        right: 0.35rem;
-      }
-
-      .event-card h3 {
-        font-size: 1.3rem;
-      }
-
-      .event-card p {
-        font-size: 0.92rem;
-      }
-
-      .event-card-title-art {
-        min-height: 78px;
-      }
-
-      .event-card-title-art img {
-        max-height: 64px;
-      }
-
-      .event-card-thumb {
-        min-height: 165px;
-        height: 165px;
-        margin-bottom: 1.15rem;
-      }
-
-      .events-slider-nav {
-        width: 50px;
-        height: 50px;
-      }
-
       .luma-calendar-container iframe {
-        height: 440px;
+        height: 400px;
       }
-
-      .calendar-panel {
-        max-width: 100%;
-        padding: 1.1rem;
+      .events-layout-section, .whatshappening-section, .partner-cta-section {
+        padding: 5rem 5%;
+      }
+      .column-subheader {
+        margin-top: 2rem;
       }
     }
   </style>
 </head>
 
 <body class="services-page events-page-shell">
-<div id="header-placeholder"></div>
+
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"></div>
 
   <main class="main">
-    <section class="events-hero">
-      <div class="container">
-        <div class="events-hero-shell" data-aos="fade-up">
-          <div class="events-hero-copy">
-            <h1> Thoughtful events, curated for curious builders.</h1>
-          </div>
+    <!-- ============================================ -->
+    <!-- HERO SECTION                                 -->
+    <!-- ============================================ -->
+    <section class="hero-new">
+      <div class="hero-image">
+        <img src="assets/img/hero-carousel/Event.png" alt="Lorong AI Events">
+      </div>
+      <div class="hero-content scroll-reveal">
+        <h1>Thoughtful events, curated for curious builders</h1>
+        <div class="street-sign-divider scroll-reveal delay-1"></div>
+      </div>
+    </section>
 
-          <div class="events-hero-visual">
-            <img src="assets/img/hero-carousel/eventsmaybe2.png" alt="Lorong AI events and community" loading="lazy">
+    <!-- ============================================ -->
+    <!-- AUTO-ROLL EVENT CARDS SECTION                -->
+    <!-- ============================================ -->
+    <section class="events-layout-section">
+      <div class="container">
+        <!-- Fluid Header -->
+        <div class="section-header-center fluid-header-container" style="margin-bottom: 0.75rem;">
+          <div class="fluid-header-inner text-center">
+            <h2 class="scroll-reveal" style="opacity: 1; transform: none; transition: none;">
+              <span class="flip-wrapper"><span class="flip-word flip-word-1">Events</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-2">at</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-3">Lorong</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-4">AI</span></span>
+            </h2>
+          </div>
+        </div>
+
+        <p style="max-width: 900px; margin: 0 auto 4rem; text-align: center; color: var(--text-medium); font-size: 1.3rem; line-height: 1.8;">
+          Lorong AI hosts around five events weekly, offering food for thought for our community. 
+          Sessions range from Level 100 for beginner-friendly introductions to Level 300 for advanced technical deep dives.
+        </p>
+
+        <div class="event-level-filters" aria-label="Filter events by technical level">
+          <button class="event-level-filter is-active" type="button" data-level-filter="all" aria-pressed="true">All Events</button>
+          <button class="event-level-filter" type="button" data-level-filter="100" aria-pressed="false">Level 100</button>
+          <button class="event-level-filter" type="button" data-level-filter="200" aria-pressed="false">Level 200</button>
+          <button class="event-level-filter" type="button" data-level-filter="300" aria-pressed="false">Level 300</button>
+        </div>
+
+        <div class="events-slider-shell scroll-reveal delay-1">
+          
+          <!-- Top Row (Scrolling Left) -->
+          <div class="swiper events-products-swiper" id="events-products-swiper-1">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" data-event-name="AI Wednesdays" data-event-description="Weekly technical deep dives and practical insights." data-event-technical="Level 200 to Level 300" data-event-range="3">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/aiw.png" alt="AI Wednesdays" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Co-working Mondays" data-event-description="Casual meetups for networking, lunch, and talks." data-event-technical="Open to All Levels" data-event-range="1">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/cwm.png" alt="Co-working Mondays" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="AI ToolsDays" data-event-description="Live demos showing how different industries use AI." data-event-technical="Level 100" data-event-range="1">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/ait.png" alt="AI ToolsDays" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="ThursTalks" data-event-description="Curated dialogue series for focused deep dives." data-event-technical="Open to All Levels" data-event-range="3">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/thurs.png" alt="ThursTalks" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Fri-DIYs" data-event-description="Hands-on workshop series for guided project building." data-event-technical="Level 200 to Level 300" data-event-range="3">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/fridiys.png" alt="Fri-DIYs" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="TinkerTime" data-event-description="Collaborative meetups for guided exploration and troubleshooting." data-event-technical="Level 100 to Level 200" data-event-range="2">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/tttt.png" alt="TinkerTime" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Paper Club" data-event-description="Community meetup to discuss the latest AI research." data-event-technical="Level 200 to Level 300" data-event-range="3">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/pc.png" alt="Paper Club" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Praxis" data-event-description="Researcher-led discussions on applied AI topics." data-event-technical="Level 300" data-event-range="3">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/praxis.png" alt="Praxis" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="ChopChop Talk Shop" data-event-description="Fast-paced talk series to share ideas and experiences." data-event-technical="Open for All Levels" data-event-range="2">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/chop.png" alt="ChopChop Talk Shop" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Gotong Royong" data-event-description="Collaborative troubleshooting series to solve challenges." data-event-technical="Open for All Levels" data-event-range="1">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/gt.png" alt="Gotong" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="CTRL+SHIFT+CHANGE" data-event-description="Discussion for leaders navigating AI adoption and strategy." data-event-technical="Level 200" data-event-range="3">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/ctrl.png" alt="CTRL+SHIFT+CHANGE" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="OFF SCRIPT" data-event-description="Candid discussions exploring AI, design, and society." data-event-technical="Level 100" data-event-range="1">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/off.png" alt="OFF SCRIPT" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Out of Lorong Experience" data-event-description="Tech lab tours for members to learn and spark collaborations." data-event-technical="Level 100 to 200" data-event-range="2">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/ole.png" alt="ole" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Neural Networking" data-event-description="Relaxed meetup for members across the AI ecosystem." data-event-technical="Members Only" data-event-range="4">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/nn.png" alt="nn" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="After Dark" data-event-description="Evening meetups for the AI community to share ideas." data-event-technical="Level 100 to Level 200" data-event-range="2">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/ad.png" alt="afterdark" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-detail-navigation gallery-navigation" aria-label="Event navigation">
+          <button class="event-nav-button nav-prev" id="event-nav-prev" type="button" aria-label="Previous event" title="Previous event">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button class="event-nav-button nav-next" id="event-nav-next" type="button" aria-label="Next event" title="Next event">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- WHAT'S HAPPENING LAYOUT                      -->
+    <!-- ============================================ -->
+    <section class="whatshappening-section">
+      <div class="container">
+        <!-- Fluid Header -->
+        <div class="section-header-center fluid-header-container">
+          <div class="fluid-header-inner text-center">
+            <h2 class="scroll-reveal" style="opacity: 1; transform: none; transition: none;">
+              <span class="flip-wrapper"><span class="flip-word flip-word-1">What’s</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-2">happening</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-3">at</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-4">Lorong</span></span>
+              <span class="flip-wrapper"><span class="flip-word flip-word-5">AI</span></span>
+            </h2>
+            <p class="mx-auto mt-3 scroll-reveal delay-1" style="font-size: 1.3rem;">Stay up-to-date with our weekly AI community events.</p>
+          </div>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Center Column: Luma Calendar -->
+          <div class="col-lg-8 scroll-reveal delay-1">
+            <span class="column-subheader text-center mb-4">Our Upcoming Events</span>
+            <div class="luma-calendar-container rounded-3">
+              <iframe
+                src="https://lu.ma/embed/calendar/cal-6iIeDGNQ7vK8cfx/events?lt=light"
+                frameborder="0"
+                allowfullscreen=""
+                aria-hidden="false"
+                tabindex="0"
+                class="rounded-3">
+              </iframe>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="events-layout-section">
+    <!-- ============================================ -->
+    <!-- BOTTOM CTA SECTION                           -->
+    <!-- ============================================ -->
+    <section class="partner-cta-section text-center">
       <div class="container">
-        <div class="events-copy-head" data-aos="fade-up">
-          <h2>Events at Lorong AI</h2>
-        </div>
-
-        <div class="events-slider-shell" data-aos="fade-up" data-aos-delay="80">
-          <button class="events-slider-nav events-slider-prev" id="events-slider-prev" aria-label="See previous events">
-            <i class="bi bi-chevron-left"></i>
-          </button>
-          <div class="swiper events-products-swiper" id="events-products-swiper">
-            <div class="swiper-wrapper">
-
-              <!-------Event Cards----->
-
-              <div class="swiper-slide">
-                <div class="event-card">
-                <div class="event-card-content">
-                  <div class="event-card-topline">
-                  </div>
-                  <h3 class="visually-hidden">AI Wednesdays</h3>
-                  <div class="event-card-title-art logo-fit--aiw"><img src="assets/img/events_logo/aiw.png" alt="AI Wednesdays logo" loading="lazy"></div>
-                  <p>Our weekly technical AI community event for people building, researching, and applying AI.</p>
-                  <div class="event-card-meta">
-                  </div>
-                </div>
-                <div class="event-card-thumb-link">
-                  <div class="event-card-thumb">
-                    <img src="assets/img/eventcardwebp/aiw_pic.webp" alt="AI Wednesdays" loading="lazy">
-                  </div>
-                </div>
-                </div>
-              </div>
-
-
-
-
-
-              <div class="swiper-slide">
-                <div class="event-card">
-                  <div class="event-card-content">
-                  <div class="event-card-topline">
-                  </div>
-                  <h3 class="visually-hidden">Co-working Mondays</h3>
-                  <div class="event-card-title-art logo-fit--cwm"><img src="assets/img/events_logo/cwm.png" alt="Co-working Mondays logo" loading="lazy"></div>
-                  <p>Bi-weekly Lorong AI co-working sessions with focused work, networking, and collaboration.</p>
-                  <div class="event-card-meta">
-                  </div>
-                </div>
-                  <div class="event-card-thumb-link">
-                    <div class="event-card-thumb">
-                      <img src="assets/img/eventcardwebp/cwm_pic.webp" alt="Co-working Mondays" loading="lazy">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="event-card">
-                <div class="event-card-content">
-                  <div class="event-card-topline">
-                  </div>
-                  <h3 class="visually-hidden">AI ToolsDays</h3>
-                  <div class="event-card-title-art logo-fit--ait"><img src="assets/img/events_logo/ait.png" alt="AI ToolsDays logo" loading="lazy"></div>
-                  <p>A guided look at what tools are out there, how they work, and where they fit into real workflows.</p>
-                  <div class="event-card-meta">
-                  </div>
-                </div>
-                <div class="event-card-thumb-link">
-                  <div class="event-card-thumb">
-                    <img src="assets/img/eventcardwebp/toools_pic.webp" alt="AI ToolsDays" loading="lazy">
-                  </div>
-                </div>
-                </div>
-              </div>
-
-
-              <div class="swiper-slide">
-                <div class="event-card">
-                <div class="event-card-content">
-                  <div class="event-card-topline">
-                  </div>
-                  <h3 class="visually-hidden">ThursTalks</h3>
-                  <div class="event-card-title-art logo-fit--thurs"><img src="assets/img/events_logo/thurs.png" alt="ThursTalks logo" loading="lazy"></div>
-                  <p>A high‑energy dialogue series to enhance persepectives, open discussion, exchange ideas.</p>
-                  <div class="event-card-meta">
-                  </div>
-                </div>
-                <div class="event-card-thumb-link">
-                  <div class="event-card-thumb">
-                    <img src="assets/img/eventcardwebp/thurs_pic.webp" alt="ThursTalks" loading="lazy">
-                  </div>
-                </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="event-card">
-                <div class="event-card-content">
-                  <div class="event-card-topline">
-                  </div>
-                  <div class="event-card-title-art logo-fit--fridiy"><img src="assets/img/events_logo/fridiys.png" alt="Fri-DIYs logo" loading="lazy"></div>
-                  <p>Practical guided sessions where members build, test, and leave with something more concrete than notes.</p>
-                  <div class="event-card-meta">
-                  </div>
-                </div>
-                <div class="event-card-thumb-link">
-                  <div class="event-card-thumb">
-                    <img src="assets/img/eventcardwebp/fridiy_pic.webp" alt="Fri-DIYs" loading="lazy">
-                  </div>
-                </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="event-card">
-                <div class="event-card-content">
-                  <div class="event-card-topline">
-                  </div>
-                  <div class="event-card-title-art logo-fit--tinker"><img src="assets/img/events_logo/tttt.png" alt="TinkerTime logo" loading="lazy"></div>
-                  <p>A lower-pressure slot for trying ideas, poking at prototypes, and learning together.</p>
-                  <div class="event-card-meta">
-                  </div>
-                </div>
-                <div class="event-card-thumb-link">
-                  <div class="event-card-thumb">
-                    <img src="assets/img/eventcardwebp/tinker_pic.webp" alt="TinkerTime" loading="lazy">
-                  </div>
-                </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="event-card">
-                <div class="event-card-content">
-                  <div class="event-card-topline">
-                  </div>
-                  <h3 class="visually-hidden">Paper Club</h3>
-                  <div class="event-card-title-art logo-fit--paperclub"><img src="assets/img/events_logo/pc.png" alt="Paper Club logo" loading="lazy"></div>
-                  <p>A community-driven initiative where members gather to discuss and analyse research developments in AI.</p>
-                  <div class="event-card-meta">
-                  </div>
-                </div>
-                <div class="event-card-thumb-link">
-                  <div class="event-card-thumb">
-                    <img src="assets/img/eventcardwebp/paperclub_pic.webp" alt="Placeholder event series" loading="lazy">
-                  </div>
-                </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="event-card">
-                <div class="event-card-content">
-                  <div class="event-card-topline">
-                  </div>
-                  <h3 class="visually-hidden">Technical</h3>
-                  <div class="event-card-title-art logo-fit--praxis"><img src="assets/img/events_logo/praxis.png" alt="Praxis logo" loading="lazy"></div>
-                  <p>Technical sharings built around researcher-driven discussions on advanced AI and applied research.</p>
-                  <div class="event-card-meta">
-                  </div>
-                </div>
-                <div class="event-card-thumb-link">
-                  <div class="event-card-thumb">
-                    <img src="assets/img/eventcardwebp/praxis_pic.webp" alt="Placeholder event card" loading="lazy">
-                  </div>
-                </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="event-card">
-                <div class="event-card-content">
-                  <div class="event-card-topline">
-                  </div>
-                  <h3 class="visually-hidden">ChopChop Talk Shop</h3>
-                  <div class="event-card-title-art logo-fit--chop"><img src="assets/img/events_logo/chop.png" alt="ChopChop Talk Shop logo" loading="lazy"></div>
-                  <p>A fast-paced sharing series designed to spark ideas and bring the community together.</p>
-                  <div class="event-card-meta">
-                  </div>
-                </div>
-                <div class="event-card-thumb-link">
-                  <div class="event-card-thumb">
-                    <img src="assets/img/eventcardwebp/chopchop_pic.webp" alt="Placeholder event format" loading="lazy">
-                  </div>
-                </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="event-card">
-                <div class="event-card-content">
-                  <div class="event-card-topline">
-                  </div>
-                  <h3 class="visually-hidden">gotong Placeholder</h3>
-                  <div class="event-card-title-art logo-fit--gotong"><img src="assets/img/events_logo/gt.png" alt="Gotong logo" loading="lazy"></div>
-                  <p>Opportunities for the community of all skillsets to tackle challenges troubleshoot and build together.</p>
-                  <div class="event-card-meta">
-                  </div>
-                </div>
-                <div class="event-card-thumb-link">
-                  <div class="event-card-thumb">
-                    <img src="assets/img/eventcardwebp/gotong_pic.webp" alt="Placeholder event content" loading="lazy">
-                  </div>
-                </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="event-card">
-                <div class="event-card-content">
-                  <div class="event-card-topline">
-                  </div>
-                  <h3 class="visually-hidden">CTRL+SHIFT+CHANGE</h3>
-                  <div class="event-card-title-art logo-fit--ctrl"><img src="assets/img/events_logo/ctrl.png" alt="CTRL+SHIFT+CHANGE logo" loading="lazy"></div>
-                  <p>Members come together for practical challenges and discuss approaches in real-world settings.</p>
-                  <div class="event-card-meta">
-                  </div>
-                </div>
-                <div class="event-card-thumb-link">
-                  <div class="event-card-thumb">
-                    <img src="assets/img/eventcardwebp/ctrl_pic.webp" alt="Placeholder session card" loading="lazy">
-                  </div>
-                </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="event-card">
-                <div class="event-card-content">
-                  <div class="event-card-topline">
-                  </div>
-                  <h3 class="visually-hidden">OFF SCRIPT</h3>
-                  <div class="event-card-title-art logo-fit--offscript"><img src="assets/img/events_logo/off.png" alt="Off Script logo" loading="lazy"></div>
-                  <p>Thoughful exchange created through candid dialogue, feedback, demos and shared experiences.</p>
-                  <div class="event-card-meta">
-                  </div>
-                </div>
-                <div class="event-card-thumb-link">
-                  <div class="event-card-thumb">
-                    <img src="assets/img/eventcardwebp/socute_pic.webp" alt="Placeholder showcase event" loading="lazy">
-                  </div>
-                </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="event-card">
-                <div class="event-card-content">
-                  <div class="event-card-topline">
-                  </div>
-                  <h3 class="visually-hidden">ole</h3>
-                  <div class="event-card-title-art logo-fit--ole"><img src="assets/img/events_logo/ole.png" alt="OLE logo" loading="lazy"></div>
-                  <p>Visit big-tech labs to understand use of AI technologies at scale and in-house innovation.</p>
-                  <div class="event-card-meta">
-                  </div>
-                </div>
-                <div class="event-card-thumb-link">
-                  <div class="event-card-thumb">
-                    <img src="assets/img/eventcardwebp/ole_pic.jpeg" alt="Last placeholder event card" loading="lazy">
-                  </div>
-                </div>
-                </div>
-              </div>
-
-
-                <div class="swiper-slide">
-                  <div class="event-card">
-                  <div class="event-card-content">
-                    <div class="event-card-topline">
-                    </div>
-                    <h3 class="visually-hidden">nn</h3>
-                    <div class="event-card-title-art logo-fit--nn"><img src="assets/img/events_logo/nn.png" alt="NN logo" loading="lazy"></div>
-                    <p>Bringing together members and invited guests from the AI ecosystem to connect and exchange ideas and insights.</p>
-                    <div class="event-card-meta">
-                    </div>
-                  </div>
-                  <div class="event-card-thumb-link">
-                    <div class="event-card-thumb">
-                      <img src="assets/img/eventcardwebp/nn_pic.webp" alt="Placeholder session card" loading="lazy">
-                    </div>
-                  </div>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="event-card">
-                    <div class="event-card-content">
-                      <div class="event-card-topline">
-                      </div>
-                      <h3 class="visually-hidden">afterdark</h3>
-                      <div class="event-card-title-art logo-fit--afterdark"><img src="assets/img/events_logo/afterdark.png" alt="After Dark logo" loading="lazy"></div>
-                      <p>An evening meetup series for the AI community to host talks, demos and sharings.</p>
-                      <div class="event-card-meta">
-                      </div>
-                    </div>
-                    <div class="event-card-thumb-link">
-                      <div class="event-card-thumb">
-                        <img src="assets/img/eventcardwebp/afterdark_pic.webp" alt="Placeholder session card" loading="lazy">
-                      </div>
-                    </div>
-                    </div>
-                  </div>
-
-            </div>
+        <!-- Fluid Header Text -->
+        <div class="section-header-center fluid-header-container mb-4">
+          <div class="fluid-header-inner mx-auto" style="max-width: 800px;">
+            <h2 class="scroll-reveal" style="opacity: 1; transform: none; transition: none;">Start a Conversation</h2>
           </div>
-          <button class="events-slider-nav events-slider-next" id="events-slider-next" aria-label="See more events">
-            <i class="bi bi-chevron-right"></i>
-          </button>
         </div>
 
-        <div class="calendar-copy-head" data-aos="fade-up" data-aos-delay="120">
-          <h2>What’s happening at Lorong AI</h2>
-        </div>
-
-        <div class="calendar-panel" data-aos="fade-up" data-aos-delay="140">
-          <div class="luma-calendar-container">
-            <iframe
-              src="https://lu.ma/embed/calendar/cal-6iIeDGNQ7vK8cfx/events?lt=light"
-              frameborder="0"
-              allowfullscreen=""
-              aria-hidden="false"
-              tabindex="0">
-            </iframe>
-          </div>
+        <!-- Action Button -->
+        <div class="scroll-reveal delay-1">
+          <a href="https://go.gov.sg/lai-collaborate" class="btn-action-pill" target="_blank" rel="noopener noreferrer">Collaborate with Us!</a>
         </div>
       </div>
     </section>
 
   </main>
 
+  <!-- Footer Placeholder -->
   <div id="footer-placeholder"></div>
 
-  <!-- Scroll Top -->
+  <!-- Scroll Top & Preloader -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
   <script src="assets/vendor/php-email-form/validate.js" defer></script>
-  <script src="assets/vendor/aos/aos.js" defer></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
@@ -1028,202 +774,168 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/include.js?v=4" defer></script>
+  <script src="assets/js/include.js?v=5" defer></script>
+
+  <!-- ============================================ -->
+  <!-- CUSTOM SMOOTH SCROLL & AUTO-ROLL LOGIC       -->
+  <!-- ============================================ -->
   <script>
-    window.addEventListener('load', function () {
-      const sliderEl = document.getElementById('events-products-swiper');
-      const wrapperEl = sliderEl ? sliderEl.querySelector('.swiper-wrapper') : null;
-      const prevButton = document.getElementById('events-slider-prev');
-      const nextButton = document.getElementById('events-slider-next');
-      if (!sliderEl || !wrapperEl || !prevButton || !nextButton || typeof Swiper === 'undefined') return;
-
-      if (sliderEl.swiper) {
-        sliderEl.swiper.destroy(true, true);
-      }
-
-      function bindNavButton(button, handler) {
-        let lastTriggerAt = 0;
-
-        function invokeHandler(event) {
-          if (event) {
-            event.preventDefault();
-            event.stopPropagation();
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Bidirectional Reveal on Scroll
+      const revealElements = document.querySelectorAll('.scroll-reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          } else {
+            entry.target.classList.remove('is-visible');
           }
+        });
+      }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+      revealElements.forEach(el => revealObserver.observe(el));
 
-          const now = Date.now();
-          if (now - lastTriggerAt < 450) return;
-          lastTriggerAt = now;
-          handler();
-        }
+      // 2. Fluid Scroll-Linked Headers (Dynamic Scaling & Odometer Reveal)
+      const fluidContainers = document.querySelectorAll('.fluid-header-container');
+      let ticking = false;
+      function updateScrollAnimations() {
+        const viewHeight = window.innerHeight;
+        fluidContainers.forEach(container => {
+           const inner = container.querySelector('.fluid-header-inner');
+           if (!inner) return;
+           const rect = container.getBoundingClientRect();
+           const revealStart = viewHeight * 0.95;
+           const revealEnd = viewHeight * 0.70;
+           let opacity = 1; let yOffset = 0; let scale = 1;
+           if (rect.top > revealStart) {
+             opacity = 0; yOffset = 60; scale = 0.85;
+             inner.classList.remove('is-revealed');
+           } else if (rect.top > revealEnd) {
+             const progress = (revealStart - rect.top) / (revealStart - revealEnd);
+             const ease = 1 - Math.pow(1 - progress, 3);
+             opacity = ease; yOffset = (1 - ease) * 60; scale = 0.85 + (ease * 0.15);
+             inner.classList.add('is-revealed'); 
+           } else {
+             opacity = 1; scale = 1;
+             const parallaxProgress = (revealEnd - rect.top) / revealEnd;
+             yOffset = -(parallaxProgress * 40);
+           }
+           inner.style.opacity = opacity;
+           inner.style.transform = `translateY(${yOffset}px) scale(${scale})`;
+        });
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => { if (!ticking) { window.requestAnimationFrame(updateScrollAnimations); ticking = true; } });
+      updateScrollAnimations();
 
-        button.onpointerup = function (event) {
-          invokeHandler(event);
+      const eventCardImages = {
+        'AI Wednesdays': 'assets/img/eventcardwebp/aiw_pic.webp',
+        'Co-working Mondays': 'assets/img/eventcardwebp/cwm_pic.webp',
+        'AI ToolsDays': 'assets/img/eventcardwebp/toools_pic.webp',
+        'ThursTalks': 'assets/img/eventcardwebp/thurs_pic.webp',
+        'Fri-DIYs': 'assets/img/eventcardwebp/fridiy_pic.webp',
+        'TinkerTime': 'assets/img/eventcardwebp/tinker_pic.webp',
+        'Paper Club': 'assets/img/eventcardwebp/paperclub_pic.webp',
+        'Praxis': 'assets/img/eventcardwebp/praxis_pic.webp',
+        'ChopChop Talk Shop': 'assets/img/eventcardwebp/chopchop_pic.webp',
+        'Gotong Royong': 'assets/img/eventcardwebp/gotong_pic.webp',
+        'CTRL+SHIFT+CHANGE': 'assets/img/eventcardwebp/ctrl_pic.webp',
+        'OFF SCRIPT': 'assets/img/eventcardwebp/script_pic.webp',
+        'Out of Lorong Experience': 'assets/img/eventcardwebp/ole_pic.jpeg',
+        'Neural Networking': 'assets/img/eventcardwebp/nn_pic.webp',
+        'After Dark': 'assets/img/eventcardwebp/afterdark_pic.webp'
+      };
+
+      document.querySelectorAll('#events-products-swiper-1 .swiper-slide').forEach(slide => {
+        const eventName = slide.dataset.eventName || '';
+        const card = slide.querySelector('.event-card');
+        const logo = card && card.querySelector('img');
+        const imageSource = eventCardImages[eventName];
+        if (!card || !logo || !imageSource) return;
+
+        const backgroundImage = document.createElement('img');
+        backgroundImage.className = 'event-card-image';
+        backgroundImage.src = imageSource;
+        backgroundImage.alt = `${eventName} event`;
+        backgroundImage.loading = 'lazy';
+
+        logo.className = 'event-card-logo';
+        logo.alt = `${eventName} logo`;
+
+        const info = document.createElement('div');
+        info.className = 'event-card-info';
+        info.innerHTML = '<h3></h3><p></p><span class="event-card-level"></span>';
+        info.querySelector('h3').textContent = eventName;
+        info.querySelector('p').textContent = slide.dataset.eventDescription || '';
+        info.querySelector('.event-card-level').textContent = slide.dataset.eventTechnical || '';
+
+        card.replaceChildren(backgroundImage, info, logo);
+      });
+
+    });
+
+    // 3. Swiper Continuous Auto-Roll Initialization
+    window.addEventListener('load', function () {
+      if(typeof Swiper !== 'undefined') {
+        const marqueeSettings = {
+          spaceBetween: 24,
+          centeredSlides: true,
+          speed: 2000,
+          loop: true,
+          slidesPerView: 'auto',
+          allowTouchMove: false, // Prevents dragging from breaking the smooth loop
         };
 
-        button.onclick = null;
-      }
+        // Top Row - Scrolls Normal (Left)
 
-      const baseSlides = Array.from(wrapperEl.children)
-        .filter(function (slide) { return slide.classList.contains('swiper-slide'); })
-        .map(function (slide) { return slide.outerHTML; });
-      const originalSlideCount = baseSlides.length;
-      if (!originalSlideCount) return;
-      const isMobile = window.matchMedia('(max-width: 767.98px), (pointer: coarse)').matches;
+        const eventFilterButtons = document.querySelectorAll('[data-level-filter]');
+        const eventSlider = document.querySelector('#events-products-swiper-1');
+        const eventWrapper = eventSlider.querySelector('.swiper-wrapper');
+        const sourceSlides = Array.from(eventWrapper.children).map(slide => slide.cloneNode(true));
+        let eventSwiper;
 
-      if (isMobile) {
-        wrapperEl.innerHTML = baseSlides.join('');
+        function getEventLevels(slide) {
+          const technicalText = slide.dataset.eventTechnical || '';
+          const levels = new Set();
+          const explicitLevels = technicalText.match(/Level (100|200|300)/g) || [];
+          explicitLevels.forEach(level => levels.add(level.replace('Level ', '')));
 
-        const mobileSlider = new Swiper(sliderEl, {
-          slidesPerView: 'auto',
-          spaceBetween: 24,
-          grabCursor: true,
-          speed: 520,
-          loop: false,
-          rewind: false,
-          centeredSlides: true,
-          centeredSlidesBounds: true,
-          watchOverflow: false,
-          slidesPerGroup: 1,
-          allowTouchMove: true,
-          simulateTouch: true,
-          touchRatio: 1,
-          touchAngle: 45,
-          threshold: 3,
-          shortSwipes: true,
-          longSwipes: true,
-          longSwipesRatio: 0.16,
-          longSwipesMs: 180,
-          followFinger: true,
-          resistanceRatio: 0.85,
-          watchSlidesProgress: true,
-          roundLengths: true
-        });
+          if (/Beginner/i.test(technicalText)) levels.add('100');
+          if (/Intermediate/i.test(technicalText)) levels.add('200');
+          if (/Advanced/i.test(technicalText)) levels.add('300');
 
-        bindNavButton(prevButton, function () {
-          mobileSlider.allowTouchMove = false;
-          if (mobileSlider.activeIndex <= 0) {
-            mobileSlider.slideTo(originalSlideCount - 1, 520);
-          } else {
-            mobileSlider.slidePrev();
-          }
-          setTimeout(function () {
-            mobileSlider.allowTouchMove = true;
-          }, 550);
-        });
-
-        bindNavButton(nextButton, function () {
-          mobileSlider.allowTouchMove = false;
-          if (mobileSlider.activeIndex >= originalSlideCount - 1) {
-            mobileSlider.slideTo(0, 520);
-          } else {
-            mobileSlider.slideNext();
-          }
-          setTimeout(function () {
-            mobileSlider.allowTouchMove = true;
-          }, 550);
-        });
-
-        return;
-      }
-
-      wrapperEl.innerHTML = baseSlides.join('') + baseSlides.join('') + baseSlides.join('');
-
-      const eventsSlider = new Swiper(sliderEl, {
-        slidesPerView: 'auto',
-        spaceBetween: 24,
-        grabCursor: true,
-        speed: 760,
-        loop: false,
-        initialSlide: originalSlideCount,
-        centeredSlides: false,
-        watchOverflow: false,
-        slidesPerGroup: 1,
-        allowTouchMove: true,
-        simulateTouch: true,
-        touchRatio: 0.78,
-        touchAngle: 45,
-        threshold: 6,
-        shortSwipes: true,
-        longSwipes: true,
-        longSwipesRatio: 0.1,
-        longSwipesMs: 220,
-        followFinger: true,
-        resistanceRatio: 0.82,
-        watchSlidesProgress: true,
-        roundLengths: true,
-        mousewheel: {
-          forceToAxis: true,
-          thresholdDelta: 20,
-          sensitivity: 0.6,
-          releaseOnEdges: false
-        }
-      });
-
-      let gestureStartIndex = eventsSlider.activeIndex;
-
-      function recenterIfNeeded() {
-        const currentIndex = eventsSlider.activeIndex;
-
-        if (currentIndex < originalSlideCount) {
-          eventsSlider.slideTo(currentIndex + originalSlideCount, 0, false);
-          return;
+          return levels;
         }
 
-        if (currentIndex >= originalSlideCount * 2) {
-          eventsSlider.slideTo(currentIndex - originalSlideCount, 0, false);
+        function applyEventFilter(selectedLevel) {
+          const matchingSlides = sourceSlides.filter(slide => selectedLevel === 'all' || getEventLevels(slide).has(selectedLevel));
+          eventWrapper.replaceChildren(...matchingSlides.map(slide => slide.cloneNode(true)));
+          if (eventSwiper) eventSwiper.destroy(true, true);
+          eventSwiper = new Swiper('#events-products-swiper-1', marqueeSettings);
+          window.eventLevelSwiper = eventSwiper;
         }
-      }
 
-      function getVisibleSlideIndices() {
-        const sliderRect = sliderEl.getBoundingClientRect();
-        const visibleIndices = [];
-
-        eventsSlider.slides.forEach(function (slide, index) {
-          const rect = slide.getBoundingClientRect();
-          const overlap = Math.min(rect.right, sliderRect.right) - Math.max(rect.left, sliderRect.left);
-          const visibleRatio = overlap / Math.max(rect.width, 1);
-
-          if (visibleRatio > 0.55) {
-            visibleIndices.push(index);
-          }
+        eventFilterButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const selectedLevel = button.dataset.levelFilter;
+            eventFilterButtons.forEach(filterButton => {
+              const isActive = filterButton === button;
+              filterButton.classList.toggle('is-active', isActive);
+              filterButton.setAttribute('aria-pressed', String(isActive));
+            });
+            applyEventFilter(selectedLevel);
+          });
         });
-
-        return visibleIndices;
-      }
-
-      function moveByVisibleSlides(direction) {
-        recenterIfNeeded();
-
-        const visibleIndices = getVisibleSlideIndices();
-        const startIndex = visibleIndices.length ? visibleIndices[0] : eventsSlider.activeIndex;
-        const step = Math.min(3, Math.max(1, visibleIndices.length || 3));
-
-        eventsSlider.slideTo(startIndex + (direction * step), 760);
-      }
-
-      eventsSlider.on('transitionEnd', recenterIfNeeded);
-      eventsSlider.on('touchStart', function () {
-        gestureStartIndex = eventsSlider.activeIndex;
-      });
-      eventsSlider.on('sliderFirstMove', function () {
-        gestureStartIndex = eventsSlider.activeIndex;
-      });
-      eventsSlider.on('touchEnd', function () {
-        const delta = eventsSlider.activeIndex - gestureStartIndex;
-        if (Math.abs(delta) > 3) {
-          eventsSlider.slideTo(gestureStartIndex + (Math.sign(delta) * 3), 320);
-        } else {
-          recenterIfNeeded();
+        eventSwiper = new Swiper('#events-products-swiper-1', marqueeSettings);
+        window.eventLevelSwiper = eventSwiper;
+        const navPrevBtn = document.getElementById('event-nav-prev');
+        const navNextBtn = document.getElementById('event-nav-next');
+        if (navPrevBtn) {
+          navPrevBtn.addEventListener('click', () => window.eventLevelSwiper.slidePrev());
         }
-      });
-
-      bindNavButton(prevButton, function () {
-        moveByVisibleSlides(-1);
-      });
-
-      bindNavButton(nextButton, function () {
-        moveByVisibleSlides(1);
-      });
+        if (navNextBtn) {
+          navNextBtn.addEventListener('click', () => window.eventLevelSwiper.slideNext());
+        }
+      }
     });
   </script>
 
