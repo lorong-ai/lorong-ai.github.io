@@ -235,13 +235,13 @@ const footerHTML = `
         <div class="primary-menu">
             <a href="index.html">HOME</a>
             <span class="separator">|</span>
-            <a href="events.html">EVENTS</a>
+            <a href="events.html">HAPPENINGS</a>
             <span class="separator">|</span>
-            <a href="resources.html">RESOURCES</a>
+            <a href="resources.html">ARCHIVE & INSIGHTS</a>
             <span class="separator">|</span>
             <a href="members.html">MEMBERS</a>
             <span class="separator">|</span>
-            <a href="about.html">ABOUT US</a>
+            <a href="about.html">OUR STORY</a>
         </div>
                 
         <!-- Secondary Navigation - Smaller with pipe separators -->
