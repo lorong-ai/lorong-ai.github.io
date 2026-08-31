@@ -24,7 +24,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -151,9 +151,10 @@
     .hero-new {
       min-height: 90vh;
       background:
-        linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
-        url('') right center no-repeat;
-      background-size: contain;
+        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.96) 38%, rgba(255,255,255,0.55) 62%, rgba(255,255,255,0) 74%),
+        url('assets/img/hero-carousel/Event.png') right center no-repeat;
+      background-size: cover;
+      background-position: center right;
       background-color: #ffffff;
       display: flex;
       flex-direction: column;
@@ -165,6 +166,10 @@
       position: relative;
     }
 
+    .hero-new::before {
+      display: none;
+    }
+
     .hero-image {
       display: none;
     }
@@ -173,6 +178,7 @@
       display: block;
       width: 100%;
       height: auto;
+      border-radius: 8px;
     }
 
     .hero-content {
@@ -233,38 +239,201 @@
       transition-timing-function: linear !important;
     }
 
+    .event-level-filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: -1rem auto 1.5rem;
+    }
+
+    .event-level-filter {
+      padding: 0.65rem 1.1rem;
+      border: 1px solid rgba(19, 155, 72, 0.35);
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--text-dark);
+      cursor: default;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .event-level-filter:hover,
+    .event-level-filter.is-active {
+      border-color: var(--primary-green);
+      background: var(--primary-green);
+      color: #ffffff;
+    }
+
     .swiper-slide {
-      width: 240px; 
-      height: 110px;
+      width: 360px; 
+      height: 360px;
     }
 
     .event-card {
       width: 100%;
       height: 100%;
+      position: relative;
       border-radius: 16px; 
       overflow: hidden;
-      background: #ffffff;
+      background: #1a1a1a;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
       border: 1px solid rgba(0, 0, 0, 0.03);
+      display: block;
+      padding: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .event-card-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .event-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 28%, rgba(0, 0, 0, 0.88) 100%);
+      pointer-events: none;
+    }
+
+    .event-card-info {
+      position: absolute;
+      right: 5.75rem;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      z-index: 2;
+      color: #ffffff;
+      text-align: left;
+    }
+
+    .event-card-info h3 {
+      margin: 0 0 0.3rem;
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .event-card-info p {
+      margin: 0 0 0.5rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .event-card-level {
+      color: var(--primary-yellow);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .event-card-logo {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 2;
+      box-sizing: border-box;
+      width: 64px;
+      height: 64px;
+      padding: 0.5rem;
+      border-radius: 6px;
+      background: #ffffff;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .event-card:hover .event-card-image,
+    .swiper-slide.selected .event-card-image {
+      transform: scale(1.06);
+    }
+
+    .event-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 16px;
+      padding: 2px;
+      background: linear-gradient(45deg, var(--primary-green), var(--primary-yellow), #00d2ff);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    .event-card:hover,
+    .swiper-slide.selected .event-card {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+      z-index: 10;
+      border-color: rgba(19, 155, 72, 0.2);
+    }
+
+    .event-card:hover::before,
+    .swiper-slide.selected .event-card::before {
+      opacity: 1;
+    }
+
+    /* Navigation Arrows */
+    .event-nav-button {
+      position: static;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary-green);
+      border: none;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .event-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      color: #ffffff;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(19, 155, 72, 0.2);
       z-index: 10;
     }
 
-    .event-card img {
+    .event-nav-button:hover {
+      background: var(--primary-yellow);
+      color: var(--text-dark);
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(255, 209, 0, 0.3);
+    }
+
+    .event-nav-button:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+      box-shadow: none;
+      opacity: 0.5;
+    }
+
+    .event-nav-button:disabled:hover {
+      transform: none;
+    }
+
+    .event-detail-navigation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
       width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      display: block;
+      max-width: 620px;
+      margin-top: 0.25rem;
+    }
+
+    .gallery-navigation {
+      margin: 1rem auto 0;
     }
 
     .events-slider-nav {
@@ -300,8 +469,16 @@
     /* BOTTOM CTA SECTION                           */
     /* ============================================ */
     .partner-cta-section {
-      padding: 8rem 5% 7rem;
+      padding: 6rem 5% 6rem;
       background: #ffffff;
+    }
+
+    .partner-cta-section .section-header-center {
+      margin-bottom: 1.5rem;
+    }
+
+    .partner-cta-section .btn-action-pill {
+      margin-top: 0.75rem;
     }
 
     .btn-action-pill {
@@ -331,43 +508,58 @@
       box-shadow: 0 10px 20px rgba(255, 209, 0, 0.3);
     }
 
+     /* ============================================ */
+    /* HERO SECTION                                */
     /* ============================================ */
-    /* RESPONSIVE DESIGN                            */
-    /* ============================================ */
-    @media (max-width: 991.98px) {
-      .hero-new {
-        background:
-          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0) 100%),
-          url('assets/img/hero-carousel/lai-header-op2.png') center bottom no-repeat;
-        background-size: contain;
-        align-items: center;
-        text-align: center;
-      }
-      .hero-content {
-        align-items: center;
-        max-width: 100%;
-      }
-      .events-hero-shell { grid-template-columns: 1fr; }
+    
+    .hero-new {
+      min-height: 90vh;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
+        url('assets/img/hero-carousel/Event.png') right center no-repeat;
+      background-size: cover;
+      background-position: center right;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      padding: 11rem 5% 6rem;
+      color: var(--text-dark);
+      position: relative;
+    }
+
+    .hero-new::before {
+      display: none;
+    }
+
+    .hero-image {
+      display: none;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .hero-content {
+      max-width: 520px;
+      position: relative;
+      z-index: 1;
+      will-change: transform;
     }
     
     @media (max-width: 767.98px) {
       .hero-new {
-        min-height: auto;
-        background: #ffffff;
-        padding: 5.75rem 0 3.5rem;
-      }
-      .hero-image {
-        display: block;
-        width: 100%;
-        margin: 0 0 1.75rem;
-      }
-      .hero-content {
-        padding: 0 5%;
-      }
-      .hero-new h1 {
-        font-size: clamp(2rem, 9vw, 3rem);
-        line-height: 1.08;
-        margin-bottom: 1rem;
+        min-height: 68vh;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 55%, rgba(255,255,255,0) 100%),
+          url('assets/img/hero-carousel/Event.png') center center no-repeat;
+        background-size: cover;
+        background-position: center center;
       }
       .street-sign-divider {
         margin-left: auto;
@@ -376,8 +568,8 @@
       }
       .events-slider-shell { padding: 1rem 0; margin-top: 1.1rem; }
       .swiper-slide {
-        width: 180px;
-        height: 90px;
+        width: min(86vw, 400px);
+        height: 400px;
       }
       .luma-calendar-container iframe {
         height: 400px;
@@ -403,10 +595,10 @@
     <!-- ============================================ -->
     <section class="hero-new">
       <div class="hero-image">
-        <img src="assets/img/hero-carousel/lai-header-op2.png" alt="Lorong AI community with robots">
+        <img src="assets/img/hero-carousel/Event.png" alt="Lorong AI Events">
       </div>
       <div class="hero-content scroll-reveal">
-        <h1>Thoughtful events, curated for curious builders.</h1>
+        <h1>Thoughtful events, curated for curious builders</h1>
         <div class="street-sign-divider scroll-reveal delay-1"></div>
       </div>
     </section>
@@ -417,7 +609,7 @@
     <section class="events-layout-section">
       <div class="container">
         <!-- Fluid Header -->
-        <div class="section-header-center fluid-header-container">
+        <div class="section-header-center fluid-header-container" style="margin-bottom: 0.75rem;">
           <div class="fluid-header-inner text-center">
             <h2 class="scroll-reveal" style="opacity: 1; transform: none; transition: none;">
               <span class="flip-wrapper"><span class="flip-word flip-word-1">Events</span></span>
@@ -428,29 +620,78 @@
           </div>
         </div>
 
+        <p style="max-width: 900px; margin: 0 auto 4rem; text-align: center; color: var(--text-medium); font-size: 1.3rem; line-height: 1.8;">
+          Lorong AI hosts around five events weekly, offering food for thought for our community. 
+          Sessions range from Level 100 for beginner-friendly introductions to Level 300 for advanced technical deep dives.
+        </p>
+
+        <div class="event-level-filters" aria-label="Filter events by technical level">
+          <button class="event-level-filter is-active" type="button" data-level-filter="all" aria-pressed="true">All Events</button>
+          <button class="event-level-filter" type="button" data-level-filter="100" aria-pressed="false">Level 100</button>
+          <button class="event-level-filter" type="button" data-level-filter="200" aria-pressed="false">Level 200</button>
+          <button class="event-level-filter" type="button" data-level-filter="300" aria-pressed="false">Level 300</button>
+        </div>
+
         <div class="events-slider-shell scroll-reveal delay-1">
           
           <!-- Top Row (Scrolling Left) -->
           <div class="swiper events-products-swiper" id="events-products-swiper-1">
             <div class="swiper-wrapper">
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/aiw.png" alt="AI Wednesdays" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/cwm.png" alt="Co-working Mondays" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/ait.png" alt="AI ToolsDays" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/thurs.png" alt="ThursTalks" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/fridiys.png" alt="Fri-DIYs" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/tttt.png" alt="TinkerTime" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/pc.png" alt="Paper Club" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/praxis.png" alt="Praxis" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/chop.png" alt="ChopChop Talk Shop" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/gt.png" alt="Gotong" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/ctrl.png" alt="CTRL+SHIFT+CHANGE" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/off.png" alt="OFF SCRIPT" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/ole.png" alt="ole" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/nn.png" alt="nn" loading="lazy"></div></div>
-              <div class="swiper-slide"><div class="event-card"><img src="assets/img/events_logo/ad.png" alt="afterdark" loading="lazy"></div></div>
+              <div class="swiper-slide" data-event-name="AI Wednesdays" data-event-description="Weekly technical deep dives and practical insights." data-event-technical="Level 200 to Level 300" data-event-range="3">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/aiw.png" alt="AI Wednesdays" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Co-working Mondays" data-event-description="Casual meetups for networking, lunch, and talks." data-event-technical="Open to All Levels" data-event-range="1">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/cwm.png" alt="Co-working Mondays" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="AI ToolsDays" data-event-description="Live demos showing how different industries use AI." data-event-technical="Level 100" data-event-range="1">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/ait.png" alt="AI ToolsDays" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="ThursTalks" data-event-description="Curated dialogue series for focused deep dives." data-event-technical="Open to All Levels" data-event-range="3">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/thurs.png" alt="ThursTalks" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Fri-DIYs" data-event-description="Hands-on workshop series for guided project building." data-event-technical="Level 200 to Level 300" data-event-range="3">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/fridiys.png" alt="Fri-DIYs" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="TinkerTime" data-event-description="Collaborative meetups for guided exploration and troubleshooting." data-event-technical="Level 100 to Level 200" data-event-range="2">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/tttt.png" alt="TinkerTime" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Paper Club" data-event-description="Community meetup to discuss the latest AI research." data-event-technical="Level 200 to Level 300" data-event-range="3">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/pc.png" alt="Paper Club" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Praxis" data-event-description="Researcher-led discussions on applied AI topics." data-event-technical="Level 300" data-event-range="3">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/praxis.png" alt="Praxis" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="ChopChop Talk Shop" data-event-description="Fast-paced talk series to share ideas and experiences." data-event-technical="Open for All Levels" data-event-range="2">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/chop.png" alt="ChopChop Talk Shop" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Gotong Royong" data-event-description="Collaborative troubleshooting series to solve challenges." data-event-technical="Open for All Levels" data-event-range="1">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/gt.png" alt="Gotong" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="CTRL+SHIFT+CHANGE" data-event-description="Discussion for leaders navigating AI adoption and strategy." data-event-technical="Level 200" data-event-range="3">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/ctrl.png" alt="CTRL+SHIFT+CHANGE" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="OFF SCRIPT" data-event-description="Candid discussions exploring AI, design, and society." data-event-technical="Level 100" data-event-range="1">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/off.png" alt="OFF SCRIPT" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Out of Lorong Experience" data-event-description="Tech lab tours for members to learn and spark collaborations." data-event-technical="Level 100 to 200" data-event-range="2">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/ole.png" alt="ole" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="Neural Networking" data-event-description="Relaxed meetup for members across the AI ecosystem." data-event-technical="Members Only" data-event-range="4">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/nn.png" alt="nn" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-event-name="After Dark" data-event-description="Evening meetups for the AI community to share ideas." data-event-technical="Level 100 to Level 200" data-event-range="2">
+                <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/ad.png" alt="afterdark" loading="lazy"></div>
             </div>
           </div>
-          
+        </div>
+
+        <div class="event-detail-navigation gallery-navigation" aria-label="Event navigation">
+          <button class="event-nav-button nav-prev" id="event-nav-prev" type="button" aria-label="Previous event" title="Previous event">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button class="event-nav-button nav-next" id="event-nav-next" type="button" aria-label="Next event" title="Next event">
+            <i class="bi bi-chevron-right"></i>
+          </button>
         </div>
       </div>
     </section>
@@ -470,7 +711,7 @@
               <span class="flip-wrapper"><span class="flip-word flip-word-4">Lorong</span></span>
               <span class="flip-wrapper"><span class="flip-word flip-word-5">AI</span></span>
             </h2>
-            <p class="mx-auto mt-3 scroll-reveal delay-1">Stay up-to-date with our weekly AI community events.</p>
+            <p class="mx-auto mt-3 scroll-reveal delay-1" style="font-size: 1.3rem;">Stay up-to-date with our weekly AI community events.</p>
           </div>
         </div>
 
@@ -501,20 +742,13 @@
         <!-- Fluid Header Text -->
         <div class="section-header-center fluid-header-container mb-4">
           <div class="fluid-header-inner mx-auto" style="max-width: 800px;">
-            <h2 class="scroll-reveal" style="opacity: 1; transform: none; transition: none;">
-              <span class="flip-wrapper"><span class="flip-word flip-word-1">Interested</span></span>
-              <span class="flip-wrapper"><span class="flip-word flip-word-2">in</span></span>
-              <span class="flip-wrapper"><span class="flip-word flip-word-3">becoming</span></span>
-              <span class="flip-wrapper"><span class="flip-word flip-word-4">a</span></span>
-              <span class="flip-wrapper"><span class="flip-word flip-word-5">programming</span></span>
-              <span class="flip-wrapper"><span class="flip-word flip-word-6">partner?</span></span>
-            </h2>
+            <h2 class="scroll-reveal" style="opacity: 1; transform: none; transition: none;">Start a Conversation</h2>
           </div>
         </div>
 
         <!-- Action Button -->
         <div class="scroll-reveal delay-1">
-          <a href="#get-involved" class="btn-action-pill">Get Involved Here</a>
+          <a href="https://go.gov.sg/lai-collaborate" class="btn-action-pill" target="_blank" rel="noopener noreferrer">Collaborate with Us!</a>
         </div>
       </div>
     </section>
@@ -592,6 +826,51 @@
       }
       window.addEventListener('scroll', () => { if (!ticking) { window.requestAnimationFrame(updateScrollAnimations); ticking = true; } });
       updateScrollAnimations();
+
+      const eventCardImages = {
+        'AI Wednesdays': 'assets/img/eventcardwebp/aiw_pic.webp',
+        'Co-working Mondays': 'assets/img/eventcardwebp/cwm_pic.webp',
+        'AI ToolsDays': 'assets/img/eventcardwebp/toools_pic.webp',
+        'ThursTalks': 'assets/img/eventcardwebp/thurs_pic.webp',
+        'Fri-DIYs': 'assets/img/eventcardwebp/fridiy_pic.webp',
+        'TinkerTime': 'assets/img/eventcardwebp/tinker_pic.webp',
+        'Paper Club': 'assets/img/eventcardwebp/paperclub_pic.webp',
+        'Praxis': 'assets/img/eventcardwebp/praxis_pic.webp',
+        'ChopChop Talk Shop': 'assets/img/eventcardwebp/chopchop_pic.webp',
+        'Gotong Royong': 'assets/img/eventcardwebp/gotong_pic.webp',
+        'CTRL+SHIFT+CHANGE': 'assets/img/eventcardwebp/ctrl_pic.webp',
+        'OFF SCRIPT': 'assets/img/eventcardwebp/script_pic.webp',
+        'Out of Lorong Experience': 'assets/img/eventcardwebp/ole_pic.jpeg',
+        'Neural Networking': 'assets/img/eventcardwebp/nn_pic.webp',
+        'After Dark': 'assets/img/eventcardwebp/afterdark_pic.webp'
+      };
+
+      document.querySelectorAll('#events-products-swiper-1 .swiper-slide').forEach(slide => {
+        const eventName = slide.dataset.eventName || '';
+        const card = slide.querySelector('.event-card');
+        const logo = card && card.querySelector('img');
+        const imageSource = eventCardImages[eventName];
+        if (!card || !logo || !imageSource) return;
+
+        const backgroundImage = document.createElement('img');
+        backgroundImage.className = 'event-card-image';
+        backgroundImage.src = imageSource;
+        backgroundImage.alt = `${eventName} event`;
+        backgroundImage.loading = 'lazy';
+
+        logo.className = 'event-card-logo';
+        logo.alt = `${eventName} logo`;
+
+        const info = document.createElement('div');
+        info.className = 'event-card-info';
+        info.innerHTML = '<h3></h3><p></p><span class="event-card-level"></span>';
+        info.querySelector('h3').textContent = eventName;
+        info.querySelector('p').textContent = slide.dataset.eventDescription || '';
+        info.querySelector('.event-card-level').textContent = slide.dataset.eventTechnical || '';
+
+        card.replaceChildren(backgroundImage, info, logo);
+      });
+
     });
 
     // 3. Swiper Continuous Auto-Roll Initialization
@@ -601,17 +880,61 @@
           spaceBetween: 24,
           centeredSlides: true,
           speed: 2000,
-          autoplay: {
-            delay: 0,
-            disableOnInteraction: false,
-          },
           loop: true,
           slidesPerView: 'auto',
           allowTouchMove: false, // Prevents dragging from breaking the smooth loop
         };
 
         // Top Row - Scrolls Normal (Left)
-        new Swiper('#events-products-swiper-1', marqueeSettings);
+
+        const eventFilterButtons = document.querySelectorAll('[data-level-filter]');
+        const eventSlider = document.querySelector('#events-products-swiper-1');
+        const eventWrapper = eventSlider.querySelector('.swiper-wrapper');
+        const sourceSlides = Array.from(eventWrapper.children).map(slide => slide.cloneNode(true));
+        let eventSwiper;
+
+        function getEventLevels(slide) {
+          const technicalText = slide.dataset.eventTechnical || '';
+          const levels = new Set();
+          const explicitLevels = technicalText.match(/Level (100|200|300)/g) || [];
+          explicitLevels.forEach(level => levels.add(level.replace('Level ', '')));
+
+          if (/Beginner/i.test(technicalText)) levels.add('100');
+          if (/Intermediate/i.test(technicalText)) levels.add('200');
+          if (/Advanced/i.test(technicalText)) levels.add('300');
+
+          return levels;
+        }
+
+        function applyEventFilter(selectedLevel) {
+          const matchingSlides = sourceSlides.filter(slide => selectedLevel === 'all' || getEventLevels(slide).has(selectedLevel));
+          eventWrapper.replaceChildren(...matchingSlides.map(slide => slide.cloneNode(true)));
+          if (eventSwiper) eventSwiper.destroy(true, true);
+          eventSwiper = new Swiper('#events-products-swiper-1', marqueeSettings);
+          window.eventLevelSwiper = eventSwiper;
+        }
+
+        eventFilterButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const selectedLevel = button.dataset.levelFilter;
+            eventFilterButtons.forEach(filterButton => {
+              const isActive = filterButton === button;
+              filterButton.classList.toggle('is-active', isActive);
+              filterButton.setAttribute('aria-pressed', String(isActive));
+            });
+            applyEventFilter(selectedLevel);
+          });
+        });
+        eventSwiper = new Swiper('#events-products-swiper-1', marqueeSettings);
+        window.eventLevelSwiper = eventSwiper;
+        const navPrevBtn = document.getElementById('event-nav-prev');
+        const navNextBtn = document.getElementById('event-nav-next');
+        if (navPrevBtn) {
+          navPrevBtn.addEventListener('click', () => window.eventLevelSwiper.slidePrev());
+        }
+        if (navNextBtn) {
+          navNextBtn.addEventListener('click', () => window.eventLevelSwiper.slideNext());
+        }
       }
     });
   </script>

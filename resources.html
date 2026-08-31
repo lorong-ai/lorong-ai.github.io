@@ -141,9 +141,10 @@
     .hero-new {
       min-height: 90vh;
       background:
-        linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
-        url('assets/img/hero-carousel/lai-header-op2.png') right center no-repeat;
-      background-size: contain;
+        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.98) 40%, rgba(255,255,255,0.78) 58%, rgba(255,255,255,0) 83%),
+        url('assets/img/hero-carousel/Resources.png') right center no-repeat;
+      background-size: cover;
+      background-position: center right;
       background-color: #ffffff;
       display: flex;
       flex-direction: column;
@@ -240,6 +241,14 @@
       border-bottom: 1px solid rgba(0,0,0,0.08);
       text-align: left;
       position: relative;
+      gap: 1rem;
+    }
+
+    .toolbar-left {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
     }
 
     .filter-toggle-btn {
@@ -275,6 +284,39 @@
 
     .filter-toggle-btn.has-active .filter-count {
       display: inline-block;
+    }
+
+    .resource-search-wrap {
+      display: inline-flex;
+      align-items: center;
+      min-width: min(280px, 40vw);
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 999px;
+      padding: 0.38rem 0.86rem;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
+    }
+
+    .resource-search-wrap svg {
+      width: 17px;
+      height: 17px;
+      color: var(--text-light);
+      flex: none;
+    }
+
+    .resource-search-wrap input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      padding-left: 0.55rem;
+    }
+
+    .resource-search-wrap input::placeholder {
+      color: var(--text-light);
     }
 
     .results-count {
@@ -616,32 +658,50 @@
     .lightbox-prev { left: 2rem; }
     .lightbox-next { right: 2rem; }
 
+    
+     /* ============================================ */
+    /* HERO SECTION                                */
     /* ============================================ */
-    /* RESPONSIVE DESIGN                            */
-    /* ============================================ */
-    @media (max-width: 767.98px) {
-      .hero-new {
-        min-height: auto;
-        background: #ffffff;
-        align-items: center;
-        text-align: center;
-        padding: 5.75rem 0 3.5rem;
-      }
-      .hero-image {
-        display: block;
-        width: 100%;
-        margin: 0 0 1.75rem;
-      }
-      .hero-content {
-        max-width: 100%;
-        padding: 0 5%;
-        align-items: center;
-      }
-      .hero-new h1 {
-        font-size: clamp(2rem, 9vw, 3rem);
-        line-height: 1.08;
-        margin-bottom: 1rem;
-      }
+    
+    .hero-new {
+      min-height: 90vh;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
+        url('assets/img/hero-carousel/Resources.png') right center no-repeat;
+      background-size: cover;
+      background-position: center right;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      padding: 11rem 5% 6rem;
+      color: var(--text-dark);
+      position: relative;
+    }
+
+    .hero-new::before {
+      display: none;
+    }
+
+    .hero-image {
+      display: none;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .hero-content {
+      max-width: 520px;
+      position: relative;
+      z-index: 1;
+      will-change: transform;
+    }
       .street-sign-divider {
         margin-left: auto;
         margin-right: auto;
@@ -667,7 +727,6 @@
         top: -2.6rem;
         right: 0;
       }
-    }
   </style>
 </head>
 
@@ -686,10 +745,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ============================================ -->
     <section class="hero-new">
       <div class="hero-image">
-        <img src="assets/img/hero-carousel/lai-header-op2.png" alt="Lorong AI community with robots">
+        <img src="assets/img/hero-carousel/Resources.png" alt="Lorong AI Resources from Past Events">
       </div>
       <div class="hero-content scroll-reveal">
-        <h1>Purposefully chosen essentials.</h1>
+        <h1>Purposefully chosen essentials</h1>
         <div class="street-sign-divider scroll-reveal delay-1"></div>
       </div>
     </section>
@@ -713,14 +772,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Infographics: Shop-Style Filterable Card System -->
         <div class="resource-block scroll-reveal delay-1">
           <h3 class="column-subheader">Lorong AI Infographics</h3>
-          <p class="resource-desc">Browse recaps from past Lorong AI sessions. Tap FILTER to narrow by topic, or click any card to view the full infographic.</p>
+          <p class="resource-desc" style="font-size: 1.3rem;">Browse recaps from past Lorong AI sessions.</p>
 
           <div class="infographics-toolbar">
-            <button type="button" class="filter-toggle-btn" id="filter-toggle-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="14" y2="6"></line><circle cx="17" cy="6" r="2.2"></circle><line x1="10" y1="12" x2="20" y2="12"></line><circle cx="7" cy="12" r="2.2"></circle><line x1="4" y1="18" x2="14" y2="18"></line><circle cx="17" cy="18" r="2.2"></circle></svg>
-              FILTER
-              <span class="filter-count" id="filter-count">0</span>
-            </button>
+            <div class="toolbar-left">
+              <button type="button" class="filter-toggle-btn" id="filter-toggle-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="14" y2="6"></line><circle cx="17" cy="6" r="2.2"></circle><line x1="10" y1="12" x2="20" y2="12"></line><circle cx="7" cy="12" r="2.2"></circle><line x1="4" y1="18" x2="14" y2="18"></line><circle cx="17" cy="18" r="2.2"></circle></svg>
+                FILTER
+                <span class="filter-count" id="filter-count">0</span>
+              </button>
+
+              <label class="resource-search-wrap" for="resource-search-input">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="search" id="resource-search-input" aria-label="Search infographics" placeholder="Search by keyword">
+              </label>
+            </div>
             <span class="results-count" id="results-count"></span>
           </div>
 
@@ -945,6 +1014,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const filterPanel = document.getElementById('filter-panel');
       const tagChipRow = document.getElementById('tag-chip-row');
       const filterClearBtn = document.getElementById('filter-clear-btn');
+      const searchInput = document.getElementById('resource-search-input');
 
       const lightboxOverlay = document.getElementById('lightbox-overlay');
       const lightboxImage = document.getElementById('lightbox-image');
@@ -1022,9 +1092,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
 
       function renderGrid() {
+        const searchTerm = (searchInput.value || '').trim().toLowerCase();
+
         grid.innerHTML = '';
         visibleItems = INFOGRAPHICS.filter(item => {
-          return activeTags.size === 0 || item.tags.some(t => activeTags.has(t));
+          const matchesTags = activeTags.size === 0 || item.tags.some(t => activeTags.has(t));
+          const searchableText = [item.title, ...(item.tags || [])]
+            .join(' ')
+            .toLowerCase();
+          const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
+
+          return matchesTags && matchesSearch;
         });
 
         visibleItems.forEach((item) => {
@@ -1092,6 +1170,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         activeTags.clear();
         tagChipRow.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
         updateFilterCount();
+        renderGrid();
+      });
+
+      searchInput.addEventListener('input', () => {
         renderGrid();
       });
 

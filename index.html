@@ -13,8 +13,8 @@
 </script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Lorong AI - Where Problems Get Solved</title>
-  <meta name="description" content="From prompt to deployment, AI comes to life here. Join Singapore's premier hub for AI problem solvers.">
+  <title>Lorong AI - A Community of AI Problem Solvers</title>
+  <meta name="description" content="From prompt to production, AI comes to life here. Join Singapore's premier hub for AI problem solvers.">
   <meta name="keywords" content="AI, problem solvers, Singapore, events, networking, community, Lorong AI, artificial intelligence, tech hub, collaboration">
   <meta property="og:title" content="Lorong AI - Where AI Innovation Thrives">
   <meta property="og:description" content="Join Singapore's premier community of AI problem solvers. Connect with 16,000+ members.">
@@ -28,7 +28,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -104,7 +104,8 @@
       background:
         linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
         url('assets/img/hero-carousel/lai-header-op2.png') right center no-repeat;
-      background-size: contain;
+      background-size: cover;
+      background-position: center right;
       background-color: #ffffff;
       display: flex;
       flex-direction: column;
@@ -175,6 +176,7 @@
     .section-header-center {
       text-align: center;
       margin-bottom: 5rem;
+        margin-bottom: 3.5rem;
       z-index: 10;
     }
 
@@ -197,6 +199,7 @@
     
     .members-section {
       padding: 12rem 5% 10rem;
+      padding: 4rem 5% 2rem;
       background: var(--members-bg); 
     }
 
@@ -206,7 +209,15 @@
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      padding: 1rem 0;
+      padding: 0;
+    }
+
+    .members-section .section-header-center {
+      margin-bottom: 1rem;
+    }
+
+    .members-section .section-header-center p {
+      font-size: 1.3rem;
     }
 
     .sushi-belt {
@@ -297,30 +308,139 @@
     }
 
     /* ============================================ */
+    /* LORONG KAKI BENEFITS SECTION                */
+    /* ============================================ */
+
+    .kaki-section {
+      padding: 4rem 5% 5rem;
+      background: #ffffff;
+    }
+
+    .kaki-section .section-header-center {
+      margin-bottom: 2.5rem;
+    }
+
+    .kaki-showcases {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1.25rem, 3vw, 2.5rem);
+      width: min(100%, 1160px);
+      margin: 0 auto;
+    }
+
+    .kaki-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      opacity: 0;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .kaki-showcase.is-visible {
+      opacity: 1;
+    }
+
+    .kaki-showcase--from-left.is-visible {
+      animation: kaki-tumble-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .kaki-showcase--from-right.is-visible {
+      animation: kaki-tumble-in-right 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .kaki-showcase:nth-child(2).is-visible {
+      animation: kaki-tumble-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes kaki-tumble-in-left {
+      from {
+        transform: translateX(-14%) rotate(-5deg);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0) rotate(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes kaki-tumble-in-right {
+      from {
+        transform: translateX(14%) rotate(5deg);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0) rotate(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes kaki-tumble-in-up {
+      from {
+        transform: translateY(14%) scale(0.96);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .kaki-showcase-image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1.35 / 1;
+      height: auto;
+      object-fit: cover;
+      border: 5px solid #b9e3c5;
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .kaki-benefit {
+      width: 100%;
+      padding: 0 0.35rem;
+      text-align: center;
+    }
+
+    .kaki-benefit h3 {
+      margin: 0 0 0.65rem;
+      color: var(--text-dark);
+      font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .kaki-benefit p {
+      margin: 0;
+      color: var(--text-medium);
+      font-family: inherit;
+      line-height: 1.55;
+    }
+
+    .kaki-benefit ul {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    .kaki-benefit li {
+      margin-bottom: 0.75rem;
+      color: var(--text-medium);
+      line-height: 1.65;
+    }
+
+    /* ============================================ */
     /* TESTIMONIALS (Hand-Fan Deck Spread Style)   */
     /* ============================================ */
     
     .testimonials-section {
       position: relative;
-      height: 130vh;
       background: var(--bg-light);
-    }
-
-    .testimonials-sticky {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      padding-top: 2rem;
+      padding: 5rem 5% 6rem;
     }
 
     .testimonials-header {
       text-align: center;
-      margin-bottom: 5rem;
+      margin-bottom: 2.5rem;
       z-index: 10;
     }
 
@@ -331,35 +451,79 @@
       letter-spacing: -0.02em;
     }
 
-    .deck-container {
+    .testimonials-swiper {
       position: relative;
-      width: 500px;
-      height: 280px;
+      width: min(1100px, 100%);
       margin: 0 auto;
+      padding: 0 4rem 3rem;
     }
 
-    .t-card {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 24px;
-      padding: 2.2rem 2.5rem;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+    .testimonial-card {
+      height: auto;
       display: flex;
       flex-direction: column;
-      will-change: transform;
+      justify-content: space-between;
+      border-radius: 24px;
+      padding: 2rem 1.75rem;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
       border: 1px solid rgba(0,0,0,0.04);
-      transform-origin: center bottom;
-      transition: margin-top 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      min-height: 340px;
+      max-height: 340px;
     }
 
-    .t-card:hover {
-      z-index: 100 !important;
-      margin-top: -20px;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.2) !important;
-      cursor: pointer;
+    .testimonial-card p {
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.6;
+      margin: 0 0 auto 0;
+      letter-spacing: -0.01em;
+    }
+
+    .testimonial-card--dark {
+      background: #1a1a1c;
+      color: #fff;
+    }
+
+    .testimonial-card--dark .t-stars { color: var(--primary-yellow); }
+    .testimonial-card--dark .author-avatar { background: #333; color: #fff; }
+
+    .testimonial-card--green {
+      background: #eef7f1;
+      color: #111;
+    }
+
+    .testimonial-card--green .t-stars { color: var(--primary-green); }
+    .testimonial-card--green .author-avatar { background: #139B48; color: #fff; }
+
+    .testimonial-card--yellow {
+      background: var(--primary-yellow);
+      color: #111;
+    }
+
+    .testimonial-card--yellow .t-stars { color: #d19a00; }
+    .testimonial-card--yellow .author-avatar { background: #111; color: #FFD100; }
+
+    .testimonial-card--white {
+      background: #ffffff;
+      border: 2px solid var(--primary-green);
+      color: #111;
+    }
+
+    .testimonial-card--white .t-stars { color: var(--primary-yellow); }
+    .testimonial-card--white .author-avatar { background: var(--primary-green); color: #fff; }
+
+    .testimonial-card--brand {
+      background: var(--primary-green);
+      color: #fff;
+    }
+
+    .testimonial-card--brand .t-stars { color: var(--primary-yellow); }
+    .testimonial-card--brand .author-avatar { background: #fff; color: var(--primary-green); }
+
+    .testimonial-card--green p,
+    .testimonial-card--yellow p,
+    .testimonial-card--white p {
+      color: #3f3f3f;
     }
 
     .t-stars {
@@ -367,14 +531,6 @@
       gap: 3px;
       font-size: 1.1rem;
       margin-bottom: 1rem;
-    }
-
-    .t-card p {
-      font-size: 1.15rem;
-      font-weight: 500;
-      line-height: 1.5;
-      margin: 0 0 auto 0;
-      letter-spacing: -0.01em;
     }
 
     .author-row {
@@ -395,6 +551,7 @@
       font-weight: 700;
       font-size: 1.1rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      flex-shrink: 0;
     }
 
     .author-info strong {
@@ -417,46 +574,48 @@
       opacity: 0.15;
     }
 
-    .t-card-1 {
-      background-color: #1a1a1c;
-      color: #fff;
-      z-index: 1;
+    .testimonials-swiper .swiper-pagination {
+      bottom: 0;
     }
-    .t-card-1 .t-stars { color: var(--primary-yellow); }
-    .t-card-1 .author-avatar { background: #333; color: #fff; }
 
-    .t-card-2 {
-      background-color: #eef7f1; 
-      color: #111;
-      z-index: 2;
+    .testimonials-swiper .swiper-pagination-bullet {
+      background: rgba(19, 155, 72, 0.35);
+      opacity: 1;
+      width: 10px;
+      height: 10px;
     }
-    .t-card-2 .t-stars { color: var(--primary-green); }
-    .t-card-2 .author-avatar { background: #139B48; color: #fff; }
 
-    .t-card-3 {
-      background-color: var(--primary-yellow); 
-      color: #111;
-      z-index: 3;
+    .testimonials-swiper .swiper-pagination-bullet-active {
+      background: var(--primary-green);
     }
-    .t-card-3 .t-stars { color: #d19a00; }
-    .t-card-3 .author-avatar { background: #111; color: #FFD100; }
 
-    .t-card-4 {
-      background-color: #ffffff; 
-      border: 2px solid var(--primary-green);
-      color: #111;
-      z-index: 4;
+    .testimonials-swiper .swiper-button-next,
+    .testimonials-swiper .swiper-button-prev {
+      color: var(--primary-green);
+      top: 50%;
+      bottom: auto;
+      transform: translateY(-50%);
+      z-index: 20;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
     }
-    .t-card-4 .t-stars { color: var(--primary-yellow); }
-    .t-card-4 .author-avatar { background: var(--primary-green); color: #fff; }
 
-    .t-card-5 {
-      background-color: var(--primary-green); 
-      color: #fff;
-      z-index: 5;
+    .testimonials-swiper .swiper-button-next {
+      right: 0.25rem;
     }
-    .t-card-5 .t-stars { color: var(--primary-yellow); }
-    .t-card-5 .author-avatar { background: #fff; color: var(--primary-green); }
+
+    .testimonials-swiper .swiper-button-prev {
+      left: 0.25rem;
+    }
+
+    .testimonials-swiper .swiper-button-next::after,
+    .testimonials-swiper .swiper-button-prev::after {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
 
     /* ============================================ */
     /* CONTENT CARDS (Replaced Terminals)           */
@@ -464,6 +623,7 @@
     
     .problem-solvers-section {
       padding: 8rem 5% 7rem;
+        padding: 5rem 5% 4.5rem;
       background: #fcfcfc; 
       color: var(--text-dark);
     }
@@ -474,7 +634,51 @@
 
     .problem-solvers-section .section-header-center p {
       color: var(--text-medium);
-      font-size: 1.25rem;
+      font-size: 1.3rem;
+    }
+
+    .problem-solvers-intro {
+      position: relative;
+      margin-bottom: 3rem !important;
+    }
+
+    .problem-solvers-intro::after {
+      content: '';
+      position: absolute;
+      top: calc(100% + 0.75rem);
+      left: 50%;
+      width: 2px;
+      height: 3rem;
+      background: #d6d6d6;
+      opacity: 1;
+      transform: translateX(-50%);
+    }
+
+    .problem-solvers-section .content-grid {
+      position: relative;
+    }
+
+    .problem-solvers-section .content-grid::before {
+      content: '';
+      position: absolute;
+      top: -1.5rem;
+      left: 25%;
+      width: 50%;
+      height: 2px;
+      background: #d6d6d6;
+      opacity: 1;
+    }
+
+    .problem-solvers-section .content-grid::after {
+      content: '';
+      position: absolute;
+      top: -1.5rem;
+      left: 25%;
+      width: 50%;
+      height: 0.75rem;
+      border-left: 2px solid #d6d6d6;
+      border-right: 2px solid #d6d6d6;
+      opacity: 1;
     }
 
     .content-grid {
@@ -503,6 +707,214 @@
     .content-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+    }
+
+    .problem-solver-card {
+      position: relative;
+      padding: 1.25rem;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .problem-solver-card--builders {
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .problem-solver-card--adopters {
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .problem-solver-card:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .problem-solver-card-header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: 150px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 2.25rem;
+      color: var(--text-dark);
+      text-align: center;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .problem-solver-card-body li {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .problem-solver-card.is-visible .problem-solver-card-header,
+    .problem-solver-card.is-visible .problem-solver-card-body li {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .problem-solver-card.is-visible .problem-solver-card-header {
+      transition-delay: 0.1s;
+    }
+
+    .problem-solver-card.is-visible .problem-solver-card-body li:nth-child(1) {
+      transition-delay: 0.3s;
+    }
+
+    .problem-solver-card.is-visible .problem-solver-card-body li:nth-child(2) {
+      transition-delay: 0.5s;
+    }
+
+    .problem-solver-card.is-visible .problem-solver-card-body li:nth-child(3) {
+      transition-delay: 0.7s;
+    }
+
+    .problem-solver-card-header h3 {
+      margin: 0;
+      font-size: clamp(1.15rem, 2.2vw, 1.85rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #000000;
+      white-space: nowrap;
+    }
+
+    .problem-solver-card-header p {
+      margin: 0.65rem auto 0;
+      max-width: 38rem;
+      color: var(--text-medium);
+      line-height: 1.6;
+    }
+
+    .problem-solver-card-body {
+      position: relative;
+      flex: 1;
+      padding: 1.5rem 0 0;
+    }
+
+    .problem-solver-card-body::before {
+      content: '';
+      position: absolute;
+      top: -1.5rem;
+      bottom: 4.5rem;
+      left: 50%;
+      width: 2px;
+      background: currentColor;
+      opacity: 0.22;
+      transform: translateX(-50%);
+    }
+
+    .problem-solver-card--builders .problem-solver-card-body {
+      background: transparent;
+    }
+
+    .problem-solver-card--builders .problem-solver-card-header {
+      background: #eef8f1;
+    }
+
+    .problem-solver-card--adopters .problem-solver-card-body {
+      background: transparent;
+    }
+
+    .problem-solver-card--adopters .problem-solver-card-header {
+      background: #ffffff;
+    }
+
+    .problem-solver-card-description {
+      max-width: 38rem;
+      margin: 0 auto 1.5rem;
+      color: var(--text-medium);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .problem-solver-card-body ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .problem-solver-card-body li {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1rem;
+      padding: 1.25rem 1.4rem;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+      color: var(--text-medium);
+      line-height: 1.65;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .problem-solver-card-body li strong,
+    .problem-solver-card-body li {
+      text-align: left;
+    }
+
+    .problem-solver-card-body li:last-child {
+      margin-bottom: 0;
+    }
+
+    .problem-solver-card-body strong {
+      color: var(--text-dark);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .problem-solver-card--builders .problem-solver-card-header,
+    .problem-solver-card--builders .problem-solver-card-description {
+      background: #ffffff;
+    }
+
+    .problem-solver-card--builders .problem-solver-card-header {
+      border: 2px solid var(--primary-green);
+    }
+
+    .problem-solver-card--builders .problem-solver-card-body {
+      background: transparent;
+    }
+
+    .problem-solver-card--builders .problem-solver-card-body li {
+      background: #eef8f1;
+      border: 0;
+      border: 1px solid rgba(19, 155, 72, 0.2);
+    }
+
+    .problem-solver-card--builders .problem-solver-card-body li:last-child {
+      margin-bottom: 0;
+    }
+
+    .problem-solver-card--adopters .problem-solver-card-header,
+    .problem-solver-card--adopters .problem-solver-card-description {
+      background: #ffffff;
+    }
+
+    .problem-solver-card--adopters .problem-solver-card-header {
+      border: 2px solid var(--primary-yellow);
+    }
+
+    .problem-solver-card--adopters .problem-solver-card-body {
+      background: transparent;
+    }
+
+    .problem-solver-card--adopters .problem-solver-card-body li {
+      background: #fffbea;
+      border: 1px solid rgba(209, 154, 0, 0.25);
+    }
+
+    .problem-solver-card--adopters .problem-solver-card-body li:last-child {
+      margin-bottom: 0;
     }
 
     .content-card-body {
@@ -556,6 +968,7 @@
     
     .cta-section {
       padding: 8rem 5%;
+        padding: 5rem 5%;
       background: #ffffff; /* Clear white background */
       text-align: center;
       position: relative;
@@ -579,54 +992,23 @@
       font-weight: 700;
       color: var(--primary-black);
       line-height: 1.2;
-      margin-bottom: 3.5rem;
+      margin-bottom: 1.2rem;
       letter-spacing: -0.02em;
     }
     
-    /* Override standard scroll-reveal so we can use our custom odometer keyframe */
+    /* Keep the CTA headline static without any motion or transition */
+    .cta-title {
+      opacity: 1;
+      transform: none;
+      transition: none;
+      animation: none;
+    }
+
     .cta-title.scroll-reveal {
       opacity: 1 !important;
       transform: none !important;
       transition: none !important;
-    }
-
-    /* Odometer / Flip effect styles */
-    .flip-wrapper {
-      display: inline-block;
-      overflow: hidden; /* Masks the text before it rolls up */
-      vertical-align: bottom;
-      padding: 0.1em; /* Buffer for shadow/overshoot */
-      margin: -0.1em;
-    }
-
-    .flip-word {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(110%) rotateX(-45deg);
-      transform-origin: 50% 50%;
-      will-change: transform, opacity;
-    }
-
-    /* Triggers when the IntersectionObserver adds .is-visible */
-    .cta-title.is-visible .flip-word {
-      /* cubic-bezier adds that physical, snappy overshoot bounce */
-      animation: odometerRoll 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    }
-
-    /* Stagger the words for the mechanical feel */
-    .cta-title.is-visible .flip-word-1 { animation-delay: 0.0s; }
-    .cta-title.is-visible .flip-word-2 { animation-delay: 0.15s; }
-    .cta-title.is-visible .flip-word-3 { animation-delay: 0.3s; }
-
-    @keyframes odometerRoll {
-      0% {
-        transform: translateY(110%) rotateX(-60deg);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0) rotateX(0deg);
-        opacity: 1;
-      }
+      animation: none !important;
     }
 
     .cta-grid {
@@ -643,15 +1025,20 @@
       align-items: center;
       justify-content: flex-end;
       gap: 1.2rem;
-      flex: 0 1 350px;
+      flex: 0 1 520px;
     }
 
     .cta-card p {
+      max-width: 520px;
       font-size: 1.15rem;
       color: var(--text-dark);
       font-weight: 500;
       margin: 0;
       line-height: 1.5;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
     }
 
     /* Solid Green styling that turns Yellow on hover */
@@ -691,20 +1078,29 @@
     
     @media (max-width: 991px) {
       .content-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .problem-solvers-section .content-grid::before,
+      .problem-solvers-section .content-grid::after {
+        display: none;
+      }
       .hero-new h1 { font-size: clamp(2.2rem, 7vw, 3.2rem); }
       .hero-content { max-width: 100%; }
       .hero-new {
         background:
-          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0) 100%),
-          url('assets/img/hero-carousel/lai-header-op2.png') center bottom no-repeat;
-        background-size: contain;
+          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 52%, rgba(255,255,255,0) 100%),
+          url('assets/img/hero-carousel/lai-header-op2.png') center center no-repeat;
+        background-size: cover;
+        background-position: center center;
       }
     }
 
     @media (max-width: 768px) {
       .hero-new {
-        min-height: auto;
-        background: #ffffff;
+        min-height: 68vh;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 55%, rgba(255,255,255,0) 100%),
+          url('assets/img/hero-carousel/lai-header-op2.png') center center no-repeat;
+        background-size: cover;
+        background-position: center center;
         align-items: center;
         text-align: center;
         padding: 5.75rem 0 3.5rem;
@@ -763,8 +1159,8 @@
       }
       .t-card {
         position: relative;
-        padding: 1.5rem 1.5rem;
-        min-height: 250px;
+        padding: 1.75rem 1.75rem;
+        min-height: 280px;
         height: auto;
         border-radius: 8px;
       }
@@ -778,14 +1174,46 @@
         bottom: -5px;
       }
       .members-section {
-        padding: 8rem 5% 7rem;
+        padding: 4rem 5% 3rem;
+      }
+      .kaki-section {
+        padding: 3rem 5% 4rem;
+      }
+      .kaki-showcases {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .kaki-showcase {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+      }
+      .kaki-showcase-image {
+        height: 240px;
+        flex: 0 0 240px;
+      }
+      .kaki-benefit {
+        padding: 1.5rem;
+      }
+      .kaki-showcase:first-child .kaki-benefit {
+        order: 2;
+      }
+      .kaki-showcase:first-child .kaki-showcase-image,
+      .kaki-showcase:nth-child(2) .kaki-showcase-image,
+      .kaki-showcase:nth-child(2) .kaki-benefit {
+        order: 1;
+        grid-column: auto;
+        grid-row: auto;
+      }
+      .kaki-showcase:nth-child(2) .kaki-benefit {
+        order: 2;
       }
       .content-card { padding: 2rem 1.5rem; }
       .content-card-body { font-size: 1rem; }
       .term-line.highlight { font-size: 1.8rem; margin-bottom: 1rem; }
       .cta-section { padding: 4rem 5%; }
       .cta-grid { gap: 2rem; flex-direction: column; align-items: center; }
-      .cta-title { margin-bottom: 1.5rem; }
+      .cta-title { margin-bottom: 1.2rem; }
       .cta-card {
         justify-content: flex-start;
         gap: 0.85rem;
@@ -818,7 +1246,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-content scroll-reveal">
         
         <h1>
-          From prompt to deployment, AI comes to life here.
+          From prompt to production, AI comes to life here
         </h1>
         
         <div class="street-sign-divider scroll-reveal delay-1"></div>
@@ -838,72 +1266,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Scroll-linked fluid header container -->
         <div class="section-header-center fluid-header-container">
           <div class="fluid-header-inner">
-            <h2>A community of AI problem solvers.</h2>
-            <p>This means two things at once, by design:</p>
+            <h2>A Community of AI Problem Solvers</h2>
+            <p class="problem-solvers-intro">We connect both sides of the market at the same time.</p>
           </div>
         </div>
 
         <div class="content-grid">
-          <!-- Card 1 -->
-          <div class="content-card scroll-reveal delay-1">
-            <div class="content-card-body text-center">
-              <span class="term-line highlight">Solving AI problems</span>
-              <span class="term-line">Practitioners, researchers and builders</span>
-              <span class="term-line">pushing the limits of AI.</span>
+          <!-- Builders: solving AI problems -->
+          <div class="content-card problem-solver-card problem-solver-card--builders scroll-reveal delay-1">
+            <div class="problem-solver-card-header">
+              <h3>Solving AI Problems</h3>
+              <p>For practitioners, researchers, and builders pushing AI boundaries.</p>
+            </div>
+            <div class="problem-solver-card-body">
+              <ul>
+                <li><strong>Find your audience:</strong> Connect directly with the people who actually need and can use your solution.</li>
+                <li><strong>Build credibility, not just visibility:</strong> Establish trust within a nationally recognised community.</li>
+                <li><strong>Secure real partnerships:</strong> Focus on meaningful collaborations over collecting name cards.</li>
+              </ul>
             </div>
           </div>
 
-          <!-- Card 2 -->
-          <div class="content-card scroll-reveal delay-2">
-            <div class="content-card-body text-center">
-              <span class="term-line highlight">Solving problems with AI</span>
-              <span class="term-line">Agencies and enterprises looking to deploy AI</span>
-              <span class="term-line">against real problem statements.</span>
+          <!-- Adopters: solving problems with AI -->
+          <div class="content-card problem-solver-card problem-solver-card--adopters scroll-reveal delay-2">
+            <div class="problem-solver-card-header">
+              <h3>Solving Problems Using AI</h3>
+              <p>For agencies, enterprises, and teams looking to deploy AI.</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- 30-DAY PILOT SECTION (Rounded Cards)        -->
-    <!-- ============================================ -->
-    <section class="problem-solvers-section" style="background: #ffffff; padding-top: 4rem; padding-bottom: 6rem;">
-      <div class="container">
-        <!-- Scroll-linked fluid header container -->
-        <div class="section-header-center fluid-header-container">
-          <div class="fluid-header-inner">
-            <h2>Market Making</h2>
-              <p style="max-width: 800px; margin: 1rem auto 0; line-height: 1.6;">An engagement framework for organisations seeking to work with Singapore's AI ecosystem.</p>
-          </div>
-        </div>
-
-        <div class="content-grid" style="grid-template-columns: 1fr; max-width: 900px;">
-          <div class="content-card scroll-reveal delay-1">
-            <div class="content-card-body" style="align-items: flex-start; text-align: left;">
-              <span class="term-line" style="font-weight: 700; font-size: 1.25rem; margin-bottom: 1.8rem; color: var(--text-dark);">
-                This process supports organisations in:
-              </span>
-              
-              <div style="display: flex; flex-direction: column; gap: 1rem; width: 100%; margin-bottom: 2.5rem;">
-                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Refining problem statements</span>
-                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Engaging the broader AI community</span>
-                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Surfacing potential solution pathways</span>
-                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Connecting with relevant teams</span>
-                <span class="term-line"><i class="bi bi-check-circle-fill" style="color: var(--primary-green); margin-right: 12px; font-size: 1.2rem; vertical-align: middle;"></i> Building relationships that extend beyond the programme</span>
-              </div>
-
-              <div style="width: 100%; padding-top: 1.8rem; border-top: 1px solid #ece9e9;">
-                <span class="term-line" style="font-weight: 600; color: var(--primary-green); font-size: 1.15rem; line-height: 1.5;">
-                 We create opportunities for problem owners and practitioners to explore and solve real challenges together.
-                </span>
-              </div>
+            <div class="problem-solver-card-body">
+              <ul>
+                <li><strong>Connect with builders:</strong> Get curated introductions to practitioners, researchers, and builders with real solutions.</li>
+                <li><strong>See what's real:</strong> Evaluate live demos and practical use-cases firsthand.</li>
+                <li><strong>Sharpen your statement:</strong> Refine your challenge into a workable, high-impact problem statement.</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
-    
+
     <!-- ============================================ -->
     <!-- MEMBERS SECTION                             -->
     <!-- ============================================ -->
@@ -933,99 +1334,148 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- ============================================ -->
-    <!-- TESTIMONIALS (Phantom-Style 5-Card Deck)    -->
+    <!-- LORONG KAKI BENEFITS SECTION                 -->
+    <!-- ============================================ -->
+    <section class="kaki-section">
+      <div class="section-header-center fluid-header-container">
+        <div class="fluid-header-inner">
+          <h2>Why Should You Join Us?</h2>
+        </div>
+      </div>
+
+      <div class="kaki-showcases">
+        <div class="kaki-showcase kaki-showcase--from-left scroll-reveal delay-1">
+          <img class="kaki-showcase-image" src="assets/img/Building-Agent-with-Google.jpg" alt="Lorong AI community collaboration event">
+          <article class="kaki-benefit">
+            <h3>Community</h3>
+            <p>Access unique opportunities for collaborations across ecosystem.</p>
+          </article>
+        </div>
+
+        <div class="kaki-showcase scroll-reveal delay-2">
+          <img class="kaki-showcase-image" src="assets/img/OLE.png" alt="Lorong AI curated session event">
+          <article class="kaki-benefit">
+            <h3>Curated Access</h3>
+            <p>Join exclusive sessions on cutting-edge trends and spotlight exposure.</p>
+          </article>
+        </div>
+
+        <div class="kaki-showcase kaki-showcase--from-right scroll-reveal delay-3">
+          <img class="kaki-showcase-image" src="assets/img/ccts/cowork.jpg" alt="People working together in a Lorong AI coworking space">
+          <article class="kaki-benefit">
+            <h3>Coworking</h3>
+            <p>Flexible workspace options tailored to you and your team's needs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- TESTIMONIALS                                 -->
     <!-- ============================================ -->
     <section class="testimonials-section">
-      <div class="testimonials-sticky">
-        <div class="container">
-          <!-- Scroll-linked fluid header container -->
-          <div class="testimonials-header fluid-header-container">
-            <div class="fluid-header-inner">
-              <h2>Loved by the Ecosystem</h2>
-            </div>
+      <div class="container">
+        <div class="testimonials-header fluid-header-container">
+          <div class="fluid-header-inner">
+            <h2>Word(s) On The Street</h2>
           </div>
-          
-          <div class="deck-container mx-auto">
-            <!-- Card 1 (Bottom) -->
-            <div class="t-card t-card-1">
+        </div>
+
+        <div class="swiper testimonials-swiper">
+          <div class="swiper-wrapper">
+            <article class="swiper-slide testimonial-card testimonial-card--dark">
               <div class="t-stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
               </div>
-              <p>"The scale and focus of this community is unprecedented in Singapore. Lorong AI is exactly what we needed to bridge theory and practice."</p>
+              <p>"I liked the informal networking afterwards, which gave the opportunity for people to discuss things that may not formally be on the agenda"</p>
               <div class="author-row">
-                 <div class="author-avatar">J</div>
+                 <div class="author-avatar">C</div>
                  <div class="author-info">
-                   <strong>----</strong>
-                   <span>Deep Learning maybe</span>
+                   <strong>Chin</strong>
+                   <span>Attendee, ToolsDay ft. LTA</span>
                  </div>
                  <i class="bi bi-quote quote-icon"></i>
               </div>
-            </div>
-            
-            <!-- Card 2 -->
-            <div class="t-card t-card-2">
+            </article>
+
+            <article class="swiper-slide testimonial-card testimonial-card--green">
               <div class="t-stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
               </div>
-              <p>"-------------"</p>
+              <p>"Lorong AI helped us connect with other companies and facilitated many events for us to participate in. They’ve been great for startups like us looking to expand our network and customer pool."</p>
               <div class="author-row">
                  <div class="author-avatar">A</div>
                  <div class="author-info">
-                   <strong>---</strong>
-                   <span>-----</span>
+                   <strong>Razvan</strong>
+                   <span>CEO, GeoVector, Member</span>
                  </div>
                  <i class="bi bi-quote quote-icon"></i>
               </div>
-            </div>
-            
-            <!-- Card 3 -->
-            <div class="t-card t-card-3">
+            </article>
+
+            <article class="swiper-slide testimonial-card testimonial-card--white">
               <div class="t-stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
               </div>
-              <p>"Something about ACE Partnership"</p>
+              <p>"Very relatable and shared useful insights to learn amidst a changing tech landscape. The slides and comics are very well designed to illustrate the emotions and thoughts developers go through."</p>
+              <div class="author-row">
+                 <div class="author-avatar">A</div>
+                 <div class="author-info">
+                   <strong>Ashwin</strong>
+                   <span>Attendee</span>
+                 </div>
+                 <i class="bi bi-quote quote-icon"></i>
+              </div>
+            </article>
+
+            <article class="swiper-slide testimonial-card testimonial-card--yellow">
+              <div class="t-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>"Through an event co-organised with Lorong AI, we connected with key partners to research critical security topics. We look forward to continuing these collaborations with more agencies."</p>
               <div class="author-row">
                  <div class="author-avatar">M</div>
                  <div class="author-info">
-                   <strong>Mia?</strong>
-                   <span>Nora Parenting</span>
+                   <strong>Valerie</strong>
+                   <span>Program Manager, SASH, Member</span>
                  </div>
                  <i class="bi bi-quote quote-icon"></i>
               </div>
-            </div>
+            </article>
 
-            <!-- Card 4 -->
-            <div class="t-card t-card-4">
+            <article class="swiper-slide testimonial-card testimonial-card--white">
               <div class="t-stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
               </div>
-              <p>"Our team relies heavily on the shared infographics and recap notes. Lorong AI makes keeping up with AI progress manageable."</p>
+              <p>"Lorong AI has been my startup office and community since day one, helping me beat the loneliness of building a company. From product-market fit checks to casual chats, having this team by my side has been invaluable"</p>
               <div class="author-row">
                  <div class="author-avatar">S</div>
                  <div class="author-info">
-                   <strong>--------</strong>
-                   <span>---------</span>
+                   <strong>Mia</strong>
+                   <span>Founder, Nora AI, Member</span>
                  </div>
                  <i class="bi bi-quote quote-icon"></i>
               </div>
-            </div>
+            </article>
 
-            <!-- Card 5 (Top) -->
-            <div class="t-card t-card-5">
+            <article class="swiper-slide testimonial-card testimonial-card--brand">
               <div class="t-stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
               </div>
-              <p>"Lorong AI completely transformed the way our team approaches machine learning. The co-working space feels like home."</p>
+              <p>"I’ve had the chance to attend your events to stay updated on industry trends, and the networking opportunities are always great for finding the right partners and talent we need"</p>
               <div class="author-row">
                  <div class="author-avatar">D</div>
                  <div class="author-info">
-                   <strong>-------</strong>
-                   <span>----------------</span>
+                   <strong>Nicholas</strong>
+                   <span>Product Development Lead, CoFab, Member</span>
                  </div>
                  <i class="bi bi-quote quote-icon"></i>
               </div>
-            </div>
+            </article>
           </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </div>
     </section>
@@ -1040,26 +1490,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="cta-content fluid-header-container">
           <div class="fluid-header-inner">
             
-            <!-- Adding scroll-reveal triggers the odometer roll when in view -->
-            <h2 class="cta-title scroll-reveal">
-              <span class="flip-wrapper"><span class="flip-word flip-word-1">Join</span></span>
-              <span class="flip-wrapper"><span class="flip-word flip-word-2">the</span></span>
-              <span class="flip-wrapper"><span class="flip-word flip-word-3">Fam!</span></span>
-            </h2>
+            <h2 class="cta-title">Build with Us!</h2>
             
             <div class="cta-grid">
               
               <!-- Card 1: Member -->
               <div class="cta-card">
-                <p>Plug into the ecosystem and build the future of AI in Singapore.</p>
                 <a href="https://form.gov.sg/670cf4d58f92af4544f2721f" class="btn-action-pill">Become a Member</a>
               </div>
-              
-              <!-- Card 2: Speaker -->
-              <div class="cta-card">
-                <p>Have a real-world AI deployment story? The stage is yours.</p>
-                <a href="https://go.gov.sg/lai-collaborate" class="btn-action-pill">Collaborate with Us</a>
-              </div>
+            
 
             </div>
 
@@ -1209,7 +1648,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         populateTrack(track2, track2Data);
       }
 
-
       // --- ORIGINAL SCROLL REVEAL & PARALLAX ---
       
       // 1. Bidirectional Reveal on Scroll (For standard elements & odometer trigger)
@@ -1231,11 +1669,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       revealElements.forEach(el => revealObserver.observe(el));
 
-      // 2. Smooth Parallax, 5-Card Deck Effect, and Fluid Headers
+      // 2. Smooth Parallax and Fluid Headers
       const heroContent = document.querySelector('.hero-content');
       const parallaxImages = document.querySelectorAll('.parallax-img');
-      const tSection = document.querySelector('.testimonials-section');
-      const tCards = document.querySelectorAll('.t-card');
       const fluidContainers = document.querySelectorAll('.fluid-header-container');
       
       let lastScrollY = window.scrollY;
@@ -1308,53 +1744,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           }
         });
 
-        // --- Testimonial Deck 5-Card Spread ---
-        if (tSection && tCards.length === 5) {
-          if (window.innerWidth <= 768) {
-            tCards.forEach(card => {
-              card.style.transform = '';
-            });
-          } else {
-            const rect = tSection.getBoundingClientRect();
-
-            let progress = 0;
-            if (rect.top <= 0) {
-              progress = Math.min(1, Math.abs(rect.top) / (viewHeight * 0.25));
-            }
-
-            const easeP = 1 - Math.pow(1 - progress, 3);
-            const spreadX = window.innerWidth > 992 ? 260 : 180;
-            const spreadYMobile = 140;
-
-            for(let i=0; i<5; i++) {
-              const colScale = 0.8 + (i * 0.05);
-              const colY = (4 - i) * -12;
-
-              if (window.innerWidth <= 768) {
-                const targetY = (i - 2) * spreadYMobile;
-                const currentY = colY + (targetY - colY) * easeP;
-                const currentScale = colScale + (1 - colScale) * easeP;
-
-                tCards[i].style.transform = `translateY(${currentY}px) scale(${currentScale})`;
-              } else {
-                const indexOffset = i - 2;
-                const targetX = indexOffset * spreadX;
-                const targetY = Math.abs(indexOffset) * 35;
-                const targetRot = indexOffset * 6;
-
-                const currentX = targetX * easeP;
-                const currentY = colY + (targetY - colY) * easeP;
-                const currentScale = colScale + (1 - colScale) * easeP;
-                const currentRot = targetRot * easeP;
-
-                tCards[i].style.transform = `translate(${currentX}px, ${currentY}px) scale(${currentScale}) rotate(${currentRot}deg)`;
-              }
-            }
-          }
-        }
-
         ticking = false;
       }
+
+      // --- TESTIMONIAL CAROUSEL ---
+      const testimonialsSwiper = new Swiper('.testimonials-swiper', {
+        loop: true,
+        speed: 700,
+        autoplay: {
+          delay: 3500,
+          disableOnInteraction: false,
+        },
+        slidesPerView: 1,
+        spaceBetween: 24,
+        pagination: {
+          el: '.testimonials-swiper .swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.testimonials-swiper .swiper-button-next',
+          prevEl: '.testimonials-swiper .swiper-button-prev',
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 24,
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 28,
+          }
+        }
+      });
 
       window.addEventListener('scroll', () => {
         lastScrollY = window.scrollY;

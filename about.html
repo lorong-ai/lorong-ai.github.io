@@ -24,8 +24,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -52,6 +51,7 @@
       /* Timeline specific colors */
       --timeline-bg: #ffffff; 
       --timeline-text: #139b47;
+      --timeline-border: rgba(19, 155, 72, 0.28);
     }
 
     body {
@@ -139,8 +139,9 @@
       min-height: 90vh;
       background:
         linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0) 55%),
-        url('') right center no-repeat;
-      background-size: contain;
+        url('assets/img/hero-carousel/Community.png') right center no-repeat;
+      background-size: cover;
+      background-position: center right;
       background-color: #ffffff;
       display: flex;
       flex-direction: column;
@@ -179,6 +180,10 @@
       text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
     }
 
+    .hero-new h1 .hero-title-line {
+      white-space: nowrap;
+    }
+
     .street-sign-divider {
       width: 100px;
       height: 3px; 
@@ -193,9 +198,10 @@
     @media (max-width: 991.98px) {
       .hero-new {
         background:
-          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0) 100%),
-          url('assets/img/hero-carousel/lai-header-op2.png') center bottom no-repeat;
-        background-size: contain;
+          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.82) 52%, rgba(255,255,255,0) 100%),
+          url('assets/img/hero-carousel/Community.png') center center no-repeat;
+        background-size: cover;
+        background-position: center center;
         align-items: center;
         text-align: center;
       }
@@ -207,8 +213,12 @@
     
     @media (max-width: 767.98px) {
       .hero-new {
-        min-height: auto;
-        background: #ffffff;
+        min-height: 68vh;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 55%, rgba(255,255,255,0) 100%),
+          url('assets/img/hero-carousel/Community.png') center center no-repeat;
+        background-size: cover;
+        background-position: center center;
         padding: 5.75rem 0 3.5rem;
       }
       .hero-image {
@@ -232,216 +242,330 @@
     }
 
     /* ============================================ */
-    /* HORIZONTAL SCROLL TIMELINE SECTION           */
+    /* VERTICAL TIMELINE ROADMAP SECTION            */
     /* ============================================ */
-    .horizontal-timeline-section {
-      height: 500vh;
-      position: relative;
-      background-color: var(--timeline-bg);
-    }
-
-    .timeline-sticky-container {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-    }
-
-    /* Gravel Road Timeline Replacement */
-    .h-timeline-road {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      background-image: url('assets/img/road.png');
-      background-color: #4a4a4a; /* Fallback */
-      background-size: contain; 
-      background-position: center;
-      background-repeat: repeat-x; 
-      border-top: 3px solid #d3d3d3;
-      box-shadow: inset 0 10px 15px -10px rgba(0,0,0,0.5);
-      z-index: 50; 
-    }
-
-    .h-progress-car-wrapper {
-      height: 100%;
-      width: 0%;
-      max-width: calc(100% - 80px);
-      transition: width 0.1s ease-out;
-      position: relative;
-    }
-    
-    .h-progress-car {
-      position: absolute;
-      right: -30px; 
-      bottom: 18px; 
-      font-size: 3.2rem; 
-      line-height: 1;
-      filter: drop-shadow(3px 5px 4px rgba(0,0,0,0.4));
-      transform: scaleX(-1); 
-      z-index: 51;
-    }
-
-    .horizontal-scroll-wrapper {
-      display: flex;
-      align-items: center;
-      will-change: transform;
-      height: 100%;
-      width: 400vw;
-    }
-
-    .h-slide-block {
-      width: 100vw; 
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    .vertical-timeline-section {
+      background-color: #ffffff;
+      padding: 8rem 5% 7rem;
       position: relative;
       overflow: hidden;
-      padding-bottom: 80px; 
     }
 
-    .h-slide-content {
-      width: 88%; 
-      max-width: 1300px;
-      display: flex;
-      gap: 6%; 
-      align-items: center;
-      justify-content: space-between;
+    .vertical-timeline-title {
+      text-align: center;
+      margin-bottom: 2rem;
     }
 
-    /* Left Column Styling */
-    .h-slide-left {
-      flex: 0 0 42%; 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .h-year-wrapper {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-    }
-
-    .h-huge-year {
-      font-size: clamp(6rem, 10vw, 10rem);
-      font-weight: 900;
-      line-height: 0.85;
-      color: var(--text-dark);
-      letter-spacing: -0.04em;
-      margin-bottom: -1rem; 
-      z-index: 10;
-      position: relative;
-      text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
-    }
-
-    .h-year-img {
-      width: 100%;
-      max-width: 450px;
-      height: 320px;
-      object-fit: cover;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-      border-radius: 12px;
-      border: 6px solid #fff;
-      z-index: 2;
-    }
-
-    /* Right Column Styling & Text */
-    .h-slide-right {
-      flex: 0 0 52%; 
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-    }
-
-    /* Clean Text Panel without borders */
-    .text-panel {
-      padding: 1rem 0;
-      max-width: 650px;
-      position: relative;
-      z-index: 3;
-    }
-
-    .text-panel .h-slide-subtitle {
-      font-size: 1.1rem;
+    .vertical-timeline-title h2 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
       font-weight: 700;
-      color: var(--primary-green); 
-      margin-bottom: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      display: block;
-    }
-
-    .text-panel p.h-slide-desc {
-      color: var(--text-medium);
-      font-size: 1.15rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .text-panel h2 {
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      font-weight: 800;
-      line-height: 1.25;
       color: var(--text-dark);
       letter-spacing: -0.02em;
       margin: 0;
     }
 
-    /* Intro Slide specific override */
-    .h-intro .h-slide-content {
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-    }
-    .h-intro h2 {
-      font-size: clamp(3rem, 6vw, 5rem);
-      font-weight: 900;
-      color: var(--text-dark);
-      line-height: 1.1;
-    }
-    .h-intro p {
-      font-size: 1.25rem;
-      opacity: 0.8;
-      margin-top: 1rem;
-      color: var(--text-dark);
+    .vertical-timeline-title p {
+      color: var(--text-medium);
+      font-size: 1rem;
+      margin: 1rem auto 0;
+      max-width: 720px;
     }
 
-    /* Mobile adjustments */
-    @media (max-width: 768px) {
-      .h-slide-content {
-        flex-direction: column;
-        justify-content: center;
-        gap: 2.5rem;
-        width: 90%;
+    .vertical-timeline-roadmap {
+      position: relative;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .vertical-timeline-roadmap::before {
+      content: "";
+      position: absolute;
+      top: 1rem;
+      bottom: 2rem;
+      left: 50%;
+      width: 1px;
+      transform: translateX(-50%);
+      background: rgba(43, 43, 40, 0.7);
+      z-index: 0;
+    }
+
+    .tl-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 92px minmax(0, 1fr);
+      align-items: center;
+      min-height: 430px;
+      margin-bottom: 0;
+      z-index: 1;
+    }
+
+    .tl-row::before {
+      content: "";
+      position: absolute;
+      inset: 2rem 0;
+      background: rgba(255, 241, 170, 0.62);
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      z-index: -1;
+    }
+
+    .tl-row.is-visible::before {
+      opacity: 1;
+    }
+
+    .tl-row:nth-child(even) .tl-panel {
+      grid-column: 1;
+      grid-row: 1;
+      text-align: right;
+    }
+
+    .tl-row:nth-child(even) .tl-panel .tl-kicker {
+      justify-content: flex-end;
+    }
+
+    .tl-row:nth-child(even) .tl-image-panel {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    .tl-row:nth-child(odd) .tl-panel {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    .tl-row:nth-child(odd) .tl-image-panel {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .tl-panel {
+      position: relative;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 2rem;
+      box-shadow: none;
+      opacity: 0;
+      transform: translateY(50px) scale(0.98);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .tl-row.is-visible .tl-panel {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .tl-panel h3 {
+      font-size: clamp(1.7rem, 2.8vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.12;
+      max-width: 22ch;
+      text-wrap: balance;
+      margin: 0 0 1rem;
+    }
+
+    .tl-panel h3 .tl-title-line {
+      display: block;
+    }
+
+    .tl-panel p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: var(--text-medium);
+      margin: 0;
+    }
+
+    .tl-panel .tl-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 1.05rem;
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: 0.08em;
+      color: var(--primary-green);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      padding: 0;
+      border-radius: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .tl-row:nth-child(odd) .tl-panel::after {
+      content: "";
+      position: absolute;
+      left: -46px;
+      width: 46px;
+      height: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(43, 43, 40, 0.7);
+      z-index: -1;
+    }
+
+    .tl-row:nth-child(odd) .tl-panel::before,
+    .tl-row:nth-child(even) .tl-panel::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary-green);
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 1px var(--timeline-border);
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .tl-row:nth-child(odd) .tl-panel::before {
+      left: -5px;
+    }
+
+    .tl-row:nth-child(even) .tl-panel::before {
+      right: -5px;
+    }
+
+    .tl-row:nth-child(even) .tl-panel::after {
+      content: "";
+      position: absolute;
+      right: -46px;
+      width: 46px;
+      height: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(43, 43, 40, 0.7);
+      z-index: -1;
+    }
+
+    .tl-image-panel {
+      grid-column: 1 / span 3;
+      grid-row: 1;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(36px) scale(0.98);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .tl-row.is-visible .tl-image-panel {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .tl-destination {
+      display: none;
+    }
+
+    .tl-year-stamp {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .tl-year-number {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 900;
+      color: var(--text-dark);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .tl-image-panel .tl-image {
+      width: 100%;
+      max-width: 420px;
+      min-height: 270px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 6px solid #ffffff;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.24), 0 0 0 1px rgba(0,0,0,0.12);
+      opacity: 0;
+      transform: scale(0.96);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .tl-row.is-visible .tl-image-panel .tl-image {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @media (max-width: 991px) {
+      .vertical-timeline-roadmap::before {
+        left: 34px;
       }
-      .h-slide-left, .h-slide-right {
-        flex: 1 1 auto;
+
+      .tl-row::before {
+        inset: 1rem 0;
       }
-      .h-timeline-road {
-        height: 60px;
+
+      .tl-row {
+        grid-template-columns: 44px minmax(0, 1fr);
+        align-items: start;
       }
-      .h-progress-car {
-        font-size: 2.5rem;
-        bottom: 12px;
-        right: -25px;
+
+      .tl-row .tl-panel,
+      .tl-row:nth-child(even) .tl-panel,
+      .tl-row:nth-child(odd) .tl-panel,
+      .tl-row .tl-image-panel,
+      .tl-row:nth-child(even) .tl-image-panel,
+      .tl-row:nth-child(odd) .tl-image-panel {
+        grid-column: 2;
+        grid-row: auto;
       }
-      .h-slide-block {
-        padding-bottom: 60px;
+
+      .tl-row .tl-image-panel {
+        justify-content: flex-start;
       }
-      .h-huge-year {
-        font-size: 5rem;
+
+      .tl-row:nth-child(odd) .tl-panel::after,
+      .tl-row:nth-child(even) .tl-panel::after {
+        left: -10px;
+        right: auto;
+        width: 10px;
+        height: 2px;
       }
-      .h-year-img {
-        height: 220px;
+
+      .tl-row:nth-child(odd) .tl-panel::before,
+      .tl-row:nth-child(even) .tl-panel::before {
+        left: -5px;
+        right: auto;
+      }
+
+      .tl-destination {
+        position: relative;
+        left: 0;
+        margin-left: -6px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .vertical-timeline-section {
+        padding: 5rem 1rem;
+      }
+
+      .tl-row {
+        grid-template-columns: 50px minmax(0, 1fr);
+      }
+
+      .tl-panel {
+        padding: 1.5rem;
+        text-align: left;
+      }
+
+      .tl-panel .tl-kicker {
+        justify-content: flex-start;
+      }
+
+      .tl-image-panel .tl-image {
+        min-height: 200px;
       }
     }
 
@@ -620,14 +744,9 @@
   </style>
 </head>
 
-<body class="about-page">
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGRVTMZC"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<body class="contact-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+  <div id="header-placeholder"></div>
 
   <main class="main">
 
@@ -637,158 +756,122 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="hero-new">
       <!-- Included hero-image div for mobile support -->
       <div class="hero-image">
-        <img src="assets/img/hero-carousel/lai-header-op2.png" alt="Lorong AI community with robots">
+        <img src="assets/img/hero-carousel/Community.png" alt="Lorong AI community with robots">
       </div>
       <div class="hero-content scroll-reveal">
-        <h1>A Community of Communities.</h1>
+        <h1><span class="hero-title-line">A Community of</span><br><span class="hero-title-line">Communities</span></h1>
         <div class="street-sign-divider scroll-reveal delay-1"></div>
       </div>
     </section>
 
     <!-- ============================================ -->
-    <!-- HORIZONTAL SCROLL TIMELINE SECTION           -->
+    <!-- VERTICAL TIMELINE ROADMAP SECTION           -->
     <!-- ============================================ -->
-    <section class="horizontal-timeline-section" id="horizontal-timeline">
-      <div class="timeline-sticky-container">
-        
-        <!-- The Gravel Road and Car -->
-        <div class="h-timeline-road">
-          <div class="h-progress-car-wrapper" id="h-progress-fill">
-            <div class="h-progress-car">🚗</div>
-          </div>
-        </div>
-
-        <div class="horizontal-scroll-wrapper" id="h-scroll-wrapper">
-          
-          <!-- Slide 1: Intro -->
-          <div class="h-slide-block h-intro">
-            <div class="h-slide-content">
-              <h2>Lorong throughout the years.</h2>
-              <p>(sorry the car is just a placeholder...)</p>
-            </div>
-          </div>
-
-          <!-- Slide 2: 2024 -->
-          <div class="h-slide-block">
-            <div class="h-slide-content">
-              <div class="h-slide-left">
-                <div class="h-year-wrapper">
-                  <span class="h-huge-year">2024</span>
-                  <img src="assets/img/hero-carousel/mddi-tt.jpeg" alt="Lorong AI 2024" class="h-year-img">
-                </div>
-              </div>
-              <div class="h-slide-right">
-                <div class="text-panel">
-                  <p class="h-slide-desc">In 2024, our dream of bringing AI practitioners together started as casual "AI Wednesdays".</p>
-                  <h2>We launched our first community gathering in Funan(or mddi?) to share ideas and foster connections.</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 3: 2025 -->
-          <div class="h-slide-block">
-            <div class="h-slide-content">
-              <div class="h-slide-left">
-                <div class="h-year-wrapper">
-                  <span class="h-huge-year">2025</span>
-                  <!-- Fill in your image path in the src below -->
-                  <img src="" alt=" image for 2025" class="h-year-img">
-                </div>
-              </div>
-              <div class="h-slide-right">
-                <div class="text-panel">
-                  <p class="h-slide-desc">In 2025, we realised that an occasional meetup wasn't enough to sustain the momentum.</p>
-                  <h2>We moved Lorong AI to Chinatown at 22X, establishing a dedicated co-working space for builders.</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 4: 2026 -->
-          <div class="h-slide-block">
-            <div class="h-slide-content">
-              <div class="h-slide-left">
-                <div class="h-year-wrapper">
-                  <span class="h-huge-year">2026</span>
-                  <img src="assets/img/hero-carousel/one-north-tt.jpeg" alt="Lorong AI 2026" class="h-year-img">
-                </div>
-              </div>
-              <div class="h-slide-right">
-                <div class="text-panel">
-                  <p class="h-slide-desc">In 2026, we expanded to One-North to be at the physical center of the Singapore tech ecosystem and Kampung AI.</p>
-                  <h2>With our own space, we run over 5 events weekly, catering to people from all backgrounds.</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
+    <section class="vertical-timeline-section" id="vertical-timeline">
+      <div class="vertical-timeline-title">
+        <h2>The Heart of Lorong AI</h2>
+        <p style="font-size: 1.3rem;">Tracing our path from a single room to a vibrant movement fueled by connection and shared passion.</p>
       </div>
-    </section>
 
-    <!-- ============================================ -->
-    <!-- VALUE PROPOSITIONS SECTION                   -->
-    <!-- ============================================ -->
-    <section class="value-props-section">
-      <div class="container">
-        
-        <div class="vp-group">
-          <div class="section-header-center fluid-header-container">
-            <div class="fluid-header-inner">
-              <h2>For those solving problems with AI</h2>
-            </div>
+      <div class="vertical-timeline-roadmap">
+        <article class="tl-row timeline-step">
+          <div class="tl-image-panel">
+            <div class="tl-destination" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></div>
           </div>
-          <div class="cards-spread-container scroll-trigger-spread">
-            <div class="prop-card-wrapper">
-              <div class="prop-card">
-                <h3>We connect you to the those who can solve your problem</h3>
-                <p>Tell us your problem and we curate the introductions.</p>
-              </div>
-            </div>
-            <div class="prop-card-wrapper">
-              <div class="prop-card">
-                <h3>We put what's real in front of you</h3>
-                <p>Live demos by the people who built them, vetted by a community that asks hard questions.</p>
-              </div>
-            </div>
-            <div class="prop-card-wrapper">
-              <div class="prop-card">
-                <h3>We help you sharpen the problem before you spend on it</h3>
-                <p>Curation and co-learning turn pain points into a workable problem statement.</p>
-              </div>
-            </div>
+          <div class="tl-panel">
+            <h3>Where It All Began</h3>
+            <span class="tl-kicker">February 2024</span>
+            <p>Launched AI Wednesdays at Old Hill Street Police Station (#01-06), bringing AI practitioners together.</p>
           </div>
-        </div>
+          <div class="tl-image-panel">
+            <img src="assets/img/hero-carousel/mddi-tt.jpeg" alt="Lorong AI WEDNESDAYS" class="tl-image">
+          </div>
+        </article>
 
-        <div class="vp-group">
-          <div class="section-header-center fluid-header-container">
-            <div class="fluid-header-inner">
-              <h2>For those solving AI problems</h2>
-            </div>
+        <article class="tl-row timeline-step">
+          <div class="tl-image-panel">
+            <div class="tl-destination" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></div>
           </div>
-          <div class="cards-spread-container scroll-trigger-spread">
-            <div class="prop-card-wrapper">
-              <div class="prop-card">
-                <h3>We put you in front of people with real problems</h3>
-                <p>Curated exposure to adopters, partners and problem owners with mandates and budgets.</p>
-              </div>
-            </div>
-            <div class="prop-card-wrapper">
-              <div class="prop-card">
-                <h3>We build your credibility, not just your visibility</h3>
-                <p>Demo, teach and contribute in a nationally recognised community.</p>
-              </div>
-            </div>
-            <div class="prop-card-wrapper">
-              <div class="prop-card">
-                <h3>We broker partnerships, not name-card stacks</h3>
-                <p>Introductions across government, industry and research designed to convert into pilots and deployments.</p>
-              </div>
-            </div>
+          <div class="tl-panel">
+            <h3>First Co-Working Space</h3>
+            <span class="tl-kicker">January 2025</span>
+            <p>Launched Lorong AI at 22 Cross Street, providing a dedicated space for members across the ecosystem.</p>
           </div>
-        </div>
 
+          <div class="tl-image-panel">
+            <img src="assets/img/hero-carousel/Cross.JPG" alt="Lorong AI cOWORKING" class="tl-image">
+          </div>
+        </article>
+
+        <article class="tl-row timeline-step">
+          <div class="tl-image-panel">
+            <div class="tl-destination" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></div>
+          </div>
+          <div class="tl-panel">
+            <h3>Member Showcase</h3>
+            <span class="tl-kicker">October 2025</span>
+            <p>First public showcase at SWITCH, helping our members reach a broader audience.</p>
+          </div>
+          <div class="tl-image-panel">
+            <img src="assets/img/hero-carousel/LIA-SWITCH.jpg" alt="Lorong AI at SWITCH" class="tl-image">
+          </div>
+        </article>
+
+        <article class="tl-row timeline-step">
+          <div class="tl-image-panel">
+            <div class="tl-destination" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></div>
+          </div>
+          <div class="tl-panel">
+            <h3>First Out of Lorong Experience</h3>
+            <span class="tl-kicker">December 2025</span>
+            <p>Our members visited SEA Group for our first OLE to learn how they scale AI and connect with others.</p>
+          </div>
+          <div class="tl-image-panel">
+            <img src="assets/img/hero-carousel/OLE-SEA.jpeg" alt="Lorong AI OLE" class="tl-image">
+          </div>
+        </article>
+
+        <article class="tl-row timeline-step">
+          <div class="tl-image-panel">
+            <div class="tl-destination" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></div>
+          </div>
+          <div class="tl-panel">
+            <h3>Expanding to one-north</h3>
+            <span class="tl-kicker">February 2026</span>
+            <p>Expanded to Singapore's tech hub with a dedicated space, hosting five weekly events.</p>
+          </div>
+          <div class="tl-image-panel">
+            <img src="assets/img/hero-carousel/one-north.jpg" alt="Lorong AI One-North" class="tl-image">
+          </div>
+        </article>
+
+        <article class="tl-row timeline-step">
+          <div class="tl-image-panel">
+            <div class="tl-destination" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></div>
+          </div>
+          <div class="tl-panel">
+            <h3>First Market Making</h3>
+            <span class="tl-kicker">July 2026</span>
+            <p>Launched our market-making strategy by connecting LTA with AI builders to solve real-world challenges.</p>
+          </div>
+          <div class="tl-image-panel">
+            <img src="assets/img/hero-carousel/LTA.JPG" alt="Lorong AI market-making ecosystem event with LTA" class="tl-image">
+          </div>
+        </article>
+
+        <article class="tl-row timeline-step">
+          <div class="tl-image-panel">
+            <div class="tl-destination" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></div>
+          </div>
+          <div class="tl-panel">
+            <h3>Bringing It All to one-north</h3>
+            <span class="tl-kicker">September 2026</span>
+            <p>Bringing all our energy and community together at our one-north as we say goodbye to 22 Cross Street.</p>
+          </div>
+          <div class="tl-image-panel">
+            <img src="assets/img/hero-carousel/bring.jpg" alt="Lorong AI One-North" class="tl-image">
+          </div>
+        </article>
       </div>
     </section>
 
@@ -804,7 +887,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="flip-wrapper"><span class="flip-word flip-word-2">Asked</span></span>
               <span class="flip-wrapper"><span class="flip-word flip-word-3">Questions</span></span>
             </h2>
-            <p class="mx-auto mt-3">Learn more about our community and how things work at Lorong AI.</p>
+            <p class="mx-auto mt-3" style="font-size: 1.3rem;">Learn more about our community and how things work at Lorong AI.</p>
           </div>
         </div>
         
@@ -848,7 +931,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="flip-wrapper"><span class="flip-word flip-word-1">Our</span></span>
               <span class="flip-wrapper"><span class="flip-word flip-word-2">Locations</span></span>
             </h2>
-            <p class="mx-auto mt-3">Where to find us in Singapore.</p>
+            <p class="mx-auto mt-3" style="font-size: 1.3rem;">Where to find us in Singapore.</p>
           </div>
         </div>
 
@@ -955,106 +1038,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   </script>
 
-  <!-- HORIZONTAL SCROLL TIMELINE WITH SNAPPING AND FINAL HOLD -->
+  <!-- VERTICAL TIMELINE REVEAL SCRIPT -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const hSection = document.getElementById('horizontal-timeline');
-      const hWrapper = document.getElementById('h-scroll-wrapper');
-      const hProgressFill = document.getElementById('h-progress-fill');
-      
-      let hTicking = false;
-      let snapTimeout;
+      const timelineRows = document.querySelectorAll('.timeline-step');
 
-      function easeInOutQuad(t) {
-        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+      if (timelineRows.length) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+            } else {
+              entry.target.classList.remove('is-visible');
+            }
+          });
+        }, {
+          root: null,
+          rootMargin: '0px 0px -12% 0px',
+          threshold: 0.45
+        });
+
+        timelineRows.forEach(row => revealObserver.observe(row));
       }
-
-      function updateHorizontalScroll() {
-        if (!hSection || !hWrapper) return;
-        
-        const rect = hSection.getBoundingClientRect();
-        const scrollableDistance = rect.height - window.innerHeight;
-        
-        let progress = 0; 
-
-        if (rect.top <= 0 && rect.top >= -scrollableDistance) {
-          progress = Math.abs(rect.top) / scrollableDistance;
-        } else if (rect.top < -scrollableDistance) {
-          progress = 1;
-        }
-
-        const numSlides = 4;
-        const pauseRatio = 0.65; 
-        const maxIndex = numSlides - 1; // 3
-        const numSegments = 4; // 3 transitions + 1 end hold segment
-        
-        const progressScaled = progress * numSegments;
-        const currentIndex = Math.min(Math.floor(progressScaled), maxIndex);
-        const segmentProgress = progressScaled - Math.floor(progressScaled);
-
-        let slideTransition = 0;
-        
-        // Only apply a sliding transition if we are not in the final "hold" segment
-        if (currentIndex < maxIndex && segmentProgress > pauseRatio) {
-          const transitionProgress = (segmentProgress - pauseRatio) / (1 - pauseRatio);
-          slideTransition = easeInOutQuad(transitionProgress);
-        }
-
-        const currentTranslate = (currentIndex + slideTransition) * window.innerWidth;
-        hWrapper.style.transform = `translateX(-${currentTranslate}px)`;
-        
-        if (hProgressFill) {
-            // Calculate progress line so it hits 100% right as we hit the final hold segment
-            const lineProgress = Math.min(progress * (numSegments / maxIndex), 1);
-            hProgressFill.style.width = `${lineProgress * 100}%`;
-        }
-
-        hTicking = false;
-      }
-
-      window.addEventListener('scroll', () => {
-        if (!hTicking) {
-          window.requestAnimationFrame(updateHorizontalScroll);
-          hTicking = true;
-        }
-        
-        // --- AUTO-SNAP LOGIC ---
-        clearTimeout(snapTimeout);
-        snapTimeout = setTimeout(() => {
-          const hSection = document.getElementById('horizontal-timeline');
-          if (!hSection) return;
-          
-          const rect = hSection.getBoundingClientRect();
-          const scrollableDistance = rect.height - window.innerHeight;
-          
-          // Only snap if you are fully inside the timeline block (allow smooth entry/exit)
-          if (rect.top <= 0 && rect.top > -(scrollableDistance - 10)) {
-              const progress = Math.abs(rect.top) / scrollableDistance;
-              
-              // Allow free scrolling in the final "hold" zone so they can exit downwards naturally
-              if (progress > 0.8) return; 
-
-              // Defined parking spots: Intro, 2024, 2025, 2026
-              const snapPoints = [0, 0.25, 0.5, 0.75];
-              
-              // Find the closest parking spot to current progress
-              let closest = snapPoints.reduce((prev, curr) => 
-                Math.abs(curr - progress) < Math.abs(prev - progress) ? curr : prev
-              );
-
-              // Calculate exact pixel position on page for that spot
-              const targetY = (window.scrollY + rect.top) + (closest * scrollableDistance);
-              
-              // Smooth scroll to the spot if you're not already precisely there
-              if (Math.abs(window.scrollY - targetY) > 5) {
-                window.scrollTo({ top: targetY, behavior: 'smooth' });
-              }
-          }
-        }, 120); // Waits 120 milliseconds after you stop scrolling to snap
-      });
-      
-      updateHorizontalScroll();
-      window.addEventListener('resize', updateHorizontalScroll);
     });
   </script>
 </body>
