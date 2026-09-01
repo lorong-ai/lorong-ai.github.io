@@ -451,8 +451,12 @@
       padding: 0 4rem 3rem;
     }
 
+    .testimonials-swiper .swiper-wrapper {
+      align-items: stretch;
+    }
+
     .testimonial-card {
-      height: auto;
+      height: 360px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -460,8 +464,6 @@
       padding: 2rem 1.75rem;
       box-shadow: 0 12px 35px rgba(0,0,0,0.08);
       border: 1px solid rgba(0,0,0,0.04);
-      min-height: 340px;
-      max-height: 340px;
     }
 
     .testimonial-card p {
@@ -1083,6 +1085,23 @@
           url('assets/img/hero-carousel/lai-header-op2.png') center center no-repeat;
         background-size: cover;
         background-position: center center;
+      }
+
+      /* Tablet tuning for testimonial cards */
+      .testimonials-swiper {
+        padding: 0 3.5rem 3rem;
+      }
+      .testimonial-card {
+        padding: 1.75rem 1.5rem;
+        height: 380px;
+      }
+      .testimonial-card p {
+        font-size: 1rem;
+      }
+      .author-avatar {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
       }
     }
 
