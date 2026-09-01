@@ -1095,12 +1095,8 @@
 
     @media (max-width: 768px) {
       .hero-new {
-        min-height: 68vh;
-        background:
-          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 55%, rgba(255,255,255,0) 100%),
-          url('assets/img/hero-carousel/lai-header-op2.png') center center no-repeat;
-        background-size: cover;
-        background-position: center center;
+        min-height: 0;
+        background: none;
         align-items: center;
         text-align: center;
         padding: 5.75rem 0 3.5rem;
@@ -1114,6 +1110,7 @@
         display: block;
         width: 100%;
         height: auto;
+        object-fit: contain;
         border-radius: 0;
       }
       .hero-content {
