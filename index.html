@@ -122,14 +122,7 @@
     }
 
     .hero-image {
-      display: none;
-    }
-
-    .hero-image img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
+      display: none !important;
     }
 
     .hero-content {
@@ -1095,22 +1088,15 @@
 
     @media (max-width: 768px) {
       .hero-new {
-        min-height: auto;
-        background: #ffffff;
+        min-height: 68vh;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 55%, rgba(255,255,255,0) 100%),
+          url('assets/img/hero-carousel/lai-header-op2.png') center center no-repeat;
+        background-size: cover;
+        background-position: center center;
         align-items: center;
         text-align: center;
         padding: 5.75rem 0 3.5rem;
-      }
-      .hero-image {
-        display: block;
-        width: 100%;
-        margin: 0 0 1.75rem;
-      }
-      .hero-image img {
-        display: block;
-        width: 100%;
-        height: auto;
-        border-radius: 0;
       }
       .hero-content {
         padding: 0 5%;
