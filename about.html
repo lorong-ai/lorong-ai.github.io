@@ -492,14 +492,23 @@
       }
 
       .tl-row::before {
-        inset: 1rem 0;
+        inset: 0;
       }
 
       .tl-row {
         grid-template-columns: 44px minmax(0, 1fr);
         align-items: start;
         min-height: 0;
-        padding-bottom: 1rem;
+        padding: 1.5rem 0;
+      }
+
+      .tl-row:not(:last-child) {
+        margin-bottom: 1.5rem;
+      }
+
+      .tl-image-panel .tl-image {
+        max-width: 260px;
+        min-height: 170px;
       }
 
       .tl-row .tl-panel,
@@ -516,21 +525,14 @@
         justify-content: flex-start;
       }
 
-      .tl-row .tl-image-panel:has(.tl-image) {
-        margin-top: 1rem;
+      .tl-row:nth-child(even) .tl-panel,
+      .tl-row:nth-child(odd) .tl-panel {
+        text-align: left;
       }
 
-      .tl-image-panel .tl-image {
-        max-width: 100%;
-        min-height: 220px;
-      }
-
-      .tl-panel h3 {
-        font-size: clamp(1.5rem, 4vw, 2rem);
-      }
-
-      .tl-panel p {
-        font-size: 1.05rem;
+      .tl-row:nth-child(even) .tl-panel .tl-kicker,
+      .tl-row:nth-child(odd) .tl-panel .tl-kicker {
+        justify-content: flex-start;
       }
 
       .tl-row:nth-child(odd) .tl-panel::after,
@@ -556,20 +558,29 @@
 
     @media (max-width: 767px) {
       .vertical-timeline-section {
-        padding: 5rem 1rem;
+        padding: 6rem 1rem 4rem;
+      }
+
+      .vertical-timeline-title {
+        margin-bottom: 2.5rem;
       }
 
       .tl-row {
         grid-template-columns: 50px minmax(0, 1fr);
+        padding: 1.25rem 0;
+      }
+
+      .tl-row:not(:last-child) {
+        margin-bottom: 1.25rem;
       }
 
       .tl-panel {
-        padding: 1.25rem 1.5rem;
+        padding: 1.25rem;
         text-align: left;
       }
 
       .tl-panel h3 {
-        font-size: clamp(1.35rem, 5vw, 1.75rem);
+        font-size: clamp(1.35rem, 5vw, 1.7rem);
       }
 
       .tl-panel p {
@@ -578,42 +589,40 @@
 
       .tl-panel .tl-kicker {
         justify-content: flex-start;
-        font-size: 0.92rem;
+        font-size: 0.95rem;
       }
 
       .tl-image-panel .tl-image {
-        min-height: 180px;
-        border-width: 4px;
+        min-height: 140px;
+        max-width: 220px;
       }
     }
 
     @media (max-width: 480px) {
       .tl-row {
-        grid-template-columns: 32px minmax(0, 1fr);
+        padding: 1rem 0;
+      }
+
+      .tl-row:not(:last-child) {
+        margin-bottom: 1rem;
       }
 
       .tl-panel {
-        padding: 1rem 1.1rem;
+        padding: 1rem;
       }
 
       .tl-panel h3 {
-        font-size: clamp(1.2rem, 6vw, 1.5rem);
-        margin-bottom: 0.6rem;
+        font-size: clamp(1.2rem, 6vw, 1.45rem);
       }
 
       .tl-panel p {
         font-size: 0.92rem;
-        line-height: 1.5;
-      }
-
-      .tl-panel .tl-kicker {
-        font-size: 0.82rem;
-        margin-bottom: 0.5rem;
       }
 
       .tl-image-panel .tl-image {
-        min-height: 150px;
-        border-width: 3px;
+        min-height: 110px;
+        max-width: 180px;
+        border-width: 4px;
       }
     }
 
