@@ -498,6 +498,8 @@
       .tl-row {
         grid-template-columns: 44px minmax(0, 1fr);
         align-items: start;
+        min-height: 0;
+        padding-bottom: 1rem;
       }
 
       .tl-row .tl-panel,
@@ -512,6 +514,23 @@
 
       .tl-row .tl-image-panel {
         justify-content: flex-start;
+      }
+
+      .tl-row .tl-image-panel:has(.tl-image) {
+        margin-top: 1rem;
+      }
+
+      .tl-image-panel .tl-image {
+        max-width: 100%;
+        min-height: 220px;
+      }
+
+      .tl-panel h3 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+      }
+
+      .tl-panel p {
+        font-size: 1.05rem;
       }
 
       .tl-row:nth-child(odd) .tl-panel::after,
@@ -545,16 +564,56 @@
       }
 
       .tl-panel {
-        padding: 1.5rem;
+        padding: 1.25rem 1.5rem;
         text-align: left;
+      }
+
+      .tl-panel h3 {
+        font-size: clamp(1.35rem, 5vw, 1.75rem);
+      }
+
+      .tl-panel p {
+        font-size: 1rem;
       }
 
       .tl-panel .tl-kicker {
         justify-content: flex-start;
+        font-size: 0.92rem;
       }
 
       .tl-image-panel .tl-image {
-        min-height: 200px;
+        min-height: 180px;
+        border-width: 4px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tl-row {
+        grid-template-columns: 32px minmax(0, 1fr);
+      }
+
+      .tl-panel {
+        padding: 1rem 1.1rem;
+      }
+
+      .tl-panel h3 {
+        font-size: clamp(1.2rem, 6vw, 1.5rem);
+        margin-bottom: 0.6rem;
+      }
+
+      .tl-panel p {
+        font-size: 0.92rem;
+        line-height: 1.5;
+      }
+
+      .tl-panel .tl-kicker {
+        font-size: 0.82rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .tl-image-panel .tl-image {
+        min-height: 150px;
+        border-width: 3px;
       }
     }
 
