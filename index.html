@@ -1121,39 +1121,50 @@
       .sushi-item { width: 140px; height: 80px; }
       .testimonials-section {
         height: auto;
-        padding: 5rem 5%;
-      }
-      .testimonials-sticky {
-        position: relative;
-        height: auto;
-        overflow: visible;
-        padding-top: 0;
+        padding: 3rem 5% 4rem;
       }
       .testimonials-header {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
       }
-      .deck-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        width: min(520px, 100%);
+      .testimonials-swiper {
+        padding: 0 2.75rem 2.75rem;
+      }
+      .testimonial-card {
         height: auto;
+        min-height: 0;
+        max-height: none;
+        padding: 1.5rem 1.25rem;
+        border-radius: 16px;
       }
-      .t-card {
-        position: relative;
-        padding: 1.75rem 1.75rem;
-        min-height: 280px;
-        height: auto;
-        border-radius: 8px;
-      }
-      .t-card:hover { margin-top: 0; }
-      .t-card p {
-        font-size: 0.95rem;
+      .testimonial-card p {
+        font-size: 0.9rem;
+        line-height: 1.55;
         overflow-wrap: anywhere;
+        -webkit-line-clamp: unset;
+      }
+      .author-avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+      }
+      .author-info strong {
+        font-size: 0.95rem;
+      }
+      .author-info span {
+        font-size: 0.78rem;
       }
       .quote-icon {
         font-size: 2rem;
         bottom: -5px;
+      }
+      .testimonials-swiper .swiper-button-next,
+      .testimonials-swiper .swiper-button-prev {
+        width: 34px;
+        height: 34px;
+      }
+      .testimonials-swiper .swiper-button-next::after,
+      .testimonials-swiper .swiper-button-prev::after {
+        font-size: 1rem;
       }
       .members-section {
         padding: 4rem 5% 3rem;
@@ -1202,6 +1213,33 @@
         flex-basis: auto;
         width: 100%;
         max-width: 420px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .testimonials-swiper {
+        padding: 0 2.25rem 2.25rem;
+      }
+      .testimonial-card {
+        padding: 1.25rem 1rem;
+      }
+      .testimonial-card p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+      .author-avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+      }
+      .author-info strong {
+        font-size: 0.88rem;
+      }
+      .author-info span {
+        font-size: 0.72rem;
+      }
+      .quote-icon {
+        font-size: 1.6rem;
       }
     }
   </style>
