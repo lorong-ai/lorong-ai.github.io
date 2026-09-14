@@ -229,6 +229,7 @@ const footerHTML = `
             <a href="https://lu.ma/lorong-ai" class="social-icon" aria-label="Events Calendar"><i class="bi bi-calendar-event"></i></a>
             <a href="https://www.linkedin.com/company/lorong-ai" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
             <a href="https://x.com/Lorong_AI" class="social-icon" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.instagram.com/lorong.ai" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
         </div>
         
         <!-- Primary Navigation - Larger with pipe separators -->
