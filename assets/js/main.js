@@ -261,6 +261,11 @@ window.addEventListener('load', initMembers);
 // ============ END MEMBERS SECTION ============
 // ============ SUSHI BELT — ALL MEMBER LOGOS IN TWO OPPOSING ROWS ============
 
+if (typeof allMemberImages !== 'undefined' && allMemberImages.length > 0) {
+  const shuffled = shuffleArray([...allMemberImages]);
+  // rest of your code
+}
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
