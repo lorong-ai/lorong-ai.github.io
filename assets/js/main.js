@@ -261,6 +261,13 @@ window.addEventListener('load', initMembers);
 // ============ END MEMBERS SECTION ============
 // ============ SUSHI BELT — ALL MEMBER LOGOS IN TWO OPPOSING ROWS ============
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 // Shuffle all images, then split into two halves
 const shuffled = shuffleArray([...allMemberImages]);
 const half = Math.ceil(shuffled.length / 2);
