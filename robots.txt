@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://lorongai.sg/sitemap.xml 
+Sitemap: https://lorong.ai/sitemap.xml 

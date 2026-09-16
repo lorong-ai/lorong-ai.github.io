@@ -7,7 +7,13 @@
     <loc>https://lorong.ai/events.html</loc>
   </url>
   <url>
-    <loc>https://lorong.ai/community.html</loc>
+    <loc>https://lorong.ai/resources.html</loc>
+  </url>
+  <url>
+    <loc>https://lorong.ai/members.html</loc>
+  </url>
+  <url>
+    <loc>https://lorong.ai/community_old.html</loc>
   </url>
   <url>
     <loc>https://lorong.ai/team.html</loc>
@@ -17,5 +23,8 @@
   </url>
   <url>
     <loc>https://lorong.ai/about.html</loc>
+  </url>
+  <url>
+    <loc>https://lorong.ai/about-stage.html</loc>
   </url>
 </urlset> 
