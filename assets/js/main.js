@@ -268,6 +268,7 @@ function shuffleArray(array) {
   }
   return array;
 }
+
 // Shuffle all images, then split into two halves
 const shuffled = shuffleArray([...allMemberImages]);
 const half = Math.ceil(shuffled.length / 2);
