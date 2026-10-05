@@ -240,8 +240,6 @@ const footerHTML = `
             <span class="separator">|</span>
             <a href="resources.html">ARCHIVE & INSIGHTS</a>
             <span class="separator">|</span>
-            <a href="members.html">MEMBERS</a>
-            <span class="separator">|</span>
             <a href="about.html">OUR STORY</a>
         </div>
                 
