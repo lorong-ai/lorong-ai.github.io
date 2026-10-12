@@ -21,6 +21,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-TGRVTMZC');</script>
 <!-- End Google Tag Manager -->
 
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Events | Lorong AI</title>
+  <meta name="description" content="Around five AI events a week at Lorong AI, one-north, from beginner-friendly Level 100 sessions to Level 300 technical deep dives. See what's on.">
+  <meta property="og:title" content="Events | Lorong AI">
+  <meta property="og:description" content="Around five AI events a week at Lorong AI, one-north, from beginner-friendly Level 100 sessions to Level 300 technical deep dives. See what's on.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lorong.ai/events.html">
+  <meta property="og:image" content="https://lorong.ai/assets/img/hero-carousel/lai-header-op2.png">
+  <meta property="og:site_name" content="Lorong AI">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://lorong.ai/events.html">
 
   <!-- Favicon -->
@@ -671,10 +682,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="swiper-slide" data-event-name="Praxis" data-event-description="Researcher-led discussions on applied AI topics." data-event-technical="Level 300" data-event-range="3">
                 <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/praxis.png" alt="Praxis" loading="lazy"></div>
             </div>
-            <div class="swiper-slide" data-event-name="ChopChop Talk Shop" data-event-description="Fast-paced talk series to share ideas and experiences." data-event-technical="Open for All Levels" data-event-range="2">
+            <div class="swiper-slide" data-event-name="ChopChop Talk Shop" data-event-description="Fast-paced talk series to share ideas and experiences." data-event-technical="Open to All Levels" data-event-range="2">
                 <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/chop.png" alt="ChopChop Talk Shop" loading="lazy"></div>
             </div>
-            <div class="swiper-slide" data-event-name="Gotong Royong" data-event-description="Collaborative troubleshooting series to solve challenges." data-event-technical="Open for All Levels" data-event-range="1">
+            <div class="swiper-slide" data-event-name="Gotong Royong" data-event-description="Collaborative troubleshooting series to solve challenges." data-event-technical="Open to All Levels" data-event-range="1">
                 <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/gt.png" alt="Gotong" loading="lazy"></div>
             </div>
             <div class="swiper-slide" data-event-name="CTRL+SHIFT+CHANGE" data-event-description="Discussion for leaders navigating AI adoption and strategy." data-event-technical="Level 200" data-event-range="3">
@@ -683,7 +694,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="swiper-slide" data-event-name="OFF SCRIPT" data-event-description="Candid discussions exploring AI, design, and society." data-event-technical="Level 100" data-event-range="1">
                 <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/off.png" alt="OFF SCRIPT" loading="lazy"></div>
             </div>
-            <div class="swiper-slide" data-event-name="Out of Lorong Experience" data-event-description="Tech lab tours for members to learn and spark collaborations." data-event-technical="Level 100 to 200" data-event-range="2">
+            <div class="swiper-slide" data-event-name="Out of Lorong Experience" data-event-description="Tech lab tours for members to learn and spark collaborations." data-event-technical="Level 100 to Level 200" data-event-range="2">
                 <div class="event-card" role="button" tabindex="0"><img src="assets/img/events_logo/ole.png" alt="ole" loading="lazy"></div>
             </div>
             <div class="swiper-slide" data-event-name="Neural Networking" data-event-description="Relaxed meetup for members across the AI ecosystem." data-event-technical="Members Only" data-event-range="4">
@@ -769,7 +780,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div id="footer-placeholder"></div>
 
   <!-- Scroll Top & Preloader -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" aria-label="Back to top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
@@ -912,6 +923,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           if (/Beginner/i.test(technicalText)) levels.add('100');
           if (/Intermediate/i.test(technicalText)) levels.add('200');
           if (/Advanced/i.test(technicalText)) levels.add('300');
+          // Events open to everyone should appear under every level filter
+          if (/Open to All/i.test(technicalText)) { levels.add('100'); levels.add('200'); levels.add('300'); }
 
           return levels;
         }
