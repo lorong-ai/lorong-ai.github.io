@@ -215,7 +215,7 @@ const headerHTML = `
       </nav>
       
       <div class="header-cta">
-          <a class="btn-getstarted" href="https://form.gov.sg/670cf4d58f92af4544f2721f">Join us!</a>
+          <a class="btn-getstarted" href="https://go.gov.sg/lai-interestform">Join us!</a>
       </div>
   </header>
 </div>`;
