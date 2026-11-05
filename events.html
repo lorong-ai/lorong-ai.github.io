@@ -742,7 +742,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="column-subheader text-center mb-4">Our Upcoming Events</span>
             <div class="luma-calendar-container rounded-3">
               <iframe
-                src="https://lu.ma/embed/calendar/cal-6iIeDGNQ7vK8cfx/events?lt=light"
+                src="https://lu.ma/embed/calendar/cal-6iIeDGNQ7vK8cfx/events?lt=light&utm_source=website&utm_medium=events-page"
                 frameborder="0"
                 allowfullscreen=""
                 aria-hidden="false"
@@ -962,5 +962,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   </script>
 
+  <!-- Lorong AI: count clicks into the Luma calendar, and registrations Luma reports back -->
+  <script>
+    (function () {
+      var calendar = document.querySelector('.luma-calendar-container iframe');
+      if (!calendar || typeof gtag !== 'function') return;
+
+      // 1. Someone clicks inside the calendar (GA can't see the click itself, but the page loses focus to the calendar)
+      var recentlySent = false;
+      window.addEventListener('blur', function () {
+        setTimeout(function () {
+          if (document.activeElement === calendar && !recentlySent) {
+            recentlySent = true;
+            gtag('event', 'luma_calendar_click', { page_path: location.pathname });
+            setTimeout(function () { recentlySent = false; }, 5000);
+          }
+        }, 0);
+      });
+
+      // 2. Luma tells the page a registration was completed inside the embed (if it does for the calendar)
+      window.addEventListener('message', function (e) {
+        var host = '';
+        try { host = new URL(e.origin).hostname; } catch (err) { return; }
+        if (host !== 'lu.ma' && host !== 'luma.com' && !host.endsWith('.luma.com')) return;
+        var data = e.data || {};
+        if (data.type === 'luma:purchase') {
+          gtag('event', 'luma_registration', { page_path: location.pathname });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
