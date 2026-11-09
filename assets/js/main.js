@@ -274,18 +274,8 @@ function shuffleArray(array) {
   return array;
 }
 
-// Shuffle all images, then split into two halves
-const shuffled = shuffleArray([...allMemberImages]);
-const half = Math.ceil(shuffled.length / 2);
-const row1 = shuffled.slice(0, half);
-const row2 = shuffled.slice(half);
-
-// Build items — duplicate to create seamless loop
-const items1 = row1.map(buildSushiItem).join('') + row1.map(buildSushiItem).join('');
-const items2 = row2.map(buildSushiItem).join('') + row2.map(buildSushiItem).join('');
-
-track1.innerHTML = items1;
-track2.innerHTML = items2;
+// (Removed an unfinished logo-belt snippet here: it referred to
+// "allMemberImages", which no page defines, and stopped this script with an error.)
 }
 
 

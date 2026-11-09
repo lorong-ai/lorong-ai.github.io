@@ -3224,3 +3224,81 @@ section,
 .events-calendar .section-header a:hover {
   color: #0E9443; /* Your green on hover */
 }
+/* ===================================================== */
+/* Mobile and tablet hero fix (Nov 2026)                 */
+/* Up to 991px wide, the photo sits in its own band and  */
+/* the heading and description sit below it on white,   */
+/* so the text never overlaps the photo.                 */
+/* ===================================================== */
+@media (max-width: 991px) {
+  html body .hero-new {
+    min-height: auto !important;
+    background: #ffffff !important;
+    padding: 92px 0 2.75rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    text-align: center !important;
+  }
+  html body .hero-new::before,
+  html body .hero-new::after {
+    display: none !important;
+  }
+  html body .hero-new .hero-image {
+    display: block !important;
+    order: 0;
+    position: relative !important;
+    width: 100% !important;
+    height: clamp(220px, 45vw, 380px) !important;
+    margin: 0 !important;
+    overflow: hidden;
+  }
+  html body .hero-new .hero-image img {
+    display: block !important;
+    position: static !important;
+    /* The photos fade to white on their left third (made for the
+       desktop layout), so show only the right two-thirds here */
+    width: 155% !important;
+    max-width: none !important;
+    margin-left: -55% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 40%;
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+  html body .hero-new .hero-content {
+    order: 1;
+    width: 100%;
+    max-width: 680px !important;
+    margin: 0 auto !important;
+    padding: 1.75rem 6% 0 !important;
+    text-align: center !important;
+  }
+  html body .hero-new h1 {
+    text-align: center !important;
+    text-shadow: none !important;
+    font-size: clamp(1.9rem, 7.5vw, 3rem) !important;
+    line-height: 1.12 !important;
+    margin-bottom: 1rem !important;
+  }
+  html body .hero-new .street-sign-divider {
+    margin: 1rem auto 1.25rem !important;
+  }
+  html body .hero-new .hero-description {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+    color: #3d4650 !important;
+    max-width: 560px;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+}
+@media (max-width: 768px) {
+  /* The header is a slim full-width bar on phones */
+  html body .hero-new {
+    padding-top: 60px !important;
+  }
+}

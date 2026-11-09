@@ -116,7 +116,19 @@ const headerHTML = `
 
   @media (max-width: 1199px) {
     .floating-header {
-      gap: 1.5rem; /* Reduce gap on medium screens */
+      gap: 0.5rem; /* Reduce gap on medium screens */
+    }
+    /* Logo on the left; Join us! and the menu button together on the right */
+    .floating-header .logo-container {
+      order: 1;
+      margin-right: 1.5rem;
+    }
+    .floating-header .header-cta {
+      order: 2;
+      margin-left: auto;
+    }
+    .floating-header .floating-navmenu {
+      order: 3;
     }
     .floating-header .floating-navmenu ul {
       display: none;
@@ -156,7 +168,7 @@ const headerHTML = `
       width: 100%;
       max-width: 100%;
       padding: 0.5rem 1rem;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 0.5rem;
       border-radius: 0;
     }
